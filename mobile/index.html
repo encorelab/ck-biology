@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Wallcology 2015</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1 user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="../bower_components/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css" rel="stylesheet">
+
+    <link href='///fonts.googleapis.com/css?family=Open+Sans:300italic,400,600' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link href="css/research.css" rel="stylesheet">
+
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../node_modules/underscore/underscore.js"></script>
+    <script type="text/javascript" src="../node_modules/backbone/backbone.js"></script>
+
+    <script type="text/javascript" src="../node_modules/backbone.drowsy.encorelab/backbone.drowsy.js"></script>
+    <script type="text/javascript" src="../node_modules/backbone.drowsy.encorelab/wakeful.js"></script>
+
+    <script type="text/javascript" src="../bower_components/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js"></script>
+    <script type="text/javascript" src="../bower_components/jquery.cookie/jquery.cookie.js"></script>
+    <script type="text/javascript" src="../bower_components/purl/purl.js"></script>
+
+    <!-- Gugo's speedhack pubsub librarylet -->
+    <script type="text/javascript" src="../shared/js/mqttws31.js"></script>
+
+    <script type="text/javascript" src="../shared/js/skeletor.js"></script>
+    <script type="text/javascript" src="../shared/js/model.js"></script>
+    <script type="text/javascript" src="../shared/js/rollcall.js"></script>
+
+    <script type="text/javascript" src="js/research.js"></script>
+    <script type="text/javascript" src="js/research.view.js"></script>
+
+    <!-- Templates -->
+    <script id="text-note-template" type="text/template">
+        <div class="note" data-id=<%= id %>>
+            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
+            <div class="note-body" data-id=<%= id %>><%= body %></div>
+            <div class="note-author" data-id=<%= id %>><%= author %></div>
+            <div class="note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="photo-note-template" type="text/template">
+        <div class="note" data-id=<%= id %>>
+            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
+            <div class="note-url" data-id=<%= id %>>
+                <img src=<%= url %> data-id=<%= id %> />
+            </div>
+            <div class="note-author" data-id=<%= id %>><%= author %></div>
+            <div class="note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="video-note-template" type="text/template">
+        <div class="note" data-id=<%= id %>>
+            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
+            <div class="note-url" data-id=<%= id %>>
+                <i class="fa fa-5x fa-file-video-o" data-id=<%= id %>></i>
+            </div>
+            <div class="note-author" data-id=<%= id %>><%= author %></div>
+            <div class="note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="text-relationship-template" type="text/template">
+        <div class="relationship" data-id=<%= id %>>
+            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
+            <div class="relationship-body" data-id=<%= id %>><%= body %></div>
+            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
+            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="photo-relationship-template" type="text/template">
+        <div class="relationship" data-id=<%= id %>>
+            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
+            <div class="relationship-url" data-id=<%= id %>>
+                <img src=<%= url %> data-id=<%= id %> />
+            </div>
+            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
+            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="video-relationship-template" type="text/template">
+        <div class="relationship" data-id=<%= id %>>
+            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
+            <div class="relationship-url" data-id=<%= id %>>
+                <i class="fa fa-5x fa-file-video-o" data-id=<%= id %>></i>
+            </div>
+            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
+            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
+        </div>
+    </script>
+
+    <script id="text-investigation-template" type="text/template">
+        <div class="investigation" data-id=<%= id %>>
+            <h3 class="investigation-title" data-id=<%= id %>><%= title %></h3>
+            <div class="investigation-body" data-id=<%= id %>><%= body %></div>
+            <div class="investigation-author" data-id=<%= id %>><%= author %></div>
+        </div>
+    </script>
+
+    <script id="photo-investigation-template" type="text/template">
+        <div class="investigation" data-id=<%= id %>>
+            <h3 class="investigation-title" data-id=<%= id %>><%= title %></h3>
+            <div class="investigation-url" data-id=<%= id %>>
+                <img src=<%= url %> data-id=<%= id %> />
+            </div>
+            <div class="investigation-author" data-id=<%= id %>><%= author %></div>
+        </div>
+    </script>
+
+    <script id="video-investigation-template" type="text/template">
+        <div class="investigation" data-id=<%= id %>>
+            <h3 class="investigation-title" data-id=<%= id %>><%= title %></h3>
+            <div class="investigation-url" data-id=<%= id %>>
+                <i class="fa fa-5x fa-file-video-o" data-id=<%= id %>></i>
+            </div>
+            <div class="investigation-author" data-id=<%= id %>><%= author %></div>
+        </div>
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                   <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+               </button>
+                <a class="navbar-brand brand" href="#">Loading...</a>
+            </div>
+
+            <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav top-navigation">
+                    <li id="notes-nav-btn" class="goto-notes-btn top-nav-btn"><a href="#">Notes</a></li>
+                    <li id="relationships-nav-btn" class="goto-relationships-btn top-nav-btn"><a href="#">Food Web</a></li>
+                    <li id="populations-nav-btn" class="goto-populations-btn top-nav-btn"><a href="#">Populations</a></li>
+                    <li id="investigations-nav-btn" class="goto-investigations-btn top-nav-btn"><a href="#">Investigations</a></li>
+                    <li id="habitats-nav-btn" class="goto-habitats-btn top-nav-btn"><a href="#">Ecosystems</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active username-display"><a></a></li>
+                    <li id="logout-user" class="active logout-user"><a>Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="lock-screen" class="hidden">
+        <img src="img/lock-icon-white.png" id="lock-img"/>
+    </div>
+
+    <!-- ToDo Screen -->
+    <div id="todo-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-8 col-xs-offset-2">
+                <h2>What would you like to work on today?</h2>
+                <button class="goto-notes-btn todo-btn btn btn-base">NOTES</button>
+                <button class="goto-relationships-btn todo-btn btn btn-base">FOOD WEB</button>
+                <button class="goto-populations-btn todo-btn btn btn-base">POPULATIONS</button>
+                <button class="goto-investigations-btn todo-btn btn btn-base">INVESTIGATIONS</button>
+                <button class="goto-habitats-btn todo-btn btn btn-base">ECOSYSTEMS</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ************************* NOTES ************************* -->
+    <!-- ********************************************************* -->
+
+
+
+    <!-- Notes Read Screen -->
+    <div id="notes-read-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0 col-sm-2 col-sm-offset-1">
+                <button class="nav-write-btn fa fa-pencil fa-3x btn-circular"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <div class="selector-container">
+                    <span class="species-selector-container editable pull-left">
+                        <!-- selector added in the view -->
+                    </span>
+                    <span class="note-type-selector-container pull-right editable">
+                        <select class="note-type-selector">
+                            <!-- filled by view -->
+                        </select>
+                    </span>
+                </div>
+                <ul class="row notes-list"></ul>
+                <!-- gets filled by the readScreenView -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes Write Screen -->
+    <div id="notes-write-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
+                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
+            </div>
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <div class="selector-container">
+                    <span class="species-selector-container editable pull-left">
+                        <!-- selector added when the view gets initialized -->
+                    </span>
+                    <span class="note-type-selector-container pull-right editable">
+                        <select class="note-type-selector">
+                            <!-- filled by view -->
+                        </select>
+                    </span>
+                </div>
+                <textarea id="note-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
+                <div id="note-body-container">
+                    <i id="lightbulb-icon" class="fa fa-lightbulb-o fa-4x editable"></i>
+                    <div id="date-container"></div>
+                    <textarea id="note-body-input" class="input-field editable" name="body"></textarea>
+                </div>
+
+                <div id="note-media-container"></div>
+
+                <div id="note-btn-container" class="editable">
+                    <div class="photo-wrapper">
+                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                    </div>
+                    <button class="publish-note-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- putting the modal in here since it's conceptually part of the view (collection, click listeners etc as well) -->
+        <div id="sentence-starter-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Select a sentence starter to use in your note</h4>
+                            </div>
+                            <div class="modal-body">
+                                <!-- filled in the view updateNoteType -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ********************* RELATIONSHIPS ********************* -->
+    <!-- ********************************************************* -->
+
+
+
+    <!-- Relationships Read Screen -->
+    <div id="relationships-read-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0 col-sm-2 col-sm-offset-1">
+                <button class="nav-write-btn fa fa-pencil fa-3x btn-circular"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <div class="selector-container">
+                    <span class="species-selector-container editable">
+                        <!-- selector added when the view gets initialized -->
+                    </span>
+                </div>
+                <div id="relationships-aggregate">
+
+                </div>
+                <ul class="row relationships-list">
+                    <!-- gets filled by the readView -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Relationships Write Screen -->
+    <div id="relationships-write-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
+                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
+            </div>
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <div class="selector-container">
+                    <span class="species-selector-container editable">
+                        <!-- selector added when the view gets initialized -->
+                    </span>
+                </div>
+                <div id="exchange-container" class="editable">
+                    <div id="from-species-container" class="exchange-species-container" data-species-index=""></div>
+                    <div id="exchange-habitat-container">
+                        <div id="exchange-habitat">In Habitat ?</div>
+                        <div class="exchange-arrow"></div>
+                        <div>provides energy for</div>
+                    </div>
+                    <div id="to-species-container" class="exchange-species-container" data-species-index=""></div>
+                </div>
+                <textarea id="relationship-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
+                <div id="relationship-body-container">
+                    <textarea id="relationship-body-input" class="input-field editable" name="body" placeholder="I know this because..."></textarea>
+                </div>
+
+                <div id="relationship-media-container"></div>
+
+                <div id="relationship-btn-container" class="editable">
+                    <div class="photo-wrapper">
+                       <label for="relationship-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <input id="relationship-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" />
+                       <i id="relationship-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                    </div>
+                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="relationship-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Populations Screen -->
+    <div id="populations-screen" class="container-fluid user-screen">
+        <div class="row">
+            <iframe id="population-history-container" src=""></iframe>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- *********************** HABITATS ************************ -->
+    <!-- ********************************************************* -->
+
+    <div id="habitats-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="class-info">
+                <ul class="students-names">
+                </ul>
+            </div>
+            <ul id="habitats-list">
+                <li class="habitats-list-item">
+                    <span class="habitat-info">
+                        <span class="habitat-title" data-number="1">Ecosystem 1</span>
+                        <span data-number="1" class="habitat-name"></span>
+                        <textarea class="hidden"></textarea>
+                    </span>
+                    <span class="habitat-group" data-number="1">
+                        <img src="img/wallscope_1.png" data-number="1" class="habitat-thumbnail">
+                        <ul class="students-names" data-number="1">
+                        </ul>
+                    </span>
+                </li>
+                <li class="habitats-list-item">
+                    <span class="habitat-info">
+                        <span class="habitat-title" data-number="2">Ecosystem 2</span>
+                        <span data-number="2" class="habitat-name"></span>
+                        <textarea class="hidden"></textarea>
+                    </span>
+                    <span class="habitat-group">
+                        <img src="img/wallscope_2.png" data-number="2" class="habitat-thumbnail">
+                        <ul class="students-names" data-number="2">
+                        </ul>
+                    </span>
+                </li>
+                <li class="habitats-list-item">
+                    <span class="habitat-info">
+                        <span class="habitat-title" data-number="3">Ecosystem 3</span>
+                        <span data-number="3" class="habitat-name"></span>
+                        <textarea class="hidden"></textarea>
+                    </span>
+                    <span class="habitat-group">
+                        <img src="img/wallscope_3.png" data-number="3" class="habitat-thumbnail">
+                        <ul class="students-names" data-number="3" >
+                        </ul>
+                    </span>
+                </li>
+                <li class="habitats-list-item">
+                    <span class="habitat-info">
+                        <span class="habitat-title" data-number="4">Ecosystem 4</span>
+                        <span data-number="4" class="habitat-name"></span>
+                        <textarea class="hidden"></textarea>
+                    </span>
+                    <span class="habitat-group">
+                        <img src="img/wallscope_4.png" data-number="4" class="habitat-thumbnail">
+                        <ul class="students-names" data-number="4">
+                        </ul>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- ********************************************************* -->
+    <!-- ******************** INVESTIGATIONS ********************* -->
+    <!-- ********************************************************* -->
+
+    <!-- Investigations Read Screen -->
+    <div id="investigations-read-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0 col-sm-2 col-sm-offset-1">
+                <button class="nav-write-btn fa fa-pencil fa-3x btn-circular"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="investigation-header-container">
+                <span class="investigation-habitat-number-container"></span> - <span class="investigation-habitat-name-container"></span>
+            </div>
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <ul class="row investigations-list">
+                    <!-- gets filled by the readView -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="investigations-write-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
+                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="investigation-header-container">
+                <span class="investigation-habitat-number-container"></span> - <span class="investigation-habitat-name-container"></span>
+                <ul id="investigation-nav">
+                    <li class="investigation-phase" data-page-number="1">Describe</li>
+                    <li class="investigation-phase" data-page-number="2">Plan</li>
+                    <li class="investigation-phase" data-page-number="4">Predict</li>
+                    <li class="investigation-phase" data-page-number="6">Report Results</li>
+                    <li class="investigation-phase" data-page-number="8">Present</li>
+                </ul>
+            </div>
+
+            <div class="investigation-plan-body-container">
+                <div class="inner-wrapper page hidden" data-page-number="1">
+                    <textarea id="investigation-title-input" class="input-field editable" name="title" placeholder="Investigation title"></textarea>
+                    <div class="investigation-species-selector">
+                        <p>Please select all species that are currently in your ecosystem<br/>AND the one(s) that you will introduce in this investigation</p>
+                        <div class="species-present-container"></div>
+                    </div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="2">
+                    <div class="investigation-header">Identify the change that you want to make to your ecosystem by tapping on the cell(s) beside a species.<br/>You can affect one or more species, but remember that more complex investigations will be more challenging to report on.</div>
+                    <div class="species-chart"></div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="3">
+                    <div class="investigation-header">What is your goal?<br/>What are you hoping to accomplish?</div>
+                    <div id="investigation-plan-body-container">
+                        <textarea id="investigation-plan-body-input" class="input-field editable" name="plan_body" placeholder="Give your reasoning..."></textarea>
+                    </div>
+
+                    <div id="investigation-plan-media-container"></div>
+
+                    <div id="investigation-plan-btn-container" class="editable">
+                        <div class="photo-wrapper">
+                           <label for="investigation-plan-photo-file" class="investigation-photo-file upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                           <input id="investigation-plan-photo-file" data-phase="plan" class="investigation-photo-file upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" />
+                           <i id="investigation-plan-photo-upload-spinner" class="photo-spinner fa fa-spinner fa-pulse hidden"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="4">
+                    <div class="investigation-header">Predict what you think will happen if this investigation is approved.<br/>For each species, choose whether that species population will go up, go down, or stay the same.</div>
+                    <div class="species-chart"></div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="5">
+                    <div class="investigation-header">Justify your predictions. Why will some species go up or go down? How do these changes affect other species in the ecosystem? You can add evidence to support your prediction (e.g., food web).</div>
+                    <div id="investigation-predict-body-container">
+                        <textarea id="investigation-predict-body-input" class="input-field editable" name="predict_body" placeholder="Give your reasoning..."></textarea>
+                    </div>
+
+                    <div id="investigation-predict-media-container"></div>
+
+                    <div id="investigation-predict-btn-container" class="editable">
+                        <div class="photo-wrapper">
+                           <label for="investigation-predict-photo-file" class="investigation-photo-file upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                           <input id="investigation-predict-photo-file" data-phase="predict" class="investigation-photo-file upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" />
+                           <i id="investigation-predict-photo-upload-spinner" class="photo-spinner fa fa-spinner fa-pulse hidden"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="6">
+                    <div class="investigation-header">What were the results of this investigation?<br/>For each species, choose whether that species population went up, went down, or stayed the same.</div>
+                    <div class="species-chart"></div>
+                </div>
+
+                <div class="inner-wrapper page hidden" data-page-number="7">
+                    <div class="investigation-header">
+                        Put your results into words.<br/>What did you discover from doing this investigation?<br/>Add visual evidence to support your written results (e.g., a population graph).</div>
+                    <div id="investigation-results-body-container">
+                        <textarea id="investigation-results-body-input" class="input-field editable" name="results_body" placeholder="Describe what happened..."></textarea>
+                    </div>
+
+                    <div id="investigation-results-media-container"></div>
+
+                    <div id="investigation-results-btn-container" class="editable">
+                        <div class="photo-wrapper">
+                           <label for="investigation-results-photo-file" class="investigation-photo-file upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                           <input id="investigation-results-photo-file" data-phase="results" class="investigation-photo-file upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" />
+                           <i id="investigation-results-photo-upload-spinner" class="photo-spinner fa fa-spinner fa-pulse hidden"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inner-wrapper page hidden investigation-present" data-page-number="8">
+                    <div id="investigation-present-title"></div>
+                    <div id="investigation-present-top-container">
+                        <span id="investigation-present-species-container"></span>
+                        <span id="investigation-present-body-container"></span>
+                    </div>
+                    <div id="investigation-present-bottom-container">
+                        <span id="investigation-present-media-container"></span>
+                        <span id="investigation-present-button-container">
+                            <ul class="investigation-present-nav">
+                                <li><button class="investigation-present-btn" data-phase="plan">Plan</button></li>
+                                <li><button class="investigation-present-btn" data-phase="predict">Prediction</button></li>
+                                <li><button class="investigation-present-btn" data-phase="results">Results</button></li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="forward-nav">
+                <button class="nav-forward-btn fa fa-arrow-right fa-3x btn-circular"></button>
+            </div>
+        </div>
+
+        <div id="investigation-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Login Modal -->
+    <div id="login-picker" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+        <div class="table">
+            <div class="table-cell">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <!-- <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+                        <h3>Please log in</h3>
+                        </div>
+                        <div class="modal-body login-buttons">
+                        <!-- filled by javascript with buttons for user login -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+          // extending jQuery http://stackoverflow.com/questions/31044/is-there-an-exists-function-for-jquery
+          jQuery.fn.exists = function(){return this.length>0;}
+          Skeletor.Mobile.init();
+          jQuery('.note-taking-toggle').hide();
+        });
+    </script>
+</body>
+</html>

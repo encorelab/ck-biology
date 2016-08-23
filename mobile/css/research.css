@@ -1,0 +1,1304 @@
+/********** T Y P O G R A P H Y **********/
+
+body {
+    font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+h1 {
+    font-size: 54px;
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 35px;
+}
+
+h2 {
+    color: #555;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+h3,
+label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+}
+
+label {
+    vertical-align: middle;
+}
+
+textarea {
+    -moz-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
+    color: #333;
+    width: 100%;
+    padding: 25px 2% 1%;
+}
+
+
+/********** WALLCOLOGY **********/
+
+.side-nav .btn-circular {
+    margin-left: -25px;
+}
+
+.inner-wrapper,
+.side-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+
+.side-nav {
+    padding: 0 100px 0 0;
+}
+
+.side-nav button + button {
+    margin-top: 25px;
+}
+
+.btn {
+    margin-bottom: 20px;
+    height: 45px;
+    min-width: 175px;
+}
+
+.btn-base {
+    border-radius: 7px;
+    /*border: solid #ddd 1px;*/
+    background-image: none;
+    text-shadow: none;
+}
+
+/* circular buttons */
+.btn-circular {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: none;
+    color: #fff;
+    padding: 0;
+}
+
+/* this should be changed, depending on the final colour of the button (used in the new-notes sections), NOT SURE WE STILL USE THIS */
+.selected {
+    background: #fecc81 !important;
+}
+
+.heavy-text {
+    font-weight: 900;
+    background-color: #FCF9CA;
+    border: 1px solid #FCF9CA;
+    border-radius: 10px;
+    padding: 4px;
+}
+
+
+
+/*****************************************************/
+/*****************************************************/
+/******************** TODO SCREEN ********************/
+/*****************************************************/
+/*****************************************************/
+
+
+.todo-btn {
+    color: #fff;
+    min-width: 350px;
+    display: block;
+    margin: 0 auto;
+    font-size: 24px;
+    height: 75px;
+    margin-bottom: 25px;
+    letter-spacing: 6px;
+}
+.todo-btn:hover {
+    color: #fff;
+}
+
+
+/*****************************************************/
+/*****************************************************/
+/******************* TILES SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+
+
+.tiles h2 {
+    color: #006699;
+}
+.tiles textarea,
+.tiles button,
+.tiles .btn {
+    border: 1px solid #237599;
+}
+.tiles .btn-circular,
+#todo-screen .todo-btn {
+    background: #006699;
+    border: 2px solid #006699;
+}
+.tiles .btn-circular:hover,
+#todo-screen .todo-btn:hover {
+    background: #79ADC2;
+}
+.selector-container {
+    height: 70px;
+}
+
+
+
+/*****************************************************/
+/*****************************************************/
+/******************** READ SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+
+
+#notes-read-screen .inner-wrapper, #relationships-read-screen .inner-wrapper, #investigations-read-screen .inner-wrapper {
+    height: 85%;
+    overflow-y: scroll;
+}
+.fa-pencil {
+    padding-left: 5px;
+}
+
+/*to create the square notes http://stackoverflow.com/questions/20456694/grid-of-responsive-squares*/
+.note-container, .relationship-container, .investigation-container {
+    outline-offset: -10px;
+/*    -moz-outline-radius: 10px; if we want rounded corners uncomment
+    -webkit-outline-radius: 10px;*/
+    float: left;
+    position: relative;
+    padding-bottom: 33.33%; /* = width for a 1:1 aspect ratio */
+    overflow: hidden;
+    min-height: 192px;
+}
+.notes-list > li, .relationships-list > li, .investigations-list > li {
+    outline: 2px solid #006699;
+    background: #fff;
+}
+.notes-list .myNote, .relationships-list .myRelationship, .investigations-list .myInvestigation {
+    outline: 2px dashed #006699;            /* overwrites standard border */
+}
+.notes-list .classNote, .relationships-list .classNote {
+    outline: 2px solid #DB67E6;
+}
+.notes-list > li:last-child, .relationships-list > li:last-child, .investigations-list > li:last-child {
+    margin-bottom: 45px;
+}
+.note, .relationship, .investigation {
+    position: absolute;
+    height: 86%; /* = 100% - 2*5% padding */
+    width: 90%; /* = 100% - 2*5% padding */
+    padding: 5%;
+    margin-top: 5%;
+    overflow: hidden;
+}
+.note img, .note video, .relationship img, .relationship video, .investigation img, .investigation video {
+    width: 100%;
+}
+.note-title, .relationship-title, .investigation-title {
+    height: 22%;
+    max-height: 52px;
+    margin: 0;
+    padding-bottom: 15px;
+    overflow: hidden;
+    font-weight: 600;
+}
+.note-body, .relationship-body, .investigation-body {
+    height: 66%;
+    margin-top: 5px;
+    overflow: hidden;
+    line-height: 1.5;
+    font-weight: 300;
+}
+/* TODO: this need work - see img-responsive */
+.note-url, .relationship-url, .investigation-url {
+    height: 66%;
+    margin-top: 5px;
+    overflow-y: hidden;
+}
+.note-url img, .relationship-url img, .investigation-url img {
+    width: 100%;
+    /*    width: 66%;              parent is 66% height, so this allows a square... good?   then 17% is half of the remaining 34%
+        height: 100%;
+        margin-left: 17%;*/
+}
+.note-author, .relationship-author, .investigation-author {
+    float: right;
+    margin-top: 12px;
+    margin-right: 3%;
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+
+
+
+/*****************************************************/
+/*****************************************************/
+/******************* WRITE SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+
+
+.fa-arrow-left {
+    padding-right: 4px;
+}
+
+#notes-write-screen .inner-wrapper, #relationships-write-screen .inner-wrapper {
+    height: 85%;
+    overflow-y: scroll;
+    margin-top: 5px;
+}
+
+#note-title-input, #relationship-title-input, #investigation-title-input {
+    height: 45px;
+    padding-top: 10px !important;
+    margin-bottom: 10px;
+}
+
+#note-body-container, #relationship-body-container, #investigation-plan-body-container, #investigation-predict-body-container, #investigation-results-body-container {
+    position: relative;
+    height: 160px;
+}
+
+#note-body-input, #investigation-plan-body-input, #investigation-predict-body-input, #investigation-results-body-input {
+    padding-top: 15px !important;
+    min-height: 320px;
+    padding-right: 60px;
+}
+
+#relationship-body-input {
+    padding-top: 15px !important;
+    min-height: 120px;
+    padding-right: 60px;
+}
+
+#date-container {
+    position: absolute;
+    right: 15%;
+    bottom: 1%;
+    padding: 10px 20px;
+}
+.fa-lightbulb-o {
+    color: #006699;
+    position: absolute;
+    right: 15%;
+    padding: 10px 20px;
+}
+.fa-lightbulb-o:hover {
+    color: #79ADC2;
+}
+.sentence-starter {
+    background: #79ADC2;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+}
+.sentence-starter:hover{
+    background: #fff;
+}
+#notes-write-screen button.close, #relationships-write-screen button.close, #investigations-write-screen button.close {
+    border: none;
+}
+
+.photo-wrapper {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+#note-media-container, #relationship-media-container, #investigation-plan-media-container, #investigation-predict-media-container, #investigation-results-media-container {
+    margin-top: 5px;
+}
+#notes-write-screen .media-container, #relationships-write-screen .media-container, #investigations-write-screen .media-container {
+    position: relative;
+    display: inline-block;
+    width: 255px;
+    height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
+    margin: 5px 2.5px 0px 2.5px;
+}
+#notes-write-screen .media, #relationships-write-screen .media, #investigations-write-screen .media {
+    width: 255px;
+    height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
+}
+#notes-write-screen .remove-btn, #relationships-write-screen .remove-btn, #investigations-write-screen .remove-btn {
+    position: absolute;
+    top: 2%;
+    right: 5%;
+    color: red;
+    z-index: 999;
+}
+
+#note-btn-container, #relationship-btn-container, #investigation-plan-btn-container, #investigation-predict-btn-container, #investigation-results-btn-container {
+    position: relative;
+    margin-top: 20px;
+    width: 70%;
+}
+.camera-icon-label {
+    width: 60px;
+}
+#note-btn-container .fa-spinner, #relationship-btn-container .fa-spinner, #investigation-plan-btn-container .fa-spinner, #investigation-predict-btn-container .fa-spinner, #investigation-results-btn-container .fa-spinner {
+    font-size: 6em;
+    position: absolute;
+    z-index: 999;
+    top: -3%;
+    color: #006699;
+    background: #fff;
+}
+
+/* TODO: THIS NEEDS A LOT OF WORK ACROSS VARIOUS DEVICES */
+#photo-modal .photo-content, #relationship-photo-modal .photo-content, #investigation-photo-modal .photo-content {
+    max-width: 100%;
+}
+#photo-modal .download-photo-btn, #relationship-photo-modal .download-photo-btn, #investigation-photo-modal .download-photo-btn {
+    background: white;
+    border-radius: 4px;
+}
+
+
+
+
+/********** NOTES SCREENS **********/
+
+.note-type-selector-container {
+    width: 190px;
+    height: 35px;
+    margin-top: 7px;
+    color: white;
+}
+.note-type-selector-container select {
+    background-color: #006699;
+}
+.note-type-selector-container select:hover {
+    background-color: #79ADC2;
+}
+
+
+/********** RELATIONSHIPS SCREENS **********/
+
+#relationships-aggregate {
+    /*width: 100%;*/
+}
+
+#relationships-aggregate .table {
+    width: inherit;             /* overwrite the standard bootstrap width of 100% */
+}
+
+#relationships-aggregate td {
+    width: 100px;
+}
+
+#relationships-aggregate .species-box {
+    width: 80px;
+    height: 80px;
+}
+
+#exchange-container {
+    height: 160px;
+    width: 50%;
+    border: 2px solid #006699;
+    margin: 0px auto 10px auto;
+    position: relative;
+}
+
+/* TODO - adjust almost all of these numbers, they're completely unresponsive */
+.exchange-species-container {
+    height: 80px;
+    width: 80px;
+    border: 2px solid #006699;
+    border-radius: 15px;
+    position: absolute;
+    top: 23%;
+    text-align: center;
+}
+
+.exchange-species-container img {
+    height: 60px;
+    margin-top: 7px;
+}
+
+#from-species-container {
+    left: 12%;
+}
+
+#to-species-container {
+    right: 12%;
+}
+
+#exchange-habitat-container {
+    position: absolute;
+    left: 37%;
+    top: 30%;
+    text-align: center;
+}
+
+/********** POPULATIONS SCREEN **********/
+
+#populations-screen {
+    height: 100%;
+}
+
+#populations-screen .row {
+    height: 100%
+}
+
+#population-history-container {
+    height: calc(100% - 70px);
+    margin-top: 60px;
+    width: 100%;
+}
+
+
+/********** HABITATS SCREEN **********/
+
+#habitats-screen .row {
+    margin-top: 60px;
+}
+
+#habitats-screen .habitat-thumbnail {
+    height: 200px;
+    width: 320px;
+}
+
+.class-info {
+    display: block;
+    width: 90%;
+    height: 100px;
+    margin: 20px auto;
+}
+
+#habitats-list {
+    display: block;
+    width: 90%;
+    margin: 0px auto;
+}
+
+.habitats-list-item {
+    display: inline-block;
+    width: 45%;
+    height: 280px;
+    margin: 0 15px;
+    padding-left: 7%;
+    padding-right: 7%;
+}
+
+.student-button {
+    z-index: 10;
+    min-width: 60px !important;
+    float: left;
+    display: inline;
+    font-size: 13px;
+    height: 34px;
+    margin: 5px;
+}
+
+.habitat-group {
+    float:left;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.habitat-thumbnail {
+    display: inline-block;
+    float: right;
+    width: 324px !important;
+    height: 220px !important;
+}
+
+.students-names {
+    display: inline-block;
+    width: 320px;
+    position: absolute;
+}
+
+.class-info .students-names {
+    width: 90% !important;
+}
+
+.habitat-group .students-names {
+    opacity: 0.7;
+}
+
+.habitat-name {
+    margin-left: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #044da5;
+}
+@media screen and (max-width: 900px) {
+    .class-info {
+        margin: 80px 50px;
+    }
+}
+
+
+/********** INVESTIGATIONS SCREENS **********/
+
+#investigations-read-screen .row, #investigations-write-screen .row {
+    margin-top: 30px;
+}
+
+.investigation-header-container {
+    width: 100%;
+    height: 50px;
+    background-color: #ededed;
+    padding: 12px 22px;
+    font-size: 20px;
+    color: #666;
+}
+
+.investigation-habitat-name-container {
+    font-weight: bold;
+    color: #116b8f;
+}
+
+#investigation-nav {
+    float: right;
+    font-size: 14px;
+    margin-top: 4px;
+}
+#investigation-nav li{
+    display: inline;
+    color: #000;
+    margin-left: 30px;
+}
+
+.investigation-phase {
+    cursor: pointer;
+}
+
+#investigations-write-screen .inner-wrapper {
+    height: 85%;
+    overflow-y: scroll;
+    margin-top: 60px !important;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#investigations-write-screen .row .forward-nav {
+    margin-top: 50px;
+}
+
+.investigation-species-selector {
+    text-align: center;
+    margin: 70px 20px;
+}
+.investigation-species-selector p{
+    margin-bottom: 20px;
+}
+
+.species-selector-img {
+    height: 60px;
+    width: 60px;
+}
+
+.species-chart {
+    left: 0 !important;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.species-chart .table {
+    width: 70%;
+    margin: auto;
+}
+
+.header-row .species-chart-cell {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+.species-chart-cell {
+    vertical-align: middle !important;
+    font-size: 14px !important;
+}
+.inner-wrapper .investigation-header{
+    text-align: center;
+}
+
+.investigation-header{
+    margin-bottom: 15px;
+}
+.plan-column, .predict-column, .results-column {
+    min-width: 180px;
+}
+.investigation-present {
+    width: 95% !important;
+    margin: 3% !important;
+}
+
+#investigation-present-title{
+    background-color: #eef5f7;
+    color: #116b8f;
+    height: 60px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#investigation-present-species-container table{
+    width: 65% !important;
+    float: left;
+    margin-right: 25px;
+}
+#investigation-present-top-container{
+    min-height: 370px;
+}
+#investigation-present-body-container{
+    font-size: 16px;
+    line-height: 26px;
+    max-width: 30% !important;
+    max-height: 350px !important;
+    display: inline-block;
+    overflow: scroll;
+}
+#investigation-present-bottom-container{
+    clear:both;
+    background-color: #f6f6f6;
+    padding: 15px;
+    min-height: 170px;
+}
+#investigation-present-media-container{
+    padding-left: 110px;
+}
+#investigation-present-media-container .media-container{
+    width: 160px !important;
+    height: 120px !important;
+}
+#investigation-present-button-container{
+    float: right;
+}
+.investigation-present-nav button{
+    width: 150px;
+    height: 25px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    border-radius: 30px;
+    border: none;
+    background-color: #d2e0ae;
+}
+#investigation-present-species-container td{
+    font-size: 18px !important;
+}
+.my-group{
+    top: 630px !important;
+}
+
+/********** GLOBAL **********/
+
+body, html {
+    /*height: calc(100% - 50px);*/
+    height: 100%;
+    /*background-color: #3092ae;*/
+}
+
+a,
+a:hover,
+button,
+button:hover,
+.btn,
+.btn:hover,
+i,
+i:hover {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* what's the correct way to do this? */
+.disabled {
+/*    pointer-events: none;
+    cursor: default;*/
+    /*background-color: #BDBDC1;*/      /* we probably want something a little more stark than this */
+    opacity: 0.7;
+}
+
+.uneditable {
+/*    pointer-events: none;
+    cursor: default;*/
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    background-color: #DBDBDB;
+    opacity: 0.7;
+}
+
+.hidden {
+    display: none;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/*so the scroll bar appears at all times*/
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+#lock-screen {
+    height: 100%;
+    width: 100%;
+    background: black;
+}
+
+#lock-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/********** MODALS **********/
+/*for vertical centering; had to add .table & .table-cell divs to html*/
+.table {
+    display: table;
+    height: 100%;
+}
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/********** NAVBAR **********/
+
+.navbar-inverse .navbar-nav>.active>a {
+    background-image: -webkit-linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+    background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+}
+
+.username-display a {
+    max-height: 35px;
+    max-width: 500px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+/* This hides any element with class alert directly after an input field with a pattern (regex) */
+input[pattern] + .alert {
+    display: none;
+}
+
+/* If pattern (regex) is violated alert is shown */
+input[pattern]:invalid + .alert {
+    display: inline-block;
+}
+
+/* If pattern (regex) is violated submit button is hidden */
+input[pattern]:invalid ~ button {
+    display: none;
+}
+
+input:disabled {
+    display: none;
+}
+
+#login-button:disabled {
+    display: none;
+}
+
+.login-button {
+    margin: 1%;
+    min-width: 7.3em;
+}
+
+.input-alert {
+    margin-top: 2%;
+}
+
+
+/********** MEDIA QUERIES **********/
+
+/* Extra small devices (phones, less than 768px) */
+@media all and (max-width: 767px) {
+
+    .side-nav .btn-circular {
+        margin-left: 15px !important;
+    }
+}
+
+/*Small devices PORTRAIT (tablets, more than 768px tall)*/
+@media all and (min-height: 768px) and (orientation: portrait) {
+
+/*    .notes-partner-holder button {
+        margin-right: 15px;
+        min-width: 140px;
+    }
+    .notes-partner-holder button:nth-child(5n) {
+        margin-right: 15px;
+    }
+    .notes-partner-holder button:nth-child(4n) {
+        margin-right: 0;
+    }*/
+
+    .username-display a {
+        max-width: 300px;
+        text-overflow: ellipsis;
+    }
+
+    .side-nav .btn-circular {
+        margin-left: -25px;
+    }
+
+    h2.box1 {
+        width: 495px;
+        margin-left: -10px;
+    }
+    h2.box3 {
+        width: 515px;
+        margin-left: -20px;
+    }
+
+    .note, .relationship, .investigation {
+        padding: 5% 7% 0 1%;
+        height: 87%;
+    }
+    .note-title, .relationship-title, .investigation-title {
+        height: 18%;
+    }
+    .note-body, .relationship-body, .investigation-body {
+        height: 57%;                /* TODO: this is guesswork, check me on the ipad */;
+    }
+    .note-url, .relationship-url, .investigation-url {
+        height: 57%;
+    }
+    .fa-file-image-o,
+    .fa-file-video-o {
+        font-size: 5em;
+        margin-left: 14px;                  /* TODO check me in ipad */
+    }
+    .fa-circle {
+        bottom: 1.5%;
+    }
+    .self-photo-query {
+        margin-left: 8%;
+    }
+    .investigation-header-container {
+        font-size:14px;
+        padding-top: 15px;
+    }
+    .investigation-header {
+        text-align: center;
+    }
+    #investigations-write-screen .inner-wrapper {
+        height: 80% !important;
+    }
+    #investigations-write-screen .row .forward-nav {
+        margin-top: 190px;
+    }
+    .investigation-species-selector {
+        margin: 70px 40px;
+    }
+    .plan-column, .predict-column, .results-column {
+        min-width: 140px;
+        font-size: 16px !important;
+    }
+    #investigation-nav {
+        font-size: 12px;
+        margin-top: 2px;
+    }
+}
+
+/* Large devices (LARGE DESKTOPS, 1200px and up) */
+@media all and (min-width: 1200px) {
+
+/*    .notes-partner-holder button {
+        min-width: 170px;
+    }*/
+
+    .side-nav {
+        padding: 0 200px 0 0;
+    }
+
+    .note-container, .relationship-container, .investigation-container {
+        padding-bottom: 25%; /* = width for a 1:1 aspect ratio */
+    }
+    .fa-file-image-o,
+    .fa-file-video-o {
+        font-size: 9em;
+        margin-left: 21%;
+    }
+    .note h3, .relationship h3, .investigation h3 {
+        font-size: 20px;
+    }
+    .note .title-body, .relationship .title-body, .investigation .title-body {
+        font-size: 16px;
+        line-height: 1.2;
+    }
+
+}
+
+/* Blue and green version - Renato */
+
+
+body {
+    /*background-color: #3092ae;*/
+    /*background-image: url(../img/bluebg.jpg)*/
+}
+
+.navbar {
+    min-height: 60px;
+    background: linear-gradient(to bottom, #1a7194 0%,#176686 100%) !important;
+    background-image: none;
+    border: none;
+    padding-top: 5px
+}
+.navbar-brand {
+    text-indent: -9999px;
+    width: 200px;
+    background-image: url(../img/logowallcology.png);
+    background-repeat: no-repeat;
+}
+.active>a {
+    background-image: none !important;
+    background-color: transparent !important;
+    height: 34px;
+    top: 7px;
+    padding-top: 7px !important;
+    margin: 1px 7px !important;
+    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    color: #a7e0f7  !important;
+}
+.top-navigation>.active>a {
+    background-image: none !important;
+    background-color: #0a475f  !important;
+    height: 34px;
+    border-radius: 30px;
+    top: 7px;
+    padding-top: 7px !important;
+    margin: 1px 7px !important;
+}
+.top-navigation>.active>a:hover {
+    background-color: #07384c !important;
+}
+.inner-wrapper {
+    margin-top: 15px !important;
+    width: 100%;
+}
+#investigations-read-screen .inner-wrapper {
+    margin-top: 70px !important;
+}
+.note-type-selector-container  {
+    display: block !important;
+    float: right !important;
+    max-width: 130px;
+}
+.note-type-selector, .habitat-selector {
+    border: 1px solid #0e4f69 !important;
+    left: -20px;
+    margin-top: 2px;
+    height: 40px;
+    background-color: #135b78 !important;
+    height: 40px;
+    width: 130px;
+    color: #fff;
+}
+.note-type-selector:hover, .habitat-selector:hover {
+    background-color: #0d4d66 !important;
+}
+.selector-container {
+    position: relative;
+    padding: 2px 10px;
+    width: auto;
+    max-width: 1100px;
+    margin: 0px auto 20px auto;
+    /*background-color: #e3e3e3;*/
+    height: 60px;
+    -webkit-box-shadow: inset 0 3px 9px rgba(0,0,0,0.3);
+    box-shadow: inset 0 3px 9px rgba(0,0,0,0.3);
+    /* border: 1px solid #237599;*/
+}
+.col-xs-offset-2 {
+    margin-left: 0;
+}
+.col-xs-9 {
+    width: 100%;
+}
+.notes-list, .relationships-list, .investigations-list {
+    width: 75%;
+    margin: 20px auto auto 14%;
+}
+.investigations-list {
+    margin-top: 0px !important;
+}
+.note-container, .relationship-container, .investigation-container {
+    margin: 10px;
+    width: 30%;
+    height: 30%;
+}
+.input-field {
+    width: 70%;
+    margin: 10px auto !important;
+    display: block;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.2);
+    border: 1px solid #237599;
+    font-size: 20px !important;
+    /*background-color: #fff;*/
+}
+#note-title-input, #relationship-title-input, #investigation-title-input {
+    min-height: 54px;
+    line-height: 26px;
+}
+/*.publish-note-btn, .nav-write-btn {
+    background: radial-gradient(ellipse at center, #a3cb42 0%,#95bc35  100%) !important;
+    -webkit-box-shadow: inset 0 3px 3px rgba(0,0,0,0.2);
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.2);
+    border: 1px solid #e3e3e3 !important;
+}*/
+#note-body-container, #relationship-body-container, #investigation-plan-body-container, #investigation-predict-body-container, #investigation-results-body-container {
+    height: auto;
+}
+#note-btn-container, #relationship-btn-container, #investigation-plan-btn-container, #investigation-predict-btn-container, #investigation-results-btn-container {
+    /*width: 650px;*/
+    width: 70%;
+    margin: 30px auto;
+}
+.side-nav{
+    padding: 90px 0 0 0;
+    left: -15px;
+    z-index: 10;
+    top: 37%;
+    width: 50px;
+}
+.nav-forward-btn {
+    float: right;
+    margin-right: 6%;
+    margin-top: 10%;
+}
+.publish-note-btn, .nav-write-btn, .fa-arrow-left, .fa-arrow-right {
+    background: radial-gradient(ellipse at center, #1a7194 0%,#176686 100%) !important;
+    -webkit-box-shadow: inset 0 3px 3px rgba(0,0,0,0.2);
+    box-shadow: inset 0 3px 3px rgba(0,0,0,0.2);
+    border: 1px solid #237599 !important
+}
+.publish-note-btn:hover, .nav-write-btn:hover, .fa-arrow-left:hover, .fa-arrow-right:hover {
+    background: radial-gradient(ellipse at center, #176686 0%,#105875 100%) !important;
+}
+.note-title, .relationship-title, .investigation-title {
+    font-size: 20px;
+    color: #0a475f ;
+}
+.note-body, .relationship-body, .investigation-body {
+    color: #666  !important;
+}
+.note-container, .relationship-container, .investigation-container {
+    -webkit-box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.5);
+    background: linear-gradient(to bottom, #f8f5e9 0%, #f8f5e9 50%,#eee9d0 100%) !important;
+}
+.top-nav-btn>a{
+    color: #fff !important;
+}
+.vcontainer {
+    width: 120px;
+}
+.notes-list, .relationships-list, .investigations-list {
+    margin: 20px auto auto 14%;
+}
+.container {
+    width: auto;
+    padding-left: 35px;
+}
+.species-box{
+    height: 30px !important;
+    width: 30px !important;
+}
+#relationships-aggregate {
+    left: 140px !important;
+    position: relative;
+    text-align: center;
+}
+#note-media-container, #relationship-media-container, #investigation-plan-media-container, #investigation-predict-media-container, #investigation-results-media-container {
+    margin: 5px auto !important;
+    text-align: center;
+}
+.media-container {
+    position: relative;
+    display: inline-block;
+    width: 230px !important;
+    height: 168px !important;
+    margin: 7px !important;
+    background-color: #e3e3e3;
+    overflow: hidden;
+}
+.media, .img-responsive {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0px auto !important;
+    max-height: 168px !important;
+}
+.species-button {
+    width: 48px;
+    margin: auto 5px;
+}
+.species-0{
+    margin-left: 40px;
+}
+#relationships-aggregate {
+    left: 0 !important;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#relationships-aggregate .table {
+    width: 70%;
+    margin: auto;
+    background-image: url(../img/curved-arrow.png);
+    background-position: 20px 10px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+.aggregate-cell{
+    width: px !important;
+    vertical-align: middle !important;
+    font-size: 18px !important;
+}
+#exchange-container{
+    margin: 20px auto;
+    width: 430px;
+}
+#exchange-habitat-container {
+    position: relative !important;
+    text-align: center !important;
+    margin: -5px 0 0 -20px !important;
+    padding: 0px !important;
+    width: 150px;
+}
+.exchange-arrow {
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    padding: 0 !important;
+    text-align: center !important;
+    margin: 3px auto;
+    background-image: url(../img/exchange-arrow.png);
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 1000px) {
+    .container {
+        padding-left: 35px;
+    }
+/*    .navbar-header {
+        width: 140px;
+    }*/
+    .navbar-brand {
+        text-indent: -9999px;
+        width: 120px;
+        background-size: 122px;
+        background-position: 0px 7px;
+    }
+    .navbar-nav{
+        font-size: 12px !important;
+    }
+    .logout-user {
+        margin: 0 0 0 -20px !important;
+    }
+    .wallcology-selector {
+        font-size: 12px !important;
+    }
+    .vcontainer{
+        width: 110px;
+        margin-right: -10px !important;
+    }
+    .note-type-selector, .habitat-selector {
+        font-size: 12px !important;
+        width: 97px;
+        height: 30px;
+    }
+    .habitat-selector {
+        margin-left: 3px;
+    }
+    .note-type-selector {
+        margin-left: 0px;
+        margin-top: 8px;
+    }
+    .note-type-selector-container {
+        width: 100px;
+    }
+    .selector-container{
+        height: 55px;
+    }
+    .notes-list, .relationships-list, .investigations-list {
+        width: 85%;
+    }
+    .note-title, .relationship-title, .investigation-title {
+        font-size: 16px;
+    }
+    #note-btn-container, #relationship-btn-container, #investigation-plan-btn-container, #investigation-predict-btn-container, #investigation-results-btn-container {
+        width: 500px;
+        width: 70%;
+    }
+    #relationships-aggregate {
+        margin-top: 20px !important;
+        padding: 0 110px !important
+    }
+    #relationships-aggregate .table {
+        width: 610px !important;
+    }
+    .inner-wrapper {
+        height: 90% !important;
+        margin-top: 20px !important;
+    }
+    .side-nav {
+        top: 32% !important;
+    }
+    .forward-nav {
+        top: 32% !important;
+    }
+    .species-button {
+        width: 40px;
+        margin: auto 3px;
+    }
+    .selector-container {
+        margin: -4px -8px !important;
+        padding: 0px !important;
+    }
+    .species-0 {
+        margin-left: 20px;
+    }
+    #relationships-aggregate .table {
+        background-position: 15px 10px;
+    }
+        #investigation-present-body-container{
+        max-width: 25% !important;
+    }
+}
+
+/* hide the Wallcology brand container for certain widths (to accom new tabs) */
+@media screen and (min-width: 768px) and (max-width: 840px) {
+    .navbar-brand {
+        text-indent: -9999px;
+        width: 0px;
+        padding: 0px;
+    }
+}
