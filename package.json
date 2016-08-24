@@ -16,8 +16,7 @@
     "mongodb": "1.3.5",
     "backbone.drowsy.encorelab": "*",
     "optimist": "*",
-    "btoa": "*",
-    "mqtt": "*"
+    "btoa": "*"
   },
   "devDependencies": {
     "grunt": "~0.4.5",

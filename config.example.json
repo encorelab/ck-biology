@@ -4,8 +4,7 @@
         "url_dev": "http://localhost:9292",
         "db": "wallcology2015",
         "username": "foo",
-        "password": "bar",
-        "uic_url": "https://ltg.evl.uic.edu/drowsy/poster"
+        "password": "bar"
     },
     "wakeful": {
         "url": "https://coati.encorelab.org/faye",
@@ -14,13 +13,6 @@
     },
     "pikachu": {
         "url": "///pikachu.coati.encorelab.org/"
-    },
-    "mqtt": {
-        "protocol": "tcp://",
-        "url": "ltg.evl.uic.edu",
-        "port": 1883,
-        "ws_protocol": "ws://",
-        "ws_port": 1884
     },
     "login_picker": true,
     "runs":["ben", "mike"],

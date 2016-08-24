@@ -8,14 +8,7 @@
     "wakeful": {
         "url": "http://localhost:7890/faye"
     },
-    "mqtt": {
-        "protocol": "tcp://",
-        "url": "ltg.evl.uic.edu",
-        "port": 1883,
-        "ws_protocol": "ws://",
-        "ws_port": 1884
-    },
     "login_picker": true,
-    "runs":["ben", "mike"],
+    "runs": ["ben", "mike"],
     "project_name": "CK Biology 2016"
 }

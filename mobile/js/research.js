@@ -21,104 +21,28 @@
     wakeful: {
       url: 'string'
     },
-    mqtt: {
-      url: 'string',
-      ws_port: 'number'
-    },
     login_picker:'boolean',
     runs:'object'
   };
 
   var DATABASE = null;
 
-  //app.mqtt = null;
   app.rollcall = null;
   app.runId = null;
   app.runState = null;
   app.users = null;
   app.username = null;
   app.currentUser = null;
-  app.habitats = null;
 
   app.notesReadView = null;
   app.notesWriteView = null;
   app.relationshipsReadView = null;
   app.relationshipsWriteView = null;
-  app.habitatsView = null;
-  app.investigationsReadView = null;
-  app.investigationsWriteView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { } ,10);
 
-  // put this in mongo at some point (and add to readme)
-  app.noteTypes = {
-    "Note Type": [],
-    "Species": ["We observed that...","We wonder if...","It seems important that..."],
-    "Relationships": ["We observed that...","We wonder about the connection between...","Something that doesn't make sense is..."],
-    "Habitats": ["We observed that...","We wonder what would happen if...","Something that we still need to find out is..."],
-    "Populations": ["We have noticed that...","We wonder about the connection between...","This species population has changed..."],
-    "Real-world Connections": ["A real-world situation similar to this is...","This reminds me of...","This could help us understand..."],
-    "Big Idea": ["One idea we need to focus on as a class is..."]
-  };
-
-  // SELECTOR-RELATED STUFF FROM TOM
-  app.images = [ {selected: 'https://ltg.cs.uic.edu/WC/icons/species_00.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_00_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_01.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_01_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_02.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_02_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_03.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_03_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_04.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_04_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_05.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_05_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_06.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_06_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_07.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_07_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_08.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_08_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_09.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_09_0.svg'},
-          {selected: 'https://ltg.cs.uic.edu/WC/icons/species_10.svg',
-             unselected: 'https://ltg.cs.uic.edu/WC/icons/species_10_0.svg'}
-         ];
-
-  // app.images = [ {selected: 'img/species_00.svg',
-  //            unselected: 'img/species_00_0.svg'},
-  //         {selected: 'img/species_01.svg',
-  //            unselected: 'img/species_01_0.svg'},
-  //         {selected: 'img/species_02.svg',
-  //            unselected: 'img/species_02_0.svg'},
-  //         {selected: 'img/species_03.svg',
-  //            unselected: 'img/species_03_0.svg'},
-  //         {selected: 'img/species_04.svg',
-  //            unselected: 'img/species_04_0.svg'},
-  //         {selected: 'img/species_05.svg',
-  //            unselected: 'img/species_05_0.svg'},
-  //         {selected: 'img/species_06.svg',
-  //            unselected: 'img/species_06_0.svg'},
-  //         {selected: 'img/species_07.svg',
-  //            unselected: 'img/species_07_0.svg'},
-  //         {selected: 'img/species_08.svg',
-  //            unselected: 'img/species_08_0.svg'},
-  //         {selected: 'img/species_09.svg',
-  //            unselected: 'img/species_09_0.svg'},
-  //         {selected: 'img/species_10.svg',
-  //            unselected: 'img/species_10_0.svg'}
-  //        ];
-
   app.state = [];
-  app.numSelected = null;
-  app.habitatSelectorType = null;
-  app.fixedIndex = null;
-  app.clearSelectionsOnHabitatChange = null;
-
-  var MAX_SELECTABLE_NOTES = 11;
-  var MAX_SELECTABLE_RELATIONSHIPS = 2;
 
   app.init = function() {
     /* CONFIG */
@@ -131,8 +55,8 @@
     Backbone.$.ajaxSetup({
       beforeSend: function(xhr) {
         return xhr.setRequestHeader('Authorization',
-            // 'Basic ' + btoa(username + ':' + password));
-            'Basic ' + basicAuthHash);
+          // 'Basic ' + btoa(username + ':' + password));
+          'Basic ' + basicAuthHash);
       }
     });
 
@@ -264,7 +188,7 @@
       position : 'middle-center'
     });
 
-    jQuery('.brand').text("Wallcology 2015");
+    jQuery('.brand').text("CK Biology 2016");
   };
 
   var setUpClickListeners = function () {
@@ -279,38 +203,13 @@
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
         if (jQuery(this).hasClass('goto-notes-btn')) {
           app.hideAllContainers();
-          app.resetAllSelectors();
           jQuery('#notes-nav-btn').addClass('active');
           jQuery('#notes-read-screen').removeClass('hidden');
         } else if (jQuery(this).hasClass('goto-relationships-btn')) {
           // jQuery().toastmessage('showWarningToast', "Not yet, kids!");
           app.hideAllContainers();
-          app.resetAllSelectors();
           jQuery('#relationships-nav-btn').addClass('active');
           jQuery('#relationships-read-screen').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-populations-btn')) {
-          // jQuery().toastmessage('showWarningToast', "Not yet, kids!");
-          app.hideAllContainers();
-          app.resetAllSelectors();
-          jQuery('#populations-nav-btn').addClass('active');
-          jQuery('#populations-screen').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-investigations-btn')) {
-          // jQuery().toastmessage('showWarningToast', "Not yet, kids!");
-          if (app.currentUser.get('habitat_group') || app.currentUser.get('user_role') === "smartboard") {
-            app.hideAllContainers();
-            jQuery('#investigations-nav-btn').addClass('active');
-            jQuery('#investigations-read-screen').removeClass('hidden');
-          } else {
-            jQuery().toastmessage('showWarningToast', "You have not been assigned to a habitat group yet");
-          }
-        } else if (jQuery(this).hasClass('goto-habitats-btn')) {
-          if (app.currentUser.get('user_role') === "teacher") {
-            app.hideAllContainers();
-            jQuery('#habitats-nav-btn').addClass('active');
-            jQuery('#habitats-screen').removeClass('hidden');
-          } else {
-            jQuery().toastmessage('showWarningToast', "Teachers only!");
-          }
         }
         else {
           console.log('ERROR: unknown nav button');
@@ -328,37 +227,22 @@
      * ======================================================
      */
 
-    // not sure this belongs here, but for now... also likely want to move this to the config. But will this code snippet even last more than a couple days?
-    var className = '';
-    if (Skeletor.Mobile.runId === "mike") {
-      className = "Mike&place=to";
-    } else if (Skeletor.Mobile.runId === "ben") {
-      className = "Ben&place=to";
-    } else {
-      className = Skeletor.Mobile.runId;
-    }
-    // var url = 'https://ltg.evl.uic.edu:57881/wallcology/default/runs/population-history/index.html?broker=ltg.evl.uic.edu&app_id=wallcology&run_id=' + className;
-    var url = 'https://ltg.evl.uic.edu:57881/wallcology/default/runs/population-history/index.html?broker=ltg.evl.uic.edu&app_id=wallcology&run_id='+className;
-    jQuery('#population-history-container').attr('src',url);
 
     if (app.notesReadView === null) {
       app.notesReadView = new app.View.NotesReadView({
         el: '#notes-read-screen',
         collection: Skeletor.Model.awake.notes
       });
-      app.drawHabitatSelector('A1234', 0, true, 'notes-read-screen');
-      app.drawSelectorBar('notes-read-screen');
 
       app.notesReadView.render();
     }
 
     if (app.notesWriteView === null) {
-    app.notesWriteView = new app.View.NotesWriteView({
-      el: '#notes-write-screen',
-      collection: Skeletor.Model.awake.notes
-    });
-    app.drawHabitatSelector('A1234', 0, true, 'notes-write-screen');
-    app.drawSelectorBar('notes-write-screen');
+      app.notesWriteView = new app.View.NotesWriteView({
+        el: '#notes-write-screen',
+        collection: Skeletor.Model.awake.notes
+      });
+
     }
 
     if (app.relationshipsReadView === null) {
@@ -366,8 +250,6 @@
         el: '#relationships-read-screen',
         collection: Skeletor.Model.awake.relationships
       });
-      app.drawHabitatSelector('A1234', 0, true, 'relationships-read-screen');
-      app.drawSelectorBar('relationships-read-screen');
 
       app.relationshipsReadView.render();
     }
@@ -377,32 +259,7 @@
         el: '#relationships-write-screen',
         collection: Skeletor.Model.awake.relationships
       });
-      app.drawHabitatSelector('?1234', 0, true, 'relationships-write-screen');
-      app.drawSelectorBar('relationships-write-screen');
-    }
 
-    if (app.habitatsView === null) {
-      app.habitatsView = new app.View.HabitatsView({
-        el: '#habitats-screen'
-      });
-
-      app.habitatsView.render();
-    }
-
-    if (app.investigationsReadView === null) {
-      app.investigationsReadView = new app.View.InvestigationsReadView({
-        el: '#investigations-read-screen',
-        collection: Skeletor.Model.awake.investigations
-      });
-
-      app.investigationsReadView.render();
-    }
-
-    if (app.investigationsWriteView === null) {
-      app.investigationsWriteView = new app.View.InvestigationsWriteView({
-        el: '#investigations-write-screen',
-        collection: Skeletor.Model.awake.investigations
-      });
     }
   };
 
@@ -440,175 +297,6 @@
     });
     return result;
   };
-
-  app.getSpeciesValues = function(view) {
-    var selectorValues = [];
-
-    _.each(app.state, function(value, i) {
-      if (value === "selected") {
-        selectorValues.push(i);
-      }
-    });
-
-    return selectorValues;
-  };
-
-  app.getHabitatObject = function(view) {
-    var habitatObj = {
-      name: jQuery('#'+view+' .habitat-selector :selected').data('name'),
-      index: jQuery('#'+view+' .habitat-selector :selected').data('index')
-    };
-
-    return habitatObj;
-  };
-
-  app.getSpeciesObjectsArray = function() {
-    var speciesArr = [];
-
-    _.each(app.state, function(value, i) {
-      if (value === "selected") {
-        speciesArr.push({"index": i});
-      }
-    });
-
-    return speciesArr;
-  };
-
-  app.setHabitat = function(view, habitatIndex) {
-    // these will be undefined if nothing is selected from habitat/species
-    if (typeof habitatIndex !== "undefined") {
-      // hack since All Habitat is getting set to index 4 and it's too late to change that
-      if (habitatIndex === 4) {
-        jQuery('#'+view+' .habitat-selector').val("A");
-      } else {
-        jQuery('#'+view+' .habitat-selector').val(habitatIndex);
-      }
-    }
-  };
-
-  app.setSpecies = function(speciesArray) {
-    _.each(speciesArray, function(i) {
-      app.state[i] = 'selected';
-      select(i);
-      app.numSelected++;
-      updateImage(i);
-    });
-  };
-
-  // NB: this is a little sketchy, relying on contains string...
-  app.resetSelectorValue = function(view) {
-    jQuery('.note-type-selector').val('Note Type');
-
-    if (jQuery('#'+view+' .habitat-selector :contains("Habitat ?")').length) {
-      jQuery('#'+view+' .habitat-selector').val("?");
-    } else if (jQuery('#'+view+' .habitat-selector :contains("All Habitats")').length) {
-      jQuery('#'+view+' .habitat-selector').val("A");
-    } else {
-      console.error("An issue with resetSelectorValue");
-    }
-
-    _.each(app.state, function(selected, i) {
-      app.state[i] = 'unselected';
-      updateImage(i);
-    });
-    app.numSelected = 0;
-  };
-
-  app.resetAllSelectors = function() {
-    app.resetSelectorValue("notes-read-screen");
-    app.resetSelectorValue("notes-write-screen");
-    app.resetSelectorValue("relationships-read-screen");
-    app.resetSelectorValue("relationships-write-screen");
-  };
-
-  app.drawHabitatSelector = function(h, f, c, view) {
-    var habitatSelectorType = h;
-    var fixedIndex = f; // 0,1,2,3
-    app.clearSelectionsOnHabitatChange = c; // Boolean
-
-    var el = '';
-    el += '<select class="habitat-selector">';
-
-    if (habitatSelectorType === '?1234') {
-      el += '<option selected data-index="-1" data-name="Habitat ?" value="?">Habitat ?</option>';
-    }
-    if (habitatSelectorType === 'A1234') {
-      el += '<option selected data-index="4" data-name="All Habitats" value="A">All Habitats</option>';
-    }
-    if (habitatSelectorType === 'fixed') {
-      el += '<option selected data-index="'+fixedIndex+'" data-name="Habitat '+(fixedIndex+1)+'" value="' + fixedIndex + '">Habitat ' + (fixedIndex+1) + '</option>';
-    } else {
-      for (var i=0; i<4; i++) {
-        el += '<option data-index="'+i+'" data-name="Habitat '+(i+1)+'" value="' + i + '">Habitat ' + (i+1) + '</option>';
-      }
-    }
-    el += '</select>';
-    jQuery('#'+view+' .species-selector-container').append(el);
-    // if (habitatSelectorType === 'fixed') {
-    //   habitatSelect(fixedIndex);
-    // }
-  };
-
-  app.habitatSelectorChange = function(view) {
-    if (app.clearSelectionsOnHabitatChange) {
-      for (var i=0; i<app.state.length; i++) {
-        if (app.state[i] === 'selected') {
-          app.clickHandler(i, view);
-        }
-      }
-    }
-    var x = jQuery('#'+view+' .habitat-selector :selected');
-    var s = jQuery('#'+view+' .habitat-selector :selected').data('index');
-    if (app.habitatSelectorType === '?1234' && x.val() === '?') {
-      x.remove();
-    }
-    //habitatSelect(x[x.selectedIndex].value);
-  };
-
-  app.drawSelectorBar = function(view) {
-    for (var x=0; x<app.images.length; x++) {
-      app.state[x] = 'unselected';
-    }
-    app.numSelected = 0;
-    for (var i=0; i<app.state.length; i++) {
-      jQuery('#'+view+' .species-selector-container').append('<img class="species-button species-'+i+'" data-species-index="'+i+'" src="' + app.images[i][app.state[i]] + '" width="60" height="60">');
-    }
-  };
-
-  app.clickHandler = function(species, view) {
-    var maxSelectable;
-    if (view === "notes-read-screen" || view === "notes-write-screen") {
-      maxSelectable = MAX_SELECTABLE_NOTES;
-    } else if (view === "relationships-read-screen" || view === "relationships-write-screen") {
-      maxSelectable = MAX_SELECTABLE_RELATIONSHIPS;
-    } else {
-      console.error("Unknown view passed into clickHandler");
-    }
-
-    var x = jQuery('#'+view+' .habitat-selector').val();
-    if (x !== '?') {
-      if (app.state[species] === 'selected') {
-        app.state[species] = 'unselected';
-        deSelect(species);
-        app.numSelected--;
-      } else {
-        if (app.numSelected < maxSelectable) {
-          app.state[species] = 'selected';
-          select(species);
-          app.numSelected++;
-        }
-      }
-      updateImage(species);
-    }
-  };
-
-  var updateImage = function(i) {
-    jQuery('.species-'+i).attr('src', app.images[i][app.state[i]]);
-  };
-
-  function select (species) { }       // code for when a species is selected
-  function deSelect (species) { }     // code for when a species is deselected
-  //function habitatSelect(habitat) { }   // code for when a habitat is selected
 
   var generateRandomClientId = function() {
     var length = 22;
@@ -775,12 +463,6 @@
       jQuery('#lock-screen').addClass('hidden');
       jQuery('#todo-screen').removeClass('hidden');
     }
-  };
-
-  app.resetToSplashScreen = function() {
-    app.hideAllContainers();
-    jQuery('#proposal-nav-btn').addClass('active');
-    jQuery('#todo-screen').removeClass('hidden');
   };
 
   app.hideAllContainers = function() {
