@@ -3,7 +3,7 @@
         "username": "armin",
         "display_name": "Armin",
         "tags": [
-            "test"
+            "maria1"
         ],
         "user_role": "student",
         "created_at": "2015-03-25T19:08:00.000Z",
@@ -13,7 +13,7 @@
         "username": "colin",
         "display_name": "Colin",
         "tags": [
-            "test"
+            "maria1"
         ],
         "user_role": "teacher",
         "created_at": "2015-03-25T19:08:00.000Z",
@@ -23,7 +23,7 @@
         "username": "stian",
         "display_name": "Stian",
         "tags": [
-            "test"
+            "maria1"
         ],
         "user_role": "student",
         "created_at": "2015-03-25T19:08:00.000Z",
@@ -33,7 +33,7 @@
         "username": "maria",
         "display_name": "Maria",
         "tags": [
-            "test"
+            "maria1"
         ],
         "user_role": "teacher",
         "created_at": "2015-03-25T19:08:00.000Z",
@@ -43,7 +43,7 @@
         "username": "smartboard",
         "display_name": "Smartboard",
         "tags": [
-            "test"
+            "maria1"
         ],
         "user_role": "smartboard",
         "created_at": "2015-03-25T19:08:00.000Z",
