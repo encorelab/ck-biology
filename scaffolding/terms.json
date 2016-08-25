@@ -1,0 +1,37 @@
+[
+    {
+        "name": "acid",
+        "lesson": 1,
+        "assigned_to": "colin",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "adhesion",
+        "lesson": 1,
+        "assigned_to": "colin",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "anion",
+        "lesson": 1,
+        "assigned_to": "colin",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "base",
+        "lesson": 1,
+        "assigned_to": "meagan",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "buffer",
+        "lesson": 1,
+        "assigned_to": "meagan",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    }
+]
