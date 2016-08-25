@@ -28,7 +28,7 @@
     return state;
   };
 
-  // basc class for Skeletor-based apps; inherit from this!
+  // base class for Skeletor-based apps; inherit from this!
   Skeletor.App = function () { };
 
   /**

@@ -151,20 +151,6 @@
       app.runState.wake(app.config.wakeful.url);
       app.runState.on('change', app.reflectRunState);
     })
-    .then(function() {
-      app.habitats = Skeletor.Model.awake.habitats;
-      // for first time setup
-      if (!app.habitats || app.habitats.length < 4) {
-        for (var i = 1; i < 5; i++) {
-          var m = new Model.Habitat();
-          m.set('number',i);
-          m.set('name','Ecosystem '+i);
-          m.wake(app.config.wakeful.url);
-          m.save();
-          app.habitats.add(m);
-        }
-      }
-    })
     .done(function () {
       ready();
       console.log('Models are awake - now calling ready...');

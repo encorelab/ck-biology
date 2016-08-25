@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['brainstorms', 'tags', 'states', 'notes', 'relationships', 'habitats', 'investigations'];
+    Model.requiredCollections = ['brainstorms', 'tags', 'states', 'notes', 'relationships', 'terms'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -234,36 +234,18 @@
         model: Skeletor.Model.Relationship
       });
 
-      this.Habitat = this.db.Document('habitats').extend({
+      this.Terms = this.db.Collection('terms').extend({
+        model: Skeletor.Model.Term
+      });
+
+      this.Term = this.db.Document('terms').extend({
         defaults: {
           'created_at': new Date(),
           'modified_at': new Date(),
-          'number': '',
-          'name': ''
+          'media': [],
+          'completed': false,
+          'review_count': 0
         }
-      });
-
-      this.Habitats = this.db.Collection('habitats').extend({
-        model: Skeletor.Model.Habitat
-      });
-
-      this.Investigation = this.db.Document('investigations').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date(),
-          'habitat_species': [],
-          'plan_species': [],
-          'predict_species': [],
-          'results_species': [],
-          'plan_media': [],
-          'predict_media': [],
-          'results_media': [],
-          'published': true         // NB!!! Just trying this out - might be a bad idea...
-        }
-      });
-
-      this.Investigations = this.db.Collection('investigations').extend({
-        model: Skeletor.Model.Investigation
       });
     };
 
