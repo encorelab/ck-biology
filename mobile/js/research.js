@@ -211,14 +211,7 @@
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
-          if (app.nextContribution().kind == "term") {
-            jQuery('#definition-screen').removeClass('hidden');
-            app.definitionView.render();
-          } else if (app.nextContribution().kind == "relationship") {
-            jQuery('#relationship-screen').removeClass('hidden');
-          } else if (app.nextContribution().kind == "vetting") {        // this will eventually change to accom multiple simultaneous users
-            jQuery('#vetting-screen').removeClass('hidden');
-          }
+          app.determineNextStep();
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
@@ -303,9 +296,32 @@
 
   };
 
+  app.determineNextStep = function() {
+    console.log('Determining next step...');
+
+    var task = app.nextContribution();
+
+    if (task.kind == "term") {
+      jQuery('#definition-screen').removeClass('hidden');
+      updateDefinitionView();
+    } else if (task.kind == "relationship") {
+      jQuery('#relationship-screen').removeClass('hidden');
+    } else if (task.kind == "vetting") {        // this will eventually change to accom multiple simultaneous users
+      jQuery('#vetting-screen').removeClass('hidden');
+    }
+  }
+
   app.nextContribution = function() {
     return _.first(app.contributions);
   };
+
+  var updateDefinitionView = function() {
+    var definition = app.nextContribution().content;
+    app.definitionView.model = definition;
+    app.definitionView.model.wake(app.config.wakeful.url);
+    app.definitionView.render();
+  };
+
 
   app.photoOrVideo = function(url) {
     var type = null;

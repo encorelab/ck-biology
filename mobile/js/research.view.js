@@ -23,7 +23,7 @@
     events: {
       'change #photo-file'                : 'uploadMedia',
       'click .remove-btn'                 : 'removeOneMedia',
-      'click .publish-note-btn'           : 'publishNote',
+      'click .publish-definition-btn'     : 'publishDefinition',
       'click .photo-container'            : 'openPhotoModal',
       'keyup :input'                      : 'checkForAutoSave'
     },
@@ -69,14 +69,14 @@
       function failure(err) {
         jQuery('#photo-upload-spinner').addClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
-        jQuery('.publish-note-btn').removeClass('disabled');
+        jQuery('.publish-definition-btn').removeClass('disabled');
         jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
       }
 
       function success(data, status, xhr) {
         jQuery('#photo-upload-spinner').addClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
-        jQuery('.publish-note-btn').removeClass('disabled');
+        jQuery('.publish-definition-btn').removeClass('disabled');
         console.log("UPLOAD SUCCEEDED!");
         console.log(xhr.getAllResponseHeaders());
 
@@ -92,10 +92,10 @@
         view.appendOneMedia(data.url);
 
         // one lightweight way of doing captions for this wallcology - but only do it once (eg if length is one)
-        if (mediaArray.length === 1) {
-          var noteBodyText = jQuery('#note-body-input').val();
-          jQuery('#note-body-input').val(noteBodyText + '\n\nSomething on pictures and videos: ');
-        }
+        // if (mediaArray.length === 1) {
+        //   var noteBodyText = jQuery('#note-body-input').val();
+        //   jQuery('#note-body-input').val(noteBodyText + '\n\nSomething on pictures and videos: ');
+        // }
       }
 
     },
@@ -116,25 +116,6 @@
       }, 5000);
     },
 
-    publishNote: function() {
-      var view = this;
-      var body = jQuery('#note-body-input').val();
-
-      if (body.length > 0) {
-        app.clearAutoSaveTimer();
-        view.model.set('body',body);
-        view.model.set('published', true);
-        view.model.set('modified_at', new Date());
-
-        view.model.save();
-        jQuery().toastmessage('showSuccessToast', "Published to the note wall!");
-
-        view.switchToReadView();
-      } else {
-        jQuery().toastmessage('showErrorToast', "You must complete both fields and select a note type to submit your note...");
-      }
-    },
-
     // TODO: this can be done more cleanly/backbonely with views for the media containers
     appendOneMedia: function(url) {
       var el;
@@ -147,7 +128,7 @@
         el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
         throw "Error trying to append media - unknown media type!";
       }
-      jQuery('#note-media-container').append(el);
+      jQuery('#definition-media-container').append(el);
     },
 
     removeOneMedia: function(ev) {
@@ -168,34 +149,33 @@
       jQuery('.upload-icon').val('');
     },
 
+    publishDefinition: function() {
+      var view = this;
+      var explanation = jQuery('#definition-explanation-input').val();
+
+      if (explanation.length > 0) {
+        app.clearAutoSaveTimer();
+        view.model.set('explanation',explanation);
+        view.model.set('complete', true);
+        view.model.set('modified_at', new Date());
+        view.model.save();
+
+        app.determineNextStep();
+      } else {
+        jQuery().toastmessage('showErrorToast', "You must complete the explanation before continuing...");
+      }
+    },
+
     render: function () {
       var view = this;
       console.log("Rendering DefinitionView...");
 
-      jQuery('#definition-name-field').text(app.nextContribution().content.get('name'));
-
-      // FOR BRENDA - CAN BE REMOVED IN A COUPLE DAYS
-      //var date = new Date(view.model.get('created_at'));
-      //jQuery('#date-container').text(date.toLocaleString());
-
-      // jQuery('#note-body-input').val(view.model.get('body'));
-      // jQuery('#note-media-container').html('');
-      // view.model.get('media').forEach(function(url) {
-      //   view.appendOneMedia(url);
-      // });
-
-      // // check is this user is allowed to edit this note
-      // if (view.model.get('author') === app.username) {
-      //   jQuery('#notes-write-screen .editable.input-field').removeClass('uneditable');
-      //   jQuery('#notes-write-screen .editable.input-field').prop("disabled", false);
-      //   jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", false);
-      //   jQuery('#notes-write-screen .editable').removeClass('disabled');
-      // } else {
-      //   jQuery('#notes-write-screen .editable.input-field').addClass('uneditable');
-      //   jQuery('#notes-write-screen .editable.input-field').prop("disabled", true);
-      //   jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", true);
-      //   jQuery('#notes-write-screen .editable').addClass('disabled');
-      // }
+      jQuery('#definition-name-field').text(view.model.get('name'));
+      jQuery('#definition-explanation-input').val(view.model.get('explanation'));
+      jQuery('#definition-media-container').html('');
+      view.model.get('media').forEach(function(url) {
+        view.appendOneMedia(url);
+      });
     }
   });
 
@@ -379,11 +359,6 @@ app.View.NotesReadView = Backbone.View.extend({
       m.save();
       view.collection.add(m);
     }
-
-
-    // START HERE - create a new html hierarchy, then get the first lesson first term, then see if we can embed a subselection of the terms from the wall
-    // may be best to start with the HTML structure, then wire up the data stuff later?
-
 
     app.notesWriteView.model = m;
     app.notesWriteView.model.wake(app.config.wakeful.url);
