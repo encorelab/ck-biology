@@ -67,46 +67,16 @@
             <div class="note-date" data-id=<%= id %>><%= date %></div>
         </div>
     </script>
-
-    <script id="text-relationship-template" type="text/template">
-        <div class="relationship" data-id=<%= id %>>
-            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
-            <div class="relationship-body" data-id=<%= id %>><%= body %></div>
-            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
-            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
-
-    <script id="photo-relationship-template" type="text/template">
-        <div class="relationship" data-id=<%= id %>>
-            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
-            <div class="relationship-url" data-id=<%= id %>>
-                <img src=<%= url %> data-id=<%= id %> />
-            </div>
-            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
-            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
-
-    <script id="video-relationship-template" type="text/template">
-        <div class="relationship" data-id=<%= id %>>
-            <h3 class="relationship-title" data-id=<%= id %>><%= title %></h3>
-            <div class="relationship-url" data-id=<%= id %>>
-                <i class="fa fa-5x fa-file-video-o" data-id=<%= id %>></i>
-            </div>
-            <div class="relationship-author" data-id=<%= id %>><%= author %></div>
-            <div class="relationship-note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
-
 </head>
 
+
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav id="navivation-bar" class="navbar navbar-inverse navbar-fixed-top hidden" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                    <span class="sr-only">Toggle navigation</span>
+                   <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -117,8 +87,9 @@
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav top-navigation">
                     <li id="notes-nav-btn" class="goto-notes-btn top-nav-btn"><a href="#">Notes</a></li>
-                    <li id="relationships-nav-btn" class="goto-relationships-btn top-nav-btn"><a href="#">Food Web</a>
-                    <li id="lesson-nav-btn" class="goto-lesson-btn top-nav-btn"><a href="#">Lesson 1 - Chemistry of Life</a></li>
+                    <li id="home-nav-btn" class="goto-home-btn top-nav-btn"><a href="#">Home</a></li>
+                    <li id="contribution-nav-btn" class="goto-contribution-btn top-nav-btn"><a href="#">My Contribution</a></li>
+                    <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn"><a href="#">Knowledge Base</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active username-display"><a></a></li>
@@ -132,17 +103,96 @@
         <img src="img/lock-icon-white.png" id="lock-img"/>
     </div>
 
+
     <!-- ToDo Screen -->
     <div id="todo-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-8 col-xs-offset-2">
                 <h2>What would you like to work on today?</h2>
-                <button class="goto-notes-btn todo-btn btn btn-base">NOTES</button>
-                <button class="goto-relationships-btn todo-btn btn btn-base">FOOD WEB</button>
-                <button class="goto-lesson-btn todo-btn btn btn-base">Lesson 1 - Chemistry of Life</button>
+                <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="1">Lesson 1 - Chemistry of Life</button>
+                <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="2">Lesson 2 - Functional groups, isomers, and reaction types</button>
             </div>
         </div>
     </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ************************** HOME ************************* -->
+    <!-- ********************************************************* -->
+
+    <div id="home-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <button class="goto-contribution-btn home-screen-btn btn btn-base" data-lesson="1">My Contribution</button>
+                <button class="goto-knowledge-base-btn home-screen-btn btn btn-base" data-lesson="2">Knowledge Base</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ********************** CONTRIBUTION ********************* -->
+    <!-- ********************************************************* -->
+
+    <div id="contribution-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
+                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
+            </div>
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <textarea id="contribution-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
+                <div id="contribution-body-container">
+                    <textarea id="contribution-body-input" class="input-field editable" name="body"></textarea>
+                </div>
+
+                <div id="contribution-media-container"></div>
+
+                <div id="contribution-btn-container" class="editable">
+                    <div class="photo-wrapper">
+                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                    </div>
+                    <button class="publish-contribution-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -293,59 +343,6 @@
             </div>
         </div>
     </div>
-
-
-
-    <!-- ********************************************************* -->
-    <!-- ************************* LESSON ************************ -->
-    <!-- ********************************************************* -->
-
-
-    <!-- Lesson Screen -->
-    <div id="lesson-screen" class="container-fluid user-screen tiles">
-        <div class="row">
-            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
-                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
-            </div>
-            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
-                <textarea id="lesson-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
-                <div id="lesson-body-container">
-                    <textarea id="lesson-body-input" class="input-field editable" name="body"></textarea>
-                </div>
-
-                <div id="lesson-media-container"></div>
-
-                <div id="lesson-btn-container" class="editable">
-                    <div class="photo-wrapper">
-                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                       <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
-                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
-                    </div>
-                    <button class="publish-lesson-btn btn-circular fa fa-check fa-3x pull-right"></button>
-                </div>
-            </div>
-        </div>
-
-        <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
-                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <img class="photo-content" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!-- Modals -->

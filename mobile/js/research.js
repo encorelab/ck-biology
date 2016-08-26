@@ -33,11 +33,10 @@
   app.users = null;
   app.username = null;
   app.currentUser = null;
+  app.lesson = null;
 
   app.notesReadView = null;
   app.notesWriteView = null;
-  app.relationshipsReadView = null;
-  app.relationshipsWriteView = null;
   app.lessonWriteView = null;
 
   app.keyCount = 0;
@@ -184,24 +183,36 @@
       logoutUser();
     });
 
-    // this is a or binding to both classes
-    jQuery('.top-nav-btn, .todo-btn').click(function() {
+    jQuery('.choose-lesson-btn').click(function(ev) {
+      if (app.username) {
+        // check which lesson from data value
+        app.lesson = jQuery(ev.target).data('lesson');
+        app.hideAllContainers();
+        jQuery('#home-screen').removeClass('hidden');
+        jQuery('#navivation-bar').removeClass('hidden');
+      }
+    });
+
+    jQuery('.top-nav-btn, .home-screen-btn').click(function() {
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
         if (jQuery(this).hasClass('goto-notes-btn')) {
           app.hideAllContainers();
           jQuery('#notes-nav-btn').addClass('active');
           jQuery('#notes-read-screen').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-relationships-btn')) {
+        } else if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
-          jQuery('#relationships-nav-btn').addClass('active');
-          jQuery('#relationships-read-screen').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-lesson-btn')) {
+          jQuery('#home-nav-btn').addClass('active');
+          jQuery('#home-screen').removeClass('hidden');
+        } else if (jQuery(this).hasClass('goto-contribution-btn')) {
           app.hideAllContainers();
-          jQuery('#lesson-nav-btn').addClass('active');
-          jQuery('#lesson-screen').removeClass('hidden');
-        }
-        else {
+          jQuery('#contribution-nav-btn').addClass('active');
+          jQuery('#contribution-screen').removeClass('hidden');
+        } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
+          app.hideAllContainers();
+          jQuery('#knowledge-base-nav-btn').addClass('active');
+          jQuery('#knowledge-base-screen').removeClass('hidden');
+        } else {
           console.log('ERROR: unknown nav button');
         }
       }
@@ -232,24 +243,6 @@
         el: '#notes-write-screen',
         collection: Skeletor.Model.awake.notes
       });
-
-    }
-
-    if (app.relationshipsReadView === null) {
-      app.relationshipsReadView = new app.View.RelationshipsReadView({
-        el: '#relationships-read-screen',
-        collection: Skeletor.Model.awake.relationships
-      });
-
-      app.relationshipsReadView.render();
-    }
-
-    if (app.relationshipsWriteView === null) {
-      app.relationshipsWriteView = new app.View.RelationshipsWriteView({
-        el: '#relationships-write-screen',
-        collection: Skeletor.Model.awake.relationships
-      });
-
     }
 
     if (app.lessonWriteView === null) {
