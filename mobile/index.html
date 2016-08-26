@@ -133,29 +133,29 @@
 
 
     <!-- ********************************************************* -->
-    <!-- ********************** CONTRIBUTION ********************* -->
+    <!-- ********************** DEFINITION *********************** -->
     <!-- ********************************************************* -->
 
-    <div id="contribution-screen" class="container-fluid user-screen tiles">
+    <div id="definition-screen" class="container-fluid user-screen tiles">
         <div class="row">
             <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
                 <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
             </div>
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
-                <textarea id="contribution-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
-                <div id="contribution-body-container">
-                    <textarea id="contribution-body-input" class="input-field editable" name="body"></textarea>
+                <div id="definition-name-field"> <!-- FILLED BY VIEW --> </div>
+                <div id="definition-body-container">
+                    <textarea id="definition-body-input" class="input-field editable" name="body"></textarea>
                 </div>
 
-                <div id="contribution-media-container"></div>
+                <div id="definition-media-container"></div>
 
-                <div id="contribution-btn-container" class="editable">
+                <div id="definition-btn-container" class="editable">
                     <div class="photo-wrapper">
                        <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
                        <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
                        <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
                     </div>
-                    <button class="publish-contribution-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                    <button class="publish-definition-btn btn-circular fa fa-check fa-3x pull-right"></button>
                 </div>
             </div>
         </div>

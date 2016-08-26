@@ -34,10 +34,13 @@
   app.username = null;
   app.currentUser = null;
   app.lesson = null;
+  app.contributions = [];
 
   app.notesReadView = null;
   app.notesWriteView = null;
-  app.lessonWriteView = null;
+  app.definitionView = null;
+  app.relationshipView = null;
+  app.vettingView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { } ,10);
@@ -187,6 +190,7 @@
       if (app.username) {
         // check which lesson from data value
         app.lesson = jQuery(ev.target).data('lesson');
+        buildContributionArray();
         app.hideAllContainers();
         jQuery('#home-screen').removeClass('hidden');
         jQuery('#navivation-bar').removeClass('hidden');
@@ -207,7 +211,14 @@
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
-          jQuery('#contribution-screen').removeClass('hidden');
+          if (app.nextContribution().kind == "term") {
+            jQuery('#definition-screen').removeClass('hidden');
+            app.definitionView.render();
+          } else if (app.nextContribution().kind == "relationship") {
+            jQuery('#relationship-screen').removeClass('hidden');
+          } else if (app.nextContribution().kind == "vetting") {        // this will eventually change to accom multiple simultaneous users
+            jQuery('#vetting-screen').removeClass('hidden');
+          }
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
@@ -245,18 +256,56 @@
       });
     }
 
-    if (app.lessonWriteView === null) {
-      app.lessonWriteView = new app.View.LessonWriteView({
-        el: '#lesson-write-screen',
+    if (app.definitionView === null) {
+      app.definitionView = new app.View.DefinitionView({
+        el: '#definition-screen',
         collection: Skeletor.Model.awake.terms
       });
     }
 
+    // if (app.relationshipsView === null) {
+    //   app.relationshipsView = new app.View.RelationshipsView({
+    //     el: '#relationships-screen',
+    //     collection: Skeletor.Model.awake.relationships
+    //   });
+    // }
+
+    // if (app.vettingView === null) {
+    //   app.vettingView = new app.View.VettingView({
+    //     el: '#vetting-screen',
+    //     collection: Skeletor.Model.awake.terms
+    //   });
+    // }
 
   };
 
 
   //*************** HELPER FUNCTIONS ***************//
+
+  var buildContributionArray = function() {
+    // get all terms, push those with app.lesson and assigned_to === app.username
+    Skeletor.Model.awake.terms.each(function(term) {
+      if (term.get('lesson') === app.lesson && term.get('assigned_to') === app.username) {
+        var obj = {};
+        obj.kind = 'term';
+        obj.content = term;
+        app.contributions.push(obj);
+      }
+    });
+
+    // get all relationships with app.lesson and assigned_to === app.username
+
+    // THIS LAST PART WILL NEED TO BE BUILT ON THE FLY - EG CANT USE THIS STRUCTURE, SINCE PEOPLE WILL BE DOING THIS AT THE SAME TIME
+    // get all users to determine class size
+    // divide # of terms by # of users, rounding up
+    // push that number of terms with lowest review_count and assigned_to !== app.username
+
+
+  };
+
+  app.nextContribution = function() {
+    return _.first(app.contributions);
+  };
 
   app.photoOrVideo = function(url) {
     var type = null;

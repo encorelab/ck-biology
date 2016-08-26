@@ -12,12 +12,12 @@
   var MAX_FILE_SIZE = 20971520;     // 20 Mb
 
   /**
-    LessonWriteView
+    DefinitionView
   **/
-  app.View.LessonWriteView = Backbone.View.extend({
+  app.View.DefinitionView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing LessonWriteView...', view.el);
+      console.log('Initializing DefinitionView...', view.el);
     },
 
     events: {
@@ -94,7 +94,7 @@
         // one lightweight way of doing captions for this wallcology - but only do it once (eg if length is one)
         if (mediaArray.length === 1) {
           var noteBodyText = jQuery('#note-body-input').val();
-          jQuery('#note-body-input').val(noteBodyText + '\n\nLesson on pictures and videos: ');
+          jQuery('#note-body-input').val(noteBodyText + '\n\nSomething on pictures and videos: ');
         }
       }
 
@@ -120,9 +120,8 @@
       var view = this;
       var body = jQuery('#note-body-input').val();
 
-      if (title.length > 0 && body.length > 0) {
+      if (body.length > 0) {
         app.clearAutoSaveTimer();
-        view.model.set('title',title);
         view.model.set('body',body);
         view.model.set('published', true);
         view.model.set('modified_at', new Date());
@@ -171,31 +170,32 @@
 
     render: function () {
       var view = this;
-      console.log("Rendering LessonWriteView...");
+      console.log("Rendering DefinitionView...");
+
+      jQuery('#definition-name-field').text(app.nextContribution().content.get('name'));
 
       // FOR BRENDA - CAN BE REMOVED IN A COUPLE DAYS
       //var date = new Date(view.model.get('created_at'));
       //jQuery('#date-container').text(date.toLocaleString());
 
-      jQuery('#note-title-input').val(view.model.get('title'));
-      jQuery('#note-body-input').val(view.model.get('body'));
-      jQuery('#note-media-container').html('');
-      view.model.get('media').forEach(function(url) {
-        view.appendOneMedia(url);
-      });
+      // jQuery('#note-body-input').val(view.model.get('body'));
+      // jQuery('#note-media-container').html('');
+      // view.model.get('media').forEach(function(url) {
+      //   view.appendOneMedia(url);
+      // });
 
-      // check is this user is allowed to edit this note
-      if (view.model.get('author') === app.username) {
-        jQuery('#notes-write-screen .editable.input-field').removeClass('uneditable');
-        jQuery('#notes-write-screen .editable.input-field').prop("disabled", false);
-        jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", false);
-        jQuery('#notes-write-screen .editable').removeClass('disabled');
-      } else {
-        jQuery('#notes-write-screen .editable.input-field').addClass('uneditable');
-        jQuery('#notes-write-screen .editable.input-field').prop("disabled", true);
-        jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", true);
-        jQuery('#notes-write-screen .editable').addClass('disabled');
-      }
+      // // check is this user is allowed to edit this note
+      // if (view.model.get('author') === app.username) {
+      //   jQuery('#notes-write-screen .editable.input-field').removeClass('uneditable');
+      //   jQuery('#notes-write-screen .editable.input-field').prop("disabled", false);
+      //   jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", false);
+      //   jQuery('#notes-write-screen .editable').removeClass('disabled');
+      // } else {
+      //   jQuery('#notes-write-screen .editable.input-field').addClass('uneditable');
+      //   jQuery('#notes-write-screen .editable.input-field').prop("disabled", true);
+      //   jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", true);
+      //   jQuery('#notes-write-screen .editable').addClass('disabled');
+      // }
     }
   });
 
