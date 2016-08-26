@@ -221,23 +221,6 @@
         model: Skeletor.Model.Note
       });
 
-      this.Relationship = this.db.Document('relationships').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date(),
-          'media': [],
-          'published': false
-        }
-      });
-
-      this.Relationships = this.db.Collection('relationships').extend({
-        model: Skeletor.Model.Relationship
-      });
-
-      this.Terms = this.db.Collection('terms').extend({
-        model: Skeletor.Model.Term
-      });
-
       this.Term = this.db.Document('terms').extend({
         defaults: {
           'created_at': new Date(),
@@ -246,6 +229,23 @@
           'completed': false,
           'review_count': 0
         }
+      });
+
+      this.Terms = this.db.Collection('terms').extend({
+        model: Skeletor.Model.Term
+      });
+
+      this.Relationship = this.db.Document('relationships').extend({
+        defaults: {
+          'created_at': new Date(),
+          'modified_at': new Date(),
+          'complete': false,
+          'review_count': 0
+        }
+      });
+
+      this.Relationships = this.db.Collection('relationships').extend({
+        model: Skeletor.Model.Relationship
       });
     };
 

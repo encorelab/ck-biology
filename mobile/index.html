@@ -109,6 +109,7 @@
                    <span class="sr-only">Toggle navigation</span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
                </button>
                 <a class="navbar-brand brand" href="#">Loading...</a>
             </div>
@@ -116,7 +117,8 @@
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav top-navigation">
                     <li id="notes-nav-btn" class="goto-notes-btn top-nav-btn"><a href="#">Notes</a></li>
-                    <li id="relationships-nav-btn" class="goto-relationships-btn top-nav-btn"><a href="#">Food Web</a></li>
+                    <li id="relationships-nav-btn" class="goto-relationships-btn top-nav-btn"><a href="#">Food Web</a>
+                    <li id="lesson-nav-btn" class="goto-lesson-btn top-nav-btn"><a href="#">Lesson 1 - Chemistry of Life</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active username-display"><a></a></li>
@@ -137,6 +139,7 @@
                 <h2>What would you like to work on today?</h2>
                 <button class="goto-notes-btn todo-btn btn btn-base">NOTES</button>
                 <button class="goto-relationships-btn todo-btn btn btn-base">FOOD WEB</button>
+                <button class="goto-lesson-btn todo-btn btn btn-base">Lesson 1 - Chemistry of Life</button>
             </div>
         </div>
     </div>
@@ -186,25 +189,6 @@
                        <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
                     </div>
                     <button class="publish-note-btn btn-circular fa fa-check fa-3x pull-right"></button>
-                </div>
-            </div>
-        </div>
-
-        <!-- putting the modal in here since it's conceptually part of the view (collection, click listeners etc as well) -->
-        <div id="sentence-starter-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Select a sentence starter to use in your note</h4>
-                            </div>
-                            <div class="modal-body">
-                                <!-- filled in the view updateNoteType -->
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -309,6 +293,59 @@
             </div>
         </div>
     </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ************************* LESSON ************************ -->
+    <!-- ********************************************************* -->
+
+
+    <!-- Lesson Screen -->
+    <div id="lesson-screen" class="container-fluid user-screen tiles">
+        <div class="row">
+            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
+                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
+            </div>
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <textarea id="lesson-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
+                <div id="lesson-body-container">
+                    <textarea id="lesson-body-input" class="input-field editable" name="body"></textarea>
+                </div>
+
+                <div id="lesson-media-container"></div>
+
+                <div id="lesson-btn-container" class="editable">
+                    <div class="photo-wrapper">
+                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                    </div>
+                    <button class="publish-lesson-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
     <!-- Modals -->

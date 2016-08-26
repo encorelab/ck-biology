@@ -38,6 +38,7 @@
   app.notesWriteView = null;
   app.relationshipsReadView = null;
   app.relationshipsWriteView = null;
+  app.lessonWriteView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { } ,10);
@@ -192,10 +193,13 @@
           jQuery('#notes-nav-btn').addClass('active');
           jQuery('#notes-read-screen').removeClass('hidden');
         } else if (jQuery(this).hasClass('goto-relationships-btn')) {
-          // jQuery().toastmessage('showWarningToast', "Not yet, kids!");
           app.hideAllContainers();
           jQuery('#relationships-nav-btn').addClass('active');
           jQuery('#relationships-read-screen').removeClass('hidden');
+        } else if (jQuery(this).hasClass('goto-lesson-btn')) {
+          app.hideAllContainers();
+          jQuery('#lesson-nav-btn').addClass('active');
+          jQuery('#lesson-screen').removeClass('hidden');
         }
         else {
           console.log('ERROR: unknown nav button');
@@ -247,6 +251,15 @@
       });
 
     }
+
+    if (app.lessonWriteView === null) {
+      app.lessonWriteView = new app.View.LessonWriteView({
+        el: '#lesson-write-screen',
+        collection: Skeletor.Model.awake.terms
+      });
+    }
+
+
   };
 
 

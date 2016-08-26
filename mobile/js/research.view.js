@@ -901,5 +901,198 @@
   });
 
 
+
+
+
+
+  /**
+    LessonWriteView
+  **/
+  app.View.LessonWriteView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing LessonWriteView...', view.el);
+    },
+
+    events: {
+      'change #photo-file'                : 'uploadMedia',
+      'click .remove-btn'                 : 'removeOneMedia',
+      'click .publish-note-btn'           : 'publishNote',
+      'click .photo-container'            : 'openPhotoModal',
+      'keyup :input'                      : 'checkForAutoSave'
+    },
+
+    openPhotoModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      //the fileName isn't working for unknown reasons - so we can't add metadata to the photo file name, or make them more human readable. Also probably doesn't need the app.parseExtension(url)
+      //var fileName = view.model.get('author') + '_' + view.model.get('title').slice(0,8) + '.' + app.parseExtension(url);
+      jQuery('#photo-modal .photo-content').attr('src', url);
+      jQuery('#photo-modal .download-photo-btn a').attr('href',url);
+      //jQuery('#photo-modal .download-photo-btn a').attr('download',fileName);
+      jQuery('#photo-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    uploadMedia: function() {
+      var view = this;
+
+      var file = jQuery('#photo-file')[0].files.item(0);
+      var formData = new FormData();
+      formData.append('file', file);
+
+      if (file.size < MAX_FILE_SIZE) {
+        jQuery('#photo-upload-spinner').removeClass('hidden');
+        jQuery('.upload-icon').addClass('invisible');
+        jQuery('.publish-note-btn').addClass('disabled');
+
+        jQuery.ajax({
+          url: app.config.pikachu.url,
+          type: 'POST',
+          success: success,
+          error: failure,
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      } else {
+        jQuery().toastmessage('showErrorToast', "Max file size of 20MB exceeded");
+        jQuery('.upload-icon').val('');
+      }
+
+      function failure(err) {
+        jQuery('#photo-upload-spinner').addClass('hidden');
+        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('.publish-note-btn').removeClass('disabled');
+        jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
+      }
+
+      function success(data, status, xhr) {
+        jQuery('#photo-upload-spinner').addClass('hidden');
+        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('.publish-note-btn').removeClass('disabled');
+        console.log("UPLOAD SUCCEEDED!");
+        console.log(xhr.getAllResponseHeaders());
+
+        // clear out the label value if they for some reason want to upload the same thing...
+        jQuery('.upload-icon').val('');
+
+        // update the model
+        var mediaArray = view.model.get('media');
+        mediaArray.push(data.url);
+        view.model.set('media', mediaArray);
+        view.model.save();
+        // update the view (TODO: bind this to an add event, eg do it right)
+        view.appendOneMedia(data.url);
+
+        // one lightweight way of doing captions for this wallcology - but only do it once (eg if length is one)
+        if (mediaArray.length === 1) {
+          var noteBodyText = jQuery('#note-body-input').val();
+          jQuery('#note-body-input').val(noteBodyText + '\n\nLesson on pictures and videos: ');
+        }
+      }
+
+    },
+
+    checkForAutoSave: function(ev) {
+      var view = this,
+          field = ev.target.name,
+          input = ev.target.value;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
+
+      // save after 10 keystrokes - now 20
+      app.autoSave(view.model, field, input, false);
+
+      // setting up a timer so that if we stop typing we save stuff after 5 seconds
+      app.autoSaveTimer = setTimeout(function(){
+        app.autoSave(view.model, field, input, true);
+      }, 5000);
+    },
+
+    publishNote: function() {
+      var view = this;
+      var body = jQuery('#note-body-input').val();
+
+      if (title.length > 0 && body.length > 0) {
+        app.clearAutoSaveTimer();
+        view.model.set('title',title);
+        view.model.set('body',body);
+        view.model.set('published', true);
+        view.model.set('modified_at', new Date());
+
+        view.model.save();
+        jQuery().toastmessage('showSuccessToast', "Published to the note wall!");
+
+        view.switchToReadView();
+      } else {
+        jQuery().toastmessage('showErrorToast', "You must complete both fields and select a note type to submit your note...");
+      }
+    },
+
+    // TODO: this can be done more cleanly/backbonely with views for the media containers
+    appendOneMedia: function(url) {
+      var el;
+
+      if (app.photoOrVideo(url) === "photo") {
+        el = '<span class="media-container" data-url="'+url+'"><img src="'+app.config.pikachu.url+url+'" class="media photo-container img-responsive"></img><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+      } else if (app.photoOrVideo(url) === "video") {
+        el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+      } else {
+        el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
+        throw "Error trying to append media - unknown media type!";
+      }
+      jQuery('#note-media-container').append(el);
+    },
+
+    removeOneMedia: function(ev) {
+      var view = this;
+      var targetUrl = jQuery(ev.target).data('url');
+      var mediaArray = view.model.get('media');
+      var newMediaArray = [];
+      _.each(mediaArray, function(url, i) {
+        if (mediaArray[i] !== targetUrl) {
+          newMediaArray.push(mediaArray[i]);
+        }
+      });
+      view.model.set('media', newMediaArray);
+      view.model.save();
+
+      jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
+      // clearing this out so the change event for this can be used (eg if they upload the same thing)
+      jQuery('.upload-icon').val('');
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering LessonWriteView...");
+
+      // FOR BRENDA - CAN BE REMOVED IN A COUPLE DAYS
+      //var date = new Date(view.model.get('created_at'));
+      //jQuery('#date-container').text(date.toLocaleString());
+
+      jQuery('#note-title-input').val(view.model.get('title'));
+      jQuery('#note-body-input').val(view.model.get('body'));
+      jQuery('#note-media-container').html('');
+      view.model.get('media').forEach(function(url) {
+        view.appendOneMedia(url);
+      });
+
+      // check is this user is allowed to edit this note
+      if (view.model.get('author') === app.username) {
+        jQuery('#notes-write-screen .editable.input-field').removeClass('uneditable');
+        jQuery('#notes-write-screen .editable.input-field').prop("disabled", false);
+        jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", false);
+        jQuery('#notes-write-screen .editable').removeClass('disabled');
+      } else {
+        jQuery('#notes-write-screen .editable.input-field').addClass('uneditable');
+        jQuery('#notes-write-screen .editable.input-field').prop("disabled", true);
+        jQuery(jQuery('#notes-write-screen .selector-container .editable').children()).prop("disabled", true);
+        jQuery('#notes-write-screen .editable').addClass('disabled');
+      }
+    }
+  });
+
+
   this.Skeletor = Skeletor;
 }).call(this);
