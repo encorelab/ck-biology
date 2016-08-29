@@ -278,6 +278,7 @@
   var buildContributionArray = function() {
     // get all terms, push those with app.lesson and assigned_to === app.username
     Skeletor.Model.awake.terms.each(function(term) {
+      // add !term.get('complete')
       if (term.get('lesson') === app.lesson && term.get('assigned_to') === app.username) {
         var obj = {};
         obj.kind = 'term';
@@ -299,21 +300,32 @@
   app.determineNextStep = function() {
     console.log('Determining next step...');
 
-    var task = app.nextContribution();
+    var taskType = null;
+    if (app.nextContribution()) {
+      taskType = app.nextContribution().kind;
+    }
 
-    if (task.kind == "term") {
+    if (taskType == "term") {
       jQuery('#definition-screen').removeClass('hidden');
       updateDefinitionView();
-    } else if (task.kind == "relationship") {
+    } else if (taskType == "relationship") {
       jQuery('#relationship-screen').removeClass('hidden');
-    } else if (task.kind == "vetting") {        // this will eventually change to accom multiple simultaneous users
+    } else if (taskType == "vetting") {        // this will eventually change to accom multiple simultaneous users
       jQuery('#vetting-screen').removeClass('hidden');
+    } else {
+      app.hideAllContainers();
+      jQuery('#home-nav-btn').addClass('active');
+      jQuery('#home-screen').removeClass('hidden');
     }
   }
 
   app.nextContribution = function() {
     return _.first(app.contributions);
   };
+
+  app.markAsComplete = function() {
+    app.contributions.shift();
+  }
 
   var updateDefinitionView = function() {
     var definition = app.nextContribution().content;

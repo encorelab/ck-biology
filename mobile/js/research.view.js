@@ -154,6 +154,7 @@
         view.model.set('modified_at', new Date());
         view.model.save();
 
+        app.markAsComplete();
         app.determineNextStep();
       } else {
         jQuery().toastmessage('showErrorToast', "You must complete the explanation before continuing...");
