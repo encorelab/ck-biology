@@ -325,6 +325,8 @@
 
   app.markAsComplete = function() {
     app.contributions.shift();
+    // bit of a hack, required to do the fact that the save() is async and the new model will be updated by wakeful to include the old media contributions
+    app.contributions[0].content.set('media', []);
   }
 
   var updateDefinitionView = function() {

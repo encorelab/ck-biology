@@ -49,7 +49,7 @@
       if (file.size < MAX_FILE_SIZE) {
         jQuery('#photo-upload-spinner').removeClass('hidden');
         jQuery('.upload-icon').addClass('invisible');
-        jQuery('.publish-note-btn').addClass('disabled');
+        jQuery('.publish-definition-btn').addClass('disabled');
 
         jQuery.ajax({
           url: app.config.pikachu.url,
@@ -149,10 +149,13 @@
 
       if (explanation.length > 0) {
         app.clearAutoSaveTimer();
-        view.model.set('explanation',explanation);
+        view.model.set('explanation', explanation);
         view.model.set('complete', true);
         view.model.set('modified_at', new Date());
         view.model.save();
+
+        // jQuery('#definition-explanation-input').val('');
+        // jQuery('#definition-media-container').html('');
 
         app.markAsComplete();
         app.determineNextStep();
