@@ -256,12 +256,12 @@
       });
     }
 
-    // if (app.relationshipsView === null) {
-    //   app.relationshipsView = new app.View.RelationshipsView({
-    //     el: '#relationships-screen',
-    //     collection: Skeletor.Model.awake.relationships
-    //   });
-    // }
+    if (app.relationshipView === null) {
+      app.relationshipView = new app.View.RelationshipView({
+        el: '#relationship-screen',
+        collection: Skeletor.Model.awake.relationships
+      });
+    }
 
     // if (app.vettingView === null) {
     //   app.vettingView = new app.View.VettingView({
@@ -276,15 +276,14 @@
   //*************** HELPER FUNCTIONS ***************//
 
   var buildContributionArray = function() {
-    var sortedCollection = Skeletor.Model.awake.terms.clone();
-    sortedCollection.comparator = function(model) {
+    var sortedTerms = Skeletor.Model.awake.terms.clone();
+    sortedTerms.comparator = function(model) {
       return model.get('name');
     };
-    sortedCollection.sort();
+    sortedTerms.sort();
 
     // get all terms, push those with app.lesson and assigned_to === app.username
-    sortedCollection.each(function(term) {
-      // add !term.get('complete')
+    sortedTerms.each(function(term) {
       if (term.get('lesson') === app.lesson && term.get('assigned_to') === app.username && !term.get('complete')) {
         var obj = {};
         obj.kind = 'term';
@@ -293,14 +292,27 @@
       }
     });
 
+    var sortedRelationships = Skeletor.Model.awake.relationships.clone();
+    sortedRelationships.comparator = function(model) {
+      return model.get('from');
+    };
+    sortedRelationships.sort();
+
     // get all relationships with app.lesson and assigned_to === app.username
+    sortedRelationships.each(function(relationship) {
+      if (relationship.get('lesson') === app.lesson && relationship.get('assigned_to') === app.username && !relationship.get('complete')) {
+        var obj = {};
+        obj.kind = 'relationship';
+        obj.content = relationship;
+        app.contributions.push(obj);
+      }
+    });
+
 
     // THIS LAST PART WILL NEED TO BE BUILT ON THE FLY - EG CANT USE THIS STRUCTURE, SINCE PEOPLE WILL BE DOING THIS AT THE SAME TIME
     // get all users to determine class size
     // divide # of terms by # of users, rounding up
     // push that number of terms with lowest review_count and assigned_to !== app.username
-
-
   };
 
   app.determineNextStep = function() {
@@ -312,10 +324,13 @@
     }
 
     if (taskType == "term") {
+      app.hideAllContainers();
       jQuery('#definition-screen').removeClass('hidden');
       updateDefinitionView();
     } else if (taskType == "relationship") {
+      app.hideAllContainers();
       jQuery('#relationship-screen').removeClass('hidden');
+      updateRelationshipView();
     } else if (taskType == "vetting") {        // this will eventually change to accom multiple simultaneous users
       jQuery('#vetting-screen').removeClass('hidden');
     } else {
@@ -346,6 +361,13 @@
     app.definitionView.model = definition;
     app.definitionView.model.wake(app.config.wakeful.url);
     app.definitionView.render();
+  };
+
+  var updateRelationshipView = function() {
+    var relationship = app.nextContribution().content;
+    app.relationshipView.model = relationship;
+    app.relationshipView.model.wake(app.config.wakeful.url);
+    app.relationshipView.render();
   };
 
 

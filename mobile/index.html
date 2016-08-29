@@ -99,11 +99,6 @@
         </div>
     </nav>
 
-    <div id="lock-screen" class="hidden">
-        <img src="img/lock-icon-white.png" id="lock-img"/>
-    </div>
-
-
     <!-- ToDo Screen -->
     <div id="todo-screen" class="container-fluid user-screen">
         <div class="row">
@@ -121,7 +116,7 @@
     <!-- ************************** HOME ************************* -->
     <!-- ********************************************************* -->
 
-    <div id="home-screen" class="container-fluid user-screen tiles">
+    <div id="home-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
                 <button class="goto-contribution-btn home-screen-btn btn btn-base" data-lesson="1">My Contribution</button>
@@ -136,7 +131,7 @@
     <!-- ********************** DEFINITION *********************** -->
     <!-- ********************************************************* -->
 
-    <div id="definition-screen" class="container-fluid user-screen tiles">
+    <div id="definition-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
                 <h2>Explain the following term/concept and provide example(s) where possible</h2>
@@ -180,7 +175,32 @@
 
 
 
+    <!-- ********************************************************* -->
+    <!-- ********************* RELATIONSHIP ********************** -->
+    <!-- ********************************************************* -->
 
+    <div id="relationship-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <div id="relationship-container" class="editable">
+                    <div id="relationship-from-container" class="relationship-name-container"></div>
+                    <div id="relationship-link-container">
+                        <select>
+                            <option value="is a type of">is a type of</option>
+                            <option value="is composed of">is composed of</option>
+                            <option value="is produced by">is produced by</option>
+                            <option value="is used in">is used in</option>
+                        </select>
+                    </div>
+                    <div id="relationship-to-container" class="relationship-name-container"></div>
+                </div>
+
+                <div id="relationship-btn-container" class="editable">
+                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -242,87 +262,6 @@
         </div>
 
         <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
-                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <img class="photo-content" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- ********************************************************* -->
-    <!-- ********************* RELATIONSHIPS ********************* -->
-    <!-- ********************************************************* -->
-
-
-
-    <!-- Relationships Read Screen -->
-    <div id="relationships-read-screen" class="container-fluid user-screen tiles">
-        <div class="row">
-            <div class="side-nav col-xs-1 col-xs-offset-0 col-sm-2 col-sm-offset-1">
-                <button class="nav-write-btn fa fa-pencil fa-3x btn-circular"></button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
-                <div id="relationships-aggregate">
-
-                </div>
-                <ul class="row relationships-list">
-                    <!-- gets filled by the readView -->
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Relationships Write Screen -->
-    <div id="relationships-write-screen" class="container-fluid user-screen tiles">
-        <div class="row">
-            <div class="side-nav col-xs-1 col-xs-offset-0  col-sm-2 col-sm-offset-1">
-                <button class="nav-read-btn fa fa-arrow-left fa-3x btn-circular"></button>
-            </div>
-            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
-                <div id="exchange-container" class="editable">
-                    <div id="from-species-container" class="exchange-species-container" data-species-index=""></div>
-                    <div id="exchange-habitat-container">
-                        <div id="exchange-habitat">In Habitat ?</div>
-                        <div class="exchange-arrow"></div>
-                        <div>provides energy for</div>
-                    </div>
-                    <div id="to-species-container" class="exchange-species-container" data-species-index=""></div>
-                </div>
-                <textarea id="relationship-title-input" class="input-field editable" name="title" placeholder="Headline"></textarea>
-                <div id="relationship-body-container">
-                    <textarea id="relationship-body-input" class="input-field editable" name="body" placeholder="I know this because..."></textarea>
-                </div>
-
-                <div id="relationship-media-container"></div>
-
-                <div id="relationship-btn-container" class="editable">
-                    <div class="photo-wrapper">
-                       <label for="relationship-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                       <input id="relationship-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" />
-                       <i id="relationship-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
-                    </div>
-                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right"></button>
-                </div>
-            </div>
-        </div>
-
-        <div id="relationship-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
             <div class="table">
                 <div class="table-cell">
                     <div class="modal-dialog">
