@@ -4,6 +4,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -12,6 +13,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -20,6 +22,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -28,6 +31,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -36,6 +40,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -44,6 +49,7 @@
         "lesson": 1,
         "assigned_to": "colin",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -52,6 +58,7 @@
         "lesson": 1,
         "assigned_to": "meagan",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -60,6 +67,7 @@
         "lesson": 1,
         "assigned_to": "meagan",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -68,6 +76,7 @@
         "lesson": 1,
         "assigned_to": "meagan",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -76,6 +85,7 @@
         "lesson": 1,
         "assigned_to": "meagan",
         "media": [],
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     }
