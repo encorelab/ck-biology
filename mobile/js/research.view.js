@@ -90,12 +90,6 @@
         view.model.save();
         // update the view (TODO: bind this to an add event, eg do it right)
         view.appendOneMedia(data.url);
-
-        // one lightweight way of doing captions for this wallcology - but only do it once (eg if length is one)
-        // if (mediaArray.length === 1) {
-        //   var noteBodyText = jQuery('#note-body-input').val();
-        //   jQuery('#note-body-input').val(noteBodyText + '\n\nSomething on pictures and videos: ');
-        // }
       }
 
     },

@@ -46,7 +46,7 @@ textarea {
 }
 
 
-/********** WALLCOLOGY **********/
+/********** BIOLOGY **********/
 
 .side-nav .btn-circular {
     margin-left: -25px;
@@ -130,42 +130,12 @@ textarea {
 
 /*****************************************************/
 /*****************************************************/
-/******************* TILES SCREENS *******************/
-/*****************************************************/
-/*****************************************************/
-
-
-.tiles h2 {
-    color: #006699;
-}
-.tiles textarea,
-.tiles button,
-.tiles .btn {
-    border: 1px solid #237599;
-}
-.tiles .btn-circular,
-#todo-screen .todo-btn {
-    background: #006699;
-    border: 2px solid #006699;
-}
-.tiles .btn-circular:hover,
-#todo-screen .todo-btn:hover {
-    background: #79ADC2;
-}
-.selector-container {
-    height: 70px;
-}
-
-
-
-/*****************************************************/
-/*****************************************************/
 /******************** READ SCREENS *******************/
 /*****************************************************/
 /*****************************************************/
 
 
-#notes-read-screen .inner-wrapper, #relationships-read-screen .inner-wrapper, #investigations-read-screen .inner-wrapper {
+#notes-screen .inner-wrapper, #relationships-read-screen .inner-wrapper {
     height: 85%;
     overflow-y: scroll;
 }
@@ -174,7 +144,7 @@ textarea {
 }
 
 /*to create the square notes http://stackoverflow.com/questions/20456694/grid-of-responsive-squares*/
-.note-container, .relationship-container, .investigation-container {
+.relation-container, .relationship-container {
     outline-offset: -10px;
 /*    -moz-outline-radius: 10px; if we want rounded corners uncomment
     -webkit-outline-radius: 10px;*/
@@ -184,20 +154,20 @@ textarea {
     overflow: hidden;
     min-height: 192px;
 }
-.notes-list > li, .relationships-list > li, .investigations-list > li {
+.notes-list > li, .relationships-list > li {
     outline: 2px solid #006699;
     background: #fff;
 }
-.notes-list .myNote, .relationships-list .myRelationship, .investigations-list .myInvestigation {
+.notes-list .myNote, .relationships-list .myRelationship {
     outline: 2px dashed #006699;            /* overwrites standard border */
 }
 .notes-list .classNote, .relationships-list .classNote {
     outline: 2px solid #DB67E6;
 }
-.notes-list > li:last-child, .relationships-list > li:last-child, .investigations-list > li:last-child {
+.notes-list > li:last-child, .relationships-list > li:last-child {
     margin-bottom: 45px;
 }
-.note, .relationship, .investigation {
+.note, .relationship {
     position: absolute;
     height: 86%; /* = 100% - 2*5% padding */
     width: 90%; /* = 100% - 2*5% padding */
@@ -205,10 +175,10 @@ textarea {
     margin-top: 5%;
     overflow: hidden;
 }
-.note img, .note video, .relationship img, .relationship video, .investigation img, .investigation video {
+.note img, .note video, .relationship img, .relationship video {
     width: 100%;
 }
-.note-title, .relationship-title, .investigation-title {
+.note-title, .relationship-title {
     height: 22%;
     max-height: 52px;
     margin: 0;
@@ -216,7 +186,7 @@ textarea {
     overflow: hidden;
     font-weight: 600;
 }
-.note-body, .relationship-body, .investigation-body {
+.note-body, .relationship-body {
     height: 66%;
     margin-top: 5px;
     overflow: hidden;
@@ -224,18 +194,15 @@ textarea {
     font-weight: 300;
 }
 /* TODO: this need work - see img-responsive */
-.note-url, .relationship-url, .investigation-url {
+.note-url, .relationship-url {
     height: 66%;
     margin-top: 5px;
     overflow-y: hidden;
 }
-.note-url img, .relationship-url img, .investigation-url img {
+.note-url img, .relationship-url img {
     width: 100%;
-    /*    width: 66%;              parent is 66% height, so this allows a square... good?   then 17% is half of the remaining 34%
-        height: 100%;
-        margin-left: 17%;*/
 }
-.note-author, .relationship-author, .investigation-author {
+.note-author, .relationship-author {
     float: right;
     margin-top: 12px;
     margin-right: 3%;
@@ -257,24 +224,24 @@ textarea {
     padding-right: 4px;
 }
 
-#notes-write-screen .inner-wrapper, #relationships-write-screen .inner-wrapper {
+#definition-screen .inner-wrapper, #relationships-write-screen .inner-wrapper {
     height: 85%;
     overflow-y: scroll;
     margin-top: 5px;
 }
 
-#note-title-input, #relationship-title-input, #investigation-title-input {
+#definition-title-input, #relationship-title-input {
     height: 45px;
     padding-top: 10px !important;
     margin-bottom: 10px;
 }
 
-#note-body-container, #relationship-body-container, #investigation-plan-body-container, #investigation-predict-body-container, #investigation-results-body-container {
+#definition-body-container, #relationship-body-container {
     position: relative;
     height: 160px;
 }
 
-#note-body-input, #investigation-plan-body-input, #investigation-predict-body-input, #investigation-results-body-input {
+#definition-body-input {
     padding-top: 15px !important;
     min-height: 320px;
     padding-right: 60px;
@@ -301,16 +268,7 @@ textarea {
 .fa-lightbulb-o:hover {
     color: #79ADC2;
 }
-.sentence-starter {
-    background: #79ADC2;
-    width: 100%;
-    text-align: left;
-    border-radius: 0;
-}
-.sentence-starter:hover{
-    background: #fff;
-}
-#notes-write-screen button.close, #relationships-write-screen button.close, #investigations-write-screen button.close {
+#definition-screen button.close, #relationships-write-screen button.close {
     border: none;
 }
 
@@ -319,21 +277,21 @@ textarea {
     margin-left: 5px;
 }
 
-#note-media-container, #relationship-media-container, #investigation-plan-media-container, #investigation-predict-media-container, #investigation-results-media-container {
+#definition-media-container, #relationship-media-container {
     margin-top: 5px;
 }
-#notes-write-screen .media-container, #relationships-write-screen .media-container, #investigations-write-screen .media-container {
+#definition-screen .media-container, #relationships-write-screen .media-container {
     position: relative;
     display: inline-block;
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
     margin: 5px 2.5px 0px 2.5px;
 }
-#notes-write-screen .media, #relationships-write-screen .media, #investigations-write-screen .media {
+#definition-screen .media, #relationships-write-screen .media {
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
 }
-#notes-write-screen .remove-btn, #relationships-write-screen .remove-btn, #investigations-write-screen .remove-btn {
+#definition-screen .remove-btn, #relationships-write-screen .remove-btn {
     position: absolute;
     top: 2%;
     right: 5%;
@@ -341,7 +299,7 @@ textarea {
     z-index: 999;
 }
 
-#note-btn-container, #relationship-btn-container, #investigation-plan-btn-container, #investigation-predict-btn-container, #investigation-results-btn-container {
+#definition-btn-container, #relationship-btn-container {
     position: relative;
     margin-top: 20px;
     width: 70%;
@@ -349,7 +307,7 @@ textarea {
 .camera-icon-label {
     width: 60px;
 }
-#note-btn-container .fa-spinner, #relationship-btn-container .fa-spinner, #investigation-plan-btn-container .fa-spinner, #investigation-predict-btn-container .fa-spinner, #investigation-results-btn-container .fa-spinner {
+#definition-btn-container .fa-spinner, #relationship-btn-container .fa-spinner {
     font-size: 6em;
     position: absolute;
     z-index: 999;
@@ -359,10 +317,10 @@ textarea {
 }
 
 /* TODO: THIS NEEDS A LOT OF WORK ACROSS VARIOUS DEVICES */
-#photo-modal .photo-content, #relationship-photo-modal .photo-content, #investigation-photo-modal .photo-content {
+#photo-modal .photo-content, #relationship-photo-modal .photo-content {
     max-width: 100%;
 }
-#photo-modal .download-photo-btn, #relationship-photo-modal .download-photo-btn, #investigation-photo-modal .download-photo-btn {
+#photo-modal .download-photo-btn, #relationship-photo-modal .download-photo-btn {
     background: white;
     border-radius: 4px;
 }
@@ -372,16 +330,16 @@ textarea {
 
 /********** NOTES SCREENS **********/
 
-.note-type-selector-container {
+.definition-type-selector-container {
     width: 190px;
     height: 35px;
     margin-top: 7px;
     color: white;
 }
-.note-type-selector-container select {
+.definition-type-selector-container select {
     background-color: #006699;
 }
-.note-type-selector-container select:hover {
+.definition-type-selector-container select:hover {
     background-color: #79ADC2;
 }
 
@@ -405,299 +363,6 @@ textarea {
     height: 80px;
 }
 
-#exchange-container {
-    height: 160px;
-    width: 50%;
-    border: 2px solid #006699;
-    margin: 0px auto 10px auto;
-    position: relative;
-}
-
-/* TODO - adjust almost all of these numbers, they're completely unresponsive */
-.exchange-species-container {
-    height: 80px;
-    width: 80px;
-    border: 2px solid #006699;
-    border-radius: 15px;
-    position: absolute;
-    top: 23%;
-    text-align: center;
-}
-
-.exchange-species-container img {
-    height: 60px;
-    margin-top: 7px;
-}
-
-#from-species-container {
-    left: 12%;
-}
-
-#to-species-container {
-    right: 12%;
-}
-
-#exchange-habitat-container {
-    position: absolute;
-    left: 37%;
-    top: 30%;
-    text-align: center;
-}
-
-/********** POPULATIONS SCREEN **********/
-
-#populations-screen {
-    height: 100%;
-}
-
-#populations-screen .row {
-    height: 100%
-}
-
-#population-history-container {
-    height: calc(100% - 70px);
-    margin-top: 60px;
-    width: 100%;
-}
-
-
-/********** HABITATS SCREEN **********/
-
-#habitats-screen .row {
-    margin-top: 60px;
-}
-
-#habitats-screen .habitat-thumbnail {
-    height: 200px;
-    width: 320px;
-}
-
-.class-info {
-    display: block;
-    width: 90%;
-    height: 100px;
-    margin: 20px auto;
-}
-
-#habitats-list {
-    display: block;
-    width: 90%;
-    margin: 0px auto;
-}
-
-.habitats-list-item {
-    display: inline-block;
-    width: 45%;
-    height: 280px;
-    margin: 0 15px;
-    padding-left: 7%;
-    padding-right: 7%;
-}
-
-.student-button {
-    z-index: 10;
-    min-width: 60px !important;
-    float: left;
-    display: inline;
-    font-size: 13px;
-    height: 34px;
-    margin: 5px;
-}
-
-.habitat-group {
-    float:left;
-    display: inline-block;
-    margin-top: 8px;
-}
-
-.habitat-thumbnail {
-    display: inline-block;
-    float: right;
-    width: 324px !important;
-    height: 220px !important;
-}
-
-.students-names {
-    display: inline-block;
-    width: 320px;
-    position: absolute;
-}
-
-.class-info .students-names {
-    width: 90% !important;
-}
-
-.habitat-group .students-names {
-    opacity: 0.7;
-}
-
-.habitat-name {
-    margin-left: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    color: #044da5;
-}
-@media screen and (max-width: 900px) {
-    .class-info {
-        margin: 80px 50px;
-    }
-}
-
-
-/********** INVESTIGATIONS SCREENS **********/
-
-#investigations-read-screen .row, #investigations-write-screen .row {
-    margin-top: 30px;
-}
-
-.investigation-header-container {
-    width: 100%;
-    height: 50px;
-    background-color: #ededed;
-    padding: 12px 22px;
-    font-size: 20px;
-    color: #666;
-}
-
-.investigation-habitat-name-container {
-    font-weight: bold;
-    color: #116b8f;
-}
-
-#investigation-nav {
-    float: right;
-    font-size: 14px;
-    margin-top: 4px;
-}
-#investigation-nav li{
-    display: inline;
-    color: #000;
-    margin-left: 30px;
-}
-
-.investigation-phase {
-    cursor: pointer;
-}
-
-#investigations-write-screen .inner-wrapper {
-    height: 85%;
-    overflow-y: scroll;
-    margin-top: 60px !important;
-    width: 70%;
-    margin-left: 15%;
-    margin-right: 15%;
-}
-
-#investigations-write-screen .row .forward-nav {
-    margin-top: 50px;
-}
-
-.investigation-species-selector {
-    text-align: center;
-    margin: 70px 20px;
-}
-.investigation-species-selector p{
-    margin-bottom: 20px;
-}
-
-.species-selector-img {
-    height: 60px;
-    width: 60px;
-}
-
-.species-chart {
-    left: 0 !important;
-    position: relative;
-    text-align: center;
-    width: 100%;
-}
-
-.species-chart .table {
-    width: 70%;
-    margin: auto;
-}
-
-.header-row .species-chart-cell {
-    font-size: 16px !important;
-    font-weight: bold;
-}
-.species-chart-cell {
-    vertical-align: middle !important;
-    font-size: 14px !important;
-}
-.inner-wrapper .investigation-header{
-    text-align: center;
-}
-
-.investigation-header{
-    margin-bottom: 15px;
-}
-.plan-column, .predict-column, .results-column {
-    min-width: 180px;
-}
-.investigation-present {
-    width: 95% !important;
-    margin: 3% !important;
-}
-
-#investigation-present-title{
-    background-color: #eef5f7;
-    color: #116b8f;
-    height: 60px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 30px;
-    text-align: center;
-}
-
-#investigation-present-species-container table{
-    width: 65% !important;
-    float: left;
-    margin-right: 25px;
-}
-#investigation-present-top-container{
-    min-height: 370px;
-}
-#investigation-present-body-container{
-    font-size: 16px;
-    line-height: 26px;
-    max-width: 30% !important;
-    max-height: 350px !important;
-    display: inline-block;
-    overflow: scroll;
-}
-#investigation-present-bottom-container{
-    clear:both;
-    background-color: #f6f6f6;
-    padding: 15px;
-    min-height: 170px;
-}
-#investigation-present-media-container{
-    padding-left: 110px;
-}
-#investigation-present-media-container .media-container{
-    width: 160px !important;
-    height: 120px !important;
-}
-#investigation-present-button-container{
-    float: right;
-}
-.investigation-present-nav button{
-    width: 150px;
-    height: 25px;
-    margin-bottom: 5px;
-    font-size: 15px;
-    border-radius: 30px;
-    border: none;
-    background-color: #d2e0ae;
-}
-#investigation-present-species-container td{
-    font-size: 18px !important;
-}
-.my-group{
-    top: 630px !important;
-}
 
 /********** GLOBAL **********/
 
@@ -761,19 +426,6 @@ ul {
     border-radius: 4px;
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-#lock-screen {
-    height: 100%;
-    width: 100%;
-    background: black;
-}
-
-#lock-img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
 }
 
 /********** MODALS **********/
@@ -848,17 +500,6 @@ input:disabled {
 /*Small devices PORTRAIT (tablets, more than 768px tall)*/
 @media all and (min-height: 768px) and (orientation: portrait) {
 
-/*    .notes-partner-holder button {
-        margin-right: 15px;
-        min-width: 140px;
-    }
-    .notes-partner-holder button:nth-child(5n) {
-        margin-right: 15px;
-    }
-    .notes-partner-holder button:nth-child(4n) {
-        margin-right: 0;
-    }*/
-
     .username-display a {
         max-width: 300px;
         text-overflow: ellipsis;
@@ -877,17 +518,17 @@ input:disabled {
         margin-left: -20px;
     }
 
-    .note, .relationship, .investigation {
+    .definition, .relationship {
         padding: 5% 7% 0 1%;
         height: 87%;
     }
-    .note-title, .relationship-title, .investigation-title {
+    .definition-title, .relationship-title {
         height: 18%;
     }
-    .note-body, .relationship-body, .investigation-body {
+    .definition-body, .relationship-body {
         height: 57%;                /* TODO: this is guesswork, check me on the ipad */;
     }
-    .note-url, .relationship-url, .investigation-url {
+    .definition-url, .relationship-url {
         height: 57%;
     }
     .fa-file-image-o,
@@ -901,44 +542,15 @@ input:disabled {
     .self-photo-query {
         margin-left: 8%;
     }
-    .investigation-header-container {
-        font-size:14px;
-        padding-top: 15px;
-    }
-    .investigation-header {
-        text-align: center;
-    }
-    #investigations-write-screen .inner-wrapper {
-        height: 80% !important;
-    }
-    #investigations-write-screen .row .forward-nav {
-        margin-top: 190px;
-    }
-    .investigation-species-selector {
-        margin: 70px 40px;
-    }
-    .plan-column, .predict-column, .results-column {
-        min-width: 140px;
-        font-size: 16px !important;
-    }
-    #investigation-nav {
-        font-size: 12px;
-        margin-top: 2px;
-    }
 }
 
 /* Large devices (LARGE DESKTOPS, 1200px and up) */
 @media all and (min-width: 1200px) {
-
-/*    .notes-partner-holder button {
-        min-width: 170px;
-    }*/
-
     .side-nav {
         padding: 0 200px 0 0;
     }
 
-    .note-container, .relationship-container, .investigation-container {
+    .definition-container, .relationship-container {
         padding-bottom: 25%; /* = width for a 1:1 aspect ratio */
     }
     .fa-file-image-o,
@@ -946,10 +558,10 @@ input:disabled {
         font-size: 9em;
         margin-left: 21%;
     }
-    .note h3, .relationship h3, .investigation h3 {
+    .definition h3, .relationship h3 {
         font-size: 20px;
     }
-    .note .title-body, .relationship .title-body, .investigation .title-body {
+    .definition .title-body, .relationship .title-body {
         font-size: 16px;
         line-height: 1.2;
     }
