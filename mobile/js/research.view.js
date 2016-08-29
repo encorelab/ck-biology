@@ -154,9 +154,6 @@
         view.model.set('modified_at', new Date());
         view.model.save();
 
-        // jQuery('#definition-explanation-input').val('');
-        // jQuery('#definition-media-container').html('');
-
         app.markAsComplete();
         app.determineNextStep();
       } else {

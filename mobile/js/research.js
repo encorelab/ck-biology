@@ -276,10 +276,16 @@
   //*************** HELPER FUNCTIONS ***************//
 
   var buildContributionArray = function() {
+    var sortedCollection = Skeletor.Model.awake.terms.clone();
+    sortedCollection.comparator = function(model) {
+      return model.get('name');
+    };
+    sortedCollection.sort();
+
     // get all terms, push those with app.lesson and assigned_to === app.username
-    Skeletor.Model.awake.terms.each(function(term) {
+    sortedCollection.each(function(term) {
       // add !term.get('complete')
-      if (term.get('lesson') === app.lesson && term.get('assigned_to') === app.username) {
+      if (term.get('lesson') === app.lesson && term.get('assigned_to') === app.username && !term.get('complete')) {
         var obj = {};
         obj.kind = 'term';
         obj.content = term;
@@ -326,7 +332,13 @@
   app.markAsComplete = function() {
     app.contributions.shift();
     // bit of a hack, required to do the fact that the save() is async and the new model will be updated by wakeful to include the old media contributions
-    app.contributions[0].content.set('media', []);
+    if (app.contributions[0]) {
+      if (app.contributions[0].kind === "term") {
+        app.contributions[0].content.set('media', []);
+      }
+    } else {
+      jQuery().toastmessage('showSuccessToast', "Thank you for completing your submission. Would you like to continue contributing to the community? TODO");
+    }
   }
 
   var updateDefinitionView = function() {
@@ -546,15 +558,8 @@
     app.keyCount++;
     if (instantSave || app.keyCount > 20) {
       console.log('Autosaved...');
-      // TODO: clean this out if nested isn't needed!
-      if (nested === "proposal") {
-        // think about using _.clone here (eg http://www.crittercism.com/blog/nested-attributes-in-backbone-js-models)
-        var nestedObj = model.get(nested);
-        nestedObj[inputKey] = inputValue;
-        model.set(nested,nestedObj);
-      } else {
-        model.set(inputKey, inputValue);
-      }
+      model.set(inputKey, inputValue);
+      model.set('modified_at', new Date());
       model.save(null, {silent:true});
       app.keyCount = 0;
     }

@@ -226,7 +226,7 @@
           'created_at': new Date(),
           'modified_at': new Date(),
           'media': [],
-          'completed': false,
+          'complete': false,
           'review_count': 0
         }
       });
