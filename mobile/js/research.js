@@ -335,6 +335,7 @@
       jQuery('#vetting-screen').removeClass('hidden');
     } else {
       app.hideAllContainers();
+      jQuery('.top-nav-btn').removeClass('active');
       jQuery('#home-nav-btn').addClass('active');
       jQuery('#home-screen').removeClass('hidden');
     }
