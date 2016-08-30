@@ -185,7 +185,8 @@
                 <div id="relationship-container" class="editable">
                     <div id="relationship-from-container" class="relationship-name-container"></div>
                     <div id="relationship-link-container">
-                        <select>
+                        <select id="relationship-link-dropdown">
+                            <option value="">...</option>
                             <option value="is a type of">is a type of</option>
                             <option value="is composed of">is composed of</option>
                             <option value="is produced by">is produced by</option>
@@ -193,10 +194,12 @@
                         </select>
                     </div>
                     <div id="relationship-to-container" class="relationship-name-container"></div>
+                    <div id="relationship-correct" class="relationship-outcome-container hidden">Correct!</div>
+                    <div id="relationship-incorrect" class="relationship-outcome-container hidden">Sorry, this answer is incorrect. Please try again.</div>
                 </div>
 
                 <div id="relationship-btn-container" class="editable">
-                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
                 </div>
             </div>
         </div>

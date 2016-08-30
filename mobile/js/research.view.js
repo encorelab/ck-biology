@@ -198,49 +198,37 @@
 
     events: {
       'click .publish-relationship-btn' : 'publishRelationship',
-      'keyup :input'                    : 'checkForAutoSave'
+      'change #relationship-link-dropdown' : 'checkLink'
     },
 
-    checkForAutoSave: function(ev) {
-      var view = this,
-          field = ev.target.name,
-          input = ev.target.value;
-      // clear timer on keyup so that a save doesn't happen while typing
-      app.clearAutoSaveTimer();
+    checkLink: function() {
+      var view = this;
 
-      // save after 10 keystrokes
-      app.autoSave(view.model, field, input, false);
+      jQuery('.relationship-outcome-container').addClass('hidden');
 
-      // setting up a timer so that if we stop typing we save stuff after 5 seconds
-      app.autoSaveTimer = setTimeout(function(){
-        app.autoSave(view.model, field, input, true);
-      }, 5000);
+      if (view.model.get('link') === jQuery('#relationship-link-dropdown').val()) {
+        jQuery('#relationship-correct').removeClass('hidden');
+        jQuery('.publish-relationship-btn').removeClass('disabled');
+      } else {
+        jQuery('#relationship-incorrect').removeClass('hidden');
+        jQuery('.publish-relationship-btn').addClass('disabled');
+      }
     },
 
     publishRelationship: function() {
       var view = this;
-      var title = jQuery('#relationship-title-input').val();
-      var body = jQuery('#relationship-body-input').val();
 
-      if (title.length > 0 && body.length > 0 && jQuery('#from-species-container').data('species-index') !== "" && jQuery('#to-species-container').data('species-index') !== "") {
-        app.clearAutoSaveTimer();
-        view.model.set('title',title);
-        view.model.set('body',body);
-        view.model.set('published', true);
-        view.model.set('modified_at', new Date());
-        view.model.save();
-        jQuery().toastmessage('showSuccessToast', "Published to food web wall!");
+      view.model.set('complete', true);
+      view.model.set('modified_at', new Date());
+      view.model.save();
 
-        view.switchToReadView();
+      view.model = null;
+      jQuery('.relationship-outcome-container').addClass('hidden');
+      jQuery('#relationship-link-dropdown').val("");
+      jQuery('.publish-relationship-btn').addClass('disabled');
 
-        view.model = null;
-        jQuery('.input-field').val('');
-        jQuery('.exchange-species-container').html('');
-        jQuery('.exchange-species-container').data('species-index','');
-
-      } else {
-        jQuery().toastmessage('showErrorToast', "You must complete all fields to submit your relationship...");
-      }
+      app.markAsComplete();
+      app.determineNextStep();
     },
 
     render: function () {
