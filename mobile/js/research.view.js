@@ -26,7 +26,7 @@
     },
 
     events: {
-      'change #photo-file'                : 'uploadMedia',
+      'change #definition-photo-file'     : 'uploadMedia',
       'click .remove-btn'                 : 'removeOneMedia',
       'click .publish-definition-btn'     : 'publishDefinition',
       'click .photo-container'            : 'openPhotoModal',
@@ -38,21 +38,21 @@
       var url = jQuery(ev.target).attr('src');
       //the fileName isn't working for unknown reasons - so we can't add metadata to the photo file name, or make them more human readable. Also probably doesn't need the app.parseExtension(url)
       //var fileName = view.model.get('author') + '_' + view.model.get('title').slice(0,8) + '.' + app.parseExtension(url);
-      jQuery('#photo-modal .photo-content').attr('src', url);
-      jQuery('#photo-modal .download-photo-btn a').attr('href',url);              // this can get removed, maybe moved to the board?
-      //jQuery('#photo-modal .download-photo-btn a').attr('download',fileName);
-      jQuery('#photo-modal').modal({keyboard: true, backdrop: true});
+      jQuery('#definition-photo-modal .photo-content').attr('src', url);
+      jQuery('#definition-photo-modal .download-photo-btn a').attr('href',url);              // this can get removed, maybe moved to the board?
+      //jQuery('#definition-photo-modal .download-photo-btn a').attr('download',fileName);
+      jQuery('#definition-photo-modal').modal({keyboard: true, backdrop: true});
     },
 
     uploadMedia: function() {
       var view = this;
 
-      var file = jQuery('#photo-file')[0].files.item(0);
+      var file = jQuery('#definition-photo-file')[0].files.item(0);
       var formData = new FormData();
       formData.append('file', file);
 
       if (file.size < MAX_FILE_SIZE) {
-        jQuery('#photo-upload-spinner').removeClass('hidden');
+        jQuery('#definition-photo-upload-spinner').removeClass('hidden');
         jQuery('.upload-icon').addClass('invisible');
         jQuery('.publish-definition-btn').addClass('disabled');
 
@@ -72,14 +72,14 @@
       }
 
       function failure(err) {
-        jQuery('#photo-upload-spinner').addClass('hidden');
+        jQuery('#definition-photo-upload-spinner').addClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
         jQuery('.publish-definition-btn').removeClass('disabled');
         jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
       }
 
       function success(data, status, xhr) {
-        jQuery('#photo-upload-spinner').addClass('hidden');
+        jQuery('#definition-photo-upload-spinner').addClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
         jQuery('.publish-definition-btn').removeClass('disabled');
         console.log("UPLOAD SUCCEEDED!");
@@ -115,7 +115,6 @@
       }, 5000);
     },
 
-    // TODO: this can be done more cleanly/backbonely with views for the media containers
     appendOneMedia: function(url) {
       var el;
 
@@ -245,6 +244,190 @@
       jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
+
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ********************* VETTING VIEW ************************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.VettingView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing VettingView...', view.el);
+    },
+
+    events: {
+      'change #vetting-photo-file'        : 'uploadMedia',
+      'click .remove-btn'                 : 'removeOneMedia',
+      'click .publish-vetting-btn'        : 'publishVetting',
+      'click .photo-container'            : 'openPhotoModal',
+      'keyup :input'                      : 'checkForAutoSave'
+    },
+
+    openPhotoModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      //the fileName isn't working for unknown reasons - so we can't add metadata to the photo file name, or make them more human readable. Also probably doesn't need the app.parseExtension(url)
+      //var fileName = view.model.get('author') + '_' + view.model.get('title').slice(0,8) + '.' + app.parseExtension(url);
+      jQuery('#vetting-photo-modal .photo-content').attr('src', url);
+      jQuery('#vetting-photo-modal .download-photo-btn a').attr('href',url);              // this can get removed, maybe moved to the board?
+      //jQuery('#vetting-photo-modal .download-photo-btn a').attr('download',fileName);
+      jQuery('#vetting-photo-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    uploadMedia: function() {
+      var view = this;
+
+      var file = jQuery('#vetting-photo-file')[0].files.item(0);
+      var formData = new FormData();
+      formData.append('file', file);
+
+      if (file.size < MAX_FILE_SIZE) {
+        jQuery('#vetting-photo-upload-spinner').removeClass('hidden');
+        jQuery('.upload-icon').addClass('invisible');
+        jQuery('.publish-vetting-btn').addClass('disabled');
+
+        jQuery.ajax({
+          url: app.config.pikachu.url,
+          type: 'POST',
+          success: success,
+          error: failure,
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false
+        });
+      } else {
+        jQuery().toastmessage('showErrorToast', "Max file size of 20MB exceeded");
+        jQuery('.upload-icon').val('');
+      }
+
+      function failure(err) {
+        jQuery('#vetting-photo-upload-spinner').addClass('hidden');
+        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('.publish-vetting-btn').removeClass('disabled');
+        jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
+      }
+
+      function success(data, status, xhr) {
+        jQuery('#vetting-photo-upload-spinner').addClass('hidden');
+        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('.publish-vetting-btn').removeClass('disabled');
+        console.log("UPLOAD SUCCEEDED!");
+        console.log(xhr.getAllResponseHeaders());
+
+        // clear out the label value if they for some reason want to upload the same thing...
+        jQuery('.upload-icon').val('');
+
+        // update the model
+        var mediaArray = view.model.get('media');
+        mediaArray.push(data.url);
+        view.model.set('media', mediaArray);
+        view.model.save();
+        // update the view (TODO: bind this to an add event, eg do it right)
+        view.appendOneMedia(data.url);
+      }
+    },
+
+    checkForAutoSave: function(ev) {
+      var view = this,
+          field = ev.target.name,
+          input = ev.target.value;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
+
+      // save after 10 keystrokes - now 20
+      app.autoSave(view.model, field, input, false);
+
+      // setting up a timer so that if we stop typing we save stuff after 5 seconds
+      app.autoSaveTimer = setTimeout(function(){
+        app.autoSave(view.model, field, input, true);
+      }, 5000);
+    },
+
+    appendOneMedia: function(url) {
+      var el;
+
+      if (app.photoOrVideo(url) === "photo") {
+        el = '<span class="media-container" data-url="'+url+'"><img src="'+app.config.pikachu.url+url+'" class="media photo-container img-responsive"></img><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+      } else if (app.photoOrVideo(url) === "video") {
+        el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+      } else {
+        el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
+        throw "Error trying to append media - unknown media type!";
+      }
+      jQuery('#vetting-media-container').append(el);
+    },
+
+    removeOneMedia: function(ev) {
+      var view = this;
+      var targetUrl = jQuery(ev.target).data('url');
+      var mediaArray = view.model.get('media');
+      var newMediaArray = [];
+      _.each(mediaArray, function(url, i) {
+        if (mediaArray[i] !== targetUrl) {
+          newMediaArray.push(mediaArray[i]);
+        }
+      });
+      view.model.set('media', newMediaArray);
+      view.model.save();
+
+      jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
+      // clearing this out so the change event for this can be used (eg if they upload the same thing)
+      jQuery('.upload-icon').val('');
+    },
+
+    publishVetting: function() {
+      var view = this;
+      // var explanation = jQuery('#vetting-explanation-input').val();
+
+      // if (explanation.length > 0) {
+      //   app.clearAutoSaveTimer();
+      //   view.model.set('explanation', explanation);
+      //   view.model.set('complete', true);
+      //   view.model.set('modified_at', new Date());
+      //   view.model.save();
+
+      //   app.markAsComplete();
+      //   app.determineNextStep();
+      // } else {
+      //   jQuery().toastmessage('showErrorToast', "You must complete the explanation before continuing...");
+      // }
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering VettingView...");
+
+      jQuery('#vetting-name-field').text(view.model.get('name'));
+      jQuery('#vetting-explanation-input').val(view.model.get('explanation'));
+      jQuery('#vetting-media-container').html('');
+      view.model.get('media').forEach(function(url) {
+        view.appendOneMedia(url);
+      });
+
+      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

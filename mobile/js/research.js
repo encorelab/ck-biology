@@ -179,6 +179,8 @@
     // this is the wrong way to do it, we'll want a view with a bound collection. But the idea of 'home' seems to have changed, I'll going to leave it this way for now...
     jQuery('.my-progress-percent.lesson-1').text(app.getMyContributionPercent(1));
     jQuery('.community-progress-percent.lesson-1').text(app.getCommunityContributionPercent(1));
+    jQuery('.my-progress-percent.lesson-2').text(app.getMyContributionPercent(2));
+    jQuery('.community-progress-percent.lesson-2').text(app.getCommunityContributionPercent(2));
   };
 
   var setUpUI = function() {
@@ -203,7 +205,7 @@
         buildContributionArray();
         app.hideAllContainers();
         jQuery('#home-screen').removeClass('hidden');
-        jQuery('#navivation-bar').removeClass('hidden');
+        jQuery('#navigation-bar').removeClass('hidden');
       }
     });
 
@@ -273,12 +275,12 @@
       });
     }
 
-    // if (app.vettingView === null) {
-    //   app.vettingView = new app.View.VettingView({
-    //     el: '#vetting-screen',
-    //     collection: Skeletor.Model.awake.terms
-    //   });
-    // }
+    if (app.vettingView === null) {
+      app.vettingView = new app.View.VettingView({
+        el: '#vetting-screen',
+        collection: Skeletor.Model.awake.terms
+      });
+    }
 
   };
 

@@ -35,43 +35,11 @@
 
     <script type="text/javascript" src="js/research.js"></script>
     <script type="text/javascript" src="js/research.view.js"></script>
-
-    <!-- Templates -->
-    <script id="text-note-template" type="text/template">
-        <div class="note" data-id=<%= id %>>
-            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
-            <div class="note-body" data-id=<%= id %>><%= body %></div>
-            <div class="note-author" data-id=<%= id %>><%= author %></div>
-            <div class="note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
-
-    <script id="photo-note-template" type="text/template">
-        <div class="note" data-id=<%= id %>>
-            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
-            <div class="note-url" data-id=<%= id %>>
-                <img src=<%= url %> data-id=<%= id %> />
-            </div>
-            <div class="note-author" data-id=<%= id %>><%= author %></div>
-            <div class="note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
-
-    <script id="video-note-template" type="text/template">
-        <div class="note" data-id=<%= id %>>
-            <h3 class="note-title" data-id=<%= id %>><%= title %></h3>
-            <div class="note-url" data-id=<%= id %>>
-                <i class="fa fa-5x fa-file-video-o" data-id=<%= id %>></i>
-            </div>
-            <div class="note-author" data-id=<%= id %>><%= author %></div>
-            <div class="note-date" data-id=<%= id %>><%= date %></div>
-        </div>
-    </script>
 </head>
 
 
 <body>
-    <nav id="navivation-bar" class="navbar navbar-inverse navbar-fixed-top hidden" role="navigation">
+    <nav id="navigation-bar" class="navbar navbar-inverse navbar-fixed-top hidden" role="navigation">
         <div class="container">
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -156,15 +124,15 @@
                 <div id="definition-btn-container" class="editable">
                     <div class="photo-wrapper">
                        <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                       <input id="photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
-                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                       <input id="definition-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                       <i id="definition-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
                     </div>
                     <button class="publish-definition-btn btn-circular fa fa-check fa-3x pull-right"></button>
                 </div>
             </div>
         </div>
 
-        <div id="photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+        <div id="definition-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
             <div class="table">
                 <div class="table-cell">
                     <div class="modal-dialog">
@@ -222,6 +190,55 @@
 
 
 
+    <!-- ********************************************************* -->
+    <!-- *********************** VETTING ************************* -->
+    <!-- ********************************************************* -->
+
+    <div id="vetting-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <br />
+                <div><span class="my-progress-percent"></span>%</div>
+                <div><span class="community-progress-percent"></span>%</div>
+                <h2>Read the following explanation:</h2>
+                <h1 id="vetting-name-field"> <!-- FILLED BY VIEW --> </h1>
+                <div id="vetting-body-container">
+                    <textarea id="vetting-explanation-input" class="input-field"></textarea>
+                </div>
+
+                <div id="vetting-media-container"></div>
+
+                <div id="vetting-btn-container" class="editable">
+                    <div class="photo-wrapper">
+                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <input id="vetting-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                       <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                    </div>
+                    <button class="vetting-publish-vetting-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                </div>
+            </div>
+        </div>
+
+        <div id="vetting-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <!-- REMOVE ME? -->
+                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <div class="modal-body">
+                                <img class="photo-content" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
