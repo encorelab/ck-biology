@@ -103,9 +103,17 @@
     <div id="todo-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-8 col-xs-offset-2">
-                <h2>What would you like to work on today?</h2>
-                <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="1">Lesson 1 - Chemistry of Life</button>
-                <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="2">Lesson 2 - Functional groups, isomers, and reaction types</button>
+                <h2>Select a lesson:</h2>
+                <div>
+                    <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="1">Lesson 1 - Chemistry of Life</button>
+                    <div><span class="my-progress-percent lesson-1"></span>%</div>
+                    <div><span class="community-progress-percent lesson-1"></span>%</div>
+                </div>
+                <div>
+                    <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="2">Lesson 2 - Functional groups, isomers, and reaction types</button>
+                    <div><span class="my-progress-percent lesson-2"></span>%</div>
+                    <div><span class="community-progress-percent lesson-2"></span>%</div>
+                </div>
             </div>
         </div>
     </div>
@@ -134,6 +142,9 @@
     <div id="definition-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <br />
+                <div><span class="my-progress-percent"></span>%</div>
+                <div><span class="community-progress-percent"></span>%</div>
                 <h2>Explain the following term/concept and provide example(s) where possible</h2>
                 <h1 id="definition-name-field"> <!-- FILLED BY VIEW --> </h1>
                 <div id="definition-body-container">
@@ -160,6 +171,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
+                                <!-- REMOVE ME? -->
                                 <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                             </div>
@@ -182,6 +194,9 @@
     <div id="relationship-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+                <br />
+                <div><span class="my-progress-percent"></span>%</div>
+                <div><span class="community-progress-percent"></span>%</div>
                 <div id="relationship-container" class="editable">
                     <div id="relationship-from-container" class="relationship-name-container"></div>
                     <div id="relationship-link-container">

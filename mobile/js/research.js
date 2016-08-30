@@ -161,6 +161,7 @@
   };
 
   var ready = function() {
+    setUpLessonPercents();
     setUpUI();
     setUpClickListeners();
     wireUpViews();
@@ -169,6 +170,12 @@
     app.hideAllContainers();
 
     app.reflectRunState();
+  };
+
+  var setUpLessonPercents = function() {
+    // this is the wrong way to do it, we'll want a view with a bound collection. But the idea of 'home' seems to have changed, I'll going to leave it this way for now...
+    jQuery('.my-progress-percent.lesson-1').text(app.getMyContributionPercent(1));
+    jQuery('.community-progress-percent.lesson-1').text(app.getCommunityContributionPercent(1));
   };
 
   var setUpUI = function() {
@@ -369,6 +376,38 @@
     app.relationshipView.model = relationship;
     app.relationshipView.model.wake(app.config.wakeful.url);
     app.relationshipView.render();
+  };
+
+  app.getMyContributionPercent = function(lessonNum) {
+    // does not yet account for vetting
+
+    var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
+    var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
+
+    var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
+    var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
+
+    console.log('Total: ' + myTotalTerms + ', ' + myTotalRelationships);
+    console.log('Complete: ' + myCompleteTerms + ', ' + myCompleteRelationships);
+
+    var percent = (myCompleteTerms + myCompleteRelationships) / (myTotalTerms + myTotalRelationships) * 100;
+
+    return Math.round(percent);
+  };
+
+  app.getCommunityContributionPercent = function(lessonNum) {
+    var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
+    var completeTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, complete: true}).length;
+
+    var totalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum}).length;
+    var completeRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, complete: true}).length;
+
+    console.log('Total: ' + totalTerms + ', ' + totalRelationships);
+    console.log('Complete: ' + completeTerms + ', ' + completeRelationships);
+
+    var percent = (completeTerms + completeRelationships) / (totalTerms + totalRelationships) * 100;
+
+    return Math.round(percent);
   };
 
 

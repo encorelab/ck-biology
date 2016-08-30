@@ -15,7 +15,7 @@
 
   /***********************************************************
    ***********************************************************
-   *********************** NOTES VIEWS ***********************
+   ******************** DEFINITION VIEW **********************
    ***********************************************************
    ***********************************************************/
 
@@ -39,7 +39,7 @@
       //the fileName isn't working for unknown reasons - so we can't add metadata to the photo file name, or make them more human readable. Also probably doesn't need the app.parseExtension(url)
       //var fileName = view.model.get('author') + '_' + view.model.get('title').slice(0,8) + '.' + app.parseExtension(url);
       jQuery('#photo-modal .photo-content').attr('src', url);
-      jQuery('#photo-modal .download-photo-btn a').attr('href',url);
+      jQuery('#photo-modal .download-photo-btn a').attr('href',url);              // this can get removed, maybe moved to the board?
       //jQuery('#photo-modal .download-photo-btn a').attr('download',fileName);
       jQuery('#photo-modal').modal({keyboard: true, backdrop: true});
     },
@@ -176,6 +176,9 @@
       view.model.get('media').forEach(function(url) {
         view.appendOneMedia(url);
       });
+
+      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
 
@@ -237,6 +240,9 @@
 
       jQuery('#relationship-from-container').text(view.model.get('from'));
       jQuery('#relationship-to-container').text(view.model.get('to'));
+
+      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
 
