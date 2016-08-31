@@ -399,6 +399,7 @@
     });
 
     // TODO REFINE ME with 3, 4
+    // TODO do the html structures for actually adding a vet
 
     if (potentialVettings.length > 0) {
       app.vettingView.model = _.first(potentialVettings);

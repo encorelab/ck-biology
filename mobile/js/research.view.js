@@ -267,16 +267,32 @@
       'click .publish-vetting-btn'        : 'publishVetting',
       'click .photo-container'            : 'openPhotoModal',
       //'keyup :input'                      : 'checkForAutoSave',
-      'click .vetting-radio-btn'          : 'markAsCorrect'
+      'click .vetting-radio-btn'          : 'updateVettingRequired'
+      // 'click .submit-addon-btn'           : 'submitAddOn',
+      // 'click .cancel-addon-btn'           : 'cancelAddOn'
     },
 
-    markAsCorrect: function(ev) {
+    updateVettingRequired: function(ev) {
       // dealing with the view components of this, since radio buttons are THE WORST
       jQuery('.vetting-radio-btn').prop('checked', false);
       jQuery(ev.target).prop('checked', true);
 
       jQuery('.publish-vetting-btn').removeClass('disabled');
+
+      if (jQuery(ev.target).prop('name') === "yes") {
+        jQuery('#vetting-addon-container').addClass('hidden');
+      } else {
+        jQuery('#vetting-addon-container').removeClass('hidden');
+      }
     },
+
+    // submitAddOn: function() {
+
+    // },
+
+    // cancelAddOn: function() {
+
+    // },
 
     openPhotoModal: function(ev) {
       var view = this;
@@ -393,7 +409,7 @@
 
     publishVetting: function() {
       var view = this;
-      var explanation = jQuery('#vetting-explanation-input').val();
+      var explanation = jQuery('#vetting-addon-input').val();
 
       // this radio button check is very sloppy TODO
       if (explanation.length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
@@ -413,6 +429,11 @@
         view.model.set('vetted_by', vettedByAr);
         view.model.save();
 
+        jQuery('.vetting-radio-btn').prop('checked', false);
+        jQuery('.publish-vetting-btn').addClass('disabled');
+        jQuery('#vetting-addon-input').val('');
+        jQuery('#vetting-addon-container').addClass('hidden');
+
         app.markAsComplete();
         app.determineNextStep();
       } else {
@@ -424,8 +445,19 @@
       var view = this;
       console.log("Rendering VettingView...");
 
+      var termExplanation = view.model.get('explanation');
+      var vettingExplanation = '';
+
+      _.each(view.model.get('vettings'), function(vetting) {
+        // if there is nothing to improve on...
+        if (vetting.explanation) {
+          vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
+        }
+      });
+
+
       jQuery('#vetting-name-field').text(view.model.get('name'));
-      jQuery('#vetting-explanation-input').val(view.model.get('explanation'));
+      jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
       jQuery('#vetting-media-container').html('');
       view.model.get('media').forEach(function(url) {
         view.appendOneMedia(url);
