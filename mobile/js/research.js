@@ -395,10 +395,10 @@
     //4. it is unlocked
 
     var potentialVettings = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username;
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username);
     });
 
-    // TODO REFINE ME with 2, 3, 4
+    // TODO REFINE ME with 3, 4
 
     if (potentialVettings.length > 0) {
       app.vettingView.model = _.first(potentialVettings);

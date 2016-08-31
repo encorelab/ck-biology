@@ -52,7 +52,7 @@
     {
         "from": "cholesterol",
         "to": "fat",
-        "link": "is a composed of",
+        "link": "is composed of",
         "lesson": 1,
         "assigned_to": "meagan",
         "complete": false,

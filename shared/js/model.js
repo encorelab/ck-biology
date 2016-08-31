@@ -226,8 +226,9 @@
           'created_at': new Date(),
           'modified_at': new Date(),
           'media': [],
-          'complete': false,
-          'review_count': 0
+          'vettings': [],
+          'vetted_by': [],
+          'complete': false
         }
       });
 
@@ -239,8 +240,7 @@
         defaults: {
           'created_at': new Date(),
           'modified_at': new Date(),
-          'complete': false,
-          'review_count': 0
+          'complete': false
         }
       });
 

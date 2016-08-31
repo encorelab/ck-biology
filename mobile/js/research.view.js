@@ -395,14 +395,22 @@
       var view = this;
       var explanation = jQuery('#vetting-explanation-input').val();
 
+      // this radio button check is very sloppy TODO
       if (explanation.length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
+        // all of this nonsense to work around the fact that wakeful/drowsy choke on the nested Date obj (b/c it isn't JSON)
+        var d = new Date();
+        var dateStr = d.toDateString() + ', ' + d.toTimeString();
+        dateStr = dateStr.substring(0, dateStr.length - 15);
         var vettingObj = {};
         vettingObj.explanation = explanation;
         vettingObj.author = app.username;
-        vettingObj.date = new Date();
-        var vettingsAr = view.model.get('vettings')
+        vettingObj.date = dateStr;
+        var vettingsAr = view.model.get('vettings');
         vettingsAr.push(vettingObj);
         view.model.set('vettings', vettingsAr);
+        var vettedByAr = view.model.get('vetted_by');
+        vettedByAr.push(app.username);
+        view.model.set('vetted_by', vettedByAr);
         view.model.save();
 
         app.markAsComplete();
