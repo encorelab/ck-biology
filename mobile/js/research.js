@@ -320,11 +320,11 @@
       }
     });
 
-
-    // THIS LAST PART WILL NEED TO BE BUILT ON THE FLY - EG CANT USE THIS STRUCTURE, SINCE PEOPLE WILL BE DOING THIS AT THE SAME TIME
-    // get all users to determine class size
-    // divide # of terms by # of users, rounding up
-    // push that number of terms with lowest review_count and assigned_to !== app.username
+    for (var i = 0; i < getMyVettingCount(app.lesson); i++) {
+      var obj = {};
+      obj.kind = 'vetting';
+      app.contributions.push(obj);
+    }
   };
 
   app.determineNextStep = function() {
@@ -343,8 +343,10 @@
       app.hideAllContainers();
       jQuery('#relationship-screen').removeClass('hidden');
       updateRelationshipView();
-    } else if (taskType == "vetting") {        // this will eventually change to accom multiple simultaneous users
+    } else if (taskType == "vetting") {
+      app.hideAllContainers();
       jQuery('#vetting-screen').removeClass('hidden');
+      updateVettingView();
     } else {
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('active');
@@ -383,24 +385,26 @@
     app.relationshipView.render();
   };
 
-  app.getMyContributionPercent = function(lessonNum) {
-    // does not yet account for vetting
+  var updateVettingView = function() {
+    // var relationship = app.nextContribution().content;
+    // app.relationshipView.model = relationship;
+    // app.relationshipView.model.wake(app.config.wakeful.url);
+    // app.relationshipView.render();
+  };
 
+  app.getMyContributionPercent = function(lessonNum) {
     var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
     var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
-    var totalTerms = Skeletor.Model.awake.terms.length;
-    var totalStudents = app.users.where({user_role: "student"}).length;
-    var myTotalVettings = Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
     var myCompleteVettings = 0;       // TODO
 
-    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + myTotalVettings);
+    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyVettingCount(lessonNum));
     console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', 0');
 
-    var percent = (myCompleteTerms + myCompleteRelationships + myCompleteVettings) / (myTotalTerms + myTotalRelationships + myTotalVettings) * 100;
+    var percent = (myCompleteTerms + myCompleteRelationships + myCompleteVettings) / (myTotalTerms + myTotalRelationships +   getMyVettingCount(lessonNum)) * 100;
 
     return Math.round(percent);
   };
@@ -425,6 +429,11 @@
     return Math.round(percent);
   };
 
+  var getMyVettingCount = function(lessonNum) {
+    var totalTerms = Skeletor.Model.awake.terms.length;
+    var totalStudents = app.users.where({user_role: "student"}).length;
+    return Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
+  };
 
   app.photoOrVideo = function(url) {
     var type = null;
