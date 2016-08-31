@@ -123,7 +123,7 @@
 
                 <div id="definition-btn-container" class="editable">
                     <div class="photo-wrapper">
-                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <label for="definition-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
                        <input id="definition-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
                        <i id="definition-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
                     </div>
@@ -202,19 +202,27 @@
                 <div><span class="community-progress-percent"></span>%</div>
                 <h2>Read the following explanation:</h2>
                 <h1 id="vetting-name-field"> <!-- FILLED BY VIEW --> </h1>
-                <div id="vetting-body-container">
-                    <textarea id="vetting-explanation-input" class="input-field"></textarea>
+                <div id="vetting-body-container" class="disabled">
+                    <textarea id="vetting-explanation-input" class="input-field disabled"></textarea>
+                </div>
+
+                Is this explanation <b>complete and correct</b>?
+                <div class="radio">
+                  <label><input class="vetting-radio-btn" type="radio" name="yes">Yes</label>
+                </div>
+                <div class="radio">
+                  <label><input class="vetting-radio-btn" type="radio" name="no">No</label>
                 </div>
 
                 <div id="vetting-media-container"></div>
 
-                <div id="vetting-btn-container" class="editable">
+                <div id="vetting-btn-container">
                     <div class="photo-wrapper">
-                       <label for="photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                       <label for="vetting-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
                        <input id="vetting-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
                        <i id="photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
                     </div>
-                    <button class="vetting-publish-vetting-btn btn-circular fa fa-check fa-3x pull-right"></button>
+                    <button class="publish-vetting-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
                 </div>
             </div>
         </div>

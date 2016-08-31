@@ -266,7 +266,16 @@
       'click .remove-btn'                 : 'removeOneMedia',
       'click .publish-vetting-btn'        : 'publishVetting',
       'click .photo-container'            : 'openPhotoModal',
-      'keyup :input'                      : 'checkForAutoSave'
+      //'keyup :input'                      : 'checkForAutoSave',
+      'click .vetting-radio-btn'          : 'markAsCorrect'
+    },
+
+    markAsCorrect: function(ev) {
+      // dealing with the view components of this, since radio buttons are THE WORST
+      jQuery('.vetting-radio-btn').prop('checked', false);
+      jQuery(ev.target).prop('checked', true);
+
+      jQuery('.publish-vetting-btn').removeClass('disabled');
     },
 
     openPhotoModal: function(ev) {
@@ -334,21 +343,21 @@
       }
     },
 
-    checkForAutoSave: function(ev) {
-      var view = this,
-          field = ev.target.name,
-          input = ev.target.value;
-      // clear timer on keyup so that a save doesn't happen while typing
-      app.clearAutoSaveTimer();
+    // checkForAutoSave: function(ev) {
+    //   var view = this,
+    //       field = ev.target.name,
+    //       input = ev.target.value;
+    //   // clear timer on keyup so that a save doesn't happen while typing
+    //   app.clearAutoSaveTimer();
 
-      // save after 10 keystrokes - now 20
-      app.autoSave(view.model, field, input, false);
+    //   // save after 10 keystrokes - now 20
+    //   app.autoSave(view.model, field, input, false);
 
-      // setting up a timer so that if we stop typing we save stuff after 5 seconds
-      app.autoSaveTimer = setTimeout(function(){
-        app.autoSave(view.model, field, input, true);
-      }, 5000);
-    },
+    //   // setting up a timer so that if we stop typing we save stuff after 5 seconds
+    //   app.autoSaveTimer = setTimeout(function(){
+    //     app.autoSave(view.model, field, input, true);
+    //   }, 5000);
+    // },
 
     appendOneMedia: function(url) {
       var el;
@@ -384,20 +393,23 @@
 
     publishVetting: function() {
       var view = this;
-      // var explanation = jQuery('#vetting-explanation-input').val();
+      var explanation = jQuery('#vetting-explanation-input').val();
 
-      // if (explanation.length > 0) {
-      //   app.clearAutoSaveTimer();
-      //   view.model.set('explanation', explanation);
-      //   view.model.set('complete', true);
-      //   view.model.set('modified_at', new Date());
-      //   view.model.save();
+      if (explanation.length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
+        var vettingObj = {};
+        vettingObj.explanation = explanation;
+        vettingObj.author = app.username;
+        vettingObj.date = new Date();
+        var vettingsAr = view.model.get('vettings')
+        vettingsAr.push(vettingObj);
+        view.model.set('vettings', vettingsAr);
+        view.model.save();
 
-      //   app.markAsComplete();
-      //   app.determineNextStep();
-      // } else {
-      //   jQuery().toastmessage('showErrorToast', "You must complete the explanation before continuing...");
-      // }
+        app.markAsComplete();
+        app.determineNextStep();
+      } else {
+        jQuery().toastmessage('showErrorToast', "You must complete the explanation before continuing...");
+      }
     },
 
     render: function () {

@@ -387,10 +387,26 @@
   };
 
   var updateVettingView = function() {
-    // var relationship = app.nextContribution().content;
-    // app.relationshipView.model = relationship;
-    // app.relationshipView.model.wake(app.config.wakeful.url);
-    // app.relationshipView.render();
+    //0. it's complete
+    //1. you didn't author that term
+    //2. you haven't already vetted that term
+    //3. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
+    // we'll need to set a lock on the term so that nobody else can do it, so also
+    //4. it is unlocked
+
+    var potentialVettings = Skeletor.Model.awake.terms.filter(function(term) {
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username;
+    });
+
+    // TODO REFINE ME with 2, 3, 4
+
+    if (potentialVettings.length > 0) {
+      app.vettingView.model = _.first(potentialVettings);
+      app.vettingView.model.wake(app.config.wakeful.url);
+      app.vettingView.render();
+    } else {
+      console.log('No vettings available, do something');
+    }
   };
 
   app.getMyContributionPercent = function(lessonNum) {
