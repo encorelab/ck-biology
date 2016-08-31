@@ -320,7 +320,8 @@
       }
     });
 
-    for (var i = 0; i < getMyVettingCount(app.lesson); i++) {
+    var remainingVettings = getMyTotalVetings(app.lesson) - getMyCompleteVettings(app.lesson);     // can be negative
+    for (var i = 0; i < remainingVettings; i++) {
       var obj = {};
       obj.kind = 'vetting';
       app.contributions.push(obj);
@@ -399,12 +400,10 @@
     var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
-    var myCompleteVettings = 0;       // TODO
+    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVetings(lessonNum));
+    console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(lessonNum));
 
-    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyVettingCount(lessonNum));
-    console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', 0');
-
-    var percent = (myCompleteTerms + myCompleteRelationships + myCompleteVettings) / (myTotalTerms + myTotalRelationships +   getMyVettingCount(lessonNum)) * 100;
+    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships +   getMyTotalVetings(lessonNum)) * 100;
 
     return Math.round(percent);
   };
@@ -429,10 +428,14 @@
     return Math.round(percent);
   };
 
-  var getMyVettingCount = function(lessonNum) {
+  var getMyTotalVetings = function(lessonNum) {
     var totalTerms = Skeletor.Model.awake.terms.length;
     var totalStudents = app.users.where({user_role: "student"}).length;
     return Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
+  };
+
+  var getMyCompleteVettings = function(lessonNum) {
+    return 0;
   };
 
   app.photoOrVideo = function(url) {
