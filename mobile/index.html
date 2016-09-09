@@ -18,6 +18,7 @@
 
     <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/progressbar.js/dist/progressbar.min.js"></script>
 
     <script type="text/javascript" src="../node_modules/underscore/underscore.js"></script>
     <script type="text/javascript" src="../node_modules/backbone/backbone.js"></script>
@@ -74,7 +75,7 @@
                 <h2>Select a lesson:</h2>
                 <div>
                     <button class="choose-lesson-btn todo-btn btn btn-base" data-lesson="1">Lesson 1 - Chemistry of Life</button>
-                    <div><span class="my-progress-percent lesson-1"></span>%</div>
+                    <div><span class="my-progress-bar"/><span class="my-progress-percent lesson1"></span>%</div>
                     <div><span class="community-progress-percent lesson-1"></span>%</div>
                 </div>
                 <div>
@@ -111,7 +112,7 @@
         <div class="row">
             <div class="inner-wrapper col-xs-9 col-xs-offset-2">
                 <br />
-                <div><span class="my-progress-percent"></span>%</div>
+                <div><span class="my-progress-bar-def"/><span class="my-progress-percent"></span>%</div>
                 <div><span class="community-progress-percent"></span>%</div>
                 <h2>Explain the following term/concept and provide example(s) where possible</h2>
                 <h1 id="definition-name-field"> <!-- FILLED BY VIEW --> </h1>

@@ -42,6 +42,7 @@
   app.relationshipView = null;
   app.vettingView = null;
 
+  app.progressBar = null;
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { } ,10);
 
@@ -190,6 +191,9 @@
     });
 
     jQuery('.brand').text("CK Biology 2016");
+
+    app.progressBar = new ProgressBar.Line('.my-progress-bar', {easing: 'easeInOut'});
+    app.progressBar.animate(app.getMyContributionPercent(1) / 100);
   };
 
   var setUpClickListeners = function () {

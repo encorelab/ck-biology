@@ -23,6 +23,8 @@
     initialize: function() {
       var view = this;
       console.log('Initializing DefinitionView...', view.el);
+
+      app.defBar = new ProgressBar.Line('.my-progress-bar-def', {easing: 'easeInOut'});
     },
 
     events: {
@@ -177,6 +179,8 @@
       });
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+
+      app.defBar.animate(app.getMyContributionPercent(1) / 100);
       jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
