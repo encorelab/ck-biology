@@ -401,6 +401,9 @@
     // TODO REFINE ME with 3, 4
     // TODO do the html structures for actually adding a vet
 
+
+    // think about modifying the user model to include a progress { lesson1: [], lesson2: [] }. What about Unit being included in the app vs Unit being the DB
+
     if (potentialVettings.length > 0) {
       app.vettingView.model = _.first(potentialVettings);
       app.vettingView.model.wake(app.config.wakeful.url);
