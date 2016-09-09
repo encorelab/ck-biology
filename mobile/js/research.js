@@ -51,6 +51,7 @@
   // TODO: this needs to be put in the DB, maybe. Needs to deal with different units. Do they all have six lessons? NO!
   app.numVettingTasks = [1, 2, 2, 3, 3, 2];
 
+
   app.init = function() {
     /* CONFIG */
     app.loadConfig('../config.json');
@@ -190,10 +191,20 @@
     jQuery('.community-progress-percent.lesson2').text(app.getCommunityContributionPercent(2));
 
     // TODO: will this update? this needs to be put in the home screen render at some point
-    var bar = new ProgressBar.Line('#lesson1-my-progress-bar', {easing: 'easeInOut'});
-    bar.animate(app.getMyContributionPercent(1) / 100);
-    var bar2 = new ProgressBar.Line('#lesson1-community-progress-bar', {easing: 'easeInOut'});
-    bar2.animate(app.getCommunityContributionPercent(1) / 100);
+    var myBar = new ProgressBar.Line('#lesson1-my-progress-bar',
+      {
+        easing: 'easeInOut',
+        color: app.hexLightBlue,
+        trailColor: app.hexLightGrey
+      });
+    myBar.animate(app.getMyContributionPercent(1) / 100);
+    var communityBar = new ProgressBar.Line('#lesson1-community-progress-bar',
+      {
+        easing: 'easeInOut',
+        color: app.hexDarkPurple,
+        trailColor: app.hexLightGrey
+      });
+    communityBar.animate(app.getCommunityContributionPercent(1) / 100);
   };
 
   var setUpUI = function() {

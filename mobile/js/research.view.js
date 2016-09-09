@@ -11,7 +11,9 @@
   app.View = {};
   var MAX_FILE_SIZE = 20971520;     // 20 Mb
 
-
+  app.hexLightGrey = '#F4F4F4';
+  app.hexLightBlue ='#3498DB';
+  app.hexDarkPurple = '#8E44AD';
 
   /***********************************************************
    ***********************************************************
@@ -24,7 +26,12 @@
       var view = this;
       console.log('Initializing DefinitionView...', view.el);
 
-      app.defBar = new ProgressBar.Line('#definition-my-progress-bar', {easing: 'easeInOut'});
+      app.defBar = new ProgressBar.Line('#definition-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexLightBlue,
+          trailColor: app.hexLightGrey
+        });
     },
 
     events: {
@@ -200,7 +207,12 @@
       var view = this;
       console.log('Initializing RelationshipView...', view.el);
 
-      app.relBar = new ProgressBar.Line('#relationship-my-progress-bar', {easing: 'easeInOut'});
+      app.relBar = new ProgressBar.Line('#relationship-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexLightBlue,
+          trailColor: app.hexLightGrey
+        });
     },
 
     events: {
@@ -266,7 +278,13 @@
       var view = this;
       console.log('Initializing VettingView...', view.el);
 
-      app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar', {easing: 'easeInOut'});
+      app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexLightBlue,
+          trailColor: app.hexLightGrey
+        });
+
     },
 
     events: {
