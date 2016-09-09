@@ -42,13 +42,13 @@
   app.relationshipView = null;
   app.vettingView = null;
 
-  app.progressBar = null;
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { } ,10);
 
   app.state = [];
 
   // vetting tasks per lesson, eg app.numVettingTasks[0] is number for the first lesson
+  // TODO: this needs to be put in the DB, maybe. Needs to deal with different units. Do they all have six lessons? NO!
   app.numVettingTasks = [1, 2, 2, 3, 3, 2];
 
   app.init = function() {
@@ -178,10 +178,22 @@
 
   var setUpLessonPercents = function() {
     // this is the wrong way to do it, we'll want a view with a bound collection. But the idea of 'home' seems to have changed, I'll going to leave it this way for now...
-    jQuery('.my-progress-percent.lesson-1').text(app.getMyContributionPercent(1));
-    jQuery('.community-progress-percent.lesson-1').text(app.getCommunityContributionPercent(1));
-    jQuery('.my-progress-percent.lesson-2').text(app.getMyContributionPercent(2));
-    jQuery('.community-progress-percent.lesson-2').text(app.getCommunityContributionPercent(2));
+
+    // TODO create loop for this
+    // jQueryjQuery('#home-screen .my-progress-percent').each(function(i) {
+
+    // });
+
+    jQuery('.my-progress-percent.lesson1').text(app.getMyContributionPercent(1));
+    jQuery('.community-progress-percent.lesson1').text(app.getCommunityContributionPercent(1));
+    jQuery('.my-progress-percent.lesson2').text(app.getMyContributionPercent(2));
+    jQuery('.community-progress-percent.lesson2').text(app.getCommunityContributionPercent(2));
+
+    // TODO: will this update? this needs to be put in the home screen render at some point
+    var bar = new ProgressBar.Line('#lesson1-my-progress-bar', {easing: 'easeInOut'});
+    bar.animate(app.getMyContributionPercent(1) / 100);
+    var bar2 = new ProgressBar.Line('#lesson1-community-progress-bar', {easing: 'easeInOut'});
+    bar2.animate(app.getCommunityContributionPercent(1) / 100);
   };
 
   var setUpUI = function() {
@@ -191,9 +203,6 @@
     });
 
     jQuery('.brand').text("CK Biology 2016");
-
-    app.progressBar = new ProgressBar.Line('.my-progress-bar', {easing: 'easeInOut'});
-    app.progressBar.animate(app.getMyContributionPercent(1) / 100);
   };
 
   var setUpClickListeners = function () {

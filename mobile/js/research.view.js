@@ -24,7 +24,7 @@
       var view = this;
       console.log('Initializing DefinitionView...', view.el);
 
-      app.defBar = new ProgressBar.Line('.my-progress-bar-def', {easing: 'easeInOut'});
+      app.defBar = new ProgressBar.Line('#definition-my-progress-bar', {easing: 'easeInOut'});
     },
 
     events: {
@@ -179,7 +179,6 @@
       });
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-
       app.defBar.animate(app.getMyContributionPercent(1) / 100);
       jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
@@ -200,6 +199,8 @@
     initialize: function() {
       var view = this;
       console.log('Initializing RelationshipView...', view.el);
+
+      app.relBar = new ProgressBar.Line('#relationship-my-progress-bar', {easing: 'easeInOut'});
     },
 
     events: {
@@ -245,6 +246,7 @@
       jQuery('#relationship-to-container').text(view.model.get('to'));
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      app.relBar.animate(app.getMyContributionPercent(1) / 100);
       jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
@@ -263,6 +265,8 @@
     initialize: function() {
       var view = this;
       console.log('Initializing VettingView...', view.el);
+
+      app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar', {easing: 'easeInOut'});
     },
 
     events: {
@@ -468,6 +472,7 @@
       });
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      app.vetBar.animate(app.getMyContributionPercent(1) / 100);
       jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
     }
   });
