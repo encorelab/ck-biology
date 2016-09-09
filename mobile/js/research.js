@@ -228,20 +228,20 @@
         app.lesson = jQuery(ev.target).data('lesson');
         buildContributionArray();
         app.hideAllContainers();
-        jQuery('#home-screen').removeClass('hidden');
-        jQuery('#navigation-bar').removeClass('hidden');
+        jQuery('.top-nav-btn').removeClass('hidden');
+        jQuery('.top-nav-btn').removeClass('active');
+        jQuery('#contribution-nav-btn').addClass('active');
+        app.determineNextStep();
       }
     });
 
-    jQuery('.top-nav-btn, .home-screen-btn').click(function() {
+    jQuery('.top-nav-btn').click(function() {
       if (app.username) {
+        jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
-        if (jQuery(this).hasClass('goto-notes-btn')) {
+        if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
-          jQuery('#notes-nav-btn').addClass('active');
-          jQuery('#notes-read-screen').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-home-btn')) {
-          app.hideAllContainers();
+          jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').addClass('active');
           jQuery('#home-screen').removeClass('hidden');
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
@@ -677,7 +677,7 @@
       jQuery('.user-screen').addClass('hidden');
     } else if (app.runState.get('paused') === false) {
       jQuery('#lock-screen').addClass('hidden');
-      jQuery('#todo-screen').removeClass('hidden');
+      jQuery('#home-screen').removeClass('hidden');
     }
   };
 
