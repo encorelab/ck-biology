@@ -15,6 +15,97 @@
   app.hexLightBlue ='#3498DB';
   app.hexDarkPurple = '#8E44AD';
 
+
+
+
+  /***********************************************************
+   ***********************************************************
+   *********************** HOME VIEW *************************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.HomeView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing HomeView...', view.el);
+    },
+
+    events: {
+      'click .choose-lesson-btn' : 'chooseLesson'
+    },
+
+    chooseLesson: function(ev) {
+      // check which lesson from data value
+      app.lesson = jQuery(ev.target).data('lesson');
+      app.buildContributionArray();
+      app.hideAllContainers();
+      jQuery('.top-nav-btn').removeClass('hidden');
+      jQuery('.top-nav-btn').removeClass('active');
+      jQuery('#contribution-nav-btn').addClass('active');
+      app.determineNextStep();
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering HomeView...");
+
+      // create the html for the buttons and progress bars
+      var homeEl = '';
+      Skeletor.Model.awake.lessons.each(function(lesson) {
+        var title = lesson.get('title');
+        var number = lesson.get('number');
+
+        var el = '<div><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+' - '+title+'</button>';
+        el += '<span class="home-progress-container">';
+        el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
+        el += '<span class="my-progress-percent lesson'+number+'"></span>';
+        el += app.getMyContributionPercent(number)+'%</span>';
+        el += '<span class="home-progress-container">';
+        el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span>';
+        el += '<span class="community-progress-percent lesson'+number+'"></span>';
+        el += app.getCommunityContributionPercent(number)+'%</span></div>';
+
+        homeEl += el;
+      });
+      jQuery('#home-container').html(homeEl);
+
+      // fill in the progress bars
+      Skeletor.Model.awake.lessons.each(function(lesson) {
+        var myBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-my-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexLightBlue,
+            trailColor: app.hexLightGrey,
+            svgStyle: {
+                display: 'inline',
+                width: '20%'
+            },
+            strokeWidth: 4
+          });
+        myBar.animate(app.getMyContributionPercent(lesson.get('number')) / 100);
+        var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexDarkPurple,
+            trailColor: app.hexLightGrey,
+            svgStyle: {
+                display: 'inline',
+                width: '20%'
+            },
+            strokeWidth: 4
+          });
+        communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
+      });
+
+    }
+  });
+
+
+
+
+
+
+
   /***********************************************************
    ***********************************************************
    ******************** DEFINITION VIEW **********************

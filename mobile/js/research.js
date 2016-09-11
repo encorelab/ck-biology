@@ -34,10 +34,10 @@
   app.username = null;
   app.currentUser = null;
   app.lesson = null;
+  app.lessons = null;
   app.contributions = [];
 
-  app.notesReadView = null;
-  app.notesWriteView = null;
+  app.homeView = null;
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
@@ -185,26 +185,26 @@
 
     // });
 
-    jQuery('.my-progress-percent.lesson1').text(app.getMyContributionPercent(1));
-    jQuery('.community-progress-percent.lesson1').text(app.getCommunityContributionPercent(1));
-    jQuery('.my-progress-percent.lesson2').text(app.getMyContributionPercent(2));
-    jQuery('.community-progress-percent.lesson2').text(app.getCommunityContributionPercent(2));
+    // jQuery('.my-progress-percent.lesson1').text(app.getMyContributionPercent(1));
+    // jQuery('.community-progress-percent.lesson1').text(app.getCommunityContributionPercent(1));
+    // jQuery('.my-progress-percent.lesson2').text(app.getMyContributionPercent(2));
+    // jQuery('.community-progress-percent.lesson2').text(app.getCommunityContributionPercent(2));
 
-    // TODO: will this update? this needs to be put in the home screen render at some point
-    var myBar = new ProgressBar.Line('#lesson1-my-progress-bar',
-      {
-        easing: 'easeInOut',
-        color: app.hexLightBlue,
-        trailColor: app.hexLightGrey
-      });
-    myBar.animate(app.getMyContributionPercent(1) / 100);
-    var communityBar = new ProgressBar.Line('#lesson1-community-progress-bar',
-      {
-        easing: 'easeInOut',
-        color: app.hexDarkPurple,
-        trailColor: app.hexLightGrey
-      });
-    communityBar.animate(app.getCommunityContributionPercent(1) / 100);
+    // // TODO: will this update? this needs to be put in the home screen render at some point
+    // var myBar = new ProgressBar.Line('#lesson1-my-progress-bar',
+    //   {
+    //     easing: 'easeInOut',
+    //     color: app.hexLightBlue,
+    //     trailColor: app.hexLightGrey
+    //   });
+    // myBar.animate(app.getMyContributionPercent(1) / 100);
+    // var communityBar = new ProgressBar.Line('#lesson1-community-progress-bar',
+    //   {
+    //     easing: 'easeInOut',
+    //     color: app.hexDarkPurple,
+    //     trailColor: app.hexLightGrey
+    //   });
+    // communityBar.animate(app.getCommunityContributionPercent(1) / 100);
   };
 
   var setUpUI = function() {
@@ -222,19 +222,6 @@
       logoutUser();
     });
 
-    jQuery('.choose-lesson-btn').click(function(ev) {
-      if (app.username) {
-        // check which lesson from data value
-        app.lesson = jQuery(ev.target).data('lesson');
-        buildContributionArray();
-        app.hideAllContainers();
-        jQuery('.top-nav-btn').removeClass('hidden');
-        jQuery('.top-nav-btn').removeClass('active');
-        jQuery('#contribution-nav-btn').addClass('active');
-        app.determineNextStep();
-      }
-    });
-
     jQuery('.top-nav-btn').click(function() {
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
@@ -244,6 +231,7 @@
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').addClass('active');
           jQuery('#home-screen').removeClass('hidden');
+          app.homeView.render();
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
@@ -268,22 +256,12 @@
      * ======================================================
      */
 
-
-    if (app.notesReadView === null) {
-      app.notesReadView = new app.View.NotesReadView({
-        el: '#notes-read-screen',
-        collection: Skeletor.Model.awake.notes
-      });
-
-      app.notesReadView.render();
-    }
-
-    if (app.notesWriteView === null) {
-      app.notesWriteView = new app.View.NotesWriteView({
-        el: '#notes-write-screen',
-        collection: Skeletor.Model.awake.notes
-      });
-    }
+     if (app.homeView === null) {
+       app.homeView = new app.View.HomeView({
+         el: '#home-screen',
+         collection: Skeletor.Model.awake.lessons
+       });
+     }
 
     if (app.definitionView === null) {
       app.definitionView = new app.View.DefinitionView({
@@ -306,12 +284,13 @@
       });
     }
 
+    app.homeView.render();
   };
 
 
   //*************** HELPER FUNCTIONS ***************//
 
-  var buildContributionArray = function() {
+  app.buildContributionArray = function() {
     var sortedTerms = Skeletor.Model.awake.terms.clone();
     sortedTerms.comparator = function(model) {
       return model.get('name');

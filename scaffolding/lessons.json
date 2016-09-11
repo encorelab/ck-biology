@@ -2,42 +2,49 @@
     {
         "title": "Chemistry of life",
         "number": 1,
+        "vetting_tasks": 1,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Functional Groups & Reaction Types",
         "number": 2,
+        "vetting_tasks": 2,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Macromolecules: nucleic acids",
         "number": 3,
+        "vetting_tasks": 2,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Macromolecules: carbohydrates & lipids",
         "number": 4,
+        "vetting_tasks": 3,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Macromolecules: proteins",
         "number": 5,
+        "vetting_tasks": 3,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Thermodynamics & Enzyme catalysis",
         "number": 6,
+        "vetting_tasks": 2,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "title": "Cell membrane: structure & function",
         "number": 7,
+        "vetting_tasks": 2,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     }
