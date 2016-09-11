@@ -47,9 +47,7 @@
 
   app.state = [];
 
-  // vetting tasks per lesson, eg app.numVettingTasks[0] is number for the first lesson
-  // TODO: this needs to be put in the DB, maybe. Needs to deal with different units. Do they all have six lessons? NO!
-  app.numVettingTasks = [1, 2, 2, 3, 3, 2];
+  app.numVettingTasks = [];
 
 
   app.init = function() {
@@ -166,7 +164,7 @@
   };
 
   var ready = function() {
-    setUpLessonPercents();
+    buildConstants();
     setUpUI();
     setUpClickListeners();
     wireUpViews();
@@ -177,34 +175,10 @@
     app.reflectRunState();
   };
 
-  var setUpLessonPercents = function() {
-    // this is the wrong way to do it, we'll want a view with a bound collection. But the idea of 'home' seems to have changed, I'll going to leave it this way for now...
-
-    // TODO create loop for this
-    // jQueryjQuery('#home-screen .my-progress-percent').each(function(i) {
-
-    // });
-
-    // jQuery('.my-progress-percent.lesson1').text(app.getMyContributionPercent(1));
-    // jQuery('.community-progress-percent.lesson1').text(app.getCommunityContributionPercent(1));
-    // jQuery('.my-progress-percent.lesson2').text(app.getMyContributionPercent(2));
-    // jQuery('.community-progress-percent.lesson2').text(app.getCommunityContributionPercent(2));
-
-    // // TODO: will this update? this needs to be put in the home screen render at some point
-    // var myBar = new ProgressBar.Line('#lesson1-my-progress-bar',
-    //   {
-    //     easing: 'easeInOut',
-    //     color: app.hexLightBlue,
-    //     trailColor: app.hexLightGrey
-    //   });
-    // myBar.animate(app.getMyContributionPercent(1) / 100);
-    // var communityBar = new ProgressBar.Line('#lesson1-community-progress-bar',
-    //   {
-    //     easing: 'easeInOut',
-    //     color: app.hexDarkPurple,
-    //     trailColor: app.hexLightGrey
-    //   });
-    // communityBar.animate(app.getCommunityContributionPercent(1) / 100);
+  var buildConstants = function() {
+    Skeletor.Model.awake.lessons.each(function(lesson) {
+      app.numVettingTasks.push(lesson.get('vetting_tasks'));
+    });
   };
 
   var setUpUI = function() {
