@@ -308,26 +308,74 @@
   app.determineNextStep = function() {
     console.log('Determining next step...');
 
+    // if taskType is null, they are at 100%
     var taskType = null;
     if (app.nextContribution()) {
       taskType = app.nextContribution().kind;
+    } else {
+      taskType = "completed";
     }
 
-    if (taskType == "term") {
-      app.hideAllContainers();
+    //0. it's complete
+    //1. you didn't author that term
+    //2. you haven't already vetted that term
+    //3. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
+    // we'll need to set a lock on the term so that nobody else can do it, so also
+    //4. it is unlocked
+    // TODO REFINE ME with 3, 4
+    // TODO do the html structures for actually adding a vet
+    var potentialVettings = Skeletor.Model.awake.terms.filter(function(term) {
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username);
+    });
+
+    app.hideAllContainers();
+    if (taskType === "term") {
       jQuery('#definition-screen').removeClass('hidden');
-      updateDefinitionView();
-    } else if (taskType == "relationship") {
-      app.hideAllContainers();
+      var definition = app.nextContribution().content;
+      app.definitionView.model = definition;
+      app.definitionView.model.wake(app.config.wakeful.url);
+      app.definitionView.render();
+
+    } else if (taskType === "relationship") {
       jQuery('#relationship-screen').removeClass('hidden');
-      updateRelationshipView();
-    } else if (taskType == "vetting") {
-      updateVettingView();
-    } else {
-      app.hideAllContainers();
+      var relationship = app.nextContribution().content;
+      app.relationshipView.model = relationship;
+      app.relationshipView.model.wake(app.config.wakeful.url);
+      app.relationshipView.render();
+
+    } else if (taskType === "vetting" && potentialVettings.length > 0) {
+      jQuery('#vetting-screen').removeClass('hidden');
+      app.vettingView.model = _.first(potentialVettings);
+      app.vettingView.model.wake(app.config.wakeful.url);
+      app.vettingView.render();
+
+    } else if (taskType === "vetting" && potentialVettings.length <= 0) {
+      jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#home-nav-btn').addClass('active');
       jQuery('#home-screen').removeClass('hidden');
+
+    } else if (taskType === "completed") {
+      if (confirm("Thank you for completing your submissions. Would you like to continue contributing to the community?")) {
+        if (potentialVettings.length > 0) {
+          jQuery('#vetting-screen').removeClass('hidden');
+          app.vettingView.model = _.first(potentialVettings);
+          app.vettingView.model.wake(app.config.wakeful.url);
+          app.vettingView.render();
+        } else {
+          jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
+          jQuery('.top-nav-btn').removeClass('active');
+          jQuery('#home-nav-btn').addClass('active');
+          jQuery('#home-screen').removeClass('hidden');
+        }
+      } else {
+        jQuery('.top-nav-btn').removeClass('active');
+        jQuery('#home-nav-btn').addClass('active');
+        jQuery('#home-screen').removeClass('hidden');
+      }
+
+    } else {
+      jQuery().toastmessage('showErrorToast', "Something went wrong determining next step...");
     }
   }
 
@@ -342,55 +390,11 @@
       if (app.contributions[0].kind === "term") {
         app.contributions[0].content.set('media', []);
       }
-    } else {
-      jQuery().toastmessage('showSuccessToast', "Thank you for completing your submission. Would you like to continue contributing to the community? TODO");
     }
   }
 
-  var updateDefinitionView = function() {
-    var definition = app.nextContribution().content;
-    app.definitionView.model = definition;
-    app.definitionView.model.wake(app.config.wakeful.url);
-    app.definitionView.render();
-  };
 
-  var updateRelationshipView = function() {
-    var relationship = app.nextContribution().content;
-    app.relationshipView.model = relationship;
-    app.relationshipView.model.wake(app.config.wakeful.url);
-    app.relationshipView.render();
-  };
-
-  var updateVettingView = function() {
-    //0. it's complete
-    //1. you didn't author that term
-    //2. you haven't already vetted that term
-    //3. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
-    // we'll need to set a lock on the term so that nobody else can do it, so also
-    //4. it is unlocked
-
-    var potentialVettings = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username);
-    });
-
-    // TODO REFINE ME with 3, 4
-    // TODO do the html structures for actually adding a vet
-
-
-    // think about modifying the user model to include a progress { lesson1: [], lesson2: [] }. What about Unit being included in the app vs Unit being the DB
-    app.hideAllContainers();
-    if (potentialVettings.length > 0) {
-      app.vettingView.model = _.first(potentialVettings);
-      app.vettingView.model.wake(app.config.wakeful.url);
-      app.vettingView.render();
-      jQuery('#vetting-screen').removeClass('hidden');
-    } else {
-      jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
-      jQuery('.top-nav-btn').removeClass('active');
-      jQuery('#home-nav-btn').addClass('active');
-      jQuery('#home-screen').removeClass('hidden');
-    }
-  };
+// TODO: set 0% and 100% max/mins on these
 
   app.getMyContributionPercent = function(lessonNum) {
     var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
@@ -404,6 +408,9 @@
 
     var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
+    if (percent > 100) {
+      percent = 100;
+    }
     return Math.round(percent);
   };
 
@@ -423,6 +430,9 @@
 
     var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
 
+    if (percent > 100) {
+      percent = 100;
+    }
     return Math.round(percent);
   };
 
@@ -433,10 +443,10 @@
   };
 
   var getMyCompleteVettings = function(lessonNum) {
-    var filteredTerms = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
+    var myCompletedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
       return _.contains(term.get('vetted_by'), app.username);
     });
-    return filteredTerms.length;
+    return myCompletedVettings.length;
   };
 
   var getCommunityCompleteVettings = function(lessonNum) {
