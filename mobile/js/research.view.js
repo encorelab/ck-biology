@@ -75,25 +75,25 @@
         var myBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-my-progress-bar',
           {
             easing: 'easeInOut',
-            color: app.hexLightBlue,
-            trailColor: app.hexLightGrey,
-            svgStyle: {
-                display: 'inline',
-                width: '20%'
-            },
-            strokeWidth: 4
-          });
-        myBar.animate(app.getMyContributionPercent(lesson.get('number')) / 100);
-        var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
-          {
-            easing: 'easeInOut',
             color: app.hexDarkPurple,
             trailColor: app.hexLightGrey,
             svgStyle: {
                 display: 'inline',
                 width: '20%'
             },
-            strokeWidth: 4
+            strokeWidth: 7
+          });
+        myBar.animate(app.getMyContributionPercent(lesson.get('number')) / 100);
+        var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexLightBlue,
+            trailColor: app.hexLightGrey,
+            svgStyle: {
+                display: 'inline',
+                width: '20%'
+            },
+            strokeWidth: 7
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
       });
