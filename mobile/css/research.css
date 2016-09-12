@@ -71,7 +71,7 @@ textarea {
 .btn {
     margin-bottom: 20px;
     height: 45px;
-    min-width: 175px;
+    min-width: 150px;
     border-radius: 7px;
     background-image: none;
     text-shadow: none;
@@ -112,12 +112,15 @@ textarea {
 /*****************************************************/
 
 
+.home-row-container {
+    margin-bottom: 20px;
+}
 .home-btn {
     color: #fff;
     margin: 0 auto;
-    font-size: 13px;
-    height: 30px;
-    margin-bottom: 20px;
+    font-size: 15px;
+    /* height: 30px; */
+    /* margin-bottom: 20px; */
     letter-spacing: 2px;
 }
 .home-btn:hover {
@@ -125,6 +128,11 @@ textarea {
 }
 .lesson-title {
     display: inline-block;
+    font-size: 18px;
+    margin-left: 20px;
+    line-height: 1.42857143;
+    vertical-align: sub;
+    min-width: 336px;
 }
 .home-progress-container {
     width: 400px;
