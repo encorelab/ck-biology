@@ -78,5 +78,61 @@
         "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "chemical bond",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "chemical equilibrium",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "chemical reaction",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "cohesion",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "compound",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "covalent bond",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "dipole-dipole interaction",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
     }
 ]
