@@ -297,7 +297,7 @@
       }
     });
 
-    var remainingVettings = getMyTotalVetings(app.lesson) - getMyCompleteVettings(app.lesson);     // can be negative
+    var remainingVettings = getMyTotalVettings(app.lesson) - getMyCompleteVettings(app.lesson);     // can be negative
     for (var i = 0; i < remainingVettings; i++) {
       var obj = {};
       obj.kind = 'vetting';
@@ -322,8 +322,6 @@
       jQuery('#relationship-screen').removeClass('hidden');
       updateRelationshipView();
     } else if (taskType == "vetting") {
-      app.hideAllContainers();
-      jQuery('#vetting-screen').removeClass('hidden');
       updateVettingView();
     } else {
       app.hideAllContainers();
@@ -380,13 +378,17 @@
 
 
     // think about modifying the user model to include a progress { lesson1: [], lesson2: [] }. What about Unit being included in the app vs Unit being the DB
-
+    app.hideAllContainers();
     if (potentialVettings.length > 0) {
       app.vettingView.model = _.first(potentialVettings);
       app.vettingView.model.wake(app.config.wakeful.url);
       app.vettingView.render();
+      jQuery('#vetting-screen').removeClass('hidden');
     } else {
-      console.log('No vettings available, do something');
+      jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
+      jQuery('.top-nav-btn').removeClass('active');
+      jQuery('#home-nav-btn').addClass('active');
+      jQuery('#home-screen').removeClass('hidden');
     }
   };
 
@@ -397,10 +399,10 @@
     var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
-    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVetings(lessonNum));
+    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
     console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(lessonNum));
 
-    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships +   getMyTotalVetings(lessonNum)) * 100;
+    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
     return Math.round(percent);
   };
@@ -425,14 +427,17 @@
     return Math.round(percent);
   };
 
-  var getMyTotalVetings = function(lessonNum) {
+  var getMyTotalVettings = function(lessonNum) {
     var totalTerms = Skeletor.Model.awake.terms.length;
     var totalStudents = app.users.where({user_role: "student"}).length;
     return Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
   };
 
   var getMyCompleteVettings = function(lessonNum) {
-    return 0;
+    var filteredTerms = _.filter(Skeletor.Model.awake.terms.models, function(term) {
+      return _.contains(term.get('vetted_by'), app.username) && term.get('lesson') === lessonNum;
+    });
+    return filteredTerms.length;
   };
 
   app.photoOrVideo = function(url) {
