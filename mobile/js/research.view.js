@@ -55,7 +55,8 @@
         var title = lesson.get('title');
         var number = lesson.get('number');
 
-        var el = '<div><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+' - '+title+'</button>';
+        var el = '<div><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
+        el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
         el += '<span class="my-progress-percent lesson'+number+'"></span>';

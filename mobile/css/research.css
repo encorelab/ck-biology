@@ -125,6 +125,9 @@ textarea {
 .home-btn:hover {
     color: #fff;
 }
+.lesson-title {
+    display: inline-block;
+}
 .home-progress-container {
     width: 400px;
     margin-left: 50px;
