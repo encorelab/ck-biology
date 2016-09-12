@@ -354,6 +354,7 @@
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#home-nav-btn').addClass('active');
       jQuery('#home-screen').removeClass('hidden');
+      app.homeView.render();
 
     } else if (taskType === "completed") {
       if (confirm("Thank you for completing your submissions. Would you like to continue contributing to the community?")) {
@@ -367,11 +368,13 @@
           jQuery('.top-nav-btn').removeClass('active');
           jQuery('#home-nav-btn').addClass('active');
           jQuery('#home-screen').removeClass('hidden');
+          app.homeView.render();
         }
       } else {
         jQuery('.top-nav-btn').removeClass('active');
         jQuery('#home-nav-btn').addClass('active');
         jQuery('#home-screen').removeClass('hidden');
+        app.homeView.render();
       }
 
     } else {
@@ -451,7 +454,7 @@
 
   var getCommunityCompleteVettings = function(lessonNum) {
     var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
-      return term.get('vetted_by') >= app.numVettingTasks[lessonNum - 1]
+      return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
     });
     return completedVettings.length;
   };
