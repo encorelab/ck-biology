@@ -72,16 +72,14 @@ textarea {
     margin-bottom: 20px;
     height: 45px;
     min-width: 175px;
-}
-
-.btn-base {
     border-radius: 7px;
-    border: 1px solid #ededed;
     background-image: none;
     text-shadow: none;
 }
-.btn-base:hover {
-    border: 1px solid #ededed;
+
+.btn-base {
+    background: #2c3e50;
+    border: none;
 }
 
 /* circular buttons */
@@ -369,13 +367,18 @@ input:disabled {
     display: none;
 }
 
-#login-button:disabled {
+/* DOES THIS DO ANYTHING??? */
+/* #login-button:disabled {
     display: none;
-}
+} */
 
 .login-button {
     margin: 1%;
     min-width: 7.3em;
+    border: 1px solid #ededed;
+}
+.login-button:hover {
+    border: 1px solid #ededed;
 }
 
 .input-alert {
@@ -487,6 +490,7 @@ input:disabled {
 .inner-wrapper {
     margin-top: 15px !important;
     width: 100%;
+    padding: 0 40px;
 }
 
 .col-xs-offset-2 {
