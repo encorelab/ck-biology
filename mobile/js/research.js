@@ -576,7 +576,7 @@
     jQuery('#login-picker .modal-header h3').text("Select your teacher's name");
 
     _.each(app.config.runs, function(run) {
-      var button = jQuery('<button class="btn btn-default btn-base login-button">');
+      var button = jQuery('<button class="btn btn-default login-button">');
       button.val(run);
       button.text(run);
       jQuery('.login-buttons').append(button);
@@ -615,7 +615,7 @@
         app.users.sort();
 
         app.users.each(function(user) {
-          var button = jQuery('<button class="btn btn-default btn-base login-button">');
+          var button = jQuery('<button class="btn btn-default login-button">');
           button.val(user.get('username'));
           button.text(user.get('display_name'));
           jQuery('.login-buttons').append(button);
