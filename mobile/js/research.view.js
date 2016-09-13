@@ -409,7 +409,7 @@
       //the fileName isn't working for unknown reasons - so we can't add metadata to the photo file name, or make them more human readable. Also probably doesn't need the app.parseExtension(url)
       //var fileName = view.model.get('author') + '_' + view.model.get('title').slice(0,8) + '.' + app.parseExtension(url);
       jQuery('#vetting-photo-modal .photo-content').attr('src', url);
-      jQuery('#vetting-photo-modal .download-photo-btn a').attr('href',url);              // this can get removed, maybe moved to the board?
+      jQuery('#vetting-photo-modal .download-photo-btn a').attr('href',url);              // TODO this can get removed, maybe moved to the board?
       //jQuery('#vetting-photo-modal .download-photo-btn a').attr('download',fileName);
       jQuery('#vetting-photo-modal').modal({keyboard: true, backdrop: true});
     },
@@ -494,6 +494,8 @@
       // view.model.set('media', newMediaArray);
       // view.model.save();
 
+      // TODO - you can delete other people's photos
+
       jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
@@ -522,7 +524,7 @@
         vettingObj.author = app.username;
         vettingObj.date = dateStr;
 
-        //var targetUrl = jQuery(ev.target).data('url');
+        // START HERE - each published vet gets all of the term photos added
         var mediaArr = []
         jQuery('#vetting-media-container .media-container').each(function(i, container) {
           mediaArr.push(jQuery(container).data('url'));
@@ -557,20 +559,26 @@
       var termExplanation = view.model.get('explanation');
       var vettingExplanation = '';
 
-      _.each(view.model.get('vettings'), function(vetting) {
-        // if this vetter said 'no' complete and correct
-        if (!vetting.correct) {
-          vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
-        }
-        // add the vetting media - TODO
-      });
-
-      jQuery('#vetting-name-field').text(view.model.get('name'));
-      jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
+      // clear and then add all media from term
       jQuery('#vetting-media-container').html('');
       view.model.get('media').forEach(function(url) {
         view.appendOneMedia(url);
       });
+
+      _.each(view.model.get('vettings'), function(vetting) {
+        // if this vetter said 'no' complete and correct
+        if (!vetting.correct) {
+          // create the text for the vet
+          vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
+        }
+        // add the media from the vet
+        _.each(vetting.media, function(url) {
+          view.appendOneMedia(url);
+        });
+      });
+
+      jQuery('#vetting-name-field').text(view.model.get('name'));
+      jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
       app.vetBar.animate(app.getMyContributionPercent(1) / 100);

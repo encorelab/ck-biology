@@ -235,7 +235,7 @@ textarea {
 .camera-icon-label {
     width: 60px;
 }
-#definition-btn-container .fa-spinner {
+#definition-btn-container .fa-spinner, #vetting-btn-container .fa-spinner {
     font-size: 6em;
     position: absolute;
     z-index: 999;
