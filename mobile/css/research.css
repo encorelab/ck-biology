@@ -21,7 +21,7 @@ h2 {
 
 h3,
 label {
-    font-size: 16px;
+    font-size: 1.2em;
     font-weight: 500;
     color: #555;
 }
@@ -58,6 +58,9 @@ textarea {
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+}
+.inner-wrapper {
+    padding: 0 40px;
 }
 
 .side-nav {
@@ -115,18 +118,19 @@ textarea {
 #home-screen h2 {
     text-align: left;
     display: inline-block;
+    width: calc(170px + 30%);
 }
 #home-screen h3 {
     display: inline-block;
+    width: calc(15% - 50px);
 }
 #home-screen img {
-    max-width: 40px;
+    max-width: 50px;
+    margin-left: 50px;
+    margin-right: 10px;
 }
-#home-screen img:first-of-type {
-    margin-left: 414px;
-}
-#home-screen img:last-of-type {
-    margin-left: 180px;
+#home-screen h3:last-of-type {
+    vertical-align: top;
 }
 .home-row-container {
     margin-bottom: 20px;
@@ -143,11 +147,11 @@ textarea {
     color: #fff;
 }
 .lesson-title {
-    font-size: 18px;
+    font-size: 15px;
     margin-left: 20px;
     line-height: 1.42857143;
     vertical-align: sub;
-    min-width: 336px;
+    min-width: 30%;
 }
 .home-progress-container {
     width: 400px;
@@ -167,19 +171,22 @@ textarea {
     padding-right: 4px;
 }
 
-#definition-screen .inner-wrapper, #relationship-screen .inner-wrapper {
+#definition-screen .inner-wrapper,
+#relationship-screen .inner-wrapper {
     height: 85%;
     overflow-y: scroll;
     margin-top: 5px;
 }
 
-#definition-title-input, #relationship-title-input {
+#definition-title-input,
+#relationship-title-input {
     height: 45px;
     padding-top: 10px !important;
     margin-bottom: 10px;
 }
 
-#definition-body-container, #relationship-body-container {
+#definition-body-container,
+#relationship-body-container {
     position: relative;
     height: 160px;
 }
@@ -196,7 +203,8 @@ textarea {
     padding-right: 60px;
 }
 
-#definition-screen button.close, #relationship-screen button.close {
+#definition-screen button.close,
+#relationship-screen button.close {
     border: none;
 }
 
@@ -227,7 +235,8 @@ textarea {
     z-index: 999;
 }
 
-#definition-btn-container, #relationship-btn-container {
+#definition-btn-container,
+#relationship-btn-container {
     position: relative;
     margin-top: 20px;
     width: 70%;
@@ -483,6 +492,14 @@ input:disabled {
     .definition h3, .relationship h3 {
         font-size: 20px;
     }
+
+    .lesson-title {
+        font-size: 18px;
+        min-width: 25%;
+    }
+    .inner-wrapper {
+        padding: 0;
+    }
 }
 
 /* Blue and green version - Renato */
@@ -510,18 +527,18 @@ input:disabled {
 .top-navigation>.active>a:hover {
     background-color: #07384c !important;
 }
-.inner-wrapper {
+/* .inner-wrapper {
     margin-top: 15px !important;
     width: 100%;
     padding: 0 40px;
-}
+} */
 
-.col-xs-offset-2 {
+/* .col-xs-offset-2 {
     margin-left: 0;
-}
-.col-xs-9 {
+} */
+/* .col-xs-9 {
     width: 100%;
-}
+} */
 
 
 .nav-forward-btn {
