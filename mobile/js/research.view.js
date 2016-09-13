@@ -501,7 +501,7 @@
 
       // TODO - you can delete other people's photos
 
-      jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
+      jQuery('.media-container[data-url="'+jQuery(ev.target).data('url')+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
     },
@@ -529,19 +529,20 @@
         vettingObj.author = app.username;
         vettingObj.date = dateStr;
 
-        // START HERE - each published vet gets all of the term photos added
-        var mediaArr = []
-        jQuery('#vetting-media-container .media-container').each(function(i, container) {
-          mediaArr.push(jQuery(container).data('url'));
-        });
-        vettingObj.media = mediaArr;
-
         var vettingsAr = view.model.get('vettings');
         vettingsAr.push(vettingObj);
         view.model.set('vettings', vettingsAr);
         var vettedByAr = view.model.get('vetted_by');
         vettedByAr.push(app.username);
         view.model.set('vetted_by', vettedByAr);
+
+        // note that we add media to the original model, not the vet
+        var mediaArr = []
+        jQuery('#vetting-media-container .media-container').each(function(i, container) {
+          mediaArr.push(jQuery(container).data('url'));
+        });
+        view.model.set('media', mediaArr);
+
         view.model.save();
 
         jQuery('.vetting-radio-btn').prop('checked', false);
@@ -577,9 +578,9 @@
           vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
         }
         // add the media from the vet
-        _.each(vetting.media, function(url) {
-          view.appendOneMedia(url);
-        });
+        // _.each(vetting.media, function(url) {
+        //   view.appendOneMedia(url);
+        // });
       });
 
       jQuery('#vetting-name-field').text(view.model.get('name'));
