@@ -384,10 +384,7 @@
       'click .remove-btn'                 : 'removeOneMedia',
       'click .publish-vetting-btn'        : 'publishVetting',
       'click .photo-container'            : 'openPhotoModal',
-      //'keyup :input'                      : 'checkForAutoSave',
       'click .vetting-radio-btn'          : 'updateVettingRequired'
-      // 'click .submit-addon-btn'           : 'submitAddOn',
-      // 'click .cancel-addon-btn'           : 'cancelAddOn'
     },
 
     updateVettingRequired: function(ev) {
@@ -399,18 +396,12 @@
 
       if (jQuery(ev.target).prop('name') === "yes") {
         jQuery('#vetting-addon-container').addClass('hidden');
+        jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
       } else {
         jQuery('#vetting-addon-container').removeClass('hidden');
+        jQuery('#vetting-btn-container .photo-wrapper').removeClass('hidden');
       }
     },
-
-    // submitAddOn: function() {
-
-    // },
-
-    // cancelAddOn: function() {
-
-    // },
 
     openPhotoModal: function(ev) {
       var view = this;
@@ -468,30 +459,13 @@
         jQuery('.upload-icon').val('');
 
         // update the model
-        var mediaArray = view.model.get('media');
-        mediaArray.push(data.url);
-        view.model.set('media', mediaArray);
-        view.model.save();
-        // update the view (TODO: bind this to an add event, eg do it right)
+        // var mediaArray = view.model.get('media');
+        // mediaArray.push(data.url);
+        // view.model.set('media', mediaArray);
+        // view.model.save();
         view.appendOneMedia(data.url);
       }
     },
-
-    // checkForAutoSave: function(ev) {
-    //   var view = this,
-    //       field = ev.target.name,
-    //       input = ev.target.value;
-    //   // clear timer on keyup so that a save doesn't happen while typing
-    //   app.clearAutoSaveTimer();
-
-    //   // save after 10 keystrokes - now 20
-    //   app.autoSave(view.model, field, input, false);
-
-    //   // setting up a timer so that if we stop typing we save stuff after 5 seconds
-    //   app.autoSaveTimer = setTimeout(function(){
-    //     app.autoSave(view.model, field, input, true);
-    //   }, 5000);
-    // },
 
     appendOneMedia: function(url) {
       var el;
@@ -508,17 +482,17 @@
     },
 
     removeOneMedia: function(ev) {
-      var view = this;
-      var targetUrl = jQuery(ev.target).data('url');
-      var mediaArray = view.model.get('media');
-      var newMediaArray = [];
-      _.each(mediaArray, function(url, i) {
-        if (mediaArray[i] !== targetUrl) {
-          newMediaArray.push(mediaArray[i]);
-        }
-      });
-      view.model.set('media', newMediaArray);
-      view.model.save();
+      // var view = this;
+      // var targetUrl = jQuery(ev.target).data('url');
+      // var mediaArray = view.model.get('media');
+      // var newMediaArray = [];
+      // _.each(mediaArray, function(url, i) {
+      //   if (mediaArray[i] !== targetUrl) {
+      //     newMediaArray.push(mediaArray[i]);
+      //   }
+      // });
+      // view.model.set('media', newMediaArray);
+      // view.model.save();
 
       jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
@@ -531,14 +505,30 @@
 
       // this radio button check is very sloppy TODO
       if (explanation.length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
-        // all of this nonsense to work around the fact that wakeful/drowsy choke on the nested Date obj (b/c it isn't JSON)
+        // all of this date nonsense to work around the fact that wakeful/drowsy choke on the nested Date obj (b/c it isn't JSON)
         var d = new Date();
         var dateStr = d.toDateString() + ', ' + d.toTimeString();
         dateStr = dateStr.substring(0, dateStr.length - 15);
         var vettingObj = {};
-        vettingObj.explanation = explanation;
+
+        // if radio button is yes, we need to write explanation is blank. This is way over the top, but hoping to future proof since we're going to launch before we get to the knowledge base section
+        if (jQuery('input:radio[name=yes]:checked').val() === "on") {
+          vettingObj.correct = true;
+          vettingObj.explanation = "";
+        } else {
+          vettingObj.correct = false;
+          vettingObj.explanation = explanation;
+        }
         vettingObj.author = app.username;
         vettingObj.date = dateStr;
+
+        //var targetUrl = jQuery(ev.target).data('url');
+        var mediaArr = []
+        jQuery('#vetting-media-container .media-container').each(function(i, container) {
+          mediaArr.push(jQuery(container).data('url'));
+        });
+        vettingObj.media = mediaArr;
+
         var vettingsAr = view.model.get('vettings');
         vettingsAr.push(vettingObj);
         view.model.set('vettings', vettingsAr);
@@ -551,6 +541,7 @@
         jQuery('.publish-vetting-btn').addClass('disabled');
         jQuery('#vetting-addon-input').val('');
         jQuery('#vetting-addon-container').addClass('hidden');
+        jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
 
         app.markAsComplete();
         app.determineNextStep();
@@ -567,12 +558,12 @@
       var vettingExplanation = '';
 
       _.each(view.model.get('vettings'), function(vetting) {
-        // if there is nothing to improve on...
-        if (vetting.explanation) {
+        // if this vetter said 'no' complete and correct
+        if (!vetting.correct) {
           vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
         }
+        // add the vetting media - TODO
       });
-
 
       jQuery('#vetting-name-field').text(view.model.get('name'));
       jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);

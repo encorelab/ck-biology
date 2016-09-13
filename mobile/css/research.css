@@ -205,21 +205,21 @@ textarea {
     margin-left: 5px;
 }
 
-#definition-media-container {
+#definition-media-container, #vetting-media-container {
     margin-top: 5px;
 }
-#definition-screen .media-container {
+#definition-screen .media-container, #vetting-screen .media-container {
     position: relative;
     display: inline-block;
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
     margin: 5px 2.5px 0px 2.5px;
 }
-#definition-screen .media {
+#definition-screen .media, #vetting-screen .media {
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
 }
-#definition-screen .remove-btn {
+#definition-screen .remove-btn, #vetting-screen .remove-btn {
     position: absolute;
     top: 2%;
     right: 5%;
@@ -245,10 +245,10 @@ textarea {
 }
 
 /* TODO: THIS NEEDS A LOT OF WORK ACROSS VARIOUS DEVICES */
-#definition-photo-modal .photo-content {
+#definition-photo-modal .photo-content, #vetting-photo-modal .photo-content {
     max-width: 100%;
 }
-#definition-photo-modal .download-photo-btn {
+#definition-photo-modal .download-photo-btn, #vetting-photo-modal .download-photo-btn {
     background: white;
     border-radius: 4px;
 }
