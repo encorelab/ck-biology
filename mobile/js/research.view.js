@@ -122,7 +122,12 @@
         {
           easing: 'easeInOut',
           color: app.hexLightBlue,
-          trailColor: app.hexLightGrey
+          trailColor: app.hexLightGrey,
+          svgStyle: {
+              display: 'inline',
+              width: '50%'
+          },
+          strokeWidth: 3
         });
     },
 
