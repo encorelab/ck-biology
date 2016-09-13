@@ -79,7 +79,7 @@
             trailColor: app.hexLightGrey,
             svgStyle: {
                 display: 'inline',
-                width: '20%'
+                width: '15%'
             },
             strokeWidth: 7
           });
@@ -91,7 +91,7 @@
             trailColor: app.hexLightGrey,
             svgStyle: {
                 display: 'inline',
-                width: '20%'
+                width: '15%'
             },
             strokeWidth: 7
           });
