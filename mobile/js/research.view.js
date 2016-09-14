@@ -22,10 +22,10 @@
     'border-radius': '25px'
   };
   app.progressBarTextStyle = {
-    color: '#fff',
+    color: '#555',
     position: 'absolute',
-    right: '2%',
-    bottom: '15%',
+    left: '2%',
+    top: '100%',
     'font-size': '16px'
   };
 
@@ -99,7 +99,7 @@
             easing: 'easeInOut',
             color: app.hexDarkPurple,
             trailColor: app.hexDarkGrey,
-            strokeWidth: 7,
+            strokeWidth: 9,
             svgStyle: app.progressBarStyle,
             text: {
               value:  myPercent,
@@ -112,7 +112,7 @@
             easing: 'easeInOut',
             color: app.hexLightBlue,
             trailColor: app.hexDarkGrey,
-            strokeWidth: 7,
+            strokeWidth: 9,
             svgStyle: app.progressBarStyle,
             text: {
               value: app.getCommunityContributionPercent(lesson.get('number')) + '%',
