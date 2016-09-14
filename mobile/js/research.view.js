@@ -71,13 +71,15 @@
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
+        el += '</span>';
         if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
           el += '<span class="fa fa-star"></span>';
         } else {
           el += '<span class="fa fa-star invisible"></span>';
         }
         el += '<span class="home-progress-container">';
-        el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span></div>';
+        el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span>';
+        el += '</span></div>';
 
         homeEl += el;
       });
@@ -85,6 +87,13 @@
 
       // fill in the progress bars
       Skeletor.Model.awake.lessons.each(function(lesson) {
+        var myPercent = '';
+        if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
+          myPercent = app.getMyContributionPercent(lesson.get('number'), true) + '+%';
+        } else {
+          myPercent = app.getMyContributionPercent(lesson.get('number')) + '%';
+        }
+
         var myBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-my-progress-bar',
           {
             easing: 'easeInOut',
@@ -93,7 +102,7 @@
             strokeWidth: 7,
             svgStyle: app.progressBarStyle,
             text: {
-              value: app.getMyContributionPercent(lesson.get('number')) + '%',
+              value:  myPercent,
               style: app.progressBarTextStyle
             }
           });
