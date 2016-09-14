@@ -58,5 +58,45 @@
         "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "from": "acid",
+        "to": "aqueous solution",
+        "link": "is a type of",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "from": "anion",
+        "to": "is a type of",
+        "link": "ion",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "from": "calorie",
+        "to": "heat",
+        "link": "is a measure of",
+        "lesson": 1,
+        "assigned_to": "alisa",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "from": "chemical reaction",
+        "to": "reactant",
+        "link": "contains",
+        "lesson": 1,
+        "assigned_to": "alisa",
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
     }
 ]

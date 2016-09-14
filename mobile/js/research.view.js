@@ -503,8 +503,6 @@
       // view.model.set('media', newMediaArray);
       // view.model.save();
 
-      // TODO - you can delete other people's photos START HERE
-
       jQuery('.media-container[data-url="'+jQuery(ev.target).data('url')+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
