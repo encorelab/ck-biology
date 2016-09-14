@@ -71,12 +71,13 @@
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
-        // el += '<span class="my-progress-percent lesson'+number+'"></span>';
-        // el += app.getMyContributionPercent(number)+'%</span>';
+        if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
+          el += '<span class="fa fa-star"></span>';
+        } else {
+          el += '<span class="fa fa-star invisible"></span>';
+        }
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span></div>';
-        // el += '<span class="community-progress-percent lesson'+number+'"></span>';
-        // el += app.getCommunityContributionPercent(number)+'%</span></div>';
 
         homeEl += el;
       });

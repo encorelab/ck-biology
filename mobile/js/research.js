@@ -398,7 +398,7 @@
 
 // TODO: set 0% and 100% max/mins on these
 
-  app.getMyContributionPercent = function(lessonNum) {
+  app.getMyContributionPercent = function(lessonNum, noMax) {
     var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
@@ -410,11 +410,10 @@
 
     var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
-    if (percent > 100) {
+    if (!noMax && percent > 100) {
       percent = 100;
     }
-    //return Math.round(percent);
-    return 95
+    return Math.round(percent);
   };
 
   app.getCommunityContributionPercent = function(lessonNum) {
