@@ -108,6 +108,12 @@ textarea {
     padding: 4px;
 }
 
+.icon {
+    max-width: 50px;
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
 /*****************************************************/
 /*****************************************************/
 /******************** HOME SCREEN ********************/
@@ -123,11 +129,6 @@ textarea {
 #home-screen h3 {
     display: inline-block;
     width: calc(15% - 50px);
-}
-#home-screen img {
-    max-width: 50px;
-    margin-left: 50px;
-    margin-right: 10px;
 }
 #home-screen h3:last-of-type {
     vertical-align: top;
@@ -176,6 +177,11 @@ textarea {
     height: 85%;
     overflow-y: scroll;
     margin-top: 5px;
+}
+
+#definition-screen h1,
+#definition-screen h2 {
+    text-align: left;
 }
 
 #definition-title-input,
