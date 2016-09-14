@@ -12,10 +12,22 @@
   var MAX_FILE_SIZE = 20971520;     // 20 Mb
 
   app.hexLightGrey = '#F4F4F4';
+  app.hexDarkGrey = '#95A5A6';
   app.hexLightBlue ='#3498DB';
   app.hexDarkPurple = '#8E44AD';
 
-
+  app.progressBarStyle = {
+    display: 'inline',
+    width: '15%',
+    'border-radius': '25px'
+  };
+  app.progressBarTextStyle = {
+    color: '#fff',
+    position: 'absolute',
+    right: '2%',
+    bottom: '15%',
+    'font-size': '16px'
+  };
 
 
   /***********************************************************
@@ -59,12 +71,12 @@
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
-        el += '<span class="my-progress-percent lesson'+number+'"></span>';
-        el += app.getMyContributionPercent(number)+'%</span>';
+        // el += '<span class="my-progress-percent lesson'+number+'"></span>';
+        // el += app.getMyContributionPercent(number)+'%</span>';
         el += '<span class="home-progress-container">';
-        el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span>';
-        el += '<span class="community-progress-percent lesson'+number+'"></span>';
-        el += app.getCommunityContributionPercent(number)+'%</span></div>';
+        el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span></div>';
+        // el += '<span class="community-progress-percent lesson'+number+'"></span>';
+        // el += app.getCommunityContributionPercent(number)+'%</span></div>';
 
         homeEl += el;
       });
@@ -76,24 +88,26 @@
           {
             easing: 'easeInOut',
             color: app.hexDarkPurple,
-            trailColor: app.hexLightGrey,
-            svgStyle: {
-                display: 'inline',
-                width: '15%'
-            },
-            strokeWidth: 7
+            trailColor: app.hexDarkGrey,
+            strokeWidth: 7,
+            svgStyle: app.progressBarStyle,
+            text: {
+              value: app.getMyContributionPercent(lesson.get('number')) + '%',
+              style: app.progressBarTextStyle
+            }
           });
         myBar.animate(app.getMyContributionPercent(lesson.get('number')) / 100);
         var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
           {
             easing: 'easeInOut',
             color: app.hexLightBlue,
-            trailColor: app.hexLightGrey,
-            svgStyle: {
-                display: 'inline',
-                width: '15%'
-            },
-            strokeWidth: 7
+            trailColor: app.hexDarkGrey,
+            strokeWidth: 7,
+            svgStyle: app.progressBarStyle,
+            text: {
+              value: app.getCommunityContributionPercent(lesson.get('number')) + '%',
+              style: app.progressBarTextStyle
+            }
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
       });

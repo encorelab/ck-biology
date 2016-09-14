@@ -413,7 +413,8 @@
     if (percent > 100) {
       percent = 100;
     }
-    return Math.round(percent);
+    //return Math.round(percent);
+    return 95
   };
 
   app.getCommunityContributionPercent = function(lessonNum) {
