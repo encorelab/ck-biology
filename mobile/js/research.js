@@ -34,7 +34,6 @@
   app.username = null;
   app.currentUser = null;
   app.lesson = null;
-  app.lessons = null;
   app.contributions = [];
 
   app.homeView = null;
@@ -43,7 +42,7 @@
   app.vettingView = null;
 
   app.keyCount = 0;
-  app.autoSaveTimer = window.setTimeout(function() { } ,10);
+  app.autoSaveTimer = window.setTimeout(function() { }, 10);
 
   app.state = [];
 
@@ -478,28 +477,6 @@
     return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
   };
 
-  var idToTimestamp = function(id) {
-    var timestamp = id.substring(0,8);
-    var seconds = parseInt(timestamp, 16);
-    return seconds;
-  };
-
-  app.convertStringArrayToIntArray = function(arr) {
-    var result = arr.map(function (x) {
-      return parseInt(x, 10);
-    });
-    return result;
-  };
-
-  var generateRandomClientId = function() {
-    var length = 22;
-    var chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var result = '';
-    for (var i = length; i > 0; --i) {
-      result += chars[Math.round(Math.random() * (chars.length - 1))];
-    }
-    return result;
-  };
 
   //*************** LOGIN FUNCTIONS ***************//
 
@@ -692,12 +669,6 @@
       app.loginUser(jQuery('#username').val());
       return false;
     }
-  };
-
-  app.turnUrlsToLinks = function(text) {
-    var urlRegex = /(https?:\/\/[^\s]+)/g;
-    var urlText = text.replace(urlRegex, '<a href="$1">$1</a>');
-    return urlText;
   };
 
   this.Skeletor = Skeletor;
