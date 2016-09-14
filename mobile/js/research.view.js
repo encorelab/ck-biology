@@ -468,17 +468,21 @@
         // mediaArray.push(data.url);
         // view.model.set('media', mediaArray);
         // view.model.save();
-        view.appendOneMedia(data.url);
+        view.appendOneMedia(data.url, true);
       }
     },
 
-    appendOneMedia: function(url) {
+    appendOneMedia: function(url, allowDelete) {
+      var disabledAttr = '';
+      if (!allowDelete) {
+        disabledAttr = 'hidden';
+      }
       var el;
 
       if (app.photoOrVideo(url) === "photo") {
-        el = '<span class="media-container" data-url="'+url+'"><img src="'+app.config.pikachu.url+url+'" class="media photo-container img-responsive"></img><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+        el = '<span class="media-container" data-url="'+url+'"><img src="'+app.config.pikachu.url+url+'" class="media photo-container img-responsive"></img><i class="fa fa-times fa-2x remove-btn '+disabledAttr+'" data-url="'+url+'"/></span>';
       } else if (app.photoOrVideo(url) === "video") {
-        el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
+        el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn '+disabledAttr+'" data-url="'+url+'"/></span>';
       } else {
         el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
         throw "Error trying to append media - unknown media type!";
@@ -568,7 +572,7 @@
       // clear and then add all media from term
       jQuery('#vetting-media-container').html('');
       view.model.get('media').forEach(function(url) {
-        view.appendOneMedia(url);
+        view.appendOneMedia(url, false);
       });
 
       _.each(view.model.get('vettings'), function(vetting) {
