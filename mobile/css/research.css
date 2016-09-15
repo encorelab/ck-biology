@@ -57,11 +57,12 @@ textarea {
 } */
 
 .inner-wrapper {
-    position: absolute;
+/*     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); */
     padding: 0 40px;
+    min-width: 997px;
 }
 .inner-inner-wrapper {
     width: 100%;
@@ -85,10 +86,10 @@ textarea {
 .btn {
     margin-bottom: 20px;
     height: 45px;
-    min-width: 150px;
     border-radius: 7px;
     background-image: none;
     text-shadow: none;
+    min-width: 150px;
 }
 
 .btn-base {
@@ -124,6 +125,10 @@ textarea {
     margin-right: 10px;
 }
 
+.fa-check {
+    margin-bottom: 20px;
+}
+
 /*****************************************************/
 /*****************************************************/
 /******************** HOME SCREEN ********************/
@@ -132,6 +137,13 @@ textarea {
 
 
 #home-screen .inner-wrapper {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     text-align: center;
 }
 #home-screen h2 {
@@ -142,8 +154,10 @@ textarea {
 }
 #home-screen h3 {
     display: inline-block;
-    width: calc(18% - 50px);
     text-align: left;
+}
+#home-screen .home-progress-title {
+    width: calc(18% - 50px);
 }
 #home-screen h3+img+h3 {
     vertical-align: top;
@@ -181,7 +195,7 @@ textarea {
     color: #F2C42C;
     position: relative;
     top: 22px;
-    left: -140px;
+    left: -11%;
     /* margin-left: 5px; */
 }
 
@@ -216,10 +230,16 @@ textarea {
 }
 
 #definition-screen .inner-wrapper,
+#relationship-screen .inner-wrapper,
+#vetting-screen .inner-wrapper {
+    margin-top: 60px;
+}
+
+#definition-screen .inner-wrapper,
 #relationship-screen .inner-wrapper {
-    height: 85%;
+/*     height: 85%;
     overflow-y: scroll;
-    margin-top: 5px;
+    margin-top: 5px; */
 }
 
 #definition-screen h1,
@@ -258,19 +278,14 @@ textarea {
     border: none;
 }
 
-.photo-wrapper {
-    display: inline-block;
-    margin-left: 5px;
-}
-
-#definition-btn-container {
-    display: inline-block;
-}
+.photo-wrapper,
+#definition-btn-container,
 #definition-media-container,
 #vetting-media-container {
     /* margin-top: 5px; */
-    float: left;
+    /* float: left; */
     /* margin-right: 25px; */
+    display: inline-block;
 }
 #definition-photo-file {
     width: 100%;
@@ -355,6 +370,9 @@ textarea {
 }
 #vetting-addon-container {
     margin-bottom: 20px;
+}
+#vetting-btn-container {
+    display: inline-block;
 }
 
 
@@ -517,15 +535,15 @@ input:disabled {
 /* Extra small devices (phones, less than 768px) */
 @media all and (max-width: 767px) {
 
-    .side-nav .btn-circular {
+/*     .side-nav .btn-circular {
         margin-left: 15px !important;
-    }
+    } */
 }
 
 /*Small devices PORTRAIT (tablets, more than 768px tall)*/
 @media all and (min-height: 768px) and (orientation: portrait) {
 
-    .username-display a {
+/*     .username-display a {
         max-width: 300px;
         text-overflow: ellipsis;
     }
@@ -543,31 +561,45 @@ input:disabled {
         margin-left: -20px;
     }
 
-    .definition, .relationship {
+    .definition,
+    .relationship {
         padding: 5% 7% 0 1%;
         height: 87%;
     }
-    .definition-title, .relationship-title {
+    .definition-title,
+    .relationship-title {
         height: 18%;
-    }
-    .definition-body, .relationship-body {
-        height: 57%;                /* TODO: this is guesswork, check me on the ipad */;
-    }
-    .definition-url, .relationship-url {
+    } */
+    /* TODO: this is guesswork, check me on the ipad */
+/*     .definition-body,
+    .relationship-body {
         height: 57%;
     }
-    .fa-file-image-o,
+    .definition-url,
+    .relationship-url {
+        height: 57%;
+    } */
+    /* TODO check me in ipad */
+/*     .fa-file-image-o,
     .fa-file-video-o {
         font-size: 5em;
-        margin-left: 14px;                  /* TODO check me in ipad */
+        margin-left: 14px;
     }
     .fa-circle {
         bottom: 1.5%;
     }
     .self-photo-query {
         margin-left: 8%;
+    } */
+}
+
+/* Medium Devices (DESKTOPS, 992px and up) */
+@media all and (min-width : 992px) {
+    .fa-star {
+        left: -12%;
     }
 }
+
 
 /* Large devices (LARGE DESKTOPS, 1200px and up) */
 @media all and (min-width: 1200px) {
@@ -599,6 +631,12 @@ input:disabled {
     .lesson-title {
         font-size: 1.2em;
         /* min-width: 25%; */
+    }
+    .fa-star {
+        left: -13%;
+    }
+    #relationship-container {
+        min-height: 150px;
     }
 }
 
