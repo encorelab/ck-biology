@@ -11,9 +11,9 @@
   app.View = {};
   var MAX_FILE_SIZE = 20971520;     // 20 Mb
 
-  app.hexLightGrey = '#F4F4F4';
-  app.hexDarkGrey = '#95A5A6';
-  app.hexLightBlue ='#3498DB';
+  app.hexLightGrey  = '#F4F4F4';
+  app.hexDarkGrey   = '#95A5A6';
+  app.hexLightBlue  = '#3498DB';
   app.hexDarkPurple = '#8E44AD';
 
   app.progressBarStyle = {
@@ -28,6 +28,12 @@
     top: '100%',
     'font-size': '16px'
   };
+  app.progressDefBarStyle = {
+    display: 'inline',
+    width: '50%',
+    'border-radius': '25px',
+    'margin-left': '1%'
+  }
 
 
   /***********************************************************
@@ -98,7 +104,7 @@
           {
             easing: 'easeInOut',
             color: app.hexDarkPurple,
-            trailColor: app.hexDarkGrey,
+            trailColor: app.hexLightGrey,
             strokeWidth: 9,
             svgStyle: app.progressBarStyle,
             text: {
@@ -111,7 +117,7 @@
           {
             easing: 'easeInOut',
             color: app.hexLightBlue,
-            trailColor: app.hexDarkGrey,
+            trailColor: app.hexLightGrey,
             strokeWidth: 9,
             svgStyle: app.progressBarStyle,
             text: {
@@ -147,11 +153,12 @@
           easing: 'easeInOut',
           color: app.hexLightBlue,
           trailColor: app.hexLightGrey,
-          svgStyle: {
-              display: 'inline',
-              width: '50%'
-          },
-          strokeWidth: 3
+          strokeWidth: 3,
+          svgStyle: app.progressDefBarStyle
+          // text: {
+          //   value:  myPercent,
+          //   style: app.progressDefBarTextStyle
+          // }
         });
     },
 

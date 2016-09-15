@@ -2,34 +2,35 @@
 
 body {
     font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, sans-serif;
+    color: #34495e; /* wet ashphalt */
 }
 
 h1 {
-    font-size: 54px;
-    color: #444;
+    font-size: 3em;
     font-weight: 500;
-    text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 25px;
+    /* color: #444; */
+    /* text-align: center; */
 }
 
 h2 {
-    color: #555;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 25px;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    /* color: #34495e; */
+    /* text-align: center; */
 }
 
 h3,
 label {
     font-size: 1.2em;
     font-weight: 500;
-    color: #555;
+    /* color: #555; */
 }
 
 h4 {
     font-size: 14px;
     font-weight: 500;
-    color: #555;
+    /* color: #34495e; */
 }
 
 label {
@@ -40,9 +41,12 @@ textarea {
     -moz-user-select: text;
     -webkit-user-select: text;
     user-select: text;
-    color: #333;
+    color: #34495e;
     width: 100%;
     padding: 25px 2% 1%;
+    border: 2px solid #34495e;
+    height: 200%;
+    min-height: 205px;
 }
 
 
@@ -61,6 +65,11 @@ textarea {
 }
 .inner-wrapper {
     padding: 0 40px;
+}
+.inner-inner-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .side-nav {
@@ -110,7 +119,6 @@ textarea {
 
 .icon {
     max-width: 50px;
-    margin-left: 50px;
     margin-right: 10px;
 }
 
@@ -132,6 +140,9 @@ textarea {
 }
 #home-screen h3:last-of-type {
     vertical-align: top;
+}
+#home-screen .icon {
+    margin-left: 50px;
 }
 .home-row-container {
     margin-bottom: 20px;
@@ -175,6 +186,9 @@ textarea {
 .fa-arrow-left {
     padding-right: 4px;
 }
+.my-progress-percent {
+    font-size: 16px;
+}
 
 #definition-screen .inner-wrapper,
 #relationship-screen .inner-wrapper {
@@ -197,8 +211,9 @@ textarea {
 
 #definition-body-container,
 #relationship-body-container {
-    position: relative;
-    height: 160px;
+/*     position: relative;
+    height: 160px; */
+    margin-bottom: 5%;
 }
 
 #definition-body-input {
@@ -218,26 +233,30 @@ textarea {
     border: none;
 }
 
-.photo-wrapper {
+/* .photo-wrapper {
     display: inline-block;
     margin-left: 5px;
-}
+} */
 
-#definition-media-container, #vetting-media-container {
+/* #definition-media-container,
+#vetting-media-container {
     margin-top: 5px;
-}
-#definition-screen .media-container, #vetting-screen .media-container {
+} */
+#definition-screen .media-container,
+#vetting-screen .media-container {
     position: relative;
     display: inline-block;
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
     margin: 5px 2.5px 0px 2.5px;
 }
-#definition-screen .media, #vetting-screen .media {
+#definition-screen .media,
+#vetting-screen .media {
     width: 255px;
     height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
 }
-#definition-screen .remove-btn, #vetting-screen .remove-btn {
+#definition-screen .remove-btn,
+#vetting-screen .remove-btn {
     position: absolute;
     top: 2%;
     right: 5%;
@@ -252,9 +271,10 @@ textarea {
     width: 70%;
 }
 .camera-icon-label {
-    width: 60px;
+    width: 80px;
 }
-#definition-btn-container .fa-spinner, #vetting-btn-container .fa-spinner {
+#definition-btn-container .fa-spinner,
+#vetting-btn-container .fa-spinner {
     font-size: 6em;
     position: absolute;
     z-index: 999;
@@ -264,10 +284,12 @@ textarea {
 }
 
 /* TODO: THIS NEEDS A LOT OF WORK ACROSS VARIOUS DEVICES */
-#definition-photo-modal .photo-content, #vetting-photo-modal .photo-content {
+#definition-photo-modal .photo-content,
+#vetting-photo-modal .photo-content {
     max-width: 100%;
 }
-#definition-photo-modal .download-photo-btn, #vetting-photo-modal .download-photo-btn {
+#definition-photo-modal .download-photo-btn,
+#vetting-photo-modal .download-photo-btn {
     background: white;
     border-radius: 4px;
 }
