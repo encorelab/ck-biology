@@ -18,7 +18,7 @@
 
   app.progressBarStyle = {
     display: 'inline',
-    width: '15%',
+    width: '18%',
     'border-radius': '25px'
   };
   app.progressBarTextStyle = {
@@ -31,8 +31,7 @@
   app.progressDefBarStyle = {
     display: 'inline',
     width: '50%',
-    'border-radius': '25px',
-    'margin-left': '1%'
+    'border-radius': '25px'
   }
 
 
@@ -105,7 +104,7 @@
             easing: 'easeInOut',
             color: app.hexDarkPurple,
             trailColor: app.hexLightGrey,
-            strokeWidth: 9,
+            strokeWidth: 8,
             svgStyle: app.progressBarStyle,
             text: {
               value:  myPercent,
@@ -118,7 +117,7 @@
             easing: 'easeInOut',
             color: app.hexLightBlue,
             trailColor: app.hexLightGrey,
-            strokeWidth: 9,
+            strokeWidth: 8,
             svgStyle: app.progressBarStyle,
             text: {
               value: app.getCommunityContributionPercent(lesson.get('number')) + '%',
@@ -151,7 +150,7 @@
       app.defBar = new ProgressBar.Line('#definition-my-progress-bar',
         {
           easing: 'easeInOut',
-          color: app.hexLightBlue,
+          color: app.hexDarkPurple,
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
           svgStyle: app.progressDefBarStyle
@@ -338,7 +337,7 @@
       app.relBar = new ProgressBar.Line('#relationship-my-progress-bar',
         {
           easing: 'easeInOut',
-          color: app.hexLightBlue,
+          color: app.hexDarkPurple,
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
           svgStyle: app.progressDefBarStyle
@@ -411,8 +410,10 @@
       app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar',
         {
           easing: 'easeInOut',
-          color: app.hexLightBlue,
-          trailColor: app.hexLightGrey
+          color: app.hexDarkPurple,
+          trailColor: app.hexLightGrey,
+          strokeWidth: 3,
+          svgStyle: app.progressDefBarStyle
         });
 
     },

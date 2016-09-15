@@ -52,18 +52,15 @@ textarea {
 
 /********** BIOLOGY **********/
 
-.side-nav .btn-circular {
+/* .side-nav .btn-circular {
     margin-left: -25px;
-}
+} */
 
-.inner-wrapper,
-.side-nav {
+.inner-wrapper {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-}
-.inner-wrapper {
     padding: 0 40px;
 }
 .inner-inner-wrapper {
@@ -71,14 +68,19 @@ textarea {
     max-width: 800px;
     margin: 0 auto;
 }
+/* .inner-wrapper h1,
+.inner-wrapper h2,
+.inner-wrapper h3 {
+    text-align: left;
+} */
 
-.side-nav {
+/* .side-nav {
     padding: 0 100px 0 0;
 }
 
 .side-nav button + button {
     margin-top: 25px;
-}
+} */
 
 .btn {
     margin-bottom: 20px;
@@ -109,13 +111,13 @@ textarea {
     background: #fecc81 !important;
 }
 
-.heavy-text {
+/* .heavy-text {
     font-weight: 900;
     background-color: #FCF9CA;
     border: 1px solid #FCF9CA;
     border-radius: 10px;
     padding: 4px;
-}
+} */
 
 .icon {
     max-width: 50px;
@@ -129,16 +131,21 @@ textarea {
 /*****************************************************/
 
 
+#home-screen .inner-wrapper {
+    text-align: center;
+}
 #home-screen h2 {
     text-align: left;
     display: inline-block;
     width: calc(170px + 30%);
+    margin-bottom: 40px;
 }
 #home-screen h3 {
     display: inline-block;
-    width: calc(15% - 50px);
+    width: calc(18% - 50px);
+    text-align: left;
 }
-#home-screen h3:last-of-type {
+#home-screen h3+img+h3 {
     vertical-align: top;
 }
 #home-screen .icon {
@@ -166,13 +173,16 @@ textarea {
     min-width: 30%;
 }
 .home-progress-container {
-    width: 400px;
+    /* width: 400px; ??*/
     margin-left: 50px;
 }
 .fa-star {
     font-size: 1.5em;
     color: #F2C42C;
-    margin-left: 5px;
+    position: relative;
+    top: 22px;
+    left: -140px;
+    /* margin-left: 5px; */
 }
 
 
@@ -190,6 +200,7 @@ textarea {
 /*** progress bar ***/
 .progress-bar-container {
     margin-bottom: 50px;
+    margin-top: 25px;
 }
 .my-progress-percent,
 .percent {
@@ -259,7 +270,7 @@ textarea {
 #vetting-media-container {
     /* margin-top: 5px; */
     float: left;
-    margin-right: 25px;
+    /* margin-right: 25px; */
 }
 #definition-photo-file {
     width: 100%;
@@ -274,6 +285,7 @@ textarea {
     height: 120px;          /* REDO ME - this is ugly, look at img-responsive class */
     /* margin: 5px 2.5px 0px 2.5px; */
     margin-right: 25px;
+    margin-bottom: 25px;
 }
 #definition-screen .media,
 #vetting-screen .media {
@@ -317,6 +329,7 @@ textarea {
     border-radius: 4px;
 }
 
+/** relationship screen only **/
 #relationship-container {
     text-align: center;
     padding: 100px 0;
@@ -331,7 +344,17 @@ textarea {
     margin: 0 20px;
     line-height: 2.5em;
     vertical-align: text-bottom;
+}
 
+/** vetting screen only **/
+.radio {
+    margin-left: 25px;
+}
+.radio + .radio {
+    margin-bottom: 25px;
+}
+#vetting-addon-container {
+    margin-bottom: 20px;
 }
 
 
@@ -548,30 +571,56 @@ input:disabled {
 
 /* Large devices (LARGE DESKTOPS, 1200px and up) */
 @media all and (min-width: 1200px) {
-    .side-nav {
+/*     .side-nav {
         padding: 0 200px 0 0;
+    } */
+
+    .inner-wrapper {
+        max-width: 1350px;
+        /* text-align: center; */
+        /* margin-left: calc((100% - 1350px)/2); */
     }
 
     .definition-container {
-        padding-bottom: 25%; /* = width for a 1:1 aspect ratio */
+        /* padding-bottom: 25%; */ /* = width for a 1:1 aspect ratio */
     }
-    .fa-file-image-o,
+/*     .fa-file-image-o,
     .fa-file-video-o {
         font-size: 9em;
         margin-left: 21%;
     }
     .definition h3, .relationship h3 {
         font-size: 20px;
-    }
+    } */
 
-    .lesson-title {
-        font-size: 18px;
-        min-width: 25%;
+    #home-screen h3+img+h3 {
+        vertical-align: baseline;
     }
-    .inner-wrapper {
-        padding: 0;
+    .lesson-title {
+        font-size: 1.2em;
+        /* min-width: 25%; */
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Blue and green version - Renato */
 
