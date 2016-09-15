@@ -186,7 +186,8 @@ textarea {
 .fa-arrow-left {
     padding-right: 4px;
 }
-.my-progress-percent {
+.my-progress-percent,
+.percent {
     font-size: 16px;
 }
 
@@ -294,7 +295,15 @@ textarea {
     border-radius: 4px;
 }
 
-
+#relationship-screen h1 {
+    display: inline-block;
+    background-color: #F4F4F4;
+    padding: 5px 40px;
+}
+#relationship-link-container {
+    display: inline-block;
+    margin: 20px;
+}
 
 
 /********** GLOBAL **********/

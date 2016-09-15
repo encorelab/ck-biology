@@ -97,7 +97,8 @@
         <div class="row">
             <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
                 <br />
-                <div class="definition-progress-bar-container"><img src="img/individual.png" class="icon" alt="user icon"><span id="definition-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span>%</div>
+                <div class="definition-progress-bar-container"><img src="img/individual.png" class="icon" alt="user icon"><span id="definition-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span></div>
+
                 <div class="inner-inner-wrapper">
                     <h2>Explain the following term/concept and provide example(s) where possible</h2>
                     <h1 id="definition-name-field"> <!-- FILLED BY VIEW --> </h1>
@@ -150,23 +151,27 @@
 
     <div id="relationship-screen" class="container-fluid user-screen">
         <div class="row">
-            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+            <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
                 <br />
-                <div><span id="relationship-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span>%</div>
-                <div id="relationship-container" class="editable">
-                    <div id="relationship-from-container" class="relationship-name-container"></div>
-                    <div id="relationship-link-container">
-                        <select id="relationship-link-dropdown">
-                            <option value="">...</option>
-                            <option value="is a type of">is a type of</option>
-                            <option value="is composed of">is composed of</option>
-                            <option value="is produced by">is produced by</option>
-                            <option value="is used in">is used in</option>
-                        </select>
+                <div><img src="img/individual.png" class="icon" alt="user icon"><span id="relationship-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span></div>
+
+                <div class="inner-inner-wrapper">
+                    <h2>Identify the relationship that exists between the following two terms.</h2>
+                    <div id="relationship-container" class="editable">
+                        <h1 id="relationship-from-container" class="relationship-name-container"></h1>
+                        <div id="relationship-link-container">
+                            <select id="relationship-link-dropdown">
+                                <option value="">Select Relationship</option>
+                                <option value="is a type of">is a type of</option>
+                                <option value="is composed of">is composed of</option>
+                                <option value="is produced by">is produced by</option>
+                                <option value="is used in">is used in</option>
+                            </select>
+                        </div>
+                        <h1 id="relationship-to-container" class="relationship-name-container"></h1>
+                        <div id="relationship-correct" class="relationship-outcome-container hidden">Correct!</div>
+                        <div id="relationship-incorrect" class="relationship-outcome-container hidden">Sorry, this answer is incorrect. Please try again.</div>
                     </div>
-                    <div id="relationship-to-container" class="relationship-name-container"></div>
-                    <div id="relationship-correct" class="relationship-outcome-container hidden">Correct!</div>
-                    <div id="relationship-incorrect" class="relationship-outcome-container hidden">Sorry, this answer is incorrect. Please try again.</div>
                 </div>
 
                 <div id="relationship-btn-container" class="editable">
@@ -184,36 +189,40 @@
 
     <div id="vetting-screen" class="container-fluid user-screen">
         <div class="row">
-            <div class="inner-wrapper col-xs-9 col-xs-offset-2">
+            <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
                 <br />
-                <div><span id="vetting-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span>%</div>
-                <h2>Read the following explanation:</h2>
-                <h1 id="vetting-name-field"> <!-- FILLED BY VIEW --> </h1>
-                <div id="vetting-body-container" class="disabled">
-                    <textarea id="vetting-explanation-input" class="input-field disabled"></textarea>
-                </div>
+                <div><img src="img/individual.png" class="icon" alt="user icon"><span id="vetting-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span></div>
 
-                Is this explanation <b>complete and correct</b>?
-                <div class="radio">
-                  <label><input class="vetting-radio-btn" type="radio" name="yes">Yes</label>
-                </div>
-                <div class="radio">
-                  <label><input class="vetting-radio-btn" type="radio" name="no">No</label>
-                </div>
-                <div id="vetting-addon-container" class="hidden">
-                    <textarea id="vetting-addon-input" class="input-field" placeholder="Add a comment to contribute any new/corrected information"></textarea>
-                </div>
-
-                <div id="vetting-media-container"></div>
-
-                <div id="vetting-btn-container">
-                    <div class="photo-wrapper hidden">
-                       <label for="vetting-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                       <input id="vetting-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
-                       <i id="vetting-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                <div class="inner-inner-wrapper">
+                    <h2>Read the following explanation:</h2>
+                    <h1 id="vetting-name-field"> <!-- FILLED BY VIEW --> </h1>
+                    <div id="vetting-body-container" class="disabled">
+                        <textarea id="vetting-explanation-input" class="input-field disabled"></textarea>
                     </div>
-                    <button class="publish-vetting-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
+
+                    Is this explanation <b>complete and correct</b>?
+                    <div class="radio">
+                      <label><input class="vetting-radio-btn" type="radio" name="yes">Yes</label>
+                    </div>
+                    <div class="radio">
+                      <label><input class="vetting-radio-btn" type="radio" name="no">No</label>
+                    </div>
+                    <div id="vetting-addon-container" class="hidden">
+                        <textarea id="vetting-addon-input" class="input-field" placeholder="Add a comment to contribute any new/corrected information"></textarea>
+                    </div>
+
+                    <div id="vetting-media-container"></div>
+
+                    <div id="vetting-btn-container">
+                        <div class="photo-wrapper hidden">
+                           <label for="vetting-photo-file" class="upload-icon camera-icon-label"><img src="img/camera-icon.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
+                           <input id="vetting-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
+                           <i id="vetting-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
+                        </div>
+                    </div>
                 </div>
+
+                <button class="publish-vetting-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
             </div>
         </div>
 

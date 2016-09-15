@@ -339,7 +339,9 @@
         {
           easing: 'easeInOut',
           color: app.hexLightBlue,
-          trailColor: app.hexLightGrey
+          trailColor: app.hexLightGrey,
+          strokeWidth: 3,
+          svgStyle: app.progressDefBarStyle
         });
     },
 
