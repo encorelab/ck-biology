@@ -2,13 +2,13 @@
 
 body {
     font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, sans-serif;
-    color: #34495e; /* wet ashphalt */
+    color: #34495e; /* MD wet ashphalt */
 }
 
 h1 {
     font-size: 3em;
-    font-weight: 500;
-    margin-bottom: 25px;
+    font-weight: 700;
+    margin: 25px 0 20px;
     /* color: #444; */
     /* text-align: center; */
 }
@@ -43,7 +43,7 @@ textarea {
     user-select: text;
     color: #34495e;
     width: 100%;
-    padding: 25px 2% 1%;
+    padding: 1em;
     border: 2px solid #34495e;
     height: 200%;
     min-height: 205px;
@@ -182,13 +182,26 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-
+/* don't think this exists in HTML anywhere */
 .fa-arrow-left {
     padding-right: 4px;
 }
+
+/*** progress bar ***/
+.progress-bar-container {
+    margin-bottom: 50px;
+}
 .my-progress-percent,
 .percent {
-    font-size: 16px;
+    font-size: 1.3em;
+    position: relative;
+    left: 55%;
+}
+
+.camera-icon-label {
+    width: 120px;
+    background-color: #ecf0f1;
+    padding: 25px;
 }
 
 #definition-screen .inner-wrapper,
@@ -200,7 +213,7 @@ textarea {
 
 #definition-screen h1,
 #definition-screen h2 {
-    text-align: left;
+    /* text-align: left; */
 }
 
 #definition-title-input,
@@ -214,7 +227,7 @@ textarea {
 #relationship-body-container {
 /*     position: relative;
     height: 160px; */
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 #definition-body-input {
@@ -234,27 +247,38 @@ textarea {
     border: none;
 }
 
-/* .photo-wrapper {
+.photo-wrapper {
     display: inline-block;
     margin-left: 5px;
-} */
+}
 
-/* #definition-media-container,
+#definition-btn-container {
+    display: inline-block;
+}
+#definition-media-container,
 #vetting-media-container {
-    margin-top: 5px;
-} */
+    /* margin-top: 5px; */
+    float: left;
+    margin-right: 25px;
+}
+#definition-photo-file {
+    width: 100%;
+    max-width: 200px;
+}
+
 #definition-screen .media-container,
 #vetting-screen .media-container {
     position: relative;
     display: inline-block;
-    width: 255px;
-    height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
-    margin: 5px 2.5px 0px 2.5px;
+    width: 120px;
+    height: 120px;          /* REDO ME - this is ugly, look at img-responsive class */
+    /* margin: 5px 2.5px 0px 2.5px; */
+    margin-right: 25px;
 }
 #definition-screen .media,
 #vetting-screen .media {
-    width: 255px;
-    height: 255px;          /* REDO ME - this is ugly, look at img-responsive class */
+    width: 120px;
+    height: 120px;          /* REDO ME - this is ugly, look at img-responsive class */
 }
 #definition-screen .remove-btn,
 #vetting-screen .remove-btn {
@@ -267,13 +291,11 @@ textarea {
 
 #definition-btn-container,
 #relationship-btn-container {
-    position: relative;
+/*     position: relative;
     margin-top: 20px;
-    width: 70%;
+    width: 70%; */
 }
-.camera-icon-label {
-    width: 80px;
-}
+
 #definition-btn-container .fa-spinner,
 #vetting-btn-container .fa-spinner {
     font-size: 6em;
@@ -295,6 +317,10 @@ textarea {
     border-radius: 4px;
 }
 
+#relationship-container {
+    text-align: center;
+    padding: 100px 0;
+}
 #relationship-screen h1 {
     display: inline-block;
     background-color: #F4F4F4;
@@ -368,6 +394,7 @@ ul {
     background-color: rgba(0,0,0,.5);
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
 }
+
 
 /********** MODALS **********/
 /*for vertical centering; had to add .table & .table-cell divs to html*/

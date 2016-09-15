@@ -260,7 +260,7 @@
       } else if (app.photoOrVideo(url) === "video") {
         el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn editable" data-url="'+url+'"/></span>';
       } else {
-        el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
+        el = '<img src="img/add_file.png" class="media img-responsive" alt="camera icon" />';
         throw "Error trying to append media - unknown media type!";
       }
       jQuery('#definition-media-container').append(el);
@@ -517,7 +517,7 @@
       } else if (app.photoOrVideo(url) === "video") {
         el = '<span class="media-container" data-url="'+url+'"><video src="' + app.config.pikachu.url+url + '" class="camera-icon img-responsive" controls /><i class="fa fa-times fa-2x remove-btn '+disabledAttr+'" data-url="'+url+'"/></span>';
       } else {
-        el = '<img src="img/camera_icon.png" class="media img-responsive" alt="camera icon" />';
+        el = '<img src="img/add_file.png" class="media img-responsive" alt="camera icon" />';
         throw "Error trying to append media - unknown media type!";
       }
       jQuery('#vetting-media-container').append(el);
