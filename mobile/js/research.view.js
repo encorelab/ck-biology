@@ -13,6 +13,7 @@
 
   app.hexLightGrey  = '#F4F4F4';
   app.hexDarkGrey   = '#95A5A6';
+  app.hexLightBlack = '#34495E';
   app.hexLightBlue  = '#3498DB';
   app.hexDarkPurple = '#8E44AD';
 
@@ -162,11 +163,12 @@
     },
 
     events: {
-      'change #definition-photo-file'     : 'uploadMedia',
-      'click .remove-btn'                 : 'removeOneMedia',
-      'click .publish-definition-btn'     : 'publishDefinition',
-      'click .photo-container'            : 'openPhotoModal',
-      'keyup :input'                      : 'checkForAutoSave'
+      'change #definition-photo-file'        : 'uploadMedia',
+      'click .remove-btn'                    : 'removeOneMedia',
+      'click .publish-definition-btn'        : 'publishDefinition',
+      'click .photo-container'               : 'openPhotoModal',
+      'keyup :input'                         : 'checkForAutoSave',
+      'keyup #definition-explanation-input'  : 'checkForAllowedToPublish'
     },
 
     openPhotoModal: function(ev) {
@@ -235,22 +237,6 @@
 
     },
 
-    checkForAutoSave: function(ev) {
-      var view = this,
-          field = ev.target.name,
-          input = ev.target.value;
-      // clear timer on keyup so that a save doesn't happen while typing
-      app.clearAutoSaveTimer();
-
-      // save after 10 keystrokes - now 20
-      app.autoSave(view.model, field, input, false);
-
-      // setting up a timer so that if we stop typing we save stuff after 5 seconds
-      app.autoSaveTimer = setTimeout(function(){
-        app.autoSave(view.model, field, input, true);
-      }, 5000);
-    },
-
     appendOneMedia: function(url) {
       var el;
 
@@ -281,6 +267,32 @@
       jQuery('.media-container[data-url="'+targetUrl+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
+    },
+
+    checkForAutoSave: function(ev) {
+      var view = this,
+          field = ev.target.name,
+          input = ev.target.value;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
+
+      // save after 10 keystrokes - now 20
+      app.autoSave(view.model, field, input, false);
+
+      // setting up a timer so that if we stop typing we save stuff after 5 seconds
+      app.autoSaveTimer = setTimeout(function(){
+        app.autoSave(view.model, field, input, true);
+      }, 5000);
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      if (jQuery('#definition-explanation-input').val().length > 0) {
+        jQuery('.publish-definition-btn').css({'background': app.hexLightBlack})
+      } else {
+        jQuery('.publish-definition-btn').css({'background': app.hexDarkGrey});
+      }
     },
 
     publishDefinition: function() {
@@ -423,23 +435,8 @@
       'click .remove-btn'                 : 'removeOneMedia',
       'click .publish-vetting-btn'        : 'publishVetting',
       'click .photo-container'            : 'openPhotoModal',
-      'click .vetting-radio-btn'          : 'updateVettingRequired'
-    },
-
-    updateVettingRequired: function(ev) {
-      // dealing with the view components of this, since radio buttons are THE WORST
-      jQuery('.vetting-radio-btn').prop('checked', false);
-      jQuery(ev.target).prop('checked', true);
-
-      jQuery('.publish-vetting-btn').removeClass('disabled');
-
-      if (jQuery(ev.target).prop('name') === "yes") {
-        jQuery('#vetting-addon-container').addClass('hidden');
-        jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
-      } else {
-        jQuery('#vetting-addon-container').removeClass('hidden');
-        jQuery('#vetting-btn-container .photo-wrapper').removeClass('hidden');
-      }
+      'click .vetting-radio-btn'          : 'updateVettingRequired',
+      'keyup #vetting-addon-input'        : 'checkForAllowedToPublish'
     },
 
     openPhotoModal: function(ev) {
@@ -540,6 +537,36 @@
       jQuery('.media-container[data-url="'+jQuery(ev.target).data('url')+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
+    },
+
+    updateVettingRequired: function(ev) {
+      var view = this;
+
+      // dealing with the view components of this, since radio buttons are THE WORST
+      jQuery('.vetting-radio-btn').prop('checked', false);
+      jQuery(ev.target).prop('checked', true);
+
+      jQuery('.publish-vetting-btn').removeClass('disabled');
+
+      if (jQuery(ev.target).prop('name') === "yes") {
+        jQuery('#vetting-addon-container').addClass('hidden');
+        jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
+      } else {
+        jQuery('#vetting-addon-container').removeClass('hidden');
+        jQuery('#vetting-btn-container .photo-wrapper').removeClass('hidden');
+      }
+
+      view.checkForAllowedToPublish();
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      if (jQuery('#vetting-addon-input').val().length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
+        jQuery('.publish-vetting-btn').css({'background': app.hexLightBlack})
+      } else {
+        jQuery('.publish-vetting-btn').css({'background': app.hexDarkGrey});
+      }
     },
 
     publishVetting: function() {
