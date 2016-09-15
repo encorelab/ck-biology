@@ -289,7 +289,7 @@
       var view = this;
 
       if (jQuery('#definition-explanation-input').val().length > 0) {
-        jQuery('.publish-definition-btn').css({'background': app.hexLightBlack})
+        jQuery('.publish-definition-btn').css({'background': app.hexLightBlack});
       } else {
         jQuery('.publish-definition-btn').css({'background': app.hexDarkGrey});
       }
@@ -369,9 +369,11 @@
       if (view.model.get('link') === jQuery('#relationship-link-dropdown').val()) {
         jQuery('#relationship-correct').removeClass('hidden');
         jQuery('.publish-relationship-btn').removeClass('disabled');
+        jQuery('.publish-relationship-btn').css({'background': app.hexLightBlack});
       } else {
         jQuery('#relationship-incorrect').removeClass('hidden');
         jQuery('.publish-relationship-btn').addClass('disabled');
+        jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});
       }
     },
 
@@ -563,7 +565,7 @@
       var view = this;
 
       if (jQuery('#vetting-addon-input').val().length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
-        jQuery('.publish-vetting-btn').css({'background': app.hexLightBlack})
+        jQuery('.publish-vetting-btn').css({'background': app.hexLightBlack});
       } else {
         jQuery('.publish-vetting-btn').css({'background': app.hexDarkGrey});
       }
