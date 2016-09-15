@@ -190,6 +190,7 @@
       formData.append('file', file);
 
       if (file.size < MAX_FILE_SIZE) {
+        jQuery('#definition-btn-container .photo-wrapper').addClass('hidden');
         jQuery('#definition-photo-upload-spinner').removeClass('hidden');
         jQuery('.upload-icon').addClass('invisible');
         jQuery('.publish-definition-btn').addClass('disabled');
@@ -211,6 +212,7 @@
 
       function failure(err) {
         jQuery('#definition-photo-upload-spinner').addClass('hidden');
+        jQuery('#definition-btn-container .photo-wrapper').removeClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
         jQuery('.publish-definition-btn').removeClass('disabled');
         jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
@@ -218,6 +220,7 @@
 
       function success(data, status, xhr) {
         jQuery('#definition-photo-upload-spinner').addClass('hidden');
+        jQuery('#definition-btn-container .photo-wrapper').removeClass('hidden');
         jQuery('.upload-icon').removeClass('invisible');
         jQuery('.publish-definition-btn').removeClass('disabled');
         console.log("UPLOAD SUCCEEDED!");
@@ -458,8 +461,8 @@
       formData.append('file', file);
 
       if (file.size < MAX_FILE_SIZE) {
+        jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
         jQuery('#vetting-photo-upload-spinner').removeClass('hidden');
-        jQuery('.upload-icon').addClass('invisible');
         jQuery('.publish-vetting-btn').addClass('disabled');
 
         jQuery.ajax({
@@ -479,14 +482,14 @@
 
       function failure(err) {
         jQuery('#vetting-photo-upload-spinner').addClass('hidden');
-        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('#vetting-btn-container .photo-wrapper').removeClass('hidden');
         jQuery('.publish-vetting-btn').removeClass('disabled');
         jQuery().toastmessage('showErrorToast', "Photo could not be uploaded. Please try again");
       }
 
       function success(data, status, xhr) {
         jQuery('#vetting-photo-upload-spinner').addClass('hidden');
-        jQuery('.upload-icon').removeClass('invisible');
+        jQuery('#vetting-btn-container .photo-wrapper').removeClass('hidden');
         jQuery('.publish-vetting-btn').removeClass('disabled');
         console.log("UPLOAD SUCCEEDED!");
         console.log(xhr.getAllResponseHeaders());
