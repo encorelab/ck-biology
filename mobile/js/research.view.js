@@ -17,7 +17,7 @@
   app.hexLightBlue  = '#3498DB';
   app.hexDarkPurple = '#8E44AD';
 
-  app.progressBarStyle = {
+  app.progressBarStyleHome = {
     display: 'inline',
     width: '18%',
     'border-radius': '25px'
@@ -29,7 +29,7 @@
     top: '100%',
     'font-size': '16px'
   };
-  app.progressDefBarStyle = {
+  app.progressBarStyleTask = {
     display: 'inline',
     width: '50%',
     'border-radius': '25px'
@@ -76,12 +76,12 @@
         var el = '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
-        el += '<span id="lesson'+number+'-my-progress-bar" class="my-progress-bar"></span>';
+        el += '<span id="lesson'+number+'-my-progress-bar"></span>';
         el += '</span>';
         if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
-          el += '<span class="fa fa-star"></span>';
+          el += '<span class="fa fa-star home-fa-star"></span>';
         } else {
-          el += '<span class="fa fa-star invisible"></span>';
+          el += '<span class="fa fa-star home-fa-star invisible"></span>';
         }
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-community-progress-bar" class="community-progress-bar"></span>';
@@ -106,7 +106,7 @@
             color: app.hexDarkPurple,
             trailColor: app.hexLightGrey,
             strokeWidth: 8,
-            svgStyle: app.progressBarStyle,
+            svgStyle: app.progressBarStyleHome,
             text: {
               value:  myPercent,
               style: app.progressBarTextStyle
@@ -119,7 +119,7 @@
             color: app.hexLightBlue,
             trailColor: app.hexLightGrey,
             strokeWidth: 8,
-            svgStyle: app.progressBarStyle,
+            svgStyle: app.progressBarStyleHome,
             text: {
               value: app.getCommunityContributionPercent(lesson.get('number')) + '%',
               style: app.progressBarTextStyle
@@ -154,7 +154,7 @@
           color: app.hexDarkPurple,
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
-          svgStyle: app.progressDefBarStyle
+          svgStyle: app.progressBarStyleTask
           // text: {
           //   value:  myPercent,
           //   style: app.progressDefBarTextStyle
@@ -325,8 +325,7 @@
       });
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-      app.defBar.animate(app.getMyContributionPercent(1) / 100);
-      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
+      app.defBar.animate(app.getMyContributionPercent(app.lesson) / 100);
     }
   });
 
@@ -352,13 +351,13 @@
           color: app.hexDarkPurple,
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
-          svgStyle: app.progressDefBarStyle
+          svgStyle: app.progressBarStyleTask
         });
     },
 
     events: {
-      'click .publish-relationship-btn' : 'publishRelationship',
-      'change #relationship-link-dropdown' : 'checkLink'
+      'click .publish-relationship-btn'      : 'publishRelationship',
+      'change #relationship-link-dropdown'   : 'checkLink'
     },
 
     checkLink: function() {
@@ -401,8 +400,7 @@
       jQuery('#relationship-to-container').text(view.model.get('to'));
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-      app.relBar.animate(app.getMyContributionPercent(1) / 100);
-      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
+      app.relBar.animate(app.getMyContributionPercent(app.lesson) / 100);
     }
   });
 
@@ -427,7 +425,7 @@
           color: app.hexDarkPurple,
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
-          svgStyle: app.progressDefBarStyle
+          svgStyle: app.progressBarStyleTask
         });
 
     },
@@ -651,9 +649,13 @@
       jQuery('#vetting-name-field').text(view.model.get('name'));
       jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
 
-      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-      app.vetBar.animate(app.getMyContributionPercent(1) / 100);
-      jQuery('.community-progress-percent').text(app.getCommunityContributionPercent(app.lesson));
+
+      if (app.getMyContributionPercent(app.lesson, true) > 100) {
+        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson) + '+');
+      } else {
+        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+      }
+      app.vetBar.animate(app.getMyContributionPercent(app.lesson) / 100);
     }
   });
 

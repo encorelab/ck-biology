@@ -191,13 +191,12 @@ textarea {
     /* width: 400px; ??*/
     margin-left: 50px;
 }
-.fa-star {
+.home-fa-star {
     font-size: 1.5em;
     color: #F2C42C;
     position: relative;
     top: 22px;
     left: -11%;
-    /* margin-left: 5px; */
 }
 
 
@@ -217,11 +216,14 @@ textarea {
     margin-bottom: 50px;
     margin-top: 25px;
 }
+.my-progress-bar {
+    margin-left: -85px;
+}
 .my-progress-percent,
 .percent {
     font-size: 1.3em;
     position: relative;
-    left: 55%;
+    left: 57.5%;
 }
 
 .camera-icon-label {
@@ -374,6 +376,13 @@ textarea {
 }
 #vetting-btn-container {
     display: inline-block;
+}
+.vetting-fa-star {
+    font-size: 1.5em;
+    color: #F2C42C;
+    position: relative;
+    top: -13px;
+    left: -3%;
 }
 
 
@@ -596,7 +605,7 @@ input:disabled {
 
 /* Medium Devices (DESKTOPS, 992px and up) */
 @media all and (min-width : 992px) {
-    .fa-star {
+    .home-home-fa-star {
         left: -12%;
     }
 }
@@ -633,7 +642,7 @@ input:disabled {
         font-size: 1.2em;
         /* min-width: 25%; */
     }
-    .fa-star {
+    .home-fa-star {
         left: -13%;
     }
     #relationship-container {
