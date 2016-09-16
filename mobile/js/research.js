@@ -199,7 +199,10 @@
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
-        jQuery('#tasks-completed-confirmation').dialog('close');      // if the user is sitting on the confirm screen and hits home
+        // if the user is sitting on the confirm screen and hits home
+        if (jQuery('#tasks-completed-confirmation').dialog.isOpen === true) {
+          jQuery('#tasks-completed-confirmation').dialog('close');
+        }
         if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');

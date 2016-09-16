@@ -466,15 +466,15 @@ ul {
 .modal-content {
     border-radius: 10px;
     padding: 5px 20px;
-    border:  none;
+    border: none;
 }
 .modal-header {
     border-bottom: 2px solid #ededed;
 }
+/* WARNING: WEAK NAME SPACING HERE */
 .no-close .ui-dialog-titlebar-close {
   display: none;
 }
-/* WARNING: WEAK NAME SPACING HERE */
 .ui-dialog-titlebar {
     font-size: 3em;
     margin-left: 20%;
