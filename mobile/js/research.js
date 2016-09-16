@@ -322,11 +322,10 @@
     //3. it's in this lesson
     //4. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
     // we'll need to set a lock on the term so that nobody else can do it, so also
-    //5. it is unlocked
-    // TODO REFINE ME with 5
+    //5. it is unlocked or locked to this user
 
     var myVettings = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username);
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username) && (term.get('locked') === '' || term.get('locked') === app.username);
     });
 
     // To determine the least vetted item:
@@ -334,24 +333,33 @@
     // loop i = 0
     // loop through myVettings
     // if vet.vetted_by.length == i, myVet = vet, break
-    // if potentialVettings.length > 0 then break
+    // if leastVetted.length > 0 then break
     // else i ++
-    var potentialVettings = [];
-    var myVet = null;
+    var leastVetted = [];
     if (myVettings.length > 0) {
       for (var i = 0; i < app.users.length; i++) {
         _.each(myVettings, function(vet) {
           if (vet.get('vetted_by').length == i) {
-            potentialVettings.push(vet);
+            leastVetted.push(vet);
           }
         });
-        if (potentialVettings.length > 0) {
-          myVet = _.first(potentialVettings);
+        if (leastVetted.length > 0) {
           break;
         }
       }
     } else {
       console.log('No vettings available for you');
+    }
+
+    // check if there's a vet locked to this user:
+    var myVet = null;
+    _.each(leastVetted, function(vet) {
+      if (vet.get('locked') === app.username) {
+        myVet = vet;
+      }
+    });
+    if (myVet === null) {
+      myVet = _.first(leastVetted);
     }
 
     app.hideAllContainers();
@@ -369,13 +377,15 @@
       app.relationshipView.model.wake(app.config.wakeful.url);
       app.relationshipView.render();
 
-    } else if (taskType === "vetting" && potentialVettings.length > 0) {
+    } else if (taskType === "vetting" && leastVetted.length > 0) {
       jQuery('#vetting-screen').removeClass('hidden');
       app.vettingView.model = myVet;
       app.vettingView.model.wake(app.config.wakeful.url);
+      app.vettingView.model.set('locked', app.username);
+      app.vettingView.model.save();
       app.vettingView.render();
 
-    } else if (taskType === "vetting" && potentialVettings.length <= 0) {
+    } else if (taskType === "vetting" && leastVetted.length <= 0) {
       jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#home-nav-btn').addClass('active');
@@ -387,18 +397,17 @@
         resizable: false,
         height: 'auto',
         width: 'auto',
-        // 'font-size': '3em',
-        // 'margin-left': '20%',
-        // 'margin-bottom': '28px',
         modal: true,
         dialogClass: 'no-close',
         buttons: {
           Yes: function() {
             jQuery(this).dialog('close');
-            if (potentialVettings.length > 0) {
+            if (leastVetted.length > 0) {
               jQuery('#vetting-screen').removeClass('hidden');
               app.vettingView.model = myVet;
               app.vettingView.model.wake(app.config.wakeful.url);
+              app.vettingView.model.set('locked', app.username);
+              app.vettingView.model.save();
               app.vettingView.render();
             } else {
               jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");

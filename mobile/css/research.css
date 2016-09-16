@@ -481,7 +481,7 @@ ul {
     margin-bottom: 28px;
     margin-top: 60px;
 }
-.task-completed-msg {
+.ui-dialog-content {
     font-size: 1.5em;
     margin-left: 24%;
 }
