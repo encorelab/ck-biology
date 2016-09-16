@@ -301,6 +301,7 @@
     publishDefinition: function() {
       var view = this;
       var explanation = jQuery('#definition-explanation-input').val();
+      jQuery('.publish-definition-btn').css({'background': app.hexDarkGrey});
 
       if (explanation.length > 0) {
         app.clearAutoSaveTimer();
@@ -401,6 +402,7 @@
       jQuery('.relationship-outcome-container').addClass('hidden');
       jQuery('#relationship-link-dropdown').val("");
       jQuery('.publish-relationship-btn').addClass('disabled');
+      jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});
 
       app.markAsComplete();
       app.determineNextStep();
@@ -508,11 +510,6 @@
         // clear out the label value if they for some reason want to upload the same thing...
         jQuery('.upload-icon').val('');
 
-        // update the model
-        // var mediaArray = view.model.get('media');
-        // mediaArray.push(data.url);
-        // view.model.set('media', mediaArray);
-        // view.model.save();
         view.appendOneMedia(data.url, true);
       }
     },
@@ -536,18 +533,6 @@
     },
 
     removeOneMedia: function(ev) {
-      // var view = this;
-      // var targetUrl = jQuery(ev.target).data('url');
-      // var mediaArray = view.model.get('media');
-      // var newMediaArray = [];
-      // _.each(mediaArray, function(url, i) {
-      //   if (mediaArray[i] !== targetUrl) {
-      //     newMediaArray.push(mediaArray[i]);
-      //   }
-      // });
-      // view.model.set('media', newMediaArray);
-      // view.model.save();
-
       jQuery('.media-container[data-url="'+jQuery(ev.target).data('url')+'"]').remove();
       // clearing this out so the change event for this can be used (eg if they upload the same thing)
       jQuery('.upload-icon').val('');
@@ -627,6 +612,7 @@
         jQuery('#vetting-addon-input').val('');
         jQuery('#vetting-addon-container').addClass('hidden');
         jQuery('#vetting-btn-container .photo-wrapper').addClass('hidden');
+        jQuery('.publish-vetting-btn').css({'background': app.hexDarkGrey});
 
         app.markAsComplete();
         app.determineNextStep();
@@ -654,15 +640,10 @@
           // create the text for the vet
           vettingExplanation += '\n' + vetting.author + ' - ' + vetting.date + ':\n' + vetting.explanation;
         }
-        // add the media from the vet
-        // _.each(vetting.media, function(url) {
-        //   view.appendOneMedia(url);
-        // });
       });
 
       jQuery('#vetting-name-field').text(view.model.get('name'));
       jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
-
 
       if (app.getMyContributionPercent(app.lesson, true) > 100) {
         jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson) + '+');
