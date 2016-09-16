@@ -199,6 +199,7 @@
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
+        jQuery('#tasks-completed-confirmation').dialog('close');      // if the user is sitting on the confirm screen and hits home
         if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');
@@ -382,26 +383,40 @@
       app.homeView.render();
 
     } else if (taskType === "completed") {
-      if (confirm("Thank you for completing your submissions. Would you like to continue contributing to the community?")) {
-        if (potentialVettings.length > 0) {
-          jQuery('#vetting-screen').removeClass('hidden');
-          app.vettingView.model = myVet;
-          app.vettingView.model.wake(app.config.wakeful.url);
-          app.vettingView.render();
-        } else {
-          jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
-          jQuery('.top-nav-btn').removeClass('active');
-          jQuery('#home-nav-btn').addClass('active');
-          jQuery('#home-screen').removeClass('hidden');
-          app.homeView.render();
+      jQuery('#tasks-completed-confirmation').dialog({
+        resizable: false,
+        height: 'auto',
+        width: 'auto',
+        // 'font-size': '3em',
+        // 'margin-left': '20%',
+        // 'margin-bottom': '28px',
+        modal: true,
+        dialogClass: 'no-close',
+        buttons: {
+          Yes: function() {
+            jQuery(this).dialog('close');
+            if (potentialVettings.length > 0) {
+              jQuery('#vetting-screen').removeClass('hidden');
+              app.vettingView.model = myVet;
+              app.vettingView.model.wake(app.config.wakeful.url);
+              app.vettingView.render();
+            } else {
+              jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
+              jQuery('.top-nav-btn').removeClass('active');
+              jQuery('#home-nav-btn').addClass('active');
+              jQuery('#home-screen').removeClass('hidden');
+              app.homeView.render();
+            }
+          },
+          No: function() {
+            jQuery(this).dialog('close');
+            jQuery('.top-nav-btn').removeClass('active');
+            jQuery('#home-nav-btn').addClass('active');
+            jQuery('#home-screen').removeClass('hidden');
+            app.homeView.render();
+          }
         }
-      } else {
-        jQuery('.top-nav-btn').removeClass('active');
-        jQuery('#home-nav-btn').addClass('active');
-        jQuery('#home-screen').removeClass('hidden');
-        app.homeView.render();
-      }
-
+      });
     } else {
       jQuery().toastmessage('showErrorToast', "Something went wrong determining next step...");
     }
