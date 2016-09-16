@@ -71,8 +71,8 @@
     },
     {
         "from": "anion",
-        "to": "is a type of",
-        "link": "ion",
+        "to": "ion",
+        "link": "is a type of",
         "lesson": 1,
         "assigned_to": "armin",
         "complete": false,

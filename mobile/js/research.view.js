@@ -69,7 +69,7 @@
 
       // create the html for the buttons and progress bars
       var homeEl = '';
-      Skeletor.Model.awake.lessons.each(function(lesson) {
+      view.collection.each(function(lesson) {
         var title = lesson.get('title');
         var number = lesson.get('number');
 
@@ -356,6 +356,17 @@
           strokeWidth: 3,
           svgStyle: app.progressBarStyleTask
         });
+
+      // fill the link drop down
+      var relationshipTypes = [];
+      view.collection.each(function(relationship) {
+        relationshipTypes.push(relationship.get('link'));
+      });
+      var el = '<option value="">Select Relationship</option>';
+      _.each(_.uniq(relationshipTypes), function(type) {
+        el += '<option value="'+type+'">'+type+'</option>'
+      });
+      jQuery('#relationship-link-dropdown').html(el);
     },
 
     events: {
