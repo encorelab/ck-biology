@@ -318,14 +318,40 @@
     //0. it's complete
     //1. you didn't author that term
     //2. you haven't already vetted that term
-    //3. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
+    //3. it's in this lesson
+    //4. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
     // we'll need to set a lock on the term so that nobody else can do it, so also
-    //4. it is unlocked
-    // TODO REFINE ME with 3, 4
-    // TODO do the html structures for actually adding a vet
-    var potentialVettings = Skeletor.Model.awake.terms.filter(function(term) {
+    //5. it is unlocked
+    // TODO REFINE ME with 5
+
+    var myVettings = Skeletor.Model.awake.terms.filter(function(term) {
       return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username);
     });
+
+    // To determine the least vetted item:
+    // if myVettings.length > 0
+    // loop i = 0
+    // loop through myVettings
+    // if vet.vetted_by.length == i, myVet = vet, break
+    // if potentialVettings.length > 0 then break
+    // else i ++
+    var potentialVettings = [];
+    var myVet = null;
+    if (myVettings.length > 0) {
+      for (var i = 0; i < app.users.length; i++) {
+        _.each(myVettings, function(vet) {
+          if (vet.get('vetted_by').length == i) {
+            potentialVettings.push(vet);
+          }
+        });
+        if (potentialVettings.length > 0) {
+          myVet = _.first(potentialVettings);
+          break;
+        }
+      }
+    } else {
+      console.log('No vettings available for you');
+    }
 
     app.hideAllContainers();
     if (taskType === "term") {
@@ -344,7 +370,7 @@
 
     } else if (taskType === "vetting" && potentialVettings.length > 0) {
       jQuery('#vetting-screen').removeClass('hidden');
-      app.vettingView.model = _.first(potentialVettings);
+      app.vettingView.model = myVet;
       app.vettingView.model.wake(app.config.wakeful.url);
       app.vettingView.render();
 
@@ -359,7 +385,7 @@
       if (confirm("Thank you for completing your submissions. Would you like to continue contributing to the community?")) {
         if (potentialVettings.length > 0) {
           jQuery('#vetting-screen').removeClass('hidden');
-          app.vettingView.model = _.first(potentialVettings);
+          app.vettingView.model = myVet;
           app.vettingView.model.wake(app.config.wakeful.url);
           app.vettingView.render();
         } else {
@@ -394,9 +420,6 @@
       }
     }
   }
-
-
-// TODO: set 0% and 100% max/mins on these
 
   app.getMyContributionPercent = function(lessonNum, noMax) {
     var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
