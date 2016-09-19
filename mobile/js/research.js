@@ -200,7 +200,7 @@
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
         // if the user is sitting on the confirm screen and hits home
-        if (jQuery('#tasks-completed-confirmation').dialog.isOpen === true) {
+        if (jQuery('#tasks-completed-confirmation').dialog('isOpen') === true) {
           jQuery('#tasks-completed-confirmation').dialog('close');
         }
         if (jQuery(this).hasClass('goto-home-btn')) {
