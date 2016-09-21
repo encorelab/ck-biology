@@ -216,7 +216,8 @@
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
-          jQuery('#knowledge-base-screen').removeClass('hidden');
+          //jQuery('#knowledge-base-screen').removeClass('hidden');
+          jQuery('#wall').removeClass('hidden');
         } else {
           console.log('ERROR: unknown nav button');
         }

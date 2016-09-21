@@ -37,6 +37,13 @@
 
     <script type="text/javascript" src="js/research.js"></script>
     <script type="text/javascript" src="js/research.view.js"></script>
+
+    <script type="text/javascript" src="../smartboard/js/smartboard.js"></script>
+    <script type="text/javascript" src="../smartboard/js/smartboard.router.js"></script>
+    <script type="text/javascript" src="../smartboard/js/smartboard.view.js"></script>
+    <script type="text/javascript" src="../smartboard/js/smartboard.view.wall.js"></script>
+    <script type="text/javascript" src="../smartboard/js/smartboard.view.balloons.js"></script>
+    <link href="../smartboard/css/smartboard.css" rel="stylesheet">
 </head>
 
 
@@ -250,6 +257,12 @@
 
 
 
+    <div id="wall" class="container-fluid hidden">
+        <!-- filled by smartboard/js/... -->
+    </div>
+
+
+
     <!-- Modals -->
 
     <!-- Login Modal -->
@@ -283,7 +296,7 @@
           // extending jQuery http://stackoverflow.com/questions/31044/is-there-an-exists-function-for-jquery
           jQuery.fn.exists = function(){return this.length>0;}
           Skeletor.Mobile.init();
-          //Skeletor.Smartboard.init('maria1');
+          Skeletor.Smartboard.init('maria1');
           jQuery('#tasks-completed-confirmation').dialog({ autoOpen: false });
         });
     </script>
@@ -291,9 +304,7 @@
 </html>
 
 
-<!-- <div id="wall" class="loading">
-    <div id="watermark"><img src="loader.gif" alt="Loading..." style="width: 400px" /></div>
-</div> -->
+
 
 <!-- <script>
     jQuery(document).ready(function () {

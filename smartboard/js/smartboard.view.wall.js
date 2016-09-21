@@ -49,8 +49,6 @@
 
     ready: function () {
       this.render();
-      this.$el.removeClass('loading');
-      this.changeWatermark('');
       this.trigger('ready');
     },
 
@@ -63,12 +61,6 @@
           return wall.$el.find('#new-tag').focus();
         }, 500);
       }
-    },
-
-    changeWatermark: function(text) {
-      return jQuery('#watermark').fadeOut(800, function() {
-        return jQuery(this).text(text).fadeIn(800);
-      });
     },
 
     registerBalloon: function(term, BalloonView) {
