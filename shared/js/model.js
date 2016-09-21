@@ -230,7 +230,9 @@
           'vetted_by': [],
           'complete': false
         }
-      });
+      })
+      .extend(TaggableTrait)
+      .extend(MultiposTrait);
 
       this.Terms = this.db.Collection('terms').extend({
         model: Skeletor.Model.Term

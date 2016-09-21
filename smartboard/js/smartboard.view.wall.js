@@ -19,26 +19,16 @@
       wall.tagFilters = [];
       wall.balloons = {};
 
-      Skeletor.Model.awake.brainstorms.on('add', function(n) {
-        // Filtering to only contain published brainstorms
-        // if (n.get('published') === true) {
-          wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-        // }
+      Skeletor.Model.awake.terms.on('add', function(n) {
+        wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
       });
 
-      Skeletor.Model.awake.brainstorms.on('destroy', function(n) {
+      Skeletor.Model.awake.terms.on('destroy', function(n) {
         console.warn("I was destoryed", n.id);
         // wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
       });
 
-      // Skeletor.Model.awake.brainstorms.on('change', function(n) {
-      //   // Filtering to only contain published brainstorms
-      //   if (n.get('published') === true) {
-      //     wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      //   }
-      // });
-      // Filtering to only contain published brainstorms
-      Skeletor.Model.awake.brainstorms.where({"published":true}).forEach(function(n) {
+      Skeletor.Model.awake.terms.forEach(function(n) {
         wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
       });
 
@@ -54,16 +44,13 @@
     },
 
     events: {
-      'click #add-tag-opener': 'toggleTagInputter',
-      'click #submit-new-tag': 'submitNewTag',
-      'keydown #new-tag': function(ev) { if (ev.keyCode === 13) return this.submitNewTag(); },
-      'click #toggle-pause': 'togglePause'
+      'click #add-tag-opener': 'toggleTagInputter'
     },
 
     ready: function () {
       this.render();
       this.$el.removeClass('loading');
-      this.changeWatermark('Brainstorm');
+      this.changeWatermark('');
       this.trigger('ready');
     },
 
@@ -78,95 +65,64 @@
       }
     },
 
-    submitNewTag: function () {
-      var newTag = this.$el.find('#new-tag').val();
-      if (jQuery.trim(newTag).length < 2) {
-        return; // don't allow tags shorter than 2 characters
-      }
-      Smartboard.createNewTag(newTag);
-      this.$el.find('#add-tag-container').removeClass('opened').blur();
-      return this.$el.find('#new-tag').val('');
-    },
-
-    togglePause: function () {
-      var paused = Smartboard.runState.get('paused');
-      return Smartboard.runState.save({
-        paused: !paused
-      });
-    },
-
-    pause: function() {
-      this.$el.find('#toggle-pause').addClass('paused').text('Resume');
-      if (this.$el.data('phase') !== 'evaluate') {
-        jQuery('body').addClass('paused');
-        return this.changeWatermark("Paused");
-      }
-    },
-
-    unpause: function() {
-      jQuery('body').removeClass('paused');
-      this.$el.find('#toggle-pause').removeClass('paused').text('Pause');
-      return this.changeWatermark(this.$el.data('phase') || "brainstorm");
-    },
-
     changeWatermark: function(text) {
       return jQuery('#watermark').fadeOut(800, function() {
         return jQuery(this).text(text).fadeIn(800);
       });
     },
 
-    registerBalloon: function(brainstorm, BalloonView) {
+    registerBalloon: function(term, BalloonView) {
       var wall = this;
 
       var bv = new BalloonView({
-        model: brainstorm
+        model: term
       });
-      brainstorm.wake(Smartboard.config.wakeful.url);
+      term.wake(Smartboard.config.wakeful.url);
 
       bv.$el.css('visibility', 'hidden');
       bv.wall = wall; // FIXME: hmmm...
       bv.render();
 
       wall.$el.append(bv.$el);
-      brainstorm.on('change:pos', function() {
-        bv.pos = brainstorm.getPos();
+      term.on('change:pos', function() {
+        bv.pos = term.getPos();
       });
 
-      brainstorm.on('change:z-index', function() {
-        bv.$el.zIndex(brainstorm.get('z-index'));
+      term.on('change:z-index', function() {
+        bv.$el.zIndex(term.get('z-index'));
       });
 
-      if (brainstorm.hasPos()) {
-        bv.pos = brainstorm.getPos();
+      if (term.hasPos()) {
+        bv.pos = term.getPos();
       } else {
-        //wall.assignRandomPositionToBalloon(brainstorm, bv);
-        wall.assignRandomPositionToBalloon(brainstorm, bv);
+        //wall.assignRandomPositionToBalloon(term, bv);
+        wall.assignRandomPositionToBalloon(term, bv);
       }
 
-      if (brainstorm.has('z-index')) {
-        bv.$el.zIndex(brainstorm.get('z-index'));
+      if (term.has('z-index')) {
+        bv.$el.zIndex(term.get('z-index'));
       }
 
-      wall.makeBalloonDraggable(brainstorm, bv);
+      wall.makeBalloonDraggable(term, bv);
       bv.$el.click(function() {
-        wall.moveBalloonToTop(brainstorm, bv);
+        wall.moveBalloonToTop(term, bv);
       });
 
       bv.render();
-      brainstorm.save().done(function() {
-        // If it isn't brainstorm show it and if it is brainstorm only show it on publish
-        if ( !(brainstorm instanceof Skeletor.Model.Brainstorm) || ((brainstorm instanceof Skeletor.Model.Brainstorm) && brainstorm.get('published')) ) {
+      term.save().done(function() {
+        // If it isn't term show it and if it is term only show it on publish
+        if ( !(term instanceof Skeletor.Model.Brainstorm) || ((term instanceof Skeletor.Model.Brainstorm) && term.get('published')) ) {
             bv.$el.css('visibility', 'visible');
         } else {
           console.log("Invisible man");
         }
 
         //WARNING: IMPLICIT AS HELL DAWG
-        // we need a condition to determine if the 'brainstorm' is a balloon or a tag. For now, saying that if it has an author, it should be a balloon, if not it is a tag
-        // if (brainstorm.get('author')) {
+        // we need a condition to determine if the 'term' is a balloon or a tag. For now, saying that if it has an author, it should be a balloon, if not it is a tag
+        // if (term.get('author')) {
         //   // only show balloon if published is true
         //   // if it isn't we listen to change:publish in the balloon view
-        //   if (brainstorm.get('published')) {
+        //   if (term.get('published')) {
         //     bv.$el.css('visibility', 'visible');
         //   }
         // }
@@ -177,7 +133,7 @@
 
       });
 
-      this.balloons[brainstorm.id] = bv;
+      this.balloons[term.id] = bv;
     },
 
     assignStaticPositionToBalloon: function(doc, view) {
@@ -286,56 +242,7 @@
 
       phase = Smartboard.runState.get('phase');
       if (phase !== this.$el.data('phase')) {
-        // switch (phase) {
-        //   case 'tagging':
-        //     jQuery('body').removeClass('mode-brainstorm').addClass('mode-tagging').removeClass('mode-exploration').removeClass('mode-propose').removeClass('mode-investigate');
-        //     this.changeWatermark("tagging");
-        //     break;
-        //   case 'exploration':
-        //     jQuery('body').removeClass('mode-brainstorm').removeClass('mode-tagging').addClass('mode-exploration').removeClass('mode-propose').removeClass('mode-investigate');
-        //     this.changeWatermark("exploration");
-        //     break;
-        //   case 'propose':
-        //     jQuery('body').removeClass('mode-brainstorm').removeClass('mode-tagging').removeClass('mode-exploration').addClass('mode-propose').removeClass('mode-investigate');
-        //     this.changeWatermark("propose");
-        //     setTimeout((function() {
-        //       return _this.$el.find('.contribution, .contribution-connector').remove();
-        //     }), 1100);
-        //     break;
-        //   case 'investigate':
-        //     ig = Sail.app.interestGroup;
-        //     if (ig !== null) {
-        //       this.changeWatermark(ig.get('name'));
-        //       jQuery('body').addClass('mode-investigate-with-topic').addClass(ig.get('colorClass'));
-        //       elementsToRemove = ".balloon.contribution, .connector.contribution-connector, .balloon.tag, .connector.proposal-connector, " + (".balloon.proposal:not(.ig-" + ig.id + "), .balloon.investigation:not(.ig-" + ig.id + "), .connector:not(.ig-" + ig.id + ")");
-        //     } else {
-        //       this.changeWatermark("investigate");
-        //       jQuery('body').removeClass('mode-investigate-with-topic');
-        //       elementsToRemove = '.balloon.contribution, .connector.contribution-connector';
-        //     }
-        //     fadeoutStyle = jQuery("<style>                            " + elementsToRemove + " {                                opacity: 0.0;                            }                        </style>");
-        //     hideStyle = jQuery("<style>                            " + elementsToRemove + " {                                display: none;                            }                        </style>");
-        //     jQuery('head').append(fadeoutStyle);
-        //     jQuery('body').removeClass('mode-brainstorm').removeClass('mode-tagging').removeClass('mode-exploration').removeClass('mode-propose').addClass('mode-investigate');
-        //     setTimeout((function() {
-        //       return jQuery('head').append(hideStyle);
-        //     }), 1100);
-        //     break;
-        //   default:
-        //     jQuery('body').addClass('mode-brainstorm').removeClass('mode-tagging').removeClass('mode-exploration').removeClass('mode-propose').removeClass('mode-investigate');
-        //     this.changeWatermark("brainstorm");
-        // }
         this.$el.data('phase', phase);
-      }
-
-      paused = Smartboard.runState.get('paused');
-      if (paused !== this.$el.data('paused')) {
-        if (paused) {
-          this.pause();
-        } else {
-          this.unpause();
-        }
-        return this.$el.data('paused', paused);
       }
     }
   });

@@ -1,5 +1,3 @@
-
-
 (function () {
   "use strict";
 
@@ -12,7 +10,8 @@
       '' : 'index',
       'ben': 'initClassBen',
       'michael': 'initClassMichael',
-      'test': 'initClassTest'
+      'test': 'initClassTest',
+      'maria1': 'initClassMaria1'
     },
     initialize: function() {
 
@@ -28,6 +27,9 @@
     },
     initClassTest: function () {
       Skeletor.Smartboard.init('test');
+    },
+    initClassMaria1: function () {
+      Skeletor.Smartboard.init('maria1');
     },
     start: function() {
       // to allow single page app with various routes

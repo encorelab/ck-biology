@@ -175,21 +175,20 @@
       }
 
       balloon.findOrCreate('.title', "<h3 class='title'></h3>");
-      title.text(balloon.model.get('title'));title =
+      title = title.text(balloon.model.get('title'));
 
-      body = balloon.findOrCreate('.body', "<div class='body'></div>");
-      if (balloon.model.get('content_type') === 'text') {
-        body.text(balloon.model.get('content'));
-      } else {
-        // TODO: implement this
-        body.text(balloon.model.get('content'));
-      }
+      // body = balloon.findOrCreate('.body', "<div class='body'></div>");
+      // if (balloon.model.get('content_type') === 'text') {
+      //   body.text(balloon.model.get('explanation'));
+      // } else {
+      //   // TODO: implement this
+      //   body.text(balloon.model.get('explanation'));
+      // }
 
-      meta = balloon.findOrCreate('.meta', "<div class='meta'><span class='author'></span></div>");
-      meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
+      // meta = balloon.findOrCreate('.meta', "<div class='meta'><span class='author'></span></div>");
+      // meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
 
       balloon.renderTags();
-      balloon.renderBuildons();
       balloon.renderConnectors();
     },
 
@@ -245,40 +244,8 @@
         balloon.$el.addClass("tag-" + tid);
       });
     },
-
-    renderBuildons: function() {
-      var $b, b, buildons, changed, container, counter;
-      if (!this.model.has('build_ons')) {
-        return;
-      }
-
-      buildons = this.model.get('build_ons');
-      if (!buildons.length) {
-        return;
-      }
-
-      container = this.findOrCreate('.buildons', "<div class='buildons'></div>");
-      changed = false;
-      if (buildons.length !== container.find('div.buildon').length) {
-        changed = true;
-      }
-
-      container.children('div.buildon').remove();
-      counter = CK.Smartboard.View.findOrCreate(this.$el.find('.meta'), '.buildon-counter', "<div class='buildon-counter'></div>");
-      counter.html('');
-
-      _.each(buildons, function (b) {
-        if (!b.published) {
-          return;
-        }
-        counter.append("•");
-        $b = jQuery("<div class='buildon'><div class='author'></div><div class='content'></div></div>            ");
-        $b.find('.author').text(b.author);
-        $b.find('.content').text(b.content);
-        container.append($b);
-      });
-    }
   });
+
 
   Smartboard.View.NoteBalloon = Smartboard.View.ContentBalloon.extend({
     className: "note content balloon",
@@ -292,22 +259,21 @@
       // WARNING: This is now coding out what exists in a note. Maybe this should come from a user definition in the future??!!
       var title = balloon.findOrCreate('.title', "<h3 class='title'></h3>");
       var titleText = '';
-      if (balloon.model.get('title')) {
-        if (balloon.model.get('title').length > 35) {
-          titleText = balloon.model.get('title').slice(0, 32) + '...';
+      if (balloon.model.get('name')) {
+        if (balloon.model.get('name').length > 35) {
+          titleText = balloon.model.get('name').slice(0, 32) + '...';
         } else {
-          titleText = balloon.model.get('title');
+          titleText = balloon.model.get('name');
         }
       }
       title.text(titleText);
 
       var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
-      noteBody.text(balloon.model.get('body'));
+      noteBody.text(balloon.model.get('explanation'));
 
       var meta = balloon.findOrCreate('.meta', "<div class='meta'><span class='author'></span></div>");
       meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
 
-      // balloon.addClass('note');
       balloon.$el.addClass('note');
     }
   });

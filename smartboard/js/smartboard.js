@@ -78,16 +78,6 @@
     smartboard.wall.ready();
   };
 
-  smartboard.createNewTag = function (tagName) {
-    var tag = new Model.Tag({
-      name: tagName
-    });
-    tag.wake(smartboard.config.wakeful.url);
-    tag.save();
-
-    return Model.awake.tags.add(tag);
-  };
-
   this.Skeletor.Smartboard = smartboard;
 
 }).call(this);

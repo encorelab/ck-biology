@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Solar Brainstorm Smartboard</title>
+    <title>CK Biology Knowledge Base</title>
     <meta charset="utf-8">
 
     <link href="css/smartboard.css" rel="stylesheet">
@@ -29,24 +29,13 @@
 
 <body>
     <div id="wall" class="loading">
-        <div id="watermark"><img src="loader.gif" alt="Loading..." style="width: 400px" /></div>
-
-        <div id="add-tag-container">
-            <button id="add-tag-opener">Add Theme</button>
-            <input type="text" id="new-tag" />
-            <button id="submit-new-tag">✚</button>
-        </div>
-
-
-        <div id="action-buttons-container">
-            <button id="toggle-pause">Pause</button>
-        </div>
+        <!-- <div id="watermark"><img src="loader.gif" alt="Loading..." style="width: 400px" /></div> -->
     </div>
 
     <script>
         jQuery(document).ready(function () {
-            // Skeletor.Smartboard.init();
-            Skeletor.Smartboard.Router.start();
+            Skeletor.Smartboard.init('maria1');
+            //Skeletor.Smartboard.Router.start();
         });
     </script>
 </body>
