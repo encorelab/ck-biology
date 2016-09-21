@@ -211,7 +211,6 @@
         if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');
-          jQuery('#home-nav-btn').addClass('active');
           jQuery('#home-screen').removeClass('hidden');
           app.homeView.render();
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
@@ -429,8 +428,7 @@
           },
           No: function() {
             jQuery(this).dialog('close');
-            jQuery('.top-nav-btn').removeClass('active');
-            jQuery('#home-nav-btn').addClass('active');
+            jQuery('.top-nav-btn').addClass('hidden');
             jQuery('#home-screen').removeClass('hidden');
             app.homeView.render();
           }

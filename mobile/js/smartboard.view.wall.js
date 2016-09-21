@@ -238,6 +238,7 @@
       }
 
       // clear all of the balloons and readd them based on this lesson. There's probably a cleaner way of doing this...
+      // TODO: confirm this doesn't blow things up - when else does this render get called?
       jQuery('#wall').html('');
       Skeletor.Model.awake.terms.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
         _this.registerBalloon(n, Smartboard.View.NoteBalloon, _this.balloons);
