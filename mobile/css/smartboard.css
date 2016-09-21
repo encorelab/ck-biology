@@ -2,7 +2,7 @@
 /* TODO: This needed here? We also pull the CSS in HTML. Maybe remove it in the HTML */
 @import url(///fonts.googleapis.com/css?family=Open+Sans:300italic,400,600);
 body {
-  font-family: Ubuntu, sans-serif;
+  font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 #wall {
@@ -111,7 +111,7 @@ button {
   padding: 4px 10px;
   background-color: #c31fa4;
   color: #fff;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding: 10px;
   border-radius: 1em;
   font-size: 20px;
@@ -293,7 +293,8 @@ button:hover {
   border: 2px solid #df36bf;
 }*/
 .content.balloon .title {
-  margin-bottom: 5px;
+  margin: 12px;
+  font-weight: 400;
 }
 .content.balloon .headline {
   margin-top: 8px;
@@ -506,8 +507,8 @@ button:hover {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
   cursor: grabbing;
-  box-shadow: #7bdbbe 0 0 7px 7px;
-  /* greenish color */
+  box-shadow: #1abc9c 0 0 7px 7px;  /* MD turquoise */
+  box-shadow: #9b59b6 0 0 7px 7px;  /* MD amethyst */
 }
 .balloon.blurred {
   opacity: 0.15;
