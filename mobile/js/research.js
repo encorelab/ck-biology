@@ -156,6 +156,9 @@
       app.runState.wake(app.config.wakeful.url);
       app.runState.on('change', app.reflectRunState);
     })
+    .then(function() {
+      Skeletor.Smartboard.init(app.runId);
+    })
     .done(function () {
       ready();
       console.log('Models are awake - now calling ready...');
@@ -187,6 +190,8 @@
     });
 
     jQuery('.brand').text("CK Biology 2016");
+
+    jQuery('#tasks-completed-confirmation').dialog({ autoOpen: false });
   };
 
   var setUpClickListeners = function () {
@@ -206,7 +211,6 @@
         if (jQuery(this).hasClass('goto-home-btn')) {
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');
-          jQuery('#home-nav-btn').addClass('active');
           jQuery('#home-screen').removeClass('hidden');
           app.homeView.render();
         } else if (jQuery(this).hasClass('goto-contribution-btn')) {
@@ -269,6 +273,8 @@
   //*************** HELPER FUNCTIONS ***************//
 
   app.buildContributionArray = function() {
+    app.contributions = [];
+
     var sortedTerms = Skeletor.Model.awake.terms.clone();
     sortedTerms.comparator = function(model) {
       return model.get('name');
@@ -424,8 +430,7 @@
           },
           No: function() {
             jQuery(this).dialog('close');
-            jQuery('.top-nav-btn').removeClass('active');
-            jQuery('#home-nav-btn').addClass('active');
+            jQuery('.top-nav-btn').addClass('hidden');
             jQuery('#home-screen').removeClass('hidden');
             app.homeView.render();
           }
@@ -457,8 +462,8 @@
     var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
     var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
 
-    console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
-    console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(lessonNum));
+    //console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
+    //console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(lessonNum));
 
     var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
@@ -479,8 +484,8 @@
     var totalStudents = app.users.where({user_role: "student"}).length;
     var totalVettings = totalTerms * app.numVettingTasks[lessonNum - 1];
 
-    console.log('Community Totals: ' + totalTerms + ', ' + totalRelationships + ', ' + totalVettings);
-    console.log('Community Completes: ' + completeTerms + ', ' + completeRelationships + ', ' + getCommunityCompleteVettings(lessonNum));
+    //console.log('Community Totals: ' + totalTerms + ', ' + totalRelationships + ', ' + totalVettings);
+    //console.log('Community Completes: ' + completeTerms + ', ' + completeRelationships + ', ' + getCommunityCompleteVettings(lessonNum));
 
     var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
 

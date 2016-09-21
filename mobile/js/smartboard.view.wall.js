@@ -14,23 +14,23 @@
 
       _.bindAll(this);
 
-      Smartboard.runState.on('change', this.render);
+      //Smartboard.runState.on('change', this.render);
 
       wall.tagFilters = [];
       wall.balloons = {};
 
-      Skeletor.Model.awake.terms.on('add', function(n) {
-        wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      });
+      // Skeletor.Model.awake.terms.on('add', function(n) {
+      //   wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
+      // });
 
-      Skeletor.Model.awake.terms.on('destroy', function(n) {
-        console.warn("I was destoryed", n.id);
-        // wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      });
+      // Skeletor.Model.awake.terms.on('destroy', function(n) {
+      //   console.warn("I was destroyed", n.id);
+      //   // wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
+      // });
 
-      Skeletor.Model.awake.terms.forEach(function(n) {
-        wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      });
+      // Skeletor.Model.awake.terms.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
+      //   this.registerBalloon(n, Smartboard.View.NoteBalloon, this.balloons);
+      // });
 
       Skeletor.Model.awake.tags.on('add', function(t) {
         wall.registerBalloon(t, Smartboard.View.TagBalloon, wall.balloons);
@@ -44,7 +44,7 @@
     },
 
     events: {
-      'click #add-tag-opener': 'toggleTagInputter'
+      //'click #add-tag-opener': 'toggleTagInputter'
     },
 
     ready: function () {
@@ -52,16 +52,16 @@
       this.trigger('ready');
     },
 
-    toggleTagInputter: function () {
-      var wall = this;
-      var addTagContainer = this.$el.find('#add-tag-container');
-      addTagContainer.toggleClass('opened');
-      if (addTagContainer.hasClass('opened')) {
-        return setTimeout(function() {
-          return wall.$el.find('#new-tag').focus();
-        }, 500);
-      }
-    },
+    // toggleTagInputter: function () {
+    //   var wall = this;
+    //   var addTagContainer = this.$el.find('#add-tag-container');
+    //   addTagContainer.toggleClass('opened');
+    //   if (addTagContainer.hasClass('opened')) {
+    //     return setTimeout(function() {
+    //       return wall.$el.find('#new-tag').focus();
+    //     }, 500);
+    //   }
+    // },
 
     registerBalloon: function(term, BalloonView) {
       var wall = this;
@@ -236,6 +236,13 @@
       if (phase !== this.$el.data('phase')) {
         this.$el.data('phase', phase);
       }
+
+      // clear all of the balloons and readd them based on this lesson. There's probably a cleaner way of doing this...
+      // TODO: confirm this doesn't blow things up - when else does this render get called?
+      jQuery('#wall').html('');
+      Skeletor.Model.awake.terms.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
+        _this.registerBalloon(n, Smartboard.View.NoteBalloon, _this.balloons);
+      });
     }
   });
 

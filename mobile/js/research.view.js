@@ -55,6 +55,7 @@
     chooseLesson: function(ev) {
       // check which lesson from data value
       app.lesson = jQuery(ev.target).data('lesson');
+      Skeletor.Smartboard.wall.render();
       app.buildContributionArray();
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('hidden');
