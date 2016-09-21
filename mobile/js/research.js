@@ -56,14 +56,14 @@
 
     // Adding BasicAuth to the XHR header in order to authenticate with drowsy database
     // this is not really big security but a start
-    // var basicAuthHash = btoa(app.config.drowsy.username + ':' + app.config.drowsy.password);
-    // Backbone.$.ajaxSetup({
-    //   beforeSend: function(xhr) {
-    //     return xhr.setRequestHeader('Authorization',
-    //       // 'Basic ' + btoa(username + ':' + password));
-    //       'Basic ' + basicAuthHash);
-    //   }
-    // });
+    var basicAuthHash = btoa(app.config.drowsy.username + ':' + app.config.drowsy.password);
+    Backbone.$.ajaxSetup({
+      beforeSend: function(xhr) {
+        return xhr.setRequestHeader('Authorization',
+          // 'Basic ' + btoa(username + ':' + password));
+          'Basic ' + basicAuthHash);
+      }
+    });
 
     // hide all rows initially
     app.hideAllContainers();
