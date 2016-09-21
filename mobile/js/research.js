@@ -156,6 +156,9 @@
       app.runState.wake(app.config.wakeful.url);
       app.runState.on('change', app.reflectRunState);
     })
+    .then(function() {
+      Skeletor.Smartboard.init(app.runId);
+    })
     .done(function () {
       ready();
       console.log('Models are awake - now calling ready...');
@@ -187,6 +190,8 @@
     });
 
     jQuery('.brand').text("CK Biology 2016");
+
+    jQuery('#tasks-completed-confirmation').dialog({ autoOpen: false });
   };
 
   var setUpClickListeners = function () {

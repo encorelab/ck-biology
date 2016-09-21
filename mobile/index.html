@@ -38,14 +38,13 @@
     <script type="text/javascript" src="js/research.js"></script>
     <script type="text/javascript" src="js/research.view.js"></script>
 
-    <script type="text/javascript" src="../smartboard/js/smartboard.js"></script>
-    <script type="text/javascript" src="../smartboard/js/smartboard.router.js"></script>
-    <script type="text/javascript" src="../smartboard/js/smartboard.view.js"></script>
-    <script type="text/javascript" src="../smartboard/js/smartboard.view.wall.js"></script>
-    <script type="text/javascript" src="../smartboard/js/smartboard.view.balloons.js"></script>
-    <link href="../smartboard/css/smartboard.css" rel="stylesheet">
+    <script type="text/javascript" src="js/smartboard.js"></script>
+    <script type="text/javascript" src="js/smartboard.router.js"></script>
+    <script type="text/javascript" src="js/smartboard.view.js"></script>
+    <script type="text/javascript" src="js/smartboard.view.wall.js"></script>
+    <script type="text/javascript" src="js/smartboard.view.balloons.js"></script>
+    <link href="css/smartboard.css" rel="stylesheet">
 </head>
-
 
 <body>
     <nav id="navigation-bar" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -296,19 +295,7 @@
           // extending jQuery http://stackoverflow.com/questions/31044/is-there-an-exists-function-for-jquery
           jQuery.fn.exists = function(){return this.length>0;}
           Skeletor.Mobile.init();
-          Skeletor.Smartboard.init('maria1');
-          jQuery('#tasks-completed-confirmation').dialog({ autoOpen: false });
         });
     </script>
 </body>
 </html>
-
-
-
-
-<!-- <script>
-    jQuery(document).ready(function () {
-        Skeletor.Smartboard.init('maria1');
-        //Skeletor.Smartboard.Router.start();
-    });
-</script> -->
