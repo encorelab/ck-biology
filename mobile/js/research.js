@@ -402,6 +402,7 @@
         width: 'auto',
         modal: true,
         dialogClass: 'no-close',
+        autoOpen: true,
         buttons: {
           Yes: function() {
             jQuery(this).dialog('close');

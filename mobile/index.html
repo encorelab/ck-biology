@@ -272,7 +272,7 @@
     </div>
 
     <!-- ok, regretting the jquery-ui approach for this. This is counter intuitive, and their docs are plain wrong about isOpen -->
-    <div style="display: none">
+    <div>
         <div id="tasks-completed-confirmation" title="Thank you for completing your submission!">
             <p>Would you like to continue contributing your knowledge to the community?</p>
         </div>
@@ -284,7 +284,7 @@
           jQuery.fn.exists = function(){return this.length>0;}
           Skeletor.Mobile.init();
           //Skeletor.Smartboard.init('maria1');
-          jQuery('.note-taking-toggle').hide();
+          jQuery('#tasks-completed-confirmation').dialog({ autoOpen: false });
         });
     </script>
 </body>
