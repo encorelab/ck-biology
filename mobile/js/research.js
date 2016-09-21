@@ -273,6 +273,8 @@
   //*************** HELPER FUNCTIONS ***************//
 
   app.buildContributionArray = function() {
+    app.contributions = [];
+
     var sortedTerms = Skeletor.Model.awake.terms.clone();
     sortedTerms.comparator = function(model) {
       return model.get('name');
