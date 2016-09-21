@@ -33,14 +33,14 @@
 
     // Adding BasicAuth to the XHR header in order to authenticate with drowsy database
     // this is not really big security but a start
-    var basicAuthHash = btoa(smartboard.config.drowsy.username + ':' + smartboard.config.drowsy.password);
-    Backbone.$.ajaxSetup({
-      beforeSend: function(xhr) {
-        return xhr.setRequestHeader('Authorization',
-            // 'Basic ' + btoa(username + ':' + password));
-            'Basic ' + basicAuthHash);
-      }
-    });
+    // var basicAuthHash = btoa(smartboard.config.drowsy.username + ':' + smartboard.config.drowsy.password);
+    // Backbone.$.ajaxSetup({
+    //   beforeSend: function(xhr) {
+    //     return xhr.setRequestHeader('Authorization',
+    //         // 'Basic ' + btoa(username + ':' + password));
+    //         'Basic ' + basicAuthHash);
+    //   }
+    // });
 
     Skeletor.Model.init(smartboard.config.drowsy.url, DATABASE)
     .then(function () {
