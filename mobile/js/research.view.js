@@ -648,8 +648,10 @@
 
       if (app.getMyContributionPercent(app.lesson, true) > 100) {
         jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson) + '+');
+        jQuery('.vetting-fa-star').removeClass('hidden');
       } else {
         jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+        jQuery('.vetting-fa-star').addClass('hidden');
       }
       app.vetBar.animate(app.getMyContributionPercent(app.lesson) / 100);
     }
