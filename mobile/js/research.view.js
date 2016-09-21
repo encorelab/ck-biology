@@ -331,6 +331,8 @@
 
       jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
       app.defBar.animate(app.getMyContributionPercent(app.lesson) / 100);
+
+      view.checkForAllowedToPublish();
     }
   });
 
@@ -654,6 +656,8 @@
         jQuery('.vetting-fa-star').addClass('hidden');
       }
       app.vetBar.animate(app.getMyContributionPercent(app.lesson) / 100);
+
+      view.checkForAllowedToPublish();
     }
   });
 

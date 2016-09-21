@@ -84,12 +84,11 @@
         bv.$el.zIndex(term.get('z-index'));
       });
 
-      if (term.hasPos()) {
-        bv.pos = term.getPos();
-      } else {
-        //wall.assignRandomPositionToBalloon(term, bv);
+      // if (term.hasPos()) {
+      //   bv.pos = term.getPos();
+      // } else {
         wall.assignRandomPositionToBalloon(term, bv);
-      }
+      //}
 
       if (term.has('z-index')) {
         bv.$el.zIndex(term.get('z-index'));
