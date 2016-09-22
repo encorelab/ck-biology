@@ -74,7 +74,13 @@
         var title = lesson.get('title');
         var number = lesson.get('number');
 
-        var el = '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
+        var el = '';
+        if (app.getMyContributionPercent(lesson.get('number'))) {
+          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
+        } else {
+          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base disabled" data-lesson="'+number+'">Lesson '+number+'</button>';
+        }
+
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar"></span>';
