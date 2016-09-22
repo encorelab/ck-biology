@@ -35,6 +35,7 @@
   app.currentUser = null;
   app.lesson = null;
   app.contributions = [];
+  app.shownContinueFlag = false;          // PUUUUUUKE
 
   app.homeView = null;
   app.definitionView = null;
@@ -402,7 +403,7 @@
       jQuery('#home-screen').removeClass('hidden');
       app.homeView.render();
 
-    } else if (taskType === "completed") {
+    } else if (taskType === "completed" && app.shownContinueFlag === false) {
       jQuery('#tasks-completed-confirmation').dialog({
         resizable: false,
         height: 'auto',
@@ -413,20 +414,8 @@
         buttons: {
           Yes: function() {
             jQuery(this).dialog('close');
-            if (leastVetted.length > 0) {
-              jQuery('#vetting-screen').removeClass('hidden');
-              app.vettingView.model = myVet;
-              app.vettingView.model.wake(app.config.wakeful.url);
-              app.vettingView.model.set('locked', app.username);
-              app.vettingView.model.save();
-              app.vettingView.render();
-            } else {
-              jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
-              jQuery('.top-nav-btn').removeClass('active');
-              jQuery('#home-nav-btn').addClass('active');
-              jQuery('#home-screen').removeClass('hidden');
-              app.homeView.render();
-            }
+            app.shownContinueFlag = true;
+            showNextVetIfPossible(leastVetted, myVet);
           },
           No: function() {
             jQuery(this).dialog('close');
@@ -436,8 +425,32 @@
           }
         }
       });
+    } else if (taskType === "completed" && app.shownContinueFlag === true) {
+      showNextVetIfPossible(leastVetted, myVet);
     } else {
       jQuery().toastmessage('showErrorToast', "Something went wrong determining next step...");
+    }
+  }
+
+  var showNextVetIfPossible = function(leastVetted, myVet) {
+    if (leastVetted.length > 0) {
+      jQuery('#vetting-screen').removeClass('hidden');
+      app.vettingView.model = myVet;
+      app.vettingView.model.wake(app.config.wakeful.url);
+      app.vettingView.model.set('locked', app.username);
+      app.vettingView.model.save();
+      app.vettingView.render();
+    } else {
+      // all possible vets are done
+      if (getMyCompleteVettings(app.lesson) === getMyAllPossibleVettings(app.lesson)) {
+        jQuery().toastmessage('showSuccessToast', "Thank you. You have completed all possible tasks!");
+      } else {
+        jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
+      }
+      jQuery('.top-nav-btn').removeClass('active');
+      jQuery('#home-nav-btn').addClass('active');
+      jQuery('#home-screen').removeClass('hidden');
+      app.homeView.render();
     }
   }
 
@@ -508,12 +521,20 @@
     return myCompletedVettings.length;
   };
 
+  var getMyAllPossibleVettings = function(lessonNum) {
+    var allPossibleVets = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
+      return term.get('assigned_to') !== app.username
+    });
+    return allPossibleVets.length
+  };
+
   var getCommunityCompleteVettings = function(lessonNum) {
     var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
       return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
     });
     return completedVettings.length;
   };
+
 
   app.photoOrVideo = function(url) {
     var type = null;
