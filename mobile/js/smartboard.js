@@ -8,21 +8,23 @@
   smartboard.init = function(className) {
     _.extend(this, Backbone.Events);
 
-    var requiredConfig = {
-      drowsy: {
-        url: 'string',
-        db: 'string'
-      },
-      wakeful: {
-        url: 'string'
-      },
-      login_picker:'boolean',
-      runs:'object'
-    };
+    /***** this all done in the mobile init, no need to do it again *****/
+    // var requiredConfig = {
+    //   drowsy: {
+    //     url: 'string',
+    //     db: 'string'
+    //   },
+    //   wakeful: {
+    //     url: 'string'
+    //   },
+    //   login_picker:'boolean',
+    //   runs:'object'
+    // };
 
     // TODO: load this from config.json
-    smartboard.loadConfig('../config.json');
-    smartboard.verifyConfig(smartboard.config, requiredConfig);
+    //smartboard.loadConfig('../config.json');
+    //smartboard.verifyConfig(smartboard.config, requiredConfig);
+    smarboard.config = app.config;
 
     // TODO: Pick run id
     var app = {};
@@ -33,14 +35,14 @@
 
     // Adding BasicAuth to the XHR header in order to authenticate with drowsy database
     // this is not really big security but a start
-    var basicAuthHash = btoa(smartboard.config.drowsy.username + ':' + smartboard.config.drowsy.password);
-    Backbone.$.ajaxSetup({
-      beforeSend: function(xhr) {
-        return xhr.setRequestHeader('Authorization',
-            // 'Basic ' + btoa(username + ':' + password));
-            'Basic ' + basicAuthHash);
-      }
-    });
+    // var basicAuthHash = btoa(smartboard.config.drowsy.username + ':' + smartboard.config.drowsy.password);
+    // Backbone.$.ajaxSetup({
+    //   beforeSend: function(xhr) {
+    //     return xhr.setRequestHeader('Authorization',
+    //         // 'Basic ' + btoa(username + ':' + password));
+    //         'Basic ' + basicAuthHash);
+    //   }
+    // });
 
     Skeletor.Model.init(smartboard.config.drowsy.url, DATABASE)
     .then(function () {
