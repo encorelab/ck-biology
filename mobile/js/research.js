@@ -482,6 +482,9 @@
 
     if (!noMax && percent > 100) {
       percent = 100;
+    } else if (Number.isNaN(Number(percent))) {
+      // for those collections that have not yet been populated
+      percent = 0;
     }
     return Math.round(percent);
   };
@@ -504,6 +507,9 @@
 
     if (percent > 100) {
       percent = 100;
+    } else if (Number.isNaN(Number(percent))) {
+      // for those collections that have not yet been populated
+      percent = 0;
     }
     return Math.round(percent);
   };

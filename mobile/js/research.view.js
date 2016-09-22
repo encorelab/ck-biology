@@ -75,7 +75,7 @@
         var number = lesson.get('number');
 
         var el = '';
-        if (app.getMyContributionPercent(lesson.get('number'))) {
+        if (Skeletor.Model.awake.terms.where({"lesson": number}).length > 0) {
           el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
         } else {
           el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base disabled" data-lesson="'+number+'">Lesson '+number+'</button>';
