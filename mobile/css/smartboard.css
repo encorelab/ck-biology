@@ -19,7 +19,9 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  width: 100%;
+  /* HACKs to get things working for Friday. Will be removed when we have standardized positioning for the terms */
+  width: 1430px;
+  height: 700px;
 }
 
 button {
