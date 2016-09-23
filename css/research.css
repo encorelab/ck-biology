@@ -685,17 +685,17 @@ input:disabled {
     #definition-screen .inner-wrapper,
     #relationship-screen .inner-wrapper,
     #vetting-screen .inner-wrapper {
-        margin-top: 130px;
+        margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
     }
 
     .inner-wrapper {
         max-width: 1120px;
         /* text-align: center; */
-        position: absolute;
+/*         position: absolute;
         top: 40%;
         transform: translateY(-50%);
-        -webkit-transform: translateY(-50%);
+        -webkit-transform: translateY(-50%); */
     }
 
     .definition-container {
