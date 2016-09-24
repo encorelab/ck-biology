@@ -224,11 +224,7 @@
       this.Term = this.db.Document('terms').extend({
         defaults: {
           'created_at': new Date(),
-          'modified_at': new Date(),
-          'media': [],
-          'vettings': [],
-          'vetted_by': [],
-          'complete': false
+          'modified_at': new Date()
         }
       })
       .extend(TaggableTrait)
