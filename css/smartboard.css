@@ -8,7 +8,7 @@ body {
 #wall {
   position: absolute;
   overflow: hidden;
-  top: 0;
+  top: 60px;
   bottom: 0;
   right: 0;
   left: 0;
@@ -20,8 +20,8 @@ body {
   -moz-user-select: none;
   user-select: none;
   /* HACKs to get things working for Friday. Will be removed when we have standardized positioning for the terms */
-  width: 1430px;
-  height: 700px;
+/*  width: 1430px;
+  height: 700px;*/
 }
 
 button {
@@ -180,8 +180,9 @@ button:hover {
 .content.balloon {
   position: absolute;
   width: 170px;
-  display: inline-block;
   min-height: 45px;
+  /*height: 60px;*/
+  display: inline-block;
   padding: 0 5px;
   text-align: center;
   background: #3498DB;
@@ -190,7 +191,7 @@ button:hover {
   -webkit-transition: height 1s ease 0;
   -moz-transition: height 1s ease 0;
   transition: height 1s ease 0;
-  max-height: 95%;
+  /*max-height: 95%;*/
   border-radius: 10px;
 }
 /*.content.balloon:nth-child(6n) {
@@ -290,19 +291,6 @@ button:hover {
 .content.balloon .buildons .buildon .content {
   font-size: 13px;
 }*/
-.content.balloon .votes {
-  /*background-image: url(../img/lightbulb_big_on.png);*/
-  background-repeat: no-repeat;
-  position: absolute;
-  background-size: 100%;
-  text-align: center;
-  right: 0;
-  bottom: 6px;
-  font-size: 14px;
-  color: #440;
-  font-weight: bold;
-  opacity: 1.0;
-}
 .content.balloon .votes.proposal-votes {
   background-image: url(../img/lightbulb_big_on.png);
   width: 36px;
@@ -395,17 +383,6 @@ button:hover {
   width: 70px;
   display: inline-block;
   margin-top: 1em;
-}
-.balloon .idea-counter span {
-  position: relative;
-  top: 20px;
-  left: 24px;
-  color: #000000;
-  font-size: 1.0em;
-  overflow: visible;
-  text-align: center;
-  height: 1em;
-  width: 3em;
 }
 .balloon .tag-group {
   width: 20px;

@@ -188,45 +188,45 @@
       // meta = balloon.findOrCreate('.meta', "<div class='meta'><span class='author'></span></div>");
       // meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
 
-      balloon.renderTags();
-      balloon.renderConnectors();
+      //balloon.renderTags();
+      //balloon.renderConnectors();
     },
 
     renderConnectors: function() {
-      var balloon = this;
+      // var balloon = this;
 
-      var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
+      // var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
 
-      if (!balloon.model.has('tags') || _.isEmpty(balloon.model.get('tags')) || !balloon.$el.is(':visible')) {
-        return;
-      }
+      // if (!balloon.model.has('tags') || _.isEmpty(balloon.model.get('tags')) || !balloon.$el.is(':visible')) {
+      //   return;
+      // }
 
-      _.each(balloon.model.get('tags'), function (tag) {
-        tagId = tag.id.toLowerCase();
-        tagView = balloon.wall.balloons[tagId];
-        if (!tagView) {
-          return;
-        }
-        connectorId = balloon.model.id + "-" + tagId;
-        connector = CK.Smartboard.View.findOrCreate(balloon.wall.$el, "#" + connectorId, "<div class='connector' id='" + connectorId + "'></div>");
-        x1 = balloon.left + (balloon.width / 2);
-        y1 = balloon.top + (balloon.height / 2);
-        x2 = tagView.left + (tagView.width / 2);
-        y2 = tagView.top + (tagView.height / 2);
-        connectorLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-        connectorTransform = "rotate(" + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + "deg)";
-        connector.css({
-          'top': "" + y1 + "px",
-          'left': "" + x1 + "px",
-          'width': "" + connectorLength + "px",
-          '-webkit-transform': connectorTransform,
-          '-moz-transform': connectorTransform,
-          'transform': connectorTransform
-        });
-        connector.addClass("connects-" + balloon.model.id);
-        connector.addClass("connects-" + tag.id);
-        connector.addClass("tag-" + tag.id);
-      });
+      // _.each(balloon.model.get('tags'), function (tag) {
+      //   tagId = tag.id.toLowerCase();
+      //   tagView = balloon.wall.balloons[tagId];
+      //   if (!tagView) {
+      //     return;
+      //   }
+      //   connectorId = balloon.model.id + "-" + tagId;
+      //   connector = CK.Smartboard.View.findOrCreate(balloon.wall.$el, "#" + connectorId, "<div class='connector' id='" + connectorId + "'></div>");
+      //   x1 = balloon.left + (balloon.width / 2);
+      //   y1 = balloon.top + (balloon.height / 2);
+      //   x2 = tagView.left + (tagView.width / 2);
+      //   y2 = tagView.top + (tagView.height / 2);
+      //   connectorLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+      //   connectorTransform = "rotate(" + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + "deg)";
+      //   connector.css({
+      //     'top': "" + y1 + "px",
+      //     'left': "" + x1 + "px",
+      //     'width': "" + connectorLength + "px",
+      //     '-webkit-transform': connectorTransform,
+      //     '-moz-transform': connectorTransform,
+      //     'transform': connectorTransform
+      //   });
+      //   connector.addClass("connects-" + balloon.model.id);
+      //   connector.addClass("connects-" + tag.id);
+      //   connector.addClass("tag-" + tag.id);
+      // });
     },
 
     renderTags: function() {
@@ -243,7 +243,7 @@
       _.each(tagIds, function (tid) {
         balloon.$el.addClass("tag-" + tid);
       });
-    },
+    }
   });
 
 
@@ -281,9 +281,84 @@
       meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
 
       balloon.$el.addClass('note');
+    },
+
+    renderConnectors: function(balloon) {
+      //var balloon = this;
+
+      var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
+      var fromRel, to;
+
+      // if (!balloon.model.has('tags') || _.isEmpty(balloon.model.get('tags')) || !balloon.$el.is(':visible')) {
+      //   return;
+      // }
+
+      fromRel = Skeletor.Model.awake.relationships.findWhere({"lesson": Skeletor.Mobile.lesson, "from": balloon.model.get('name'), "complete":true});
+      //to = Skeletor.Model.awake.relationships.where({"to":this.model.get('name'), "complete":true});
+
+      if (fromRel) {
+        var target = Skeletor.Model.awake.terms.findWhere({"lesson": Skeletor.Mobile.lesson, "name": fromRel.get('to')});
+
+        // this if won't be necessary once I get this right and all of the terms are in there...
+        if (target) {
+          var toBalloon = balloon.wall.balloons[target.id];
+
+          // ditto
+          if (toBalloon) {
+            var tagId = "temp";
+            connectorId = balloon.model.id + "-" + tagId;
+            connector = Skeletor.Smartboard.View.findOrCreate(balloon.wall.$el, "#" + connectorId, "<div class='connector' id='" + connectorId + "'></div>");
+            x1 = balloon.left + (balloon.width / 2);
+            y1 = balloon.top + (balloon.height / 2);
+            x2 = toBalloon.left + (toBalloon.width / 2);
+            y2 = toBalloon.top + (toBalloon.height / 2);
+            connectorLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            connectorTransform = "rotate(" + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + "deg)";
+            connector.css({
+              'top': "" + y1 + "px",
+              'left': "" + x1 + "px",
+              'width': "" + connectorLength + "px",
+              '-webkit-transform': connectorTransform,
+              '-moz-transform': connectorTransform,
+              'transform': connectorTransform
+            });
+            // connector.addClass("connects-" + balloon.model.id);
+            // connector.addClass("connects-" + tag.id);
+            // connector.addClass("tag-" + tag.id);
+          }
+
+        }
+
+      }
+
+      // _.each(balloon.model.get('tags'), function (tag) {
+      //   tagId = tag.id.toLowerCase();
+      //   tagView = balloon.wall.balloons[tagId];
+      //   if (!tagView) {
+      //     return;
+      //   }
+      //   connectorId = balloon.model.id + "-" + tagId;
+      //   connector = Skeletor.Smartboard.View.findOrCreate(balloon.wall.$el, "#" + connectorId, "<div class='connector' id='" + connectorId + "'></div>");
+      //   x1 = balloon.left + (balloon.width / 2);
+      //   y1 = balloon.top + (balloon.height / 2);
+      //   x2 = tagView.left + (tagView.width / 2);
+      //   y2 = tagView.top + (tagView.height / 2);
+      //   connectorLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+      //   connectorTransform = "rotate(" + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + "deg)";
+      //   connector.css({
+      //     'top': "" + y1 + "px",
+      //     'left': "" + x1 + "px",
+      //     'width': "" + connectorLength + "px",
+      //     '-webkit-transform': connectorTransform,
+      //     '-moz-transform': connectorTransform,
+      //     'transform': connectorTransform
+      //   });
+      //   connector.addClass("connects-" + balloon.model.id);
+      //   connector.addClass("connects-" + tag.id);
+      //   connector.addClass("tag-" + tag.id);
+      // });
     }
   });
-
 
   Smartboard.View.TagBalloon = Smartboard.View.Balloon.extend({
     className: "tag balloon",
