@@ -26,13 +26,13 @@
 
   smartboard.ready = function() {
     // RUNSTATE
-    smartboard.runState = Skeletor.getState('RUN');
-    if (!smartboard.runState) {
-      smartboard.runState = Skeletor.setState('RUN', {
-        phase: 'brainstorm'
-      });
-    }
-    smartboard.runState.wake(smartboard.config.wakeful.url);
+    // smartboard.runState = Skeletor.getState('RUN');
+    // if (!smartboard.runState) {
+    //   smartboard.runState = Skeletor.setState('RUN', {
+    //     phase: 'brainstorm'
+    //   });
+    // }
+    // smartboard.runState.wake(smartboard.config.wakeful.url);
 
     // TAGS
     // Works without these. Why do we keep the instance around here in JS?
