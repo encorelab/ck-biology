@@ -71,7 +71,7 @@
       });
       term.wake(Smartboard.config.wakeful.url);
 
-      bv.$el.css('visibility', 'hidden');
+      //bv.$el.css('visibility', 'hidden');
       bv.wall = wall; // FIXME: hmmm...
       bv.render();
 
@@ -101,12 +101,13 @@
 
       bv.render();
       term.save().done(function() {
+        //bv.$el.css('visibility', 'visible');
         // If it isn't term show it and if it is term only show it on publish
-        if ( !(term instanceof Skeletor.Model.Brainstorm) || ((term instanceof Skeletor.Model.Brainstorm) && term.get('published')) ) {
-            bv.$el.css('visibility', 'visible');
-        } else {
-          console.log("Invisible man");
-        }
+        // if ( !(term instanceof Skeletor.Model.Brainstorm) || ((term instanceof Skeletor.Model.Brainstorm) && term.get('published')) ) {
+        //     bv.$el.css('visibility', 'visible');
+        // } else {
+        //   console.log("Invisible man");
+        // }
 
         //WARNING: IMPLICIT AS HELL DAWG
         // we need a condition to determine if the 'term' is a balloon or a tag. For now, saying that if it has an author, it should be a balloon, if not it is a tag

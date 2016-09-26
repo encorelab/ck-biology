@@ -419,7 +419,9 @@ button:hover {
   cursor: grab;
 }
 .balloon.unpublished {
-  display: none !important;
+  pointer-events: none;
+  cursor: default;
+  background-color: #BDBDC1;
 }
 .balloon.ui-draggable-dragging {
   cursor: move;

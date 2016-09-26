@@ -74,25 +74,25 @@
         }
       });
 
-      balloon.model.on('change:published', function() {
-        if (balloon.model.get('published')) {
-          // setting visibility once the element is published = true
-          balloon.$el.css('visibility', 'visible');
-          balloon.$el.addClass('ui-draggable-dragging');
-          // setTimeout(function() {
-          //   return balloon.$el.removeClass('new');
-          // }, 1001);
-          return balloon.model.on('wakeful:broadcast:received', function() {
-            if (!balloon.$el.hasClass('glow')) {
-              balloon.$el.addClass('glow');
-              // wait for the glow animation to finish before removing the glow class
-              return setTimeout(function() {
-                return balloon.$el.removeClass('glow');
-              }, 4001);
-            }
-          });
-        }
-      });
+      // balloon.model.on('change:complete', function() {
+      //   if (balloon.model.get('complete')) {
+      //     // setting visibility once the element is complete = true
+      //     //balloon.$el.css('visibility', 'visible');
+      //     balloon.$el.addClass('ui-draggable-dragging');
+      //     // setTimeout(function() {
+      //     //   return balloon.$el.removeClass('new');
+      //     // }, 1001);
+      //     // return balloon.model.on('wakeful:broadcast:received', function() {
+      //     //   if (!balloon.$el.hasClass('glow')) {
+      //     //     balloon.$el.addClass('glow');
+      //     //     // wait for the glow animation to finish before removing the glow class
+      //     //     return setTimeout(function() {
+      //     //       return balloon.$el.removeClass('glow');
+      //     //     }, 400);
+      //     //   }
+      //     // });
+      //   }
+      // });
 
       balloon.model.on('change', function() {
         if (balloon.wall) { // this balloon has been added to the wall
@@ -168,14 +168,14 @@
       // call parent's render
       Smartboard.View.Balloon.prototype.render.apply(this, arguments);
 
-      if (balloon.model.get('published')) {
-        balloon.$el.removeClass('unpublished');
-      } else {
-        balloon.$el.addClass('unpublished');
-      }
+      // if (balloon.model.get('complete')) {
+      //   balloon.$el.removeClass('unpublished');
+      // } else {
+      //   balloon.$el.addClass('unpublished');
+      // }
 
-      balloon.findOrCreate('.title', "<h3 class='title'></h3>");
-      title = title.text(balloon.model.get('title'));
+      // balloon.findOrCreate('.title', "<h3 class='title'></h3>");
+      // title = title.text(balloon.model.get('title'));
 
       // body = balloon.findOrCreate('.body', "<div class='body'></div>");
       // if (balloon.model.get('content_type') === 'text') {
@@ -255,6 +255,12 @@
 
       // call parent's render
       Smartboard.View.Balloon.prototype.render.apply(this, arguments);
+
+      if (balloon.model.get('complete')) {
+        balloon.$el.removeClass('unpublished');
+      } else {
+        balloon.$el.addClass('unpublished');
+      }
 
       // WARNING: This is now coding out what exists in a note. Maybe this should come from a user definition in the future??!!
       var title = balloon.findOrCreate('.title', "<h3 class='title'></h3>");
