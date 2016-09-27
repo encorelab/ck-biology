@@ -14,54 +14,13 @@
 
       _.bindAll(this);
 
-      //Smartboard.runState.on('change', this.render);
-
       wall.tagFilters = [];
       wall.balloons = {};
-
-      // Skeletor.Model.awake.terms.on('add', function(n) {
-      //   wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      // });
-
-      // Skeletor.Model.awake.terms.on('destroy', function(n) {
-      //   console.warn("I was destroyed", n.id);
-      //   // wall.registerBalloon(n, Smartboard.View.NoteBalloon, wall.balloons);
-      // });
-
-      // Skeletor.Model.awake.terms.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
-      //   this.registerBalloon(n, Smartboard.View.NoteBalloon, this.balloons);
-      // });
-
-      Skeletor.Model.awake.tags.on('add', function(t) {
-        wall.registerBalloon(t, Smartboard.View.TagBalloon, wall.balloons);
-      });
-      Skeletor.Model.awake.tags.each(function(t) {
-        wall.registerBalloon(t, Smartboard.View.TagBalloon, wall.balloons);
-      });
-      Skeletor.Model.awake.tags.each(function(t) {
-        wall.balloons[t.id].renderConnectors();
-      });
-    },
-
-    events: {
-      //'click #add-tag-opener': 'toggleTagInputter'
     },
 
     ready: function () {
-      //this.render();
       this.trigger('ready');
     },
-
-    // toggleTagInputter: function () {
-    //   var wall = this;
-    //   var addTagContainer = this.$el.find('#add-tag-container');
-    //   addTagContainer.toggleClass('opened');
-    //   if (addTagContainer.hasClass('opened')) {
-    //     return setTimeout(function() {
-    //       return wall.$el.find('#new-tag').focus();
-    //     }, 500);
-    //   }
-    // },
 
     registerBalloon: function(term, BalloonView) {
       var wall = this;
@@ -71,8 +30,7 @@
       });
       term.wake(Smartboard.config.wakeful.url);
 
-      //bv.$el.css('visibility', 'hidden');
-      bv.wall = wall; // FIXME: hmmm...
+      bv.wall = wall;
       bv.render();
 
       wall.$el.append(bv.$el);
@@ -84,8 +42,12 @@
         bv.$el.zIndex(term.get('z-index'));
       });
 
+      // NB: Meagan, if terms do not yet have a position,
+      // uncomment wall.assignRandomPosition below to create them
+      // (then recomment when done)
+
       // if (term.hasPos()) {
-      //   bv.pos = term.getPos();
+         //bv.pos = term.getPos();
       // } else {
         //wall.assignRandomPositionToBalloon(term, bv);
       //}
@@ -100,36 +62,9 @@
       });
 
       bv.render();
-      term.save().done(function() {
-        //bv.$el.css('visibility', 'visible');
-        // If it isn't term show it and if it is term only show it on publish
-        // if ( !(term instanceof Skeletor.Model.Brainstorm) || ((term instanceof Skeletor.Model.Brainstorm) && term.get('published')) ) {
-        //     bv.$el.css('visibility', 'visible');
-        // } else {
-        //   console.log("Invisible man");
-        // }
-
-        //WARNING: IMPLICIT AS HELL DAWG
-        // we need a condition to determine if the 'term' is a balloon or a tag. For now, saying that if it has an author, it should be a balloon, if not it is a tag
-        // if (term.get('author')) {
-        //   // only show balloon if published is true
-        //   // if it isn't we listen to change:publish in the balloon view
-        //   if (term.get('published')) {
-        //     bv.$el.css('visibility', 'visible');
-        //   }
-        // }
-        // // this else is to show the Tag balloons
-        // else {
-        //   bv.$el.css('visibility', 'visible');
-        // }
-
-      });
+      term.save();
 
       this.balloons[term.id] = bv;
-    },
-
-    registerRelationship: function() {
-
     },
 
     assignStaticPositionToBalloon: function(doc, view) {
@@ -183,51 +118,10 @@
         // Does faye somehow trigger the model init??
         // return doc.save();
       });
-      view.$el.on('drag', function(ev, ui) {
-        if (view.renderConnectors !== null) {
-          return view.renderConnectors();
-        }
-      });
       return view.$el.on('dragstart', function(ev, ui) {
         return _this.moveBalloonToTop(doc, view);
       });
     },
-
-    // addTagFilter: function(tag) {
-    //   if (this.tagFilters.indexOf(tag) < 0) {
-    //     this.tagFilters.push(tag);
-    //     return this.renderFiltered();
-    //   }
-    // },
-
-    // removeTagFilter: function(tag) {
-    //   this.tagFilters.splice(this.tagFilters.indexOf(tag), 1);
-    //   return this.renderFiltered();
-    // },
-
-    // renderFiltered: function(tag) {
-    //   var activeIds, maxZ, selector;
-    //   if (this.tagFilters.length === 0) {
-    //     return this.$el.find(".content, .connector").removeClass('blurred');
-    //   } else {
-    //     activeIds = (function() {
-    //       var _i, _len, _ref, _results;
-    //       _ref = this.tagFilters;
-    //       _results = [];
-    //       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-    //         tag = _ref[_i];
-    //         _results.push(tag.id);
-    //       }
-    //       return _results;
-    //     }).call(this);
-    //     selector = ".tag-" + activeIds.join(", .tag-");
-    //     this.$el.find(".content:not(" + selector + ")").addClass('blurred');
-    //     this.$el.find(".connector:not(" + selector + ")").addClass('blurred');
-    //     maxZ = this.maxBalloonZ();
-    //     this.$el.find(".content").filter("" + selector).removeClass('blurred').css('z-index', maxZ + 1);
-    //     return this.$el.find(".connector").filter("" + selector).removeClass('blurred');
-    //   }
-    // },
 
     render: function() {
       var _this = this;
@@ -236,20 +130,11 @@
       this.width = this.$el.outerWidth();
       this.height = this.$el.outerHeight();
 
-      // phase = Smartboard.runState.get('phase');
-      // if (phase !== this.$el.data('phase')) {
-      //   this.$el.data('phase', phase);
-      // }
-
       // clear all of the balloons and readd them based on this lesson. There's probably a cleaner way of doing this...
-      // TODO: confirm this doesn't blow things up - when else does this render get called?
       jQuery('#wall').html('');
       Skeletor.Model.awake.terms.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
         _this.registerBalloon(n, Smartboard.View.NoteBalloon, _this.balloons);
       });
-      // Skeletor.Model.awake.relationships.where({"lesson": Skeletor.Mobile.lesson}).forEach(function(n) {
-      //   _this.registerRelationship(n, Smartboard.View.Relationship);
-      // });
       Skeletor.Model.awake.relationships.where({"lesson": Skeletor.Mobile.lesson, "complete": true}).forEach(function(rel) {
         var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
 
@@ -275,7 +160,7 @@
             '-webkit-transform': connectorTransform,
             '-moz-transform': connectorTransform,
             'transform': connectorTransform,
-            'height': '3px',
+            'height': '2px',
             'background': '#000',
             'position': 'absolute',
             'transform-origin': '0 100%'

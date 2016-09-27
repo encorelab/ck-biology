@@ -194,24 +194,6 @@ button:hover {
   /*max-height: 95%;*/
   border-radius: 10px;
 }
-/*.content.balloon:nth-child(6n) {
-  border: 2px solid #c31fa4;
-}
-.content.balloon:nth-child(6n+1) {
-  border: 2px solid #d922b7;
-}
-.content.balloon:nth-child(6n+2) {
-  border: 2px solid #ecb9e2;
-}
-.content.balloon:nth-child(6n+3) {
-  border: 2px solid #ad1c91;
-}
-.content.balloon:nth-child(6n+4) {
-  border: 2px solid #e6a5da;
-}
-.content.balloon:nth-child(6n+5) {
-  border: 2px solid #df36bf;
-}*/
 .content.balloon .title {
   margin: 12px;
   font-weight: 400;
@@ -238,15 +220,6 @@ button:hover {
   height: 1em;
   overflow: hidden;
 }
-/*.content.balloon .meta .buildon-counter {
-  color: rgba(195, 31, 164, 0.5);
-  font-size: 13px;
-  margin-bottom: 1em;
-  position: absolute;
-  left: 14px;
-  top: 0;
-  padding-top: 1px;
-}*/
 .content.balloon .body {
   display: none;
   margin-top: 0;
@@ -267,62 +240,6 @@ button:hover {
   font-size: 11px;
   /* color: #666; */
 }
-/*.content.balloon .buildons {
-  display: none;
-  border-top: solid 1px;
-  border-color: #000000;
-  margin-top: 15px;
-  font-size: 14px;
-  padding-top: 0;
-  padding-bottom: 6px;
-  padding-left: 14px;
-  padding-right: 14px;
-}
-.content.balloon .buildons .buildon {
-  margin-top: 5px;
-  padding-left: 5px;
-  margin-bottom: 5px;
-  border-left: 4px solid rgba(195, 31, 164, 0.5);
-}
-.content.balloon .buildons .buildon .author {
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 11px;
-}
-.content.balloon .buildons .buildon .content {
-  font-size: 13px;
-}*/
-.content.balloon .votes.proposal-votes {
-  background-image: url(../img/lightbulb_big_on.png);
-  width: 36px;
-  height: 31px;
-  padding-top: 5px;
-}
-.content.balloon .votes.proposal-votes.off {
-  background-image: url(../img/lightbulb_big_off.png);
-  font-weight: normal;
-  opacity: 0.5;
-}
-.content.balloon .votes.investigation-votes {
-  background-image: url(../img/connect_btn_on.png);
-  width: 50px;
-  height: 22px;
-  padding-top: 9px;
-}
-.content.balloon .votes.investigation-votes.off {
-  background-image: url(../img/connect_btn_off.png);
-  font-weight: normal;
-  opacity: 0.5;
-}
-.content.balloon .votes.changed {
-  -webkit-animation-name: pulse;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: ease-out;
-  -moz-animation-name: pulse;
-  -moz-animation-duration: 1s;
-  -moz-animation-iteration-count: 1;
-  -moz-animation-timing-function: ease-out;
-}
 .content.balloon.opened {
   width: 100%;
   max-width: 350px;
@@ -341,18 +258,6 @@ button:hover {
 .content.balloon.opened .author {
   padding-top: 5px;
 }
-.content.balloon.investigation .investigation-type {
-  margin-top: 12px;
-  font-size: 12px;
-  padding-top: 4px;
-  padding-bottom: 0;
-  padding-left: 14px;
-  padding-right: 14px;
-  margin-bottom: -12px;
-  /* color: #888; */
-  text-transform: uppercase;
-}
-
 .content.balloon.blurred {
   opacity: 0.2;
 }
@@ -365,29 +270,6 @@ button:hover {
   -webkit-transition: height 0.5s, box-shadow 0.25s, opacity 1s;
   -moz-transition: height 0.5s, box-shadow 0.25s, opacity 1s;
   transition: height 0.5s, box-shadow 0.25s, opacity 1s;
-}
-.balloon .idea-counter-off {
-  background-image: url("/smartboard/img/lightbulb_big_off.png");
-  background-repeat: no-repeat;
-  background-size: 70px 70px;
-  height: 70px;
-  width: 70px;
-  display: inline-block;
-  margin-top: 1em;
-}
-.balloon .idea-counter-on {
-  background-image: url("/smartboard/img/lightbulb_big_on.png");
-  background-repeat: no-repeat;
-  background-size: 70px 70px;
-  height: 70px;
-  width: 70px;
-  display: inline-block;
-  margin-top: 1em;
-}
-.balloon .tag-group {
-  width: 20px;
-  height: 95%;
-  float: left;
 }
 .balloon:hover {
   cursor: pointer;
@@ -410,27 +292,4 @@ button:hover {
 }
 .balloon.blurred {
   opacity: 0.15;
-}
-
-.tag.balloon {
-  position: absolute;
-  max-width: 170px;
-  border-radius: 2em;
-  padding: 20px;
-  background-color: #6a1159;
-  box-shadow: #e6a5da 0 0 10px 10px;
-}
-.tag.balloon .name {
-  text-align: center;
-  margin: 0;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.tag.balloon.pinned {
-  border-style: solid;
-}
-.tag.balloon.active {
-  border-style: solid;
-  background-color: #e662cd;
 }
