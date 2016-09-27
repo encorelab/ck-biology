@@ -219,7 +219,6 @@
         balloon.$el.addClass('unpublished');
       }
 
-      // WARNING: This is now coding out what exists in a note. Maybe this should come from a user definition in the future??!!
       var title = balloon.findOrCreate('.title', "<h3 class='title'></h3>");
       var titleText = '';
       if (balloon.model.get('name')) {
@@ -231,11 +230,40 @@
       }
       title.text(titleText);
 
+      var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
+      // temp only - once we reset the DB, we can take this out
+      if (balloon.model.get("submitted_at")) {
+        noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
+      } else {
+        noteAuthor.text(balloon.model.get('assigned_to'));
+      }
       var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
       noteBody.text(balloon.model.get('explanation'));
 
-      var meta = balloon.findOrCreate('.meta', "<div class='meta'><span class='author'></span></div>");
-      meta.find('.author').text(balloon.model.get('author')).addClass("author-" + (balloon.model.get('author')));
+      // add media
+      _.each(balloon.model.get('vettings'), function(vet) {
+        var noteVettingAuthor = balloon.findOrCreate('.vetting-author', "<div class='vetting-author'></div>");
+        noteVettingAuthor.text(vet.author + " - " + vet.date);
+        var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
+        noteVettingContent.text(vet.explanation);
+      });
+
+      // add relationships
+      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+        return rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name');
+      });
+      _.each(filteredRelationships, function(rel) {
+        var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
+        noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+      });
+
+      // add media
+      var el = "<div class='media-container'>";
+      _.each(balloon.model.get('media'), function(url) {
+        el += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='img-responsive'></img></span>"
+      });
+      el += "</div>";
+      balloon.findOrCreate('.media-container', el);
 
       balloon.$el.addClass('note');
     }

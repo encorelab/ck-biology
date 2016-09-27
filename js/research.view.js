@@ -314,6 +314,7 @@
         app.clearAutoSaveTimer();
         view.model.set('explanation', explanation);
         view.model.set('complete', true);
+        view.model.set('submitted_at', new Date());
         view.model.set('modified_at', new Date());
         view.model.save();
 
@@ -585,8 +586,9 @@
       if (explanation.length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
         // all of this date nonsense to work around the fact that wakeful/drowsy choke on the nested Date obj (b/c it isn't JSON)
         var d = new Date();
-        var dateStr = d.toDateString() + ', ' + d.toTimeString();
-        dateStr = dateStr.substring(0, dateStr.length - 15);
+        var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
+        // var dateStr = d.toDateString() + ', ' + d.toTimeString();
+        // dateStr = dateStr.substring(0, dateStr.length - 15);
         var vettingObj = {};
 
         // if radio button is yes, we need to write explanation is blank. This is way over the top, but hoping to future proof since we're going to launch before we get to the knowledge base section
