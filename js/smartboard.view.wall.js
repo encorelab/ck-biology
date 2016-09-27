@@ -275,9 +275,10 @@
             '-webkit-transform': connectorTransform,
             '-moz-transform': connectorTransform,
             'transform': connectorTransform,
-            'height': '4px',
-            'background': 'black',
-            'position': 'absolute'
+            'height': '3px',
+            'background': '#000',
+            'position': 'absolute',
+            'transform-origin': '0 100%'
           });
         }
       });
