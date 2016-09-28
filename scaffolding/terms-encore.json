@@ -528,6 +528,18 @@
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
+        "name": "carboxyl",
+        "lesson": 2,
+        "assigned_to": "meagan",
+        "complete": false,
+        "locked": "",
+        "media": [],
+        "vettings": [],
+        "vetted_by": [],
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
         "name": "carbonyl",
         "lesson": 2,
         "assigned_to": "meagan",

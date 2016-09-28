@@ -158,7 +158,7 @@
       app.runState.on('change', app.reflectRunState);
     })
     .then(function() {
-      Skeletor.Smartboard.init(app.runId);
+      var test = Skeletor.Smartboard.init(app.runId);
     })
     .done(function () {
       ready();
@@ -172,11 +172,8 @@
     setUpUI();
     setUpClickListeners();
     wireUpViews();
-
-    // decide on which screens to show/hide
     app.hideAllContainers();
-
-    app.reflectRunState();
+    jQuery('#home-screen').removeClass('hidden');
   };
 
   var checkDBValidity = function() {
@@ -194,16 +191,25 @@
           if (term.get('name') === "") {
             validFlag = false;
           }
-          if (Skeletor.Model.awake.relationships.findWhere({"from": term.get('name')}) == null &&
-              Skeletor.Model.awake.relationships.findWhere({"to": term.get('name')}) == null) {
+          if (Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "from": term.get('name')}) == null &&
+              Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "to": term.get('name')}) == null) {
+            validFlag = false;
+          }
+        });
+        _.each(Skeletor.Model.awake.relationships.where({"lesson": lessonNum}), function(relationship) {
+          if (relationship.get('assigned_to') === "" || app.users.findWhere({"username": relationship.get('assigned_to')}) == null) {
+            validFlag = false;
+          }
+          if (relationship.get('from') === "" || relationship.get('to') === "") {
+            validFlag = false;
+          }
+          if (Skeletor.Model.awake.terms.findWhere({"name": relationship.get('from')}) == null ||
+              Skeletor.Model.awake.terms.findWhere({"name": relationship.get('to')}) == null) {
             validFlag = false;
           }
         });
       }
     });
-    // Skeletor.Mobile.users
-    // Skeletor.Model.awake.terms
-    // Skeletor.Model.awake.relationships
 
     if (validFlag) {
       console.log('DB validation passed!');
@@ -723,21 +729,6 @@
     DATABASE = app.config.drowsy.db+'-'+app.runId;
     if (app.rollcall === null) {
       app.rollcall = new Rollcall(app.config.drowsy.url, DATABASE);
-    }
-  };
-
-  // WARNING: 'runstate' is a bit misleading, since this does more than run state now - this might want to be multiple functions
-  // takes an optional parameter ("new" or an object id), if not being used with
-  // this desperately needs to be broken up into several functions
-  app.reflectRunState = function() {
-    // checking paused status
-    if (app.runState.get('paused') === true) {
-      console.log('Locking screen...');
-      jQuery('#lock-screen').removeClass('hidden');
-      jQuery('.user-screen').addClass('hidden');
-    } else if (app.runState.get('paused') === false) {
-      jQuery('#lock-screen').addClass('hidden');
-      jQuery('#home-screen').removeClass('hidden');
     }
   };
 
