@@ -472,7 +472,6 @@
         }
       },
       "z-index": 102,
-      "explanation": " fdasdfasfds "
     }, {
       "name": "conformational isomer",
       "lesson": 2,
@@ -490,11 +489,9 @@
         }
       },
       "z-index": 101,
-      "explanation": " fsdafd "
     }, {
       "assigned_to": "cresencia",
       "complete": true,
-      "explanation": " afsf ds dfsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -511,7 +508,6 @@
     }, {
       "assigned_to": "steven",
       "complete": true,
-      "explanation": " fdgfdg sgf ds",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -528,7 +524,6 @@
     }, {
       "assigned_to": "renato",
       "complete": true,
-      "explanation": " dfgs fdgs",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -545,7 +540,6 @@
     }, {
       "assigned_to": "gaoxia",
       "complete": true,
-      "explanation": " fdas fadfaf dasfd as",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -562,7 +556,6 @@
     }, {
       "assigned_to": "gaoxia",
       "complete": true,
-      "explanation": " fadf s dfdfa dafs",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -579,7 +572,6 @@
     }, {
       "assigned_to": "hedieh",
       "complete": true,
-      "explanation": " faddf sadf as",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -596,7 +588,6 @@
     }, {
       "assigned_to": "colin",
       "complete": true,
-      "explanation": " fds kjlf kjfldsak jlfdsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -613,7 +604,6 @@
     }, {
       "assigned_to": "colin",
       "complete": true,
-      "explanation": "dfsafd",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -630,7 +620,6 @@
     }, {
       "assigned_to": "colin",
       "complete": true,
-      "explanation": "dfsafdas",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -647,7 +636,6 @@
     }, {
       "assigned_to": "alisa",
       "complete": true,
-      "explanation": " asdff ds",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -664,7 +652,6 @@
     }, {
       "assigned_to": "alisa",
       "complete": true,
-      "explanation": "fsda",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -681,7 +668,6 @@
     }, {
       "assigned_to": "alisa",
       "complete": true,
-      "explanation": "fsda",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -698,7 +684,6 @@
     }, {
       "assigned_to": "armin",
       "complete": true,
-      "explanation": " dafs fdsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -715,7 +700,6 @@
     }, {
       "assigned_to": "armin",
       "complete": true,
-      "explanation": " fsad fdsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -732,7 +716,6 @@
     }, {
       "assigned_to": "armin",
       "complete": true,
-      "explanation": " sfadfd",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -749,7 +732,6 @@
     }, {
       "assigned_to": "gaoxia",
       "complete": true,
-      "explanation": " dsfadafsdfsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -780,7 +762,6 @@
         }
       },
       "z-index": 113,
-      "explanation": " dfsadf sa fda"
     }, {
       "name": "redox reaction",
       "lesson": 2,
@@ -798,11 +779,9 @@
         }
       },
       "z-index": 88,
-      "explanation": " afsddfs f dsa"
     }, {
       "assigned_to": "jim",
       "complete": true,
-      "explanation": " fadsdf a dfafd a",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -833,11 +812,9 @@
         }
       },
       "z-index": 110,
-      "explanation": " dsaf dfa"
     }, {
       "assigned_to": "jim",
       "complete": true,
-      "explanation": " fds fdsa dfas",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -854,7 +831,6 @@
     }, {
       "assigned_to": "jim",
       "complete": true,
-      "explanation": " afsf dsa dfsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -885,11 +861,9 @@
         }
       },
       "z-index": 104,
-      "explanation": " fdas dfsa"
     }, {
       "assigned_to": "maria",
       "complete": true,
-      "explanation": " sadf dfsa fds",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -906,7 +880,6 @@
     }, {
       "assigned_to": "maria",
       "complete": true,
-      "explanation": " fsaddfs f dsa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -923,7 +896,6 @@
     }, {
       "assigned_to": "maria",
       "complete": true,
-      "explanation": " fdsadfs ",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -940,7 +912,6 @@
     }, {
       "assigned_to": "meagan",
       "complete": true,
-      "explanation": " dfasds fa",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -971,11 +942,9 @@
         }
       },
       "z-index": 114,
-      "explanation": " fgds"
     }, {
       "assigned_to": "meagan",
       "complete": true,
-      "explanation": " fdgs fgds",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -992,7 +961,6 @@
     }, {
       "assigned_to": "meagan",
       "complete": true,
-      "explanation": " dgf fgds fgsd",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1009,7 +977,6 @@
     }, {
       "assigned_to": "rebecca",
       "complete": true,
-      "explanation": " fgd fdgs",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1026,7 +993,6 @@
     }, {
       "assigned_to": "rebecca",
       "complete": true,
-      "explanation": " fdg fgs sfd",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1043,7 +1009,6 @@
     }, {
       "assigned_to": "rebecca",
       "complete": true,
-      "explanation": " dgsf dfgs",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1060,7 +1025,6 @@
     }, {
       "assigned_to": "renato",
       "complete": true,
-      "explanation": " fgds fgds",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1077,7 +1041,6 @@
     }, {
       "assigned_to": "renato",
       "complete": true,
-      "explanation": " dfsg fdgs",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1094,7 +1057,6 @@
     }, {
       "assigned_to": "steven",
       "complete": true,
-      "explanation": " fsdg",
       "lesson": 2,
       "locked": "",
       "media": [],
@@ -1125,11 +1087,9 @@
         }
       },
       "z-index": 86,
-      "explanation": " dsg fds"
     }, {
       "assigned_to": "hedieh",
       "complete": true,
-      "explanation": " dfsa dafs dfas",
       "lesson": 2,
       "locked": "colin",
       "media": [],
