@@ -178,6 +178,7 @@
 
   var checkDBValidity = function() {
     var validFlag = true;
+    var name, type;
     // for each lesson
     Skeletor.Model.awake.lessons.each(function(lesson) {
       var lessonNum = lesson.get('number');
@@ -187,25 +188,40 @@
         _.each(Skeletor.Model.awake.terms.where({"lesson": lessonNum}), function(term) {
           if (term.get('assigned_to') === "" || app.users.findWhere({"username": term.get('assigned_to')}) == null) {
             validFlag = false;
+            name = term.get('name');
+            type = "unassigned";
           }
           if (term.get('name') === "") {
             validFlag = false;
+            name = term.get('name');
+            type = "blank";
           }
+          // make sure it exists in the relationships
           if (Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "from": term.get('name')}) == null &&
               Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "to": term.get('name')}) == null) {
             validFlag = false;
+            name = term.get('name');
+            type = "missing from relationships";
           }
         });
+        // go through all of the relationships, check that each user has been assigned to is spelled correctly
         _.each(Skeletor.Model.awake.relationships.where({"lesson": lessonNum}), function(relationship) {
           if (relationship.get('assigned_to') === "" || app.users.findWhere({"username": relationship.get('assigned_to')}) == null) {
             validFlag = false;
+            name = relationship.get('from');
+            type = "unassigned";
           }
           if (relationship.get('from') === "" || relationship.get('to') === "") {
             validFlag = false;
+            name = relationship.get('from');
+            type = "blank";
           }
+          // make sure it exists in the terms
           if (Skeletor.Model.awake.terms.findWhere({"name": relationship.get('from')}) == null ||
               Skeletor.Model.awake.terms.findWhere({"name": relationship.get('to')}) == null) {
             validFlag = false;
+            name = relationship.get('from');
+            type = "missing from terms";
           }
         });
       }
@@ -214,7 +230,7 @@
     if (validFlag) {
       console.log('DB validation passed!');
     } else {
-      console.error('Did not pass DB validation');
+      console.error('Did not pass DB validation. ' + name + ' is ' + type);
     }
   };
 
