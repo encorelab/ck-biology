@@ -251,7 +251,7 @@ button:hover {
 .content.balloon.opened .media {
   display: inline-block;
   width: 120px;
-  height: 120px;
+  /*height: 120px;*/
   padding: 0 5px;
 }
 
