@@ -230,6 +230,18 @@
       }
       title.text(titleText);
 
+      // add relationships
+      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
+      });
+      _.each(filteredRelationships, function(rel) {
+        // corner case where there is no listed 'link' for pre-populated terms
+        if (rel.get('link').length > 0) {
+          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
+          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+        }
+      });
+
       var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
       // temp only - once we reset the DB, we can take this out
       if (balloon.model.get("submitted_at")) {
@@ -246,18 +258,6 @@
         noteVettingAuthor.text(vet.author + " - " + vet.date);
         var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
         noteVettingContent.text(vet.explanation);
-      });
-
-      // add relationships
-      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
-      });
-      _.each(filteredRelationships, function(rel) {
-        // corner case where there is no listed 'link' for pre-populated terms
-        if (rel.get('link').length > 0) {
-          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
-          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
-        }
       });
 
       // add media

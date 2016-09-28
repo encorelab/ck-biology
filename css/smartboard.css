@@ -7,7 +7,7 @@ body {
 
 #wall {
   position: absolute;
-  overflow: hidden;
+  /*overflow: hidden;*/
   top: 60px;
   bottom: 0;
   right: 0;
@@ -224,10 +224,16 @@ button:hover {
 .content.balloon.opened .title {
   font-size: 2.5em;
   margin-top: 10px;
+  margin-bottom: 0px;
 }
 .content.balloon.opened .author, .content.balloon.opened .vetting-author {
   display: block;
   font-weight: 700;
+}
+.content.balloon.opened .relationship {
+  display: block;
+  font-style: italic;
+  margin-bottom: 10px;
 }
 .content.balloon.opened .body {
   display: block;
@@ -238,12 +244,9 @@ button:hover {
   display: block;
   margin-bottom: 5px;
 }
-.content.balloon.opened .relationship {
-  display: block;
-  font-style: italic;
-}
 .content.balloon.opened .media-container {
   display: block;
+  margin-left: 10px;
 }
 .content.balloon.opened .media {
   display: inline-block;
