@@ -382,14 +382,14 @@
     checkLink: function() {
       var view = this;
 
-      jQuery('.relationship-outcome-container').addClass('hidden');
+      jQuery('.relationship-outcome-container').addClass('invisible');
 
       if (view.model.get('link') === jQuery('#relationship-link-dropdown').val()) {
-        jQuery('#relationship-correct').removeClass('hidden');
+        jQuery('#relationship-correct').removeClass('invisible');
         jQuery('.publish-relationship-btn').removeClass('disabled');
         jQuery('.publish-relationship-btn').css({'background': app.hexLightBlack});
       } else {
-        jQuery('#relationship-incorrect').removeClass('hidden');
+        jQuery('#relationship-incorrect').removeClass('invisible');
         jQuery('.publish-relationship-btn').addClass('disabled');
         jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});
       }
@@ -403,7 +403,7 @@
       view.model.save();
 
       view.model = null;
-      jQuery('.relationship-outcome-container').addClass('hidden');
+      jQuery('.relationship-outcome-container').addClass('invisible');
       jQuery('#relationship-link-dropdown').val("");
       jQuery('.publish-relationship-btn').addClass('disabled');
       jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});

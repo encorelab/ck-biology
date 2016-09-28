@@ -179,11 +179,11 @@ button:hover {
 
 .content.balloon {
   position: absolute;
-  width: 170px;
-  min-height: 45px;
+  width: 120px;
+  min-height: 30px;
   /*height: 60px;*/
   display: inline-block;
-  padding: 0 5px;
+  /*padding: 0 5px;*/
   text-align: center;
   background: #3498DB;
   color: white;
@@ -193,6 +193,7 @@ button:hover {
   transition: height 1s ease 0;
   /*max-height: 95%;*/
   border-radius: 10px;
+  font-size: 11px;
 }
 .content.balloon .title {
   margin: 12px;
