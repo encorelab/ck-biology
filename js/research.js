@@ -493,8 +493,12 @@
     var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
     var completeTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, complete: true}).length;
 
-    var totalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum}).length;
-    var completeRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, complete: true}).length;
+    var totalRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+      return rel.get('lesson') === lessonNum && rel.get('link').length > 0;
+    }).length;
+    var completeRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+      return rel.get('lesson') === lessonNum && rel.get('complete') === true && rel.get('link').length > 0;
+    }).length;
 
     var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
     var totalStudents = app.users.where({user_role: "student"}).length;

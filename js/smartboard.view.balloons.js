@@ -250,11 +250,14 @@
 
       // add relationships
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name');
+        return rel.get('compete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
       });
       _.each(filteredRelationships, function(rel) {
-        var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
-        noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+        // corner case where there is no listed 'link' for pre-populated terms
+        if (rel.get('link').length > 0) {
+          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
+          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+        }
       });
 
       // add media

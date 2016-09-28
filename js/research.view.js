@@ -362,7 +362,10 @@
       // fill the link drop down
       var relationshipTypes = [];
       view.collection.each(function(relationship) {
-        relationshipTypes.push(relationship.get('link'));
+        // handling the corner case of pre-populated linkages
+        if (relationship.get('link').length > 0) {
+          relationshipTypes.push(relationship.get('link'));
+        }
       });
       var el = '<option value="">Select Relationship</option>';
       _.each(_.uniq(relationshipTypes), function(type) {
