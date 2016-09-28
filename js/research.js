@@ -167,6 +167,7 @@
   };
 
   var ready = function() {
+    checkDBValidity();
     buildConstants();
     setUpUI();
     setUpClickListeners();
@@ -176,6 +177,39 @@
     app.hideAllContainers();
 
     app.reflectRunState();
+  };
+
+  var checkDBValidity = function() {
+    var validFlag = true;
+    // for each lesson
+    Skeletor.Model.awake.lessons.each(function(lesson) {
+      var lessonNum = lesson.get('number');
+      // skipping lesson 1, since that lesson is just for testing...
+      if (lessonNum !== 1) {
+        // go through all of the terms, check that each user has been assigned to is spelled correctly
+        _.each(Skeletor.Model.awake.terms.where({"lesson": lessonNum}), function(term) {
+          if (term.get('assigned_to') === "" || app.users.findWhere({"username": term.get('assigned_to')}) == null) {
+            validFlag = false;
+          }
+          if (term.get('name') === "") {
+            validFlag = false;
+          }
+          if (Skeletor.Model.awake.relationships.findWhere({"from": term.get('name')}) == null &&
+              Skeletor.Model.awake.relationships.findWhere({"to": term.get('name')}) == null) {
+            validFlag = false;
+          }
+        });
+      }
+    });
+    // Skeletor.Mobile.users
+    // Skeletor.Model.awake.terms
+    // Skeletor.Model.awake.relationships
+
+    if (validFlag) {
+      console.log('DB validation passed!');
+    } else {
+      console.error('Did not pass DB validation');
+    }
   };
 
   var buildConstants = function() {

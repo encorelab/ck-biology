@@ -250,7 +250,7 @@
 
       // add relationships
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('compete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
+        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
       });
       _.each(filteredRelationships, function(rel) {
         // corner case where there is no listed 'link' for pre-populated terms
