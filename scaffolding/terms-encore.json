@@ -488,7 +488,7 @@
           "left": 248.890625
         }
       },
-      "z-index": 101,
+      "z-index": 101
     }, {
       "assigned_to": "cresencia",
       "complete": true,
@@ -761,7 +761,7 @@
           "left": 467.953125
         }
       },
-      "z-index": 113,
+      "z-index": 113
     }, {
       "name": "redox reaction",
       "lesson": 2,
@@ -778,7 +778,7 @@
           "left": 862.59375
         }
       },
-      "z-index": 88,
+      "z-index": 88
     }, {
       "assigned_to": "jim",
       "complete": true,
@@ -811,7 +811,7 @@
           "left": 114.765625
         }
       },
-      "z-index": 110,
+      "z-index": 110
     }, {
       "assigned_to": "jim",
       "complete": true,
@@ -860,7 +860,7 @@
           "left": 28.875
         }
       },
-      "z-index": 104,
+      "z-index": 104
     }, {
       "assigned_to": "maria",
       "complete": true,
@@ -941,7 +941,7 @@
           "left": 654.875
         }
       },
-      "z-index": 114,
+      "z-index": 114
     }, {
       "assigned_to": "meagan",
       "complete": true,
@@ -1086,7 +1086,7 @@
           "left": 1018.53125
         }
       },
-      "z-index": 86,
+      "z-index": 86
     }, {
       "assigned_to": "hedieh",
       "complete": true,
