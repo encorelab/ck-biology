@@ -242,13 +242,20 @@
         }
       });
 
+      // add author and created at
       var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
-      // temp only - once we reset the DB, we can take this out
-      if (balloon.model.get("submitted_at")) {
-        noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
+      // they're getting rendered even if they aren't complete (could switch to check on complete for all these...)
+      if (balloon.model.get('submitted_at')) {
+        if (balloon.model.get('edited')) {
+          noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString() + "*");
+        } else {
+          noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
+        }
       } else {
         noteAuthor.text(balloon.model.get('assigned_to'));
       }
+
+      // add content
       var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
       noteBody.text(balloon.model.get('explanation'));
 
@@ -267,6 +274,14 @@
       });
       el += "</div>";
       balloon.findOrCreate('.media-container', el);
+
+      // edit button
+      if (balloon.model.get('assigned_to') === Skeletor.Mobile.username) {
+        var noteEditButton = balloon.findOrCreate('.edit-btn', "<button class='edit-btn fa fa-pencil-square-o'></button>");
+      }
+      // START HERE - not sure how to proceed from here... could flip to input view (complete -> false, something with contribution array?)
+      // or could edit on this screen. Latter seems cleaner in terms of flow, but worse UI.
+      // Either way, need to add an 'edited' true/false to the term model
 
       balloon.$el.addClass('note');
     }

@@ -278,7 +278,7 @@
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
           //jQuery('#knowledge-base-screen').removeClass('hidden');
-          Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavv load
+          Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
           jQuery('#wall').removeClass('hidden');
         } else {
           console.log('ERROR: unknown nav button');
