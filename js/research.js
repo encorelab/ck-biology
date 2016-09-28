@@ -541,22 +541,6 @@
     return completedVettings.length;
   };
 
-
-  app.photoOrVideo = function(url) {
-    var type = null;
-
-    var extension = app.parseExtension(url);
-    if (extension === "jpg" || extension === "gif" || extension === "jpeg" || extension === "png") {
-      type = "photo";
-    } else if (extension === "mp4" || extension === "m4v" || extension === "mov") {
-      type = "video";
-    } else {
-      type = "unknown";
-    }
-
-    return type;
-  };
-
   app.parseExtension = function(url) {
     return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
   };
