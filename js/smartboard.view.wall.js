@@ -45,12 +45,12 @@
       // NB: Meagan, if terms do not yet have a position,
       // uncomment wall.assignRandomPosition below to create them
       // (then recomment when done)
-
-      // if (term.hasPos()) {
-         //bv.pos = term.getPos();
-      // } else {
-        //wall.assignRandomPositionToBalloon(term, bv);
-      //}
+      // TESTING TO SEE IF WE CAN LEAVE THIS UNCOMMENTED
+      if (term.hasPos()) {
+         bv.pos = term.getPos();
+      } else {
+        wall.assignRandomPositionToBalloon(term, bv);
+      }
 
       if (term.has('z-index')) {
         bv.$el.zIndex(term.get('z-index'));

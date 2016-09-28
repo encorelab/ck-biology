@@ -20,8 +20,8 @@ body {
   -moz-user-select: none;
   user-select: none;
   /* HACKs to get things working for Friday. Will be removed when we have standardized positioning for the terms */
-/*  width: 1430px;
-  height: 700px;*/
+  width: 1430px;
+  height: 700px;
 }
 
 button {

@@ -468,6 +468,32 @@
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
+        "name": "product",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "locked": "",
+        "media": [],
+        "vettings": [],
+        "vetted_by": [],
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "name": "reactant",
+        "lesson": 1,
+        "assigned_to": "armin",
+        "complete": false,
+        "locked": "",
+        "media": [],
+        "vettings": [],
+        "vetted_by": [],
+        "complete": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
         "name": "alcohol",
         "lesson": 2,
         "assigned_to": "colin",
