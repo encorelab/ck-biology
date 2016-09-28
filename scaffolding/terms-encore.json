@@ -464,10 +464,6 @@
       "media": [],
       "vettings": [],
       "vetted_by": [],
-      "created_at": "2015-03-25T19:08:00.000Z",
-      "modified_at": {
-        "$date": "2016-09-28T20:27:56.8Z"
-      },
       "pos": {
         "_": {
           "top": 302.75,
@@ -475,9 +471,6 @@
         }
       },
       "z-index": 102,
-      "explanation": " fdasdfasfds ",
-      "submitted_at": {
-        "$date": "2016-09-28T20:27:56.8Z"
-      }
+      "explanation": " fdasdfasfds "
     }
 ]
