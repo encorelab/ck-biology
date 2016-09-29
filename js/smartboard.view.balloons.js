@@ -150,13 +150,13 @@
       var balloon = this;
     },
 
-    events: {
-      'dblclick': 'toggleOpen'
-    },
+    // events: {
+    //   'dblclick': 'toggleOpen'
+    // },
 
-    toggleOpen: function () {
-      this.$el.toggleClass('opened');
-    },
+    // toggleOpen: function () {
+    //   this.$el.toggleClass('opened');
+    // },
 
     render: function () {
       var balloon = this;
@@ -207,6 +207,20 @@
   Smartboard.View.NoteBalloon = Smartboard.View.ContentBalloon.extend({
     className: "note content balloon",
 
+    events: {
+      'dblclick'        : 'toggleOpen',
+      'click .edit-btn' : 'editTerm'
+    },
+
+    toggleOpen: function () {
+      this.$el.toggleClass('opened');
+    },
+
+    editTerm: function(ev) {
+      // make it editable
+      jQuery(ev.target).parent().children('textarea').prop('readonly', false);        // careful here! Clean me up...
+    },
+
     render: function () {
       var balloon = this;
 
@@ -230,18 +244,6 @@
       }
       title.text(titleText);
 
-      // add relationships
-      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
-      });
-      _.each(filteredRelationships, function(rel) {
-        // corner case where there is no listed 'link' for pre-populated terms
-        if (rel.get('link').length > 0) {
-          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
-          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
-        }
-      });
-
       // add author and created at
       var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
       // they're getting rendered even if they aren't complete (could switch to check on complete for all these...)
@@ -256,7 +258,7 @@
       }
 
       // add content
-      var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
+      var noteBody = balloon.findOrCreate('.body', "<textarea class='body' readonly></textarea>");
       noteBody.text(balloon.model.get('explanation'));
 
       // add media
@@ -275,6 +277,19 @@
       el += "</div>";
       balloon.findOrCreate('.media-container', el);
 
+      // add relationships
+      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
+      });
+      _.each(filteredRelationships, function(rel) {
+        // corner case where there is no listed 'link' for pre-populated terms
+        if (rel.get('link').length > 0) {
+          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
+          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+        }
+        // add complete? FIX ME
+      });
+
       // edit button
       if (balloon.model.get('assigned_to') === Skeletor.Mobile.username) {
         var noteEditButton = balloon.findOrCreate('.edit-btn', "<button class='edit-btn fa fa-pencil-square-o'></button>");
@@ -282,6 +297,7 @@
       // START HERE - not sure how to proceed from here... could flip to input view (complete -> false, something with contribution array?)
       // or could edit on this screen. Latter seems cleaner in terms of flow, but worse UI.
       // Either way, need to add an 'edited' true/false to the term model
+      // also, can't click while locked...
 
       balloon.$el.addClass('note');
     }
