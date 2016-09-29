@@ -281,14 +281,15 @@
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
         return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
       });
+      var relEl = "<div class='relationship'>";
       _.each(filteredRelationships, function(rel) {
-        // corner case where there is no listed 'link' for pre-populated terms
+        // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
         if (rel.get('link').length > 0) {
-          var noteRelationship = balloon.findOrCreate('.relationship', "<div class='relationship'></div>");
-          noteRelationship.text(rel.get('from') + " " + rel.get('link') + " " + rel.get('to'));
+          relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
         }
-        // add complete? FIX ME
       });
+      relEl += "</div>"
+      var noteRelationship = balloon.findOrCreate('.relationship', relEl);
 
       // edit button
       if (balloon.model.get('assigned_to') === Skeletor.Mobile.username) {
@@ -297,7 +298,14 @@
       // START HERE - not sure how to proceed from here... could flip to input view (complete -> false, something with contribution array?)
       // or could edit on this screen. Latter seems cleaner in terms of flow, but worse UI.
       // Either way, need to add an 'edited' true/false to the term model
-      // also, can't click while locked...
+      // also, can't click while locked - locking needs to be made apparent, and who locked it
+      // triggers for unlocking: submit vet, save comment, cancel comment, close term (prompt to save/cancel)
+      // this is now changed to Comment - diff from Vet. New field in the model. Comments interleaved with vets? Diff colour?
+      // edit button flips to save button
+
+      // for displaying vets with Complete and Correct on KB: Armin - date \m This explanation is complete and correct
+
+      // comment will also have to appear in the vetting screen
 
       balloon.$el.addClass('note');
     }
