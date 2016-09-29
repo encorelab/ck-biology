@@ -208,20 +208,62 @@
     className: "note content balloon",
 
     events: {
-      'dblclick'        : 'toggleOpen',
-      'click .edit-btn' : 'editTerm'
+      'dblclick'                  : 'toggleOpen',
+      'click .open-comment-btn'   : 'openCommentInputBox',
+      'click .comment-submit-btn' : 'submitComment',
+      'click .comment-cancel-btn' : 'cancelComment'
     },
 
-    toggleOpen: function () {
+    toggleOpen: function() {
       this.$el.toggleClass('opened');
     },
 
-    editTerm: function(ev) {
-      // make it editable
-      jQuery(ev.target).parent().children('textarea').prop('readonly', false);        // careful here! Clean me up...
+    openCommentInputBox: function(ev) {
+      var lockedTo = this.model.get('locked');
+      if (lockedTo === "" || lockedTo === Skeletor.Mobile.username) {
+        jQuery(ev.target).parent().children('.comment-container').toggleClass('opened');
+        jQuery(ev.target).parent().children('.open-comment-btn').addClass('hidden');
+        this.model.set('locked', Skeletor.Mobile.username);
+        this.model.save();
+      } else {
+        jQuery().toastmessage('showErrorToast', lockedTo + " is currently working on this term...");
+      }
     },
 
-    render: function () {
+    submitComment: function(ev) {
+      // if condition to check for text length
+      if (jQuery(ev.target).parent().children('.comment-input').val().length > 0) {
+        // get comments array
+        var commentsArr = this.model.get('comments');
+        // push this comment to array
+        var comment = {};
+        comment.explanation = jQuery(ev.target).parent().children('.comment-input').val();
+        comment.author = Skeletor.Mobile.username;
+        var d = new Date();
+        comment.date = d.toDateString() + ", " + d.toLocaleTimeString();
+        commentsArr.push(comment);
+        // set comments array
+        this.model.set('comments', commentsArr);
+      }
+
+      // close, unlock, save
+      jQuery(ev.target).parent().children('.comment-input').val("");
+      jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
+      jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
+      this.model.set('locked', "");
+      this.model.save();
+    },
+
+    cancelComment: function(ev) {
+      // clear text, close and unlock
+      jQuery(ev.target).parent().children('.comment-input').val("");
+      jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
+      jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
+      this.model.set('locked', "");
+      this.model.save();
+    },
+
+    render: function() {
       var balloon = this;
 
       // call parent's render
@@ -248,17 +290,13 @@
       var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
       // they're getting rendered even if they aren't complete (could switch to check on complete for all these...)
       if (balloon.model.get('submitted_at')) {
-        if (balloon.model.get('edited')) {
-          noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString() + "*");
-        } else {
-          noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
-        }
+        noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
       } else {
         noteAuthor.text(balloon.model.get('assigned_to'));
       }
 
       // add content
-      var noteBody = balloon.findOrCreate('.body', "<textarea class='body' readonly></textarea>");
+      var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
       noteBody.text(balloon.model.get('explanation'));
 
       // add vetting
@@ -296,18 +334,11 @@
       relEl += "</div>"
       var noteRelationship = balloon.findOrCreate('.relationship', relEl);
 
-      // edit button
-      if (balloon.model.get('assigned_to') === Skeletor.Mobile.username) {
-        var noteEditButton = balloon.findOrCreate('.edit-btn', "<button class='edit-btn fa fa-pencil-square-o'></button>");
-      }
-      // START HERE - not sure how to proceed from here... could flip to input view (complete -> false, something with contribution array?)
-      // or could edit on this screen. Latter seems cleaner in terms of flow, but worse UI.
-      // Either way, need to add an 'edited' true/false to the term model
-      // also, can't click while locked - locking needs to be made apparent, and who locked it
-      // triggers for unlocking: submit vet, save comment, cancel comment, close term (prompt to save/cancel)
-      // this is now changed to Comment - diff from Vet. New field in the model. Comments interleaved with vets? Diff colour?
-      // edit button flips to save button
-
+      // comments
+      balloon.findOrCreate('.open-comment-btn', "<button class='open-comment-btn fa fa-pencil-square-o'></button>");
+      balloon.findOrCreate('.comment-input', "<div class='comment-container'><textarea class='comment-input'></textarea><button class='comment-submit-btn'>Submit</button><button class='comment-cancel-btn'>Cancel</button></div>");
+      // close term (prompt to save/cancel)
+      // Comments interleaved with vets? Diff colour?
       // comment will also have to appear in the vetting screen
 
       balloon.$el.addClass('note');

@@ -45,6 +45,7 @@
       // NB: Meagan, if terms do not yet have a position,
       // uncomment wall.assignRandomPosition below to create them
       // (then recomment when done)
+      // testing this again... careful!
       if (term.hasPos()) {
          bv.pos = term.getPos();
       } else {

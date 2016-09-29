@@ -199,21 +199,21 @@ button:hover {
   margin: 12px;
   font-weight: 400;
 }
-.content.balloon .author, .content.balloon .body, .content.balloon .vetting-author, .content.balloon .vetting-content, .content.balloon .relationship {
+.content.balloon .author, .content.balloon .body, .content.balloon .vetting-author, .content.balloon .vetting-content, .content.balloon .relationship, .content.balloon .comment-container {
   display: none;
   margin-top: 0;
   padding-top: 0;
   padding-left: 14px;
   padding-right: 14px;
 }
-.content.balloon .media-container, .content.balloon .media.content, .balloon .edit-btn {
+.content.balloon .media-container, .content.balloon .media.content, .balloon .open-comment-btn {
   display: none;
 }
 
 .content.balloon.opened {
-  width: 450px;
+  width: 600px;
   /*height: 525px;*/
-  /*max-width: 350px;*/
+  max-height: 500px;
   background-color: white;
   overflow-y: scroll;
   color: black;
@@ -260,7 +260,7 @@ button:hover {
   /*height: 120px;*/
   padding: 0 5px;
 }
-.content.balloon.opened .edit-btn {
+.content.balloon.opened .open-comment-btn {
   display: block;
   float: right;
   margin-bottom: 5px;
@@ -268,6 +268,17 @@ button:hover {
   color: black;
   background: transparent;
   font-size: 1.8em;
+}
+.content.balloon.opened .comment-container.opened {
+  display: block;
+}
+.content.balloon.opened .comment-submit-btn, .content.balloon.opened .comment-cancel-btn {
+  float: right;
+  margin-left: 10px;
+  background: #34495E;
+  padding: 0 12px;
+  border-radius: 0.6em
+  font-size: 18px;
 }
 
 
