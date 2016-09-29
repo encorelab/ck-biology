@@ -261,12 +261,17 @@
       var noteBody = balloon.findOrCreate('.body', "<textarea class='body' readonly></textarea>");
       noteBody.text(balloon.model.get('explanation'));
 
-      // add media
+      // add vetting
       _.each(balloon.model.get('vettings'), function(vet) {
         var noteVettingAuthor = balloon.findOrCreate('.vetting-author', "<div class='vetting-author'></div>");
         noteVettingAuthor.text(vet.author + " - " + vet.date);
-        var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
-        noteVettingContent.text(vet.explanation);
+        if (vet.correct === true) {
+          var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
+          noteVettingContent.text("This explanation is complete and correct");
+        } else {
+          var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
+          noteVettingContent.text(vet.explanation);
+        }
       });
 
       // add media
@@ -302,8 +307,6 @@
       // triggers for unlocking: submit vet, save comment, cancel comment, close term (prompt to save/cancel)
       // this is now changed to Comment - diff from Vet. New field in the model. Comments interleaved with vets? Diff colour?
       // edit button flips to save button
-
-      // for displaying vets with Complete and Correct on KB: Armin - date \m This explanation is complete and correct
 
       // comment will also have to appear in the vetting screen
 
