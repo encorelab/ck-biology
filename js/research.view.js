@@ -623,6 +623,7 @@
 
       var termExplanation = view.model.get('explanation');
       var vettingExplanation = '';
+      var comments = '';
 
       // clear and then add all media from term
       jQuery('#vetting-media-container').html('');
@@ -638,8 +639,12 @@
         }
       });
 
+      _.each(view.model.get('comments'), function(comment) {
+        comments += '\n' + comment.author + ' - ' + comment.date + ':\n' + comment.explanation;
+      });
+
       jQuery('#vetting-name-field').text(view.model.get('name'));
-      jQuery('#vetting-explanation-input').val(termExplanation + vettingExplanation);
+      jQuery('#vetting-explanation-input').val(termExplanation + '\n' + vettingExplanation + '\n' + comments);
 
       if (app.getMyContributionPercent(app.lesson, true) > 100) {
         jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson, true) + '+');

@@ -369,9 +369,6 @@
       // add comments input stuff
       balloon.findOrCreate('.open-comment-btn', "<button class='open-comment-btn fa fa-pencil-square-o'></button>");
       balloon.findOrCreate('.comment-input', "<div class='comment-container'><textarea class='comment-input'></textarea><button class='comment-submit-btn'>Submit</button><button class='comment-cancel-btn'>Cancel</button></div>");
-      // Comments interleaved with vets? Diff colour?
-      // comment will also have to appear in the vetting screen
-
 
       // unlock terms on log out?
       // unlock on timeout?
@@ -381,3 +378,7 @@
     }
   });
 }).call(this);
+
+
+// talk tomorrow about interleaving, colors, comments and vets on the vettings screens, maria's role in the class
+// talk to alisa about what to do next, teacher board, review stuff?
