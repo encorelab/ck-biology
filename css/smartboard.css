@@ -234,6 +234,8 @@ button:hover {
   font-size: 1em;
   border-radius: 0;
   padding: 10px;
+  /* cheap fix for the issue of terms sometimes jumping in front - this should all not be necessary once we remove dragging */
+  z-index: 9999 !important;
 }
 .content.balloon.opened .close-term-btn {
   display: block;
