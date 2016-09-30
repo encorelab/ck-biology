@@ -209,13 +209,24 @@
 
     events: {
       'dblclick'                  : 'toggleOpen',
+      'click .close-term-btn'     : 'closeTerm',
       'click .open-comment-btn'   : 'openCommentInputBox',
       'click .comment-submit-btn' : 'submitComment',
       'click .comment-cancel-btn' : 'cancelComment'
     },
 
-    toggleOpen: function() {
-      this.$el.toggleClass('opened');
+    toggleOpen: function(ev) {
+      this.$el.addClass('opened');
+    },
+
+    closeTerm: function(ev) {
+      if (jQuery(ev.target).parent().children('.comment-container') && jQuery(ev.target).parent().children('.comment-container').children('.comment-input').val().length > 0) {
+        jQuery().toastmessage('showErrorToast', "Please cancel or submit your comment before closing...");
+      } else {
+        jQuery(ev.target).parent().children('.comment-container').removeClass('opened');
+        jQuery(ev.target).parent().children('.open-comment-btn').removeClass('hidden');
+        this.$el.removeClass('opened');
+      }
     },
 
     openCommentInputBox: function(ev) {
@@ -252,6 +263,7 @@
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
       this.model.set('locked', "");
       this.model.save();
+      this.render();
     },
 
     cancelComment: function(ev) {
@@ -275,6 +287,9 @@
         balloon.$el.addClass('unpublished');
       }
 
+      var title = balloon.findOrCreate('.close-term-btn', "<button class='close-term-btn fa fa-times'></button>");
+
+      // add title
       var title = balloon.findOrCreate('.title', "<h3 class='title'></h3>");
       var titleText = '';
       if (balloon.model.get('name')) {
@@ -300,25 +315,25 @@
       noteBody.text(balloon.model.get('explanation'));
 
       // add vetting
+      var vetEl = "<div class='vetting'>";
       _.each(balloon.model.get('vettings'), function(vet) {
-        var noteVettingAuthor = balloon.findOrCreate('.vetting-author', "<div class='vetting-author'></div>");
-        noteVettingAuthor.text(vet.author + " - " + vet.date);
+        vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
         if (vet.correct === true) {
-          var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
-          noteVettingContent.text("This explanation is complete and correct");
+          vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
         } else {
-          var noteVettingContent = balloon.findOrCreate('.vetting-content', "<div class='vetting-content'></div>");
-          noteVettingContent.text(vet.explanation);
+          vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
         }
       });
+      vetEl += "</div>"
+      balloon.findOrCreate('.vetting', vetEl)
 
       // add media
-      var el = "<div class='media-container'>";
+      var mediaEl = "<div class='media-container'>";
       _.each(balloon.model.get('media'), function(url) {
-        el += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='img-responsive'></img></span>"
+        mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='img-responsive'></img></span>"
       });
-      el += "</div>";
-      balloon.findOrCreate('.media-container', el);
+      mediaEl += "</div>";
+      balloon.findOrCreate('.media-container', mediaEl);
 
       // add relationships
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
@@ -332,14 +347,27 @@
         }
       });
       relEl += "</div>"
-      var noteRelationship = balloon.findOrCreate('.relationship', relEl);
+      balloon.findOrCreate('.relationship', relEl);
 
-      // comments
+      // remove all comments, then add (this is required for rerender on submit). Remove is done in smartboard.view
+      var comEl = "<div class='comments'>";
+      _.each(balloon.model.get('comments'), function(comment) {
+        comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
+        comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
+      });
+      comEl += "</div>";
+      balloon.findOrCreate('.comments', comEl);
+
+      // add comments input stuff
       balloon.findOrCreate('.open-comment-btn', "<button class='open-comment-btn fa fa-pencil-square-o'></button>");
       balloon.findOrCreate('.comment-input', "<div class='comment-container'><textarea class='comment-input'></textarea><button class='comment-submit-btn'>Submit</button><button class='comment-cancel-btn'>Cancel</button></div>");
-      // close term (prompt to save/cancel)
       // Comments interleaved with vets? Diff colour?
       // comment will also have to appear in the vetting screen
+
+
+      // unlock terms on log out?
+      // unlock on timeout?
+      // unlock on not logged in?
 
       balloon.$el.addClass('note');
     }

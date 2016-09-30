@@ -199,14 +199,14 @@ button:hover {
   margin: 12px;
   font-weight: 400;
 }
-.content.balloon .author, .content.balloon .body, .content.balloon .vetting-author, .content.balloon .vetting-content, .content.balloon .relationship, .content.balloon .comment-container {
+.content.balloon .author, .content.balloon .body, .content.balloon .vetting-author, .content.balloon .vetting-content, .content.balloon .relationship, .content.balloon .comments-author, .content.balloon .comments-content, .content.balloon .comment-container {
   display: none;
   margin-top: 0;
   padding-top: 0;
   padding-left: 14px;
   padding-right: 14px;
 }
-.content.balloon .media-container, .content.balloon .media.content, .balloon .open-comment-btn {
+.content.balloon .close-term-btn, .content.balloon .media-container, .content.balloon .media.content, .balloon .open-comment-btn {
   display: none;
 }
 
@@ -223,13 +223,23 @@ button:hover {
   border-radius: 0;
   padding: 10px;
 }
+.content.balloon.opened .close-term-btn {
+  display: block;
+  float: right;
+  margin-bottom: 5px;
+  margin-right: -3px;
+  color: black;
+  background: transparent;
+  font-size: 1.8em;
+}
 .content.balloon.opened .title {
   font-size: 2.5em;
   margin-top: 10px;
   margin-bottom: 5px;
 }
 .content.balloon.opened .author,
-.content.balloon.opened .vetting-author {
+.content.balloon.opened .vetting-author,
+.content.balloon.opened .comments-author {
   display: block;
   font-weight: 700;
   font-size: 1.1em;
@@ -259,6 +269,14 @@ button:hover {
   width: 120px;
   /*height: 120px;*/
   padding: 0 5px;
+}
+.content.balloon.opened .comments-author {
+  color: #16A085;
+}
+.content.balloon.opened .comments-content {
+  display: block;
+  margin-bottom: 5px;
+  color: #16A085;
 }
 .content.balloon.opened .open-comment-btn {
   display: block;

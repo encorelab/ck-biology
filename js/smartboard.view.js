@@ -11,6 +11,10 @@
   var View = Smartboard.View;
 
   View.findOrCreate = function(parent, selector, html) {
+    // super hack - we need to delete the comments to allow on the fly rerender (since comments is the only one that can relevantly change on the fly)
+    if (selector === ".comments") {
+      jQuery(parent).find(selector).remove();
+    }
     var el = jQuery(parent).find(selector);
     if (el.length > 0) {
       return el;
