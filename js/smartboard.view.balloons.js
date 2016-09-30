@@ -216,7 +216,9 @@
     },
 
     toggleOpen: function(ev) {
-      this.$el.addClass('opened');
+      if (!jQuery('#wall').children().hasClass('opened')) {
+        this.$el.addClass('opened');
+      }
     },
 
     closeTerm: function(ev) {
@@ -295,6 +297,16 @@
         balloon.$el.addClass('unpublished');
       }
 
+      var conflictFlag = false;
+      _.each(balloon.model.get('vettings'), function(vet) {
+        if (vet.correct === false) {
+          conflictFlag = true;
+        }
+      });
+      if (conflictFlag) {
+        balloon.findOrCreate('.conflict-indicator', "<div class='conflict-indicator'></div>");
+      }
+
       var title = balloon.findOrCreate('.close-term-btn', "<button class='close-term-btn fa fa-times'></button>");
 
       // add title
@@ -370,27 +382,7 @@
       balloon.findOrCreate('.open-comment-btn', "<button class='open-comment-btn fa fa-pencil-square-o'></button>");
       balloon.findOrCreate('.comment-input', "<div class='comment-container'><textarea class='comment-input'></textarea><button class='comment-submit-btn'>Submit</button><button class='comment-cancel-btn'>Cancel</button></div>");
 
-      // unlock terms on log out?
-      // unlock on timeout?
-      // unlock on not logged in?
-
       balloon.$el.addClass('note');
     }
   });
 }).call(this);
-
-
-// talk tomorrow about interleaving, colors, comments and vets on the vettings screens, maria's role in the class, first 'homework'
-// locking: explain. Can only be locked on one thing at a time. Means you might get clobbered, but less traffic
-// talk to alisa about what to do next, teacher board, review stuff?
-
-
-
-// add little red dot - any vets with no
-// vetting in different colors
-// check the relationship this lesson, chemical reaction
-
-// teacher view - lessons+comm prof || all my progresses (special way for maria to log in) || knowledge base as default
-
-// logging of IP
-// moodle referrer link (Simon at UTS, other?)

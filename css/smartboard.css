@@ -195,6 +195,18 @@ button:hover {
   border-radius: 10px;
   font-size: 11px;
 }
+.content.balloon .conflict-indicator {
+    background: #E74C3C;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.content.balloon.opened .conflict-indicator {
+  display: none;
+}
 .content.balloon .title {
   margin: 12px;
   font-weight: 400;
@@ -255,9 +267,13 @@ button:hover {
   margin-bottom: 5px;
   /*height: 250px;*/
 }
+.content.balloon.opened .vetting-author {
+  color: #16A085;
+}
 .content.balloon.opened .vetting-content {
   display: block;
   margin-bottom: 5px;
+  color: #16A085;
 }
 .content.balloon.opened .media-container {
   display: block;
@@ -271,12 +287,12 @@ button:hover {
   padding: 0 5px;
 }
 .content.balloon.opened .comments-author {
-  color: #16A085;
+  color: #C0392B;
 }
 .content.balloon.opened .comments-content {
   display: block;
   margin-bottom: 5px;
-  color: #16A085;
+  color: #C0392B;
 }
 .content.balloon.opened .open-comment-btn {
   display: block;
