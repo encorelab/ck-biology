@@ -255,6 +255,15 @@
         commentsArr.push(comment);
         // set comments array
         this.model.set('comments', commentsArr);
+
+        // append the comment, since calling a full render is overkill (and won't work since findOrCreate)
+        // this is sketchy in it's own way, desyncing the view from the model,
+        // but better than the mega hack of .remove() in the smartboard.view. I think...
+        var appendEl = "<div class='comments'>";
+        appendEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
+        appendEl += "<div class='comments-content'>" + comment.explanation + "</div>"
+        appendEl += "</div>";
+        jQuery(ev.target).parent().parent().children('.comments').append(appendEl);
       }
 
       // close, unlock, save
@@ -263,7 +272,6 @@
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
       this.model.set('locked', "");
       this.model.save();
-      this.render();
     },
 
     cancelComment: function(ev) {
@@ -349,7 +357,7 @@
       relEl += "</div>"
       balloon.findOrCreate('.relationship', relEl);
 
-      // remove all comments, then add (this is required for rerender on submit). Remove is done in smartboard.view
+      // all comments
       var comEl = "<div class='comments'>";
       _.each(balloon.model.get('comments'), function(comment) {
         comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
