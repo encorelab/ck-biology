@@ -345,7 +345,7 @@
 
       // add relationships
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
+        return rel.get('lesson') === Skeletor.Mobile.lesson && rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
       });
       var relEl = "<div class='relationship'>";
       _.each(filteredRelationships, function(rel) {
@@ -380,5 +380,17 @@
 }).call(this);
 
 
-// talk tomorrow about interleaving, colors, comments and vets on the vettings screens, maria's role in the class
+// talk tomorrow about interleaving, colors, comments and vets on the vettings screens, maria's role in the class, first 'homework'
+// locking: explain. Can only be locked on one thing at a time. Means you might get clobbered, but less traffic
 // talk to alisa about what to do next, teacher board, review stuff?
+
+
+
+// add little red dot - any vets with no
+// vetting in different colors
+// check the relationship this lesson, chemical reaction
+
+// teacher view - lessons+comm prof || all my progresses (special way for maria to log in) || knowledge base as default
+
+// logging of IP
+// moodle referrer link (Simon at UTS, other?)
