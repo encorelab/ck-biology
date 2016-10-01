@@ -1,0 +1,152 @@
+[
+    {
+        "username": "nuala",
+        "display_name": "Nuala",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "jeremy",
+        "display_name": "Jeremy",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "hannah",
+        "display_name": "Hannah",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "amanda",
+        "display_name": "Amanda",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "riga",
+        "display_name": "Riga",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "andy",
+        "display_name": "Andy",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "sharon",
+        "display_name": "Sharon",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "daniel",
+        "display_name": "Daniel",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "kevin",
+        "display_name": "Kevin",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "jacob",
+        "display_name": "Jacob",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "richard",
+        "display_name": "Richard",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "seby",
+        "display_name": "Seby",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "serena",
+        "display_name": "Serena",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "martyn",
+        "display_name": "Martyn",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "ashley",
+        "display_name": "Ashley",
+        "tags": [
+            "SBI4UE-01-U1"
+        ],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    }
+]
