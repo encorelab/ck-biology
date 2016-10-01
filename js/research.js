@@ -644,17 +644,23 @@
       } else {
         console.log('User '+username+' not found!');
         if (confirm('User '+username+' not found! Do you want to create the user to continue?')) {
-            // Create user and continue!
-            console.log('Create user and continue!');
+          // Create user and continue!
+          console.log('Create user and continue!');
         } else {
-            // Do nothing!
-            console.log('No user logged in!');
+          // Do nothing!
+          console.log('No user logged in!');
         }
       }
     });
   };
 
   var logoutUser = function () {
+    // unlock all of the user's terms
+    _.each(Skeletor.Model.awake.terms.where({"locked":app.username}), function(term) {
+      term.set('locked', "");
+      term.save();
+    });
+
     jQuery.removeCookie('brainstorm_mobile_username',  { path: '/' });
     jQuery.removeCookie('brainstorm_mobile_runId',  { path: '/' });
 
