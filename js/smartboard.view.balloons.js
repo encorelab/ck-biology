@@ -254,6 +254,7 @@
         comment.author = Skeletor.Mobile.username;
         var d = new Date();
         comment.date = d.toDateString() + ", " + d.toLocaleTimeString();
+        comment.ip_addr = Skeletor.Mobile.userIP;
         commentsArr.push(comment);
         // set comments array
         this.model.set('comments', commentsArr);

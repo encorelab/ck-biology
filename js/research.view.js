@@ -162,10 +162,6 @@
           trailColor: app.hexLightGrey,
           strokeWidth: 3,
           svgStyle: app.progressBarStyleTask
-          // text: {
-          //   value:  myPercent,
-          //   style: app.progressDefBarTextStyle
-          // }
         });
     },
 
@@ -304,6 +300,7 @@
       if (explanation.length > 0) {
         app.clearAutoSaveTimer();
         view.model.set('explanation', explanation);
+        view.model.set('ip_addr', app.userIP);
         view.model.set('complete', true);
         view.model.set('submitted_at', new Date());
         view.model.set('modified_at', new Date());
@@ -398,6 +395,7 @@
     publishRelationship: function() {
       var view = this;
 
+      view.model.set('ip_addr', app.userIP);
       view.model.set('complete', true);
       view.model.set('modified_at', new Date());
       view.model.save();
@@ -586,6 +584,7 @@
         }
         vettingObj.author = app.username;
         vettingObj.date = dateStr;
+        vettingObj.ip_addr = app.userIP;
 
         var vettingsAr = view.model.get('vettings');
         vettingsAr.push(vettingObj);
