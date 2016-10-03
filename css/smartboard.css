@@ -19,7 +19,7 @@ body {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  /* HACKs to get things working for Friday. Will be removed when we have standardized positioning for the terms */
+  /* We need to revisit this */
   width: 1430px;
   height: 740px;
 }
@@ -40,12 +40,6 @@ button {
 }
 button:hover {
   cursor: pointer;
-}
-
-#action-buttons-container {
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
 }
 
 /*** ANIMATIONS ***/
@@ -317,13 +311,9 @@ button:hover {
   font-size: 18px;
 }
 
-
-
-
 .content.balloon.blurred {
   opacity: 0.2;
 }
-
 .balloon {
   -webkit-user-select: none;
   -moz-user-select: none;

@@ -137,7 +137,7 @@
         _this.registerBalloon(n, Smartboard.View.NoteBalloon, _this.balloons);
       });
       Skeletor.Model.awake.relationships.where({"lesson": Skeletor.Mobile.lesson, "complete": true}).forEach(function(rel) {
-        var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
+        var connector, connectorId, connectorLength, connectorTransform, x1, x2, y1, y2;
 
         var fromTerm = Skeletor.Model.awake.terms.findWhere({"lesson": Skeletor.Mobile.lesson, "name": rel.get('from')});
         var toTerm = Skeletor.Model.awake.terms.findWhere({"lesson": Skeletor.Mobile.lesson, "name": rel.get('to')});

@@ -74,26 +74,6 @@
         }
       });
 
-      // balloon.model.on('change:complete', function() {
-      //   if (balloon.model.get('complete')) {
-      //     // setting visibility once the element is complete = true
-      //     //balloon.$el.css('visibility', 'visible');
-      //     balloon.$el.addClass('ui-draggable-dragging');
-      //     // setTimeout(function() {
-      //     //   return balloon.$el.removeClass('new');
-      //     // }, 1001);
-      //     // return balloon.model.on('wakeful:broadcast:received', function() {
-      //     //   if (!balloon.$el.hasClass('glow')) {
-      //     //     balloon.$el.addClass('glow');
-      //     //     // wait for the glow animation to finish before removing the glow class
-      //     //     return setTimeout(function() {
-      //     //       return balloon.$el.removeClass('glow');
-      //     //     }, 400);
-      //     //   }
-      //     // });
-      //   }
-      // });
-
       balloon.model.on('change', function() {
         if (balloon.wall) { // this balloon has been added to the wall
           return balloon.render();
@@ -150,57 +130,12 @@
       var balloon = this;
     },
 
-    // events: {
-    //   'dblclick': 'toggleOpen'
-    // },
-
-    // toggleOpen: function () {
-    //   this.$el.toggleClass('opened');
-    // },
-
     render: function () {
       var balloon = this;
 
       // call parent's render
       Smartboard.View.Balloon.prototype.render.apply(this, arguments);
     },
-
-    //renderConnectors: function() {
-      // var balloon = this;
-
-      // var connector, connectorId, connectorLength, connectorTransform, tag, tagId, tagView, x1, x2, y1, y2;
-
-      // if (!balloon.model.has('tags') || _.isEmpty(balloon.model.get('tags')) || !balloon.$el.is(':visible')) {
-      //   return;
-      // }
-
-      // _.each(balloon.model.get('tags'), function (tag) {
-      //   tagId = tag.id.toLowerCase();
-      //   tagView = balloon.wall.balloons[tagId];
-      //   if (!tagView) {
-      //     return;
-      //   }
-      //   connectorId = balloon.model.id + "-" + tagId;
-      //   connector = CK.Smartboard.View.findOrCreate(balloon.wall.$el, "#" + connectorId, "<div class='connector' id='" + connectorId + "'></div>");
-      //   x1 = balloon.left + (balloon.width / 2);
-      //   y1 = balloon.top + (balloon.height / 2);
-      //   x2 = tagView.left + (tagView.width / 2);
-      //   y2 = tagView.top + (tagView.height / 2);
-      //   connectorLength = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-      //   connectorTransform = "rotate(" + (Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI) + "deg)";
-      //   connector.css({
-      //     'top': "" + y1 + "px",
-      //     'left': "" + x1 + "px",
-      //     'width': "" + connectorLength + "px",
-      //     '-webkit-transform': connectorTransform,
-      //     '-moz-transform': connectorTransform,
-      //     'transform': connectorTransform
-      //   });
-      //   connector.addClass("connects-" + balloon.model.id);
-      //   connector.addClass("connects-" + tag.id);
-      //   connector.addClass("tag-" + tag.id);
-      // });
-    //}
   });
 
 

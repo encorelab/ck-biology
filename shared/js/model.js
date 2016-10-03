@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['brainstorms', 'tags', 'states', 'notes', 'relationships', 'terms', 'lessons'];
+    Model.requiredCollections = ['states', 'relationships', 'terms', 'lessons'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -169,19 +169,6 @@
         }
       };
 
-      this.Brainstorm = this.db.Document('brainstorms').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date()
-        }
-      })
-      .extend(TaggableTrait)
-      .extend(MultiposTrait);
-
-      this.Brainstorms = this.db.Collection('brainstorms').extend({
-        model: Skeletor.Model.Brainstorm
-      });
-
       // board insists and this could be used for PAUSE
       this.State = this.db.Document('states').extend({
         defaults: {
@@ -193,32 +180,6 @@
 
       this.States = this.db.Collection('states').extend({
         model: Skeletor.Model.State
-      });
-
-      // semi-hack (since they're not really tags). Should be removed from 'clean' version of Brainstorm (eg non-solar2015ized)
-      this.Tag = this.db.Document('tags').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date()
-        }
-      })
-      .extend(MultiposTrait);
-
-      this.Tags = this.db.Collection('tags').extend({
-        model: Skeletor.Model.Tag
-      });
-
-      this.Note = this.db.Document('notes').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date(),
-          'media': [],
-          'published': false
-        }
-      });
-
-      this.Notes = this.db.Collection('notes').extend({
-        model: Skeletor.Model.Note
       });
 
       this.Term = this.db.Document('terms').extend({
