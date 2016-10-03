@@ -29,7 +29,6 @@
 
   app.rollcall = null;
   app.runId = null;
-  app.runState = null;
   app.users = null;
   app.username = null;
   app.currentUser = null;
@@ -153,14 +152,7 @@
       return Skeletor.Model.wake(app.config.wakeful.url);
     })
     .then(function() {
-      // run state used for pausing/locking the tablet
-      console.log('State model initialized - now waking up');
-      app.runState = Skeletor.getState('RUN');
-      app.runState.wake(app.config.wakeful.url);
-      app.runState.on('change', app.reflectRunState);
-    })
-    .then(function() {
-      var test = Skeletor.Smartboard.init(app.runId);
+      Skeletor.Smartboard.init(app.runId);
     })
     .done(function () {
       ready();

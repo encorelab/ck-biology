@@ -81,11 +81,12 @@
         var number = lesson.get('number');
 
         var el = '';
-        if (Skeletor.Model.awake.terms.where({"lesson": number}).length > 0) {
-          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
-        } else {
-          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base disabled" data-lesson="'+number+'">Lesson '+number+'</button>';
-        }
+        // if (Skeletor.Model.awake.terms.where({"lesson": number}).length > 0) {
+        //   el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
+        // } else {
+        //   el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base disabled" data-lesson="'+number+'">Lesson '+number+'</button>';
+        // }
+        el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
 
         el += '<h3 class="lesson-title">'+title+'</h3>';
         el += '<span class="home-progress-container">';
@@ -167,33 +168,30 @@
 
       // create the html for the buttons and progress bars
       var teacherEl = '';
-      view.collection.each(function(user, index) {
-        if (user.get('user_role') !== 'teacher') {
-          var name = user.get('username');
+      _.each(view.collection.where({"user_role": "student"}), function(user, index) {
+        var name = user.get('username');
 
-          var el = '';
-          if (index%2 === 0) {
-            el += '<div class="teacher-row-container">';
-            el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-            el += '<span class="teacher-progress-container">';
-            el += '<span id="'+name+'-progress-bar"></span>';
-            el += '</span>';
-          } else {
-            el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-            el += '<span class="teacher-progress-container">';
-            el += '<span id="'+name+'-progress-bar"></span>';
-            el += '</span>';
-            el += '</div>';
-          }
-
-          teacherEl += el;
+        var el = '';
+        if (index%2 === 0) {
+          el += '<div class="teacher-row-container">';
+          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="teacher-progress-container">';
+          el += '<span id="'+name+'-progress-bar"></span>';
+          el += '</span>';
+        } else {
+          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="teacher-progress-container">';
+          el += '<span id="'+name+'-progress-bar"></span>';
+          el += '</span>';
+          el += '</div>';
         }
+
+        teacherEl += el;
       });
-      // odd number of students
-      if (view.collection.length%2 === 1) {
+      // odd number of students, but including maria in the collection
+      if (view.collection.length%2 === 0) {
         teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
         teacherEl += '<span class="teacher-progress-container">';
-        //teacherEl += '<span id="'+name+'-progress-bar"></span>';
         teacherEl += '</span>';
         teacherEl += '</div>';
       }

@@ -1,5 +1,5 @@
 #!/bin/bash
-# run this on the server in the ck-biology directory to clean up the terms after use - for sure with encore testing
+# run this on the server in the ck-biology directory to clean up the terms after use - for use with encore testing
 
 mongo ck-biology-encore --eval "db.users.remove()"
 mongoimport -d ck-biology-encore -c users --jsonArray scaffolding/pupils-encore.json
