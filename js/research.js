@@ -744,10 +744,12 @@
         app.users.sort();
 
         app.users.each(function(user) {
-          var button = jQuery('<button class="btn btn-default login-button">');
-          button.val(user.get('username'));
-          button.text(user.get('display_name'));
-          jQuery('.login-buttons').append(button);
+          if (user.get('role') !== 'teacher') {
+            var button = jQuery('<button class="btn btn-default login-button">');
+            button.val(user.get('username'));
+            button.text(user.get('display_name'));
+            jQuery('.login-buttons').append(button);
+          }
         });
 
         // register click listeners
