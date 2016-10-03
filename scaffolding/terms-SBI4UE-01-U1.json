@@ -1,0 +1,1031 @@
+{
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f76b"
+  },
+  "name": "configurational isomer",
+  "lesson": 2,
+  "assigned_to": "nuala",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z",
+  "pos": {
+    "_": {
+      "top": 301.75,
+      "left": 93.359375
+    }
+  },
+  "z-index": 222,
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f76c"
+  },
+  "name": "conformational isomer",
+  "lesson": 2,
+  "assigned_to": "jeremy",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z",
+  "pos": {
+    "_": {
+      "top": 251.890625,
+      "left": 248.890625
+    }
+  },
+  "z-index": 101,
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f76d"
+  },
+  "assigned_to": "hannah",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "constitutional isomer",
+  "pos": {
+    "_": {
+      "top": 94.921875,
+      "left": 65.046875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 264,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f76e"
+  },
+  "assigned_to": "amanda",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "glycosidic linkage",
+  "pos": {
+    "_": {
+      "top": 463.15625,
+      "left": 1050.09375
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 239,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f76f"
+  },
+  "assigned_to": "riga",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "neutralization reaction",
+  "pos": {
+    "_": {
+      "top": 142.828125,
+      "left": 792.328125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 85,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f770"
+  },
+  "assigned_to": "andy",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "organic chemistry",
+  "pos": {
+    "_": {
+      "top": 16,
+      "left": 626.796875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 217,
+  "created_at": {
+    "$date": 1475099253600
+  },
+  "modified_at": {
+    "$date": 1475099253600
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f771"
+  },
+  "assigned_to": "sharon",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "peptide linkage",
+  "pos": {
+    "_": {
+      "top": 418,
+      "left": 1285
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 229,
+  "created_at": {
+    "$date": 1475099742700
+  },
+  "modified_at": {
+    "$date": 1475099742700
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f772"
+  },
+  "assigned_to": "daniel",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "stereoisomer",
+  "pos": {
+    "_": {
+      "top": 187.40625,
+      "left": 130.453125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 92,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f773"
+  },
+  "assigned_to": "kevin",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "alcohol",
+  "pos": {
+    "_": {
+      "top": 564.65625,
+      "left": 453.0625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 144,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f774"
+  },
+  "assigned_to": "jacob",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "aldehyde",
+  "pos": {
+    "_": {
+      "top": 576,
+      "left": 667.453125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 146,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f775"
+  },
+  "assigned_to": "richard",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "ether linkage",
+  "pos": {
+    "_": {
+      "top": 374.484375,
+      "left": 1105
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 252,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f776"
+  },
+  "assigned_to": "seby",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "amino acid",
+  "pos": {
+    "_": {
+      "top": 626,
+      "left": 1045.0625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 240,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f777"
+  },
+  "assigned_to": "serena",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "anhydride linkage",
+  "pos": {
+    "_": {
+      "top": 478.5625,
+      "left": 1207
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 230,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f778"
+  },
+  "assigned_to": "martyn",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "ester linkage",
+  "pos": {
+    "_": {
+      "top": 308.078125,
+      "left": 1041.1875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 251,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f779"
+  },
+  "assigned_to": "ashley",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "amine",
+  "pos": {
+    "_": {
+      "top": 533,
+      "left": 879.53125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 248,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77a"
+  },
+  "assigned_to": "nuala",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "amino",
+  "pos": {
+    "_": {
+      "top": 330.8125,
+      "left": 753.78125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 241,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77b"
+  },
+  "assigned_to": "jeremy",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "geometric isomer",
+  "pos": {
+    "_": {
+      "top": 399.515625,
+      "left": 270.984375
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 99,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77c"
+  },
+  "assigned_to": "hannah",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "optical isomer",
+  "pos": {
+    "_": {
+      "top": 435.734375,
+      "left": 97.671875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 221,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77d"
+  },
+  "name": "phosphate",
+  "lesson": 2,
+  "assigned_to": "amanda",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "pos": {
+    "_": {
+      "top": 326.578125,
+      "left": 414.953125
+    }
+  },
+  "z-index": 246,
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77e"
+  },
+  "name": "redox reaction",
+  "lesson": 2,
+  "assigned_to": "riga",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z",
+  "pos": {
+    "_": {
+      "top": 231.625,
+      "left": 862.59375
+    }
+  },
+  "z-index": 88,
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f77f"
+  },
+  "assigned_to": "andy",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "chemical reaction",
+  "pos": {
+    "_": {
+      "top": 31.6875,
+      "left": 917.296875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 237,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f780"
+  },
+  "name": "chiral",
+  "lesson": 2,
+  "assigned_to": "sharon",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z",
+  "pos": {
+    "_": {
+      "top": 612.6875,
+      "left": 114.765625
+    }
+  },
+  "z-index": 110,
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f781"
+  },
+  "assigned_to": "daniel",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "condensation reaction (dehydration synthesis)",
+  "pos": {
+    "_": {
+      "top": 57.421875,
+      "left": 1184.375
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 235,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f782"
+  },
+  "assigned_to": "kevin",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "sulfhydryl",
+  "pos": {
+    "_": {
+      "top": 351.09375,
+      "left": 885.046875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 155,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f783"
+  },
+  "assigned_to": "jacob",
+  "complete": false,
+  "created_at": "2015-03-25T19:08:00.000Z",
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "modified_at": {
+    "$date": 1475098507400
+  },
+  "name": "diastereomer",
+  "pos": {
+    "_": {
+      "top": 518.984375,
+      "left": 15
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 220
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f784"
+  },
+  "assigned_to": "richard",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "disulfide linkage",
+  "pos": {
+    "_": {
+      "top": 251.546875,
+      "left": 1295
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 249,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f785"
+  },
+  "assigned_to": "seby",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "enantiomer",
+  "pos": {
+    "_": {
+      "top": 505.5,
+      "left": 235.265625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 105,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f786"
+  },
+  "assigned_to": "serena",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "thiol",
+  "pos": {
+    "_": {
+      "top": 424,
+      "left": 930.953125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 247,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f787"
+  },
+  "assigned_to": "martyn",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "carbonyl",
+  "pos": {
+    "_": {
+      "top": 502.859375,
+      "left": 740.796875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 242,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f788"
+  },
+  "name": "carboxyl",
+  "lesson": 2,
+  "assigned_to": "ashley",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "pos": {
+    "_": {
+      "top": 387.953125,
+      "left": 608.875
+    }
+  },
+  "z-index": 244,
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f789"
+  },
+  "assigned_to": "nuala",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "carboxylic acid",
+  "pos": {
+    "_": {
+      "top": 442.828125,
+      "left": 631.453125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 219,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78a"
+  },
+  "assigned_to": "jeremy",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "functional group",
+  "pos": {
+    "_": {
+      "top": 218,
+      "left": 612.53125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 84,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78b"
+  },
+  "assigned_to": "hannah",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "hydroxyl",
+  "pos": {
+    "_": {
+      "top": 449.125,
+      "left": 486.828125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 245,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78c"
+  },
+  "assigned_to": "amanda",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "isomer",
+  "pos": {
+    "_": {
+      "top": 76.203125,
+      "left": 322.515625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 260,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78d"
+  },
+  "assigned_to": "riga",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "ketone",
+  "pos": {
+    "_": {
+      "top": 643,
+      "left": 771.203125
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 188,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78e"
+  },
+  "assigned_to": "andy",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "linkage",
+  "pos": {
+    "_": {
+      "top": 197.875,
+      "left": 1174.40625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 250,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f78f"
+  },
+  "assigned_to": "sharon",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "methyl",
+  "pos": {
+    "_": {
+      "top": 243.890625,
+      "left": 433.1875
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 111,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f790"
+  },
+  "assigned_to": "daniel",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "hydrocarbon",
+  "pos": {
+    "_": {
+      "top": 171.59375,
+      "left": 432.109375
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 83,
+  "created_at": {
+    "$date": 1475098507400
+  },
+  "modified_at": {
+    "$date": 1475098507400
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f791"
+  },
+  "name": "hydrolysis",
+  "lesson": 2,
+  "assigned_to": "kevin",
+  "complete": false,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "pos": {
+    "_": {
+      "top": 128.765625,
+      "left": 1063.53125
+    }
+  },
+  "z-index": 234,
+  "modified_at": {
+    "$date": 1475099823633
+  }
+} {
+  "_id": {
+    "$oid": "57ec370b229fd25f1be8f792"
+  },
+  "assigned_to": "jacob",
+  "complete": false,
+  "lesson": 2,
+  "locked": "",
+  "media": [],
+  "name": "phosphorylation reaction",
+  "pos": {
+    "_": {
+      "top": 212,
+      "left": 1012.15625
+    }
+  },
+  "vetted_by": [],
+  "comments": [],
+  "vettings": [],
+  "z-index": 238,
+  "created_at": {
+    "$date": 1475099823633
+  },
+  "modified_at": {
+    "$date": 1475099823633
+  }
+}
