@@ -165,9 +165,27 @@
       var view = this;
       console.log("Rendering TeacherView...");
 
+      // sort collection by most complete to least complete
+      var userArray = [];
+      view.collection.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
+          userArray.push(user);
+        }
+      });
+
+      function compare(a,b) {
+        if (a.get('complete_percent') > b.get('complete_percent'))
+          return -1;
+        if (a.get('complete_percent') < b.get('complete_percent'))
+          return 1;
+        return 0;
+      }
+      userArray.sort(compare);
+
       // create the html for the buttons and progress bars
       var teacherEl = '';
-      _.each(view.collection.where({"user_role": "student"}), function(user, index) {
+      _.each(userArray, function(user, index) {
         var name = user.get('username');
 
         var el = '';
