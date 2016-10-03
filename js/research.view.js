@@ -122,7 +122,7 @@
               strokeWidth: 8,
               svgStyle: app.progressBarStyleHome,
               text: {
-                value:  myPercent,
+                value: myPercent,
                 style: app.progressBarTextStyle
               }
             });
@@ -167,21 +167,36 @@
 
       // create the html for the buttons and progress bars
       var teacherEl = '';
-      view.collection.each(function(user) {
+      view.collection.each(function(user, index) {
         if (user.get('user_role') !== 'teacher') {
           var name = user.get('username');
 
           var el = '';
-          el += '<div class="teacher-row-container">';
-          el += '<span class="teacher-name-container">'+name+'</span>';
-          el += '<span class="teacher-progress-container">';
-          el += '<span id="'+name+'-progress-bar"></span>';
-          el += '</span>';
-          el += '</div>';
+          if (index%2 === 0) {
+            el += '<div class="teacher-row-container">';
+            el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="teacher-progress-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+          } else {
+            el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="teacher-progress-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+            el += '</div>';
+          }
 
           teacherEl += el;
         }
       });
+      // odd number of students
+      if (view.collection.length%2 === 1) {
+        teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
+        teacherEl += '<span class="teacher-progress-container">';
+        //teacherEl += '<span id="'+name+'-progress-bar"></span>';
+        teacherEl += '</span>';
+        teacherEl += '</div>';
+      }
       jQuery('#teacher-container').html(teacherEl);
 
       view.collection.each(function(user) {
@@ -201,7 +216,7 @@
               strokeWidth: 8,
               svgStyle: app.progressBarStyleHome,
               text: {
-                value:  myPercent,
+                value: myPercent,
                 style: app.progressBarTextStyle
               }
             });

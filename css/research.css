@@ -134,6 +134,8 @@ textarea {
     clear: both;
 }
 
+
+
 /*****************************************************/
 /*****************************************************/
 /******************** HOME SCREEN ********************/
@@ -193,7 +195,6 @@ textarea {
     min-width: 30%;
 }
 .home-progress-container {
-    /* width: 400px; ??*/
     margin-left: 50px;
 }
 .home-fa-star {
@@ -204,6 +205,49 @@ textarea {
     left: -11%;
 }
 
+/*****************************************************/
+/*****************************************************/
+/****************** TEACHER SCREEN *******************/
+/*****************************************************/
+/*****************************************************/
+
+
+#teacher-screen .inner-wrapper {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 40px;
+}
+#teacher-screen h1 {
+    display: inline;
+}
+#teacher-screen h2 {
+    text-align: left;
+    display: inline-block;
+    width: 120px;
+    font-size: 20px;
+}
+#teacher-screen .icon {
+    margin-left: 50px;
+    margin-top: -25px;
+}
+#teacher-container {
+    margin-top: 40px;
+}
+.teacher-row-container {
+    margin-left: 80px;
+    margin-bottom: 20px;
+}
+.teacher-progress-container {
+    margin-right: 160px;
+    margin-left: 30px;
+}
+
 
 /*****************************************************/
 /*****************************************************/
@@ -211,19 +255,12 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-/* don't think this exists in HTML anywhere */
-.fa-arrow-left {
-    padding-right: 4px;
-}
-
 /*** progress bar ***/
 .progress-bar-container {
     margin-bottom: 50px;
     margin-top: 25px;
 }
-/*.my-progress-bar {
-    margin-left: -85px;
-}*/
+
 .my-progress-percent,
 .percent {
     font-size: 1.3em;
@@ -678,8 +715,8 @@ input:disabled {
         /*background-color: #3092ae;*/
     }
 
-    #home-screen .inner-wrapper {
-        top: 20%;
+    #home-screen .inner-wrapper, #teacher-screen .inner-wrapper {
+        top: 10%;
     }
 
     #definition-screen .inner-wrapper,
@@ -710,7 +747,7 @@ input:disabled {
         font-size: 20px;
     } */
 
-    #home-screen h3+img+h3 {
+    #home-screen h3+img+h3, #teacher-screen h3+img+h3 {
         vertical-align: baseline;
     }
     .lesson-title {
