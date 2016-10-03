@@ -61,7 +61,7 @@
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav top-navigation">
                     <li id="home-nav-btn" class="goto-home-btn top-nav-btn hidden"><a href="#">Home</a></li>
-                    <li id="contribution-nav-btn" class="goto-contribution-btn top-nav-btn hidden"><a href="#">My Contribution</a></li>
+                    <li id="teacher-nav-btn" class="goto-teacher-btn top-nav-btn hidden"><a href="#">Progress Overview</a></li>
                     <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn hidden"><a href="#">Knowledge Base</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -82,12 +82,26 @@
         <div class="row">
             <div class="inner-wrapper col-xs-12">
                 <h2>Select a lesson:</h2>
-                <img src="img/individual.png" class="icon" alt="user icon">
-                <h3 class="home-progress-title">My Progress</h3>
                 <img src="img/knowledgecommunity.png" class="icon" alt="community icon">
                 <h3 class="home-progress-title">Community Progress</h3>
                 <div id="home-container">
-                    <!-- filled by research.js -->
+                    <!-- filled by research.view.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ************************ TEACHER ************************ -->
+    <!-- ********************************************************* -->
+
+    <div id="teacher-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <div id="teacher-container">
+                <!-- filled by research.view.js -->
                 </div>
             </div>
         </div>
@@ -282,18 +296,11 @@
         </div>
     </div>
 
-    <!-- ok, regretting the jquery-ui approach for this. This is counter intuitive, and their docs are plain wrong about isOpen -->
-    <div>
-        <div id="tasks-completed-confirmation" title="Thank you for completing your submission!">
-            <p>Would you like to continue contributing your knowledge to the community?</p>
-        </div>
-    </div>
-
     <script type="text/javascript">
         jQuery(document).ready(function() {
           // extending jQuery http://stackoverflow.com/questions/31044/is-there-an-exists-function-for-jquery
           jQuery.fn.exists = function(){return this.length>0;}
-          Skeletor.Mobile.teacherFlag = false;
+          Skeletor.Mobile.teacherFlag = true;
           Skeletor.Mobile.init();
         });
     </script>

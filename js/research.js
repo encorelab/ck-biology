@@ -39,6 +39,7 @@
   app.shownContinueFlag = false;          // PUUUUUUKE
 
   app.homeView = null;
+  app.teacherView = null;
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
@@ -288,6 +289,10 @@
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
           app.determineNextStep();
+        } else if (jQuery(this).hasClass('goto-teacher-btn')) {
+          app.hideAllContainers();
+          jQuery('#teacher-nav-btn').addClass('active');
+          jQuery('#teacher-screen').removeClass('hidden');
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
@@ -317,25 +322,35 @@
        });
      }
 
-    if (app.definitionView === null) {
-      app.definitionView = new app.View.DefinitionView({
-        el: '#definition-screen',
-        collection: Skeletor.Model.awake.terms
-      });
-    }
+    if (app.teacherFlag === false) {
+      if (app.definitionView === null) {
+        app.definitionView = new app.View.DefinitionView({
+          el: '#definition-screen',
+          collection: Skeletor.Model.awake.terms
+        });
+      }
 
-    if (app.relationshipView === null) {
-      app.relationshipView = new app.View.RelationshipView({
-        el: '#relationship-screen',
-        collection: Skeletor.Model.awake.relationships
-      });
-    }
+      if (app.relationshipView === null) {
+        app.relationshipView = new app.View.RelationshipView({
+          el: '#relationship-screen',
+          collection: Skeletor.Model.awake.relationships
+        });
+      }
 
-    if (app.vettingView === null) {
-      app.vettingView = new app.View.VettingView({
-        el: '#vetting-screen',
-        collection: Skeletor.Model.awake.terms
-      });
+      if (app.vettingView === null) {
+        app.vettingView = new app.View.VettingView({
+          el: '#vetting-screen',
+          collection: Skeletor.Model.awake.terms
+        });
+      }
+    }
+    else {
+      if (app.teacherView === null) {
+        app.teacherView = new app.View.TeacherView({
+          el: '#teacher-screen',
+          collection: Skeletor.Mobile.users
+        });
+      }
     }
 
     app.homeView.render();
@@ -539,12 +554,12 @@
     }
   }
 
-  app.getMyContributionPercent = function(lessonNum, noMax) {
-    var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username}).length;
-    var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
+  app.getMyContributionPercent = function(user, lessonNum, noMax) {
+    var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: user}).length;
+    var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: user, complete: true}).length;
 
-    var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username}).length;
-    var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: app.username, complete: true}).length;
+    var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: user}).length;
+    var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: user, complete: true}).length;
 
     //console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
     //console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(lessonNum));
@@ -702,7 +717,7 @@
     console.log(app.config.runs);
 
     // change header
-    jQuery('#login-picker .modal-header h3').text("Select your teacher's name");
+    jQuery('#login-picker .modal-header h3').text("Choose your class and unit");
 
     _.each(app.config.runs, function(run) {
       var button = jQuery('<button class="btn btn-default login-button">');
@@ -743,14 +758,24 @@
         };
         app.users.sort();
 
-        app.users.each(function(user) {
-          if (user.get('role') !== 'teacher') {
+        // yucky - TODO: clean me up
+        if (app.teacherFlag) {
+          app.users.each(function(user) {
             var button = jQuery('<button class="btn btn-default login-button">');
             button.val(user.get('username'));
             button.text(user.get('display_name'));
             jQuery('.login-buttons').append(button);
-          }
-        });
+          });
+        } else {
+          app.users.each(function(user) {
+            if (user.get('user_role') !== 'teacher') {
+              var button = jQuery('<button class="btn btn-default login-button">');
+              button.val(user.get('username'));
+              button.text(user.get('display_name'));
+              jQuery('.login-buttons').append(button);
+            }
+          });
+        }
 
         // register click listeners
         jQuery('.login-button').click(function() {

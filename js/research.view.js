@@ -56,12 +56,18 @@
       // check which lesson from data value
       app.lesson = jQuery(ev.target).data('lesson');
       Skeletor.Smartboard.wall.render();
-      app.buildContributionArray();
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
-      jQuery('#contribution-nav-btn').addClass('active');
-      app.determineNextStep();
+      if (app.teacherFlag === false) {
+        app.buildContributionArray();
+        jQuery('#contribution-nav-btn').addClass('active');
+        app.determineNextStep();
+      } else {
+        jQuery('#teacher-nav-btn').addClass('active');
+        jQuery('#teacher-screen').removeClass('hidden');
+        app.teacherView.render();
+      }
     },
 
     render: function () {
@@ -85,7 +91,7 @@
         el += '<span class="home-progress-container">';
         el += '<span id="lesson'+number+'-my-progress-bar"></span>';
         el += '</span>';
-        if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
+        if (app.getMyContributionPercent(app.username, lesson.get('number'), true) > 100) {
           el += '<span class="fa fa-star home-fa-star"></span>';
         } else {
           el += '<span class="fa fa-star home-fa-star invisible"></span>';
@@ -99,27 +105,30 @@
       jQuery('#home-container').html(homeEl);
 
       // fill in the progress bars
-      Skeletor.Model.awake.lessons.each(function(lesson) {
-        var myPercent = '';
-        if (app.getMyContributionPercent(lesson.get('number'), true) > 100) {
-          myPercent = app.getMyContributionPercent(lesson.get('number'), true) + '+%';
-        } else {
-          myPercent = app.getMyContributionPercent(lesson.get('number')) + '%';
+      view.collection.each(function(lesson) {
+        if (app.teacherFlag === false) {
+          var myPercent = '';
+          if (app.getMyContributionPercent(app.username, lesson.get('number'), true) > 100) {
+            myPercent = app.getMyContributionPercent(app.username, lesson.get('number'), true) + '+%';
+          } else {
+            myPercent = app.getMyContributionPercent(app.username, lesson.get('number')) + '%';
+          }
+
+          var myBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-my-progress-bar',
+            {
+              easing: 'easeInOut',
+              color: app.hexDarkPurple,
+              trailColor: app.hexLightGrey,
+              strokeWidth: 8,
+              svgStyle: app.progressBarStyleHome,
+              text: {
+                value:  myPercent,
+                style: app.progressBarTextStyle
+              }
+            });
+          myBar.animate(app.getMyContributionPercent(app.username, lesson.get('number')) / 100);
         }
 
-        var myBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-my-progress-bar',
-          {
-            easing: 'easeInOut',
-            color: app.hexDarkPurple,
-            trailColor: app.hexLightGrey,
-            strokeWidth: 8,
-            svgStyle: app.progressBarStyleHome,
-            text: {
-              value:  myPercent,
-              style: app.progressBarTextStyle
-            }
-          });
-        myBar.animate(app.getMyContributionPercent(lesson.get('number')) / 100);
         var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
           {
             easing: 'easeInOut',
@@ -140,7 +149,67 @@
 
 
 
+  /***********************************************************
+   ***********************************************************
+   ********************* TEACHER VIEW ************************
+   ***********************************************************
+   ***********************************************************/
 
+  app.View.TeacherView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing TeacherView...', view.el);
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering TeacherView...");
+
+      // create the html for the buttons and progress bars
+      var teacherEl = '';
+      view.collection.each(function(user) {
+        if (user.get('user_role') !== 'teacher') {
+          var name = user.get('username');
+
+          var el = '';
+          el += '<div class="teacher-row-container">';
+          el += '<span class="teacher-name-container">'+name+'</span>';
+          el += '<span class="teacher-progress-container">';
+          el += '<span id="'+name+'-progress-bar"></span>';
+          el += '</span>';
+          el += '</div>';
+
+          teacherEl += el;
+        }
+      });
+      jQuery('#teacher-container').html(teacherEl);
+
+      view.collection.each(function(user) {
+        if (user.get('user_role') !== 'teacher') {
+          var myPercent = '';
+          if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
+            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
+          } else {
+            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+          }
+
+          var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
+            {
+              easing: 'easeInOut',
+              color: app.hexDarkPurple,
+              trailColor: app.hexLightGrey,
+              strokeWidth: 8,
+              svgStyle: app.progressBarStyleHome,
+              text: {
+                value:  myPercent,
+                style: app.progressBarTextStyle
+              }
+            });
+          myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+        }
+      });
+    }
+  });
 
 
 
@@ -324,8 +393,8 @@
         view.appendOneMedia(url);
       });
 
-      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-      app.defBar.animate(app.getMyContributionPercent(app.lesson) / 100);
+      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.username, app.lesson));
+      app.defBar.animate(app.getMyContributionPercent(app.username, app.lesson) / 100);
 
       view.checkForAllowedToPublish();
     }
@@ -417,8 +486,8 @@
       jQuery('#relationship-from-container').text(view.model.get('from'));
       jQuery('#relationship-to-container').text(view.model.get('to'));
 
-      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
-      app.relBar.animate(app.getMyContributionPercent(app.lesson) / 100);
+      jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.username, app.lesson));
+      app.relBar.animate(app.getMyContributionPercent(app.username, app.lesson) / 100);
     }
   });
 
@@ -645,14 +714,14 @@
       jQuery('#vetting-name-field').text(view.model.get('name'));
       jQuery('#vetting-explanation-input').val(termExplanation + '\n' + vettingExplanation + '\n' + comments);
 
-      if (app.getMyContributionPercent(app.lesson, true) > 100) {
-        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson, true) + '+');
+      if (app.getMyContributionPercent(app.username, app.lesson, true) > 100) {
+        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.username, app.lesson, true) + '+');
         jQuery('.vetting-fa-star').removeClass('hidden');
       } else {
-        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.lesson));
+        jQuery('.my-progress-percent').text(app.getMyContributionPercent(app.username, app.lesson));
         jQuery('.vetting-fa-star').addClass('hidden');
       }
-      app.vetBar.animate(app.getMyContributionPercent(app.lesson) / 100);
+      app.vetBar.animate(app.getMyContributionPercent(app.username, app.lesson) / 100);
 
       view.checkForAllowedToPublish();
     }
