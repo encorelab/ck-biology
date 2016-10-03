@@ -64,9 +64,9 @@
         jQuery('#contribution-nav-btn').addClass('active');
         app.determineNextStep();
       } else {
-        jQuery('#teacher-nav-btn').addClass('active');
-        jQuery('#teacher-screen').removeClass('hidden');
-        app.teacherView.render();
+        jQuery('#knowledge-base-nav-btn').addClass('active');
+        Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
+        jQuery('#wall').removeClass('hidden');
       }
     },
 
