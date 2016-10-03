@@ -599,7 +599,7 @@
           mediaArr.push(jQuery(container).data('url'));
         });
         view.model.set('media', mediaArr);
-        view.model.set('locked', '');
+        view.model.unlock();
         view.model.save();
 
         jQuery('.vetting-radio-btn').prop('checked', false);

@@ -407,7 +407,7 @@
     //5. it is unlocked or locked to this user
 
     var myVettings = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username) && (term.get('locked') === '' || term.get('locked') === app.username);
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username) && term.isUnlocked();
     });
 
     // To determine the least vetted item:
@@ -433,7 +433,7 @@
       console.log('No vettings available for you');
     }
 
-    // check if there's a vet locked to this user:
+    // check if there's a vet locked to this user, otherwise they get the first in the queue
     var myVet = null;
     _.each(leastVetted, function(vet) {
       if (vet.get('locked') === app.username) {
@@ -463,7 +463,7 @@
       jQuery('#vetting-screen').removeClass('hidden');
       app.vettingView.model = myVet;
       app.vettingView.model.wake(app.config.wakeful.url);
-      app.vettingView.model.set('locked', app.username);
+      app.vettingView.model.lock();
       app.vettingView.model.save();
       app.vettingView.render();
 
@@ -508,7 +508,7 @@
       jQuery('#vetting-screen').removeClass('hidden');
       app.vettingView.model = myVet;
       app.vettingView.model.wake(app.config.wakeful.url);
-      app.vettingView.model.set('locked', app.username);
+      app.vettingView.model.lock();
       app.vettingView.model.save();
       app.vettingView.render();
     } else {
@@ -657,7 +657,7 @@
   var logoutUser = function () {
     // unlock all of the user's terms
     _.each(Skeletor.Model.awake.terms.where({"locked":app.username}), function(term) {
-      term.set('locked', "");
+      term.unlock();
       term.save();
     });
 

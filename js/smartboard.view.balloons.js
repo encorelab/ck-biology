@@ -167,14 +167,13 @@
     },
 
     openCommentInputBox: function(ev) {
-      var lockedTo = this.model.get('locked');
-      if (lockedTo === "" || lockedTo === Skeletor.Mobile.username) {
+      if (this.model.isUnlocked()) {
         jQuery(ev.target).parent().children('.comment-container').toggleClass('opened');
         jQuery(ev.target).parent().children('.open-comment-btn').addClass('hidden');
-        this.model.set('locked', Skeletor.Mobile.username);
+        this.model.lock();
         this.model.save();
       } else {
-        jQuery().toastmessage('showErrorToast', lockedTo + " is currently working on this term...");
+        jQuery().toastmessage('showErrorToast', this.model.get('locked') + " is currently working on this term...");
       }
     },
 
@@ -208,7 +207,7 @@
       jQuery(ev.target).parent().children('.comment-input').val("");
       jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
-      this.model.set('locked', "");
+      this.model.unlock();
       this.model.save();
     },
 
@@ -217,7 +216,7 @@
       jQuery(ev.target).parent().children('.comment-input').val("");
       jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
-      this.model.set('locked', "");
+      this.model.unlock();
       this.model.save();
     },
 

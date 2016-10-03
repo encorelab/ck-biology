@@ -94,51 +94,27 @@
       return df.promise();
     };
 
-    Model.defineModelClasses = function(username) {
-      /** Taggable Trait **/
-      var TaggableTrait = {
-        addTag: function(tag, tagger) {
-          var existingTagRelationships, tagRel,
-            _this = this;
-          if (!(tag instanceof Skeletor.Model.Tag)) {
-            console.error("Cannot addTag ", tag, " because it is not a Skeletor.Model.Tag instance!");
-            throw "Invalid tag (doesn't exist)";
-          }
-          if (!tag.id) {
-            console.error("Cannot addTag ", tag, " to contribution ", this, " because it doesn't have an id!");
-            throw "Invalid tag (no id)";
-          }
-          existingTagRelationships = this.get('tags') || [];
-          if (_.any(existingTagRelationships, function(tr) {
-            return tr.id === tag.id;
-          })) {
-            console.warn("Cannot addTag ", tag, " to contribution ", this, " because it already has this tag.");
-            return this;
-          }
-          tagRel = this.tagRel(tag, tagger);
-          existingTagRelationships.push(tagRel);
-          this.set('tags', existingTagRelationships);
-          return this;
+    Model.defineModelClasses = function() {
+      var LockingTrait = {
+        lock: function() {
+          this.set('locked', Skeletor.Mobile.username);
+          // since nested dates are such a pain
+          this.set('locked_at', new Date());
         },
-
-        removeTag: function(tag, tagger) {
-          var reducedTags,
-            _this = this;
-          reducedTags = _.reject(this.get('tags'), function(t) {
-            return (t.id === tag.id || t.name === tag.get('name')) && (!tagger || t.tagger === tagger);
-          });
-          this.set('tags', reducedTags);
-          return this;
+        unlock: function() {
+          this.set('locked', "");
+          this.set('locked_at', "");
         },
-
-        hasTag: function(tag, tagger) {
-          var _this = this;
-          return _.any(this.get('tags'), function(t) {
-            return t.id.toLowerCase() === tag.id && (!tagger || t.tagger === tagger);
-          });
+        isUnlocked: function() {
+          // we allow access after 30 minutes has passed (30 min == 1800000 milliseconds)
+          var interval = new Date() - this.get('locked_at');
+          if (this.get('locked') === "" || this.get('locked') === Skeletor.Mobile.username || interval > 1800000) {
+            return true;
+          } else {
+            return false;
+          }
         }
       };
-
 
       /** Multipos Trait **/
 
@@ -188,8 +164,8 @@
           'modified_at': new Date()
         }
       })
-      .extend(TaggableTrait)
-      .extend(MultiposTrait);
+      .extend(MultiposTrait)
+      .extend(LockingTrait);
 
       this.Terms = this.db.Collection('terms').extend({
         model: Skeletor.Model.Term
