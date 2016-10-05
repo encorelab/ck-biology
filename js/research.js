@@ -291,6 +291,10 @@
           jQuery('#knowledge-base-nav-btn').addClass('active');
           Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
           jQuery('#wall').removeClass('hidden');
+        } else if (jQuery(this).hasClass('goto-testing-btn')) {
+          app.hideAllContainers();
+          jQuery('#testing-nav-btn').addClass('active');
+          jQuery('#testing-screen').removeClass('hidden');
         } else {
           console.log('ERROR: unknown nav button');
         }
@@ -476,8 +480,7 @@
 
     } else if (taskType === "vetting" && leastVetted.length <= 0) {
       jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
-      jQuery('.top-nav-btn').removeClass('active');
-      jQuery('#home-nav-btn').addClass('active');
+      jQuery('.top-nav-btn').addClass('hidden');
       jQuery('#home-screen').removeClass('hidden');
       app.homeView.render();
 
@@ -525,8 +528,7 @@
       } else {
         jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
       }
-      jQuery('.top-nav-btn').removeClass('active');
-      jQuery('#home-nav-btn').addClass('active');
+      jQuery('.top-nav-btn').addClass('hidden');
       jQuery('#home-screen').removeClass('hidden');
       app.homeView.render();
     }
