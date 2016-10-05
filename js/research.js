@@ -755,10 +755,12 @@
         // yucky - TODO: clean me up
         if (app.teacherFlag) {
           app.users.each(function(user) {
-            var button = jQuery('<button class="btn btn-default login-button">');
-            button.val(user.get('username'));
-            button.text(user.get('display_name'));
-            jQuery('.login-buttons').append(button);
+            if (user.get('user_role') === 'teacher') {
+              var button = jQuery('<button class="btn btn-default login-button">');
+              button.val(user.get('username'));
+              button.text(user.get('display_name'));
+              jQuery('.login-buttons').append(button);
+            }
           });
         } else {
           app.users.each(function(user) {

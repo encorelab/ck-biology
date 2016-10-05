@@ -49,7 +49,8 @@
     },
 
     events: {
-      'click .choose-lesson-btn' : 'chooseLesson'
+      'click .choose-lesson-btn' : 'chooseLesson',
+      'click input'              : 'updateEnabled'
     },
 
     chooseLesson: function(ev) {
@@ -70,9 +71,32 @@
       }
     },
 
+    updateEnabled: function(ev) {
+      var view = this;
+
+      if (jQuery(ev.target).val() === "on") {
+        jQuery(ev.target).val("off");
+        var lesson = view.collection.findWhere({'number': jQuery(ev.target).data('lesson')});
+        lesson.set('enabled', false);
+        lesson.save();
+      } else {
+        jQuery(ev.target).val("on");
+        var lesson = view.collection.findWhere({'number': jQuery(ev.target).data('lesson')});
+        lesson.set('enabled', true);
+        lesson.save();
+      }
+
+      view.render();
+    },
+
     render: function () {
       var view = this;
       console.log("Rendering HomeView...");
+
+      view.collection.comparator = function(model) {
+        return model.get('number');
+      };
+      view.collection.sort();
 
       // create the html for the buttons and progress bars
       var homeEl = '';
@@ -80,11 +104,19 @@
         var title = lesson.get('title');
         var number = lesson.get('number');
 
-        var el = '';
-        if (Skeletor.Model.awake.terms.where({"lesson": number}).length > 0) {
-          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
+        var el = '<div class="home-row-container">'
+        if (app.teacherFlag === true) {
+          if (lesson.get('enabled') === true) {
+            el += '<h3>Lesson Enabled</h3><input data-lesson="'+number+'" type="checkbox" value="on" checked />';
+          } else {
+            el += '<h3>Lesson Enabled</h3><input data-lesson="'+number+'" type="checkbox" value="off"/>';
+          }
+        }
+
+        if (lesson.get('enabled') === true) {
+          el += '<button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'">Lesson '+number+'</button>';
         } else {
-          el += '<div class="home-row-container"><button class="choose-lesson-btn home-btn btn btn-base disabled" data-lesson="'+number+'">Lesson '+number+'</button>';
+          el += '<button class="choose-lesson-btn home-btn btn btn-base" data-lesson="'+number+'" disabled>Lesson '+number+'</button>';
         }
 
         el += '<h3 class="lesson-title">'+title+'</h3>';
