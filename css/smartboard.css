@@ -1,8 +1,10 @@
 /*csslint gradients: false, font-sizes: false */
 /* TODO: This needed here? We also pull the CSS in HTML. Maybe remove it in the HTML */
-@import url(///fonts.googleapis.com/css?family=Open+Sans:300italic,400,600);
+@import url(///fonts.googleapis.com/css?family=Open+Sans:300italic,400,600,700);
+
 body {
   font-family: 'Open Sans', 'HelveticaNeue', 'Helvetica Neue', Helvetica, sans-serif;
+  color: #34495e; /* MD WET ASPHALT */
 }
 
 #wall {
@@ -222,8 +224,8 @@ button:hover {
   max-height: 500px;
   background-color: white;
   overflow-y: scroll;
-  color: black;
-  border: 1px solid black;
+  color: #34495e; /* MD WET ASPHALT */
+  border: 1px solid #bdc3c7; /* MD SILVER */
   text-align: left;
   font-size: 1em;
   border-radius: 0;
@@ -236,14 +238,14 @@ button:hover {
   float: right;
   margin-bottom: 5px;
   margin-right: -3px;
-  color: black;
+  color: #34495e;
   background: transparent;
   font-size: 1.8em;
 }
 .content.balloon.opened .title {
   font-size: 2.5em;
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 .content.balloon.opened .author,
 .content.balloon.opened .vetting-author,
@@ -256,46 +258,61 @@ button:hover {
 .content.balloon.opened .relationship {
   display: block;
   font-style: italic;
-  margin-bottom: 10px;
+  margin: 20px 10px 20px 15px;
+  padding: 10px;
+  background: #ecf0f1; /* MD CLOUDS */
+  font-size: 1.2em;
+  font-weight: 700;
+  border: 1px solid #34495e;;
+}
+.content.balloon.opened .relationship > div {
+  margin-bottom: 5px;
+}
+.content.balloon.opened .author {
+  color: #8e44ad; /* MD WISTERIA */
 }
 .content.balloon.opened .body {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  color: #7F8C8D; /* MD ASBESTOS */
   /*height: 250px;*/
 }
 .content.balloon.opened .vetting-author {
-  color: #16A085;
+  color: #1abc9c; /* MD TURQUOISE */
 }
 .content.balloon.opened .vetting-content {
   display: block;
-  margin-bottom: 5px;
-  color: #16A085;
+  margin-bottom: 15px;
+  color: #7F8C8D; /* MD ASBESTOS */
 }
 .content.balloon.opened .media-container {
   display: block;
   margin-left: 10px;
-  margin: 10px 0;
+  height: 200px;
+  overflow: hidden;
 }
 .content.balloon.opened .media {
   display: inline-block;
-  width: 120px;
-  /*height: 120px;*/
+  /* width: 120px; */
+  height: 100%;
   padding: 0 5px;
+  width: 100%;
+  max-width: 180px;
 }
 .content.balloon.opened .comments-author {
-  color: #C0392B;
+  color: #E74C3C; /* MD ALIZARIN */
 }
 .content.balloon.opened .comments-content {
   display: block;
   margin-bottom: 5px;
-  color: #C0392B;
+  color: #7F8C8D; /* MD ASBESTOS */
 }
 .content.balloon.opened .open-comment-btn {
   display: block;
   float: right;
   margin-bottom: 5px;
   margin-right: -3px;
-  color: black;
+  color: #34495e;
   background: transparent;
   font-size: 1.8em;
 }
@@ -318,7 +335,7 @@ button:hover {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  box-shadow: rgba(0, 0, 0, 0.1) 4px 4px 4px;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   -webkit-transition: height 0.5s, box-shadow 0.25s, opacity 1s;
   -moz-transition: height 0.5s, box-shadow 0.25s, opacity 1s;
   transition: height 0.5s, box-shadow 0.25s, opacity 1s;
