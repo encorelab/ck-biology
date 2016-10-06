@@ -11,4 +11,4 @@ mongo ck-biology-encore --eval "db.relationships.remove()"
 mongoimport -d ck-biology-encore -c relationships --jsonArray scaffolding/relationships-encore.json
 
 mongo ck-biology-encore --eval "db.lessons.remove()"
-mongoimport -d ck-biology-encore -c lessons --jsonArray scaffolding/lessons.json
+mongoimport -d ck-biology-encore -c lessons --jsonArray scaffolding/lessons-unit1.json

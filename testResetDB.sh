@@ -11,4 +11,4 @@ mongo ck-biology-maria1 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-maria1 -c relationships --jsonArray scaffolding/relationships-maria1.json
 
 mongo ck-biology-maria1 --eval "db.lessons.remove()"
-mongoimport -d ck-biology-maria1 -c lessons --jsonArray scaffolding/lessons.json
+mongoimport -d ck-biology-maria1 -c lessons --jsonArray scaffolding/lessons-unit1.json

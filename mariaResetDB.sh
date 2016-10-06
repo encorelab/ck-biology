@@ -11,7 +11,7 @@ mongo ck-biology-SBI4UE-01-U1 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-01-U1 -c relationships --jsonArray scaffolding/relationships-SBI4UE-01-U1.json
 
 mongo ck-biology-SBI4UE-01-U1 --eval "db.lessons.remove()"
-mongoimport -d ck-biology-SBI4UE-01-U1 -c lessons --jsonArray scaffolding/lessons.json
+mongoimport -d ck-biology-SBI4UE-01-U1 -c lessons --jsonArray scaffolding/lessons-unit1.json
 
 
 mongo ck-biology-SBI4UE-02-U1 --eval "db.users.remove()"
@@ -24,4 +24,4 @@ mongo ck-biology-SBI4UE-02-U1 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-02-U1 -c relationships --jsonArray scaffolding/relationships-SBI4UE-02-U1.json
 
 mongo ck-biology-SBI4UE-02-U1 --eval "db.lessons.remove()"
-mongoimport -d ck-biology-SBI4UE-02-U1 -c lessons --jsonArray scaffolding/lessons.json
+mongoimport -d ck-biology-SBI4UE-02-U1 -c lessons --jsonArray scaffolding/lessons-unit1.json
