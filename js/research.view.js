@@ -469,7 +469,7 @@
 
   /***********************************************************
    ***********************************************************
-   ******************* RELATIONSHIP VIEWS ********************
+   ******************* RELATIONSHIP VIEW *********************
    ***********************************************************
    ***********************************************************/
 
@@ -500,11 +500,13 @@
         el += '<option value="'+type+'">'+type+'</option>'
       });
       jQuery('#relationship-link-dropdown').html(el);
+
+      view.incorrectCounter = 0;
     },
 
     events: {
-      'click .publish-relationship-btn'      : 'publishRelationship',
-      'change #relationship-link-dropdown'   : 'checkLink'
+      'click .publish-relationship-btn'    : 'publishRelationship',
+      'change #relationship-link-dropdown' : 'checkLink'
     },
 
     checkLink: function() {
@@ -520,6 +522,8 @@
         jQuery('#relationship-incorrect').removeClass('invisible');
         jQuery('.publish-relationship-btn').addClass('disabled');
         jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});
+        view.incorrectCounter++;
+        jQuery('.incorrect-counter').text(view.incorrectCounter).removeClass('invisible').effect("highlight", {}, 3000);
       }
     },
 
@@ -527,6 +531,7 @@
       var view = this;
 
       view.model.set('ip_addr', app.userIP);
+      view.model.set('incorrect_guesses', view.incorrectCounter);
       view.model.set('complete', true);
       view.model.set('modified_at', new Date());
       view.model.save();
@@ -536,6 +541,8 @@
       jQuery('#relationship-link-dropdown').val("");
       jQuery('.publish-relationship-btn').addClass('disabled');
       jQuery('.publish-relationship-btn').css({'background': app.hexDarkGrey});
+      jQuery('.incorrect-counter').addClass('invisible');
+      view.incorrectCounter = 0;
 
       app.markAsComplete();
       app.determineNextStep();

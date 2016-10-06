@@ -108,7 +108,7 @@
           app.currentUser = app.users.findWhere({username: app.username});
 
           if (app.currentUser) {
-            jQuery('.username-display a').text(app.runId+"'s class - "+app.currentUser.get('display_name'));
+            jQuery('.username-display a').text(app.runId+" - "+app.currentUser.get('display_name'));
 
             hideLogin();
             showUsername();
@@ -643,7 +643,7 @@
         app.currentUser = app.users.findWhere({username: app.username});
 
         jQuery.cookie('brainstorm_mobile_username', app.username, { expires: 1, path: '/' });
-        jQuery('.username-display a').text(app.runId+"'s class - "+app.username);
+        jQuery('.username-display a').text(app.runId+" - "+app.username);
 
         hideLogin();
         hideUserLoginPicker();

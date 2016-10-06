@@ -401,6 +401,7 @@ textarea {
     display: inline-block;
     background-color: #F4F4F4;
     padding: 10px 20px;
+    font-size: 2em;
 }
 #relationship-link-container {
     display: inline-block;
@@ -408,6 +409,15 @@ textarea {
     line-height: 2.5em;
     vertical-align: text-bottom;
 }
+
+#relationship-screen .incorrect-counter {
+    float: right;
+    margin-top: 70px;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 45px;
+}
+
 
 /** vetting screen only **/
 .radio {
