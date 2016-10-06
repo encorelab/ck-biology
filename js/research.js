@@ -187,12 +187,12 @@
       if (lessonNum !== 1) {
         // go through all of the terms, check that each user has been assigned to is spelled correctly
         _.each(Skeletor.Model.awake.terms.where({"lesson": lessonNum}), function(term) {
-          if (term.get('assigned_to') === "" || app.users.findWhere({"username": term.get('assigned_to')}) == null) {
-            validFlag = false;
-            name = term.get('name');
-            type = "unassigned";
-            num = lessonNum;
-          }
+          // if (term.get('assigned_to') === "" || app.users.findWhere({"username": term.get('assigned_to')}) == null) {
+          //   validFlag = false;
+          //   name = term.get('name');
+          //   type = "unassigned";
+          //   num = lessonNum;
+          // }
           if (term.get('name') === "") {
             validFlag = false;
             name = term.get('name');

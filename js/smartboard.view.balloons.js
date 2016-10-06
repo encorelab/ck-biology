@@ -167,21 +167,23 @@
     },
 
     openCommentInputBox: function(ev) {
-      if (this.model.isUnlocked()) {
+      var model = this.checkForRepeatTerm(this.model);
+      if (model.isUnlocked()) {
         jQuery(ev.target).parent().children('.comment-container').toggleClass('opened');
         jQuery(ev.target).parent().children('.open-comment-btn').addClass('hidden');
-        this.model.lock();
-        this.model.save();
+        model.lock();
+        model.save();
       } else {
         jQuery().toastmessage('showErrorToast', this.model.get('locked') + " is currently working on this term...");
       }
     },
 
     submitComment: function(ev) {
+      var model = this.checkForRepeatTerm(this.model);
       // if condition to check for text length
       if (jQuery(ev.target).parent().children('.comment-input').val().length > 0) {
         // get comments array
-        var commentsArr = this.model.get('comments');
+        var commentsArr = model.get('comments');
         // push this comment to array
         var comment = {};
         comment.explanation = jQuery(ev.target).parent().children('.comment-input').val();
@@ -191,7 +193,7 @@
         comment.ip_addr = Skeletor.Mobile.userIP;
         commentsArr.push(comment);
         // set comments array
-        this.model.set('comments', commentsArr);
+        model.set('comments', commentsArr);
 
         // append the comment, since calling a full render is overkill (and won't work since findOrCreate)
         // this is sketchy in it's own way, desyncing the view from the model,
@@ -207,17 +209,33 @@
       jQuery(ev.target).parent().children('.comment-input').val("");
       jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
-      this.model.unlock();
-      this.model.save();
+      model.unlock();
+      model.save();
     },
 
     cancelComment: function(ev) {
+      var model = this.checkForRepeatTerm(this.model);
       // clear text, close and unlock
       jQuery(ev.target).parent().children('.comment-input').val("");
       jQuery(ev.target).parent().parent().children('.comment-container').removeClass('opened');
       jQuery(ev.target).parent().parent().children('.open-comment-btn').removeClass('hidden');
-      this.model.unlock();
-      this.model.save();
+      model.unlock();
+      model.save();
+    },
+
+    checkForRepeatTerm: function(model) {
+      if (model.get('assigned_to') === "") {
+        // we're now going to be rendering the model from a previous lesson, previously completed
+        var modelArr = Skeletor.Model.awake.terms.filter(function(term) {
+          return term.get('name') === model.get('name') && term.get('assigned_to') !== "";
+        });
+        if (modelArr.length > 1) {
+          console.err("Database validation issue: multiple terms with no assigned_to. Look into " + modelArr[0].get('name'));
+        }
+        return modelArr[0];
+      } else {
+        return model;
+      }
     },
 
     render: function() {
@@ -226,14 +244,19 @@
       // call parent's render
       Smartboard.View.Balloon.prototype.render.apply(this, arguments);
 
-      if (balloon.model.get('complete')) {
+      // Per Alisa's request - repeated terms are not to be assigned, do not get redefined.
+      // Rather, we find the version of them (same name) that was previously completed and show that instead.
+      // This is throwing up all sorts of alarm bells, but we'll keep it for now. TEST THE CRAP OUT OF THIS
+      var model = this.checkForRepeatTerm(balloon.model);
+
+      if (model.get('complete')) {
         balloon.$el.removeClass('unpublished');
       } else {
         balloon.$el.addClass('unpublished');
       }
 
       var conflictFlag = false;
-      _.each(balloon.model.get('vettings'), function(vet) {
+      _.each(model.get('vettings'), function(vet) {
         if (vet.correct === false) {
           conflictFlag = true;
         }
@@ -247,11 +270,11 @@
       // add title
       var title = balloon.findOrCreate('.title', "<h3 class='title'></h3>");
       var titleText = '';
-      if (balloon.model.get('name')) {
-        if (balloon.model.get('name').length > 35) {
-          titleText = balloon.model.get('name').slice(0, 32) + '...';
+      if (model.get('name')) {
+        if (model.get('name').length > 35) {
+          titleText = model.get('name').slice(0, 32) + '...';
         } else {
-          titleText = balloon.model.get('name');
+          titleText = model.get('name');
         }
       }
       title.text(titleText);
@@ -259,19 +282,19 @@
       // add author and created at
       var noteAuthor = balloon.findOrCreate('.author', "<div class='author'></div>");
       // they're getting rendered even if they aren't complete (could switch to check on complete for all these...)
-      if (balloon.model.get('submitted_at')) {
-        noteAuthor.text(balloon.model.get('assigned_to') + " - " + balloon.model.get("submitted_at").toDateString() + ", " + balloon.model.get("submitted_at").toLocaleTimeString());
+      if (model.get('submitted_at')) {
+        noteAuthor.text(model.get('assigned_to') + " - " + model.get("submitted_at").toDateString() + ", " + model.get("submitted_at").toLocaleTimeString());
       } else {
-        noteAuthor.text(balloon.model.get('assigned_to'));
+        noteAuthor.text(model.get('assigned_to'));
       }
 
       // add content
       var noteBody = balloon.findOrCreate('.body', "<div class='body'></div>");
-      noteBody.text(balloon.model.get('explanation'));
+      noteBody.text(model.get('explanation'));
 
       // add vetting
       var vetEl = "<div class='vetting'>";
-      _.each(balloon.model.get('vettings'), function(vet) {
+      _.each(model.get('vettings'), function(vet) {
         vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
         if (vet.correct === true) {
           vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
@@ -284,7 +307,7 @@
 
       // add media
       var mediaEl = "<div class='media-container'>";
-      _.each(balloon.model.get('media'), function(url) {
+      _.each(model.get('media'), function(url) {
         mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='img-responsive'></img></span>"
       });
       mediaEl += "</div>";
@@ -292,7 +315,7 @@
 
       // add relationships
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('lesson') === Skeletor.Mobile.lesson && rel.get('complete') && (rel.get('from') === balloon.model.get('name') || rel.get('to') === balloon.model.get('name'));
+        return rel.get('lesson') === Skeletor.Mobile.lesson && rel.get('complete') && (rel.get('from') === model.get('name') || rel.get('to') === model.get('name'));
       });
       var relEl = "<div class='relationship'>";
       _.each(filteredRelationships, function(rel) {
@@ -306,7 +329,7 @@
 
       // all comments
       var comEl = "<div class='comments'>";
-      _.each(balloon.model.get('comments'), function(comment) {
+      _.each(model.get('comments'), function(comment) {
         comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
         comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
       });
