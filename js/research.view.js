@@ -136,6 +136,8 @@
       });
       jQuery('#home-container').html(homeEl);
 
+
+// DID I MESS SOMETHING UP HERE?
       // fill in the progress bars
       view.collection.each(function(lesson) {
         if (app.teacherFlag === false) {

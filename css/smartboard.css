@@ -288,12 +288,10 @@ button:hover {
 .content.balloon.opened .media-container {
   display: block;
   margin-left: 10px;
-  height: 200px;
   overflow: hidden;
 }
 .content.balloon.opened .media {
   display: inline-block;
-  /* width: 120px; */
   height: 100%;
   padding: 0 5px;
   width: 100%;

@@ -174,6 +174,10 @@
   var pullIPInformation = function() {
     jQuery.getJSON("https://jsonip.com/?callback=?", function (data) {
       app.userIP = data.ip;
+      var ipAddrArr = app.currentUser.get('ip_addrs');
+      ipAddrArr.push(app.userIP);
+      app.currentUser.set('ip_addrs', _.uniq(ipAddrArr));
+      app.currentUser.save();
     });
   };
 

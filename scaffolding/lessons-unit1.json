@@ -5,7 +5,8 @@
         "vetting_tasks": 1,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Functional Groups & Reaction Types",
@@ -13,7 +14,8 @@
         "vetting_tasks": 2,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Macromolecules: nucleic acids",
@@ -21,7 +23,8 @@
         "vetting_tasks": 3,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Macromolecules: carbohydrates & lipids",
@@ -29,7 +32,8 @@
         "vetting_tasks": 2,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Macromolecules: proteins",
@@ -37,7 +41,8 @@
         "vetting_tasks": 2,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Thermodynamics & Enzyme catalysis",
@@ -45,7 +50,8 @@
         "vetting_tasks": 2,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
     },
     {
         "title": "Cell membrane: structure & function",
@@ -53,6 +59,34 @@
         "vetting_tasks": 2,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
+    },
+    {
+        "title": "Review 1",
+        "number": 8,
+        "vetting_tasks": 1,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "review1"
+    },
+    {
+        "title": "Review 2",
+        "number": 9,
+        "vetting_tasks": 1,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "review2"
+    },
+    {
+        "title": "Review 3",
+        "number": 8,
+        "vetting_tasks": 1,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "review3"
     }
 ]
