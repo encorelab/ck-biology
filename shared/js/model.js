@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['states', 'relationships', 'terms', 'lessons'];
+    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -146,17 +146,17 @@
       };
 
       // board insists and this could be used for PAUSE
-      this.State = this.db.Document('states').extend({
-        defaults: {
-          'created_at': new Date(),
-          'modified_at': new Date(),
-          'paused': false
-        }
-      });
+      // this.State = this.db.Document('states').extend({
+      //   defaults: {
+      //     'created_at': new Date(),
+      //     'modified_at': new Date(),
+      //     'paused': false
+      //   }
+      // });
 
-      this.States = this.db.Collection('states').extend({
-        model: Skeletor.Model.State
-      });
+      // this.States = this.db.Collection('states').extend({
+      //   model: Skeletor.Model.State
+      // });
 
       this.Term = this.db.Document('terms').extend({
         defaults: {
@@ -181,6 +181,20 @@
 
       this.Relationships = this.db.Collection('relationships').extend({
         model: Skeletor.Model.Relationship
+      });
+
+      this.Article = this.db.Document('articles').extend({
+        defaults: {
+          'created_at': new Date(),
+          'modified_at': new Date(),
+          'users': [],
+          'user_associated_terms': [],
+          'group_associated_terms': []
+        }
+      });
+
+      this.Articles = this.db.Collection('articles').extend({
+        model: Skeletor.Model.Article
       });
 
       this.Lesson = this.db.Document('lessons').extend({

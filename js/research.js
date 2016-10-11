@@ -637,6 +637,18 @@
     return completedVettings.length;
   };
 
+  app.getMyField = function(username) {
+    var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
+      return _.contains(article.get('users'), app.username)
+    });
+
+    if (_.first(myArticle)) {
+      return _.first(myArticle).get('field');
+    } else {
+      return null;
+    }
+  };
+
   app.parseExtension = function(url) {
     return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
   };

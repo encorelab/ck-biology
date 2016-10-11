@@ -65,7 +65,6 @@
     {
         "title": "Review 1",
         "number": 8,
-        "vetting_tasks": 1,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z",
@@ -74,7 +73,6 @@
     {
         "title": "Review 2",
         "number": 9,
-        "vetting_tasks": 1,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z",
@@ -82,8 +80,7 @@
     },
     {
         "title": "Review 3",
-        "number": 8,
-        "vetting_tasks": 1,
+        "number": 10,
         "enabled": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z",

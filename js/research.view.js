@@ -54,19 +54,31 @@
     },
 
     chooseLesson: function(ev) {
+      var view = this;
       // check which lesson from data value
       app.lesson = jQuery(ev.target).data('lesson');
       Skeletor.Smartboard.wall.render();
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
+      // if student
       if (app.teacherFlag === false) {
-        app.buildContributionArray();
         jQuery('#contribution-nav-btn').addClass('active');
-        app.determineNextStep();
+        // if review section
+        if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
+          if (app.getMyField(app.username) === null) {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#choose-article-screen').removeClass('hidden');
+            app.chooseArticleView.render();
+          } else {
+            console.log('Moving to article pdf screen... tbd');
+          }
+        } else {
+          app.buildContributionArray();
+          app.determineNextStep();
+        }
       } else {
         jQuery('#knowledge-base-nav-btn').addClass('active');
-        Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
         jQuery('#wall').removeClass('hidden');
       }
     },
@@ -136,8 +148,6 @@
       });
       jQuery('#home-container').html(homeEl);
 
-
-// DID I MESS SOMETHING UP HERE?
       // fill in the progress bars
       view.collection.each(function(lesson) {
         if (app.teacherFlag === false) {
@@ -797,6 +807,72 @@
       view.checkForAllowedToPublish();
     }
   });
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ****************** CHOOSE ARTICLE VIEW ********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ChooseArticleView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ChooseArticleView...', view.el);
+    },
+
+    events: {
+      'click #choose-article-container img' : 'chooseField'
+    },
+
+    chooseField: function(ev) {
+      var view = this;
+
+      var model = view.collection.findWhere({"field": jQuery(ev.target).data('field')})
+
+      if (model.get('users').length < 4) {
+        var usersArr = model.get('users');
+        usersArr.push(app.username);
+        model.set('users', usersArr);
+        model.save();
+      } else {
+        jQuery().toastmessage('showErrorToast', "This article has already been chosen by the maximum number of students");
+      }
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering ChooseArticleView...");
+
+      view.collection.comparator = function(model) {
+        return model.get('field');
+      };
+      view.collection.sort();
+
+      // create the html for the buttons and progress bars
+      var fieldsEl = '';
+      view.collection.each(function(article) {
+        var name = article.get('field');
+        var image = article.get('field_img');
+
+        var el = '<div class="article-column-container">';
+        el += '<img src="'+image+'" data-field="'+name+'"></img><h3>'+name+'</h3>';
+        el += '</div>';
+
+        fieldsEl += el;
+      });
+      jQuery('#choose-article-container').html(fieldsEl);
+    }
+  });
+
+
+
+
+
+
+
 
 
   this.Skeletor = Skeletor;
