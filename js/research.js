@@ -42,6 +42,7 @@
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
+  app.chooseArticleView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -343,6 +344,13 @@
           collection: Skeletor.Model.awake.terms
         });
       }
+
+      if (app.chooseArticleView === null) {
+        app.chooseArticleView = new app.View.ChooseArticleView({
+          el: '#choose-article-screen',
+          collection: Skeletor.Model.awake.articles
+        });
+      }
     }
     else {
       if (app.teacherView === null) {
@@ -527,7 +535,7 @@
       app.vettingView.render();
     } else {
       // all possible vets are done
-      if (getMyCompleteVettings(app.lesson) === getMyAllPossibleVettings(app.username, app.lesson)) {
+      if (getMyCompleteVettings(app.username, app.lesson) === getMyAllPossibleVettings(app.lesson)) {
         jQuery().toastmessage('showSuccessToast', "Thank you. You have completed all possible tasks!");
       } else {
         jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
@@ -562,7 +570,7 @@
     //console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
     //console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(user, lessonNum));
 
-    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(user, lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
+    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(app.username, lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
     if (!noMax && percent > 100) {
       percent = 100;
@@ -608,9 +616,9 @@
     return Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
   };
 
-  var getMyCompleteVettings = function(user, lessonNum) {
+  var getMyCompleteVettings = function(username, lessonNum) {
     var myCompletedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
-      return _.contains(term.get('vetted_by'), user);
+      return _.contains(term.get('vetted_by'), username);
     });
     return myCompletedVettings.length;
   };
