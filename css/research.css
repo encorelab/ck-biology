@@ -469,6 +469,16 @@ textarea {
 }
 
 
+/** attach terms screen **/
+#attach-terms-pdf-container {
+    margin-top: 100px;
+}
+
+#attach-terms-pdf-content {
+    width: 700px;
+    height: 500px;
+}
+
 /********** GLOBAL **********/
 
 body, html {

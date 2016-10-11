@@ -9,6 +9,7 @@
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="../bower_components/jquery-toastmessage-plugin/src/main/resources/css/jquery.toastmessage.css" rel="stylesheet">
+    <link href="../bower_components/multiselect/dist/css/bootstrap-multiselect.css" rel="stylesheet">
 
     <link href='///fonts.googleapis.com/css?family=Open+Sans:300italic,400,600' rel='stylesheet' type='text/css'>
 
@@ -28,6 +29,8 @@
     <script type="text/javascript" src="node_modules/backbone.drowsy.encorelab/wakeful.js"></script>
 
     <script type="text/javascript" src="bower_components/jquery-toastmessage-plugin/src/main/javascript/jquery.toastmessage.js"></script>
+    <script type="text/javascript" src="bower_components/multiselect/dist/js/bootstrap-multiselect.js"></script>
+
     <script type="text/javascript" src="bower_components/jquery.cookie/jquery.cookie.js"></script>
     <script type="text/javascript" src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script type="text/javascript" src="bower_components/purl/purl.js"></script>
@@ -43,6 +46,7 @@
     <script type="text/javascript" src="js/smartboard.view.js"></script>
     <script type="text/javascript" src="js/smartboard.view.wall.js"></script>
     <script type="text/javascript" src="js/smartboard.view.balloons.js"></script>
+
 </head>
 
 <body>
@@ -51,7 +55,6 @@
             <div class="navbar-header">
                 <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                    <span class="sr-only">Toggle navigation</span>
-                   <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
@@ -64,7 +67,6 @@
                     <li id="home-nav-btn" class="goto-home-btn top-nav-btn hidden"><a href="#">Home</a></li>
                     <li id="contribution-nav-btn" class="goto-contribution-btn top-nav-btn hidden"><a href="#">My Contribution</a></li>
                     <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn hidden"><a href="#">Knowledge Base</a></li>
-                    <li id="testing-nav-btn" class="goto-testing-btn top-nav-btn hidden"><a href="#">Testing Area</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active username-display"><a></a></li>
@@ -73,24 +75,6 @@
             </div>
         </div>
     </nav>
-
-
-    <!-- ********************************************************* -->
-    <!-- ************************* TESTING *********************** -->
-    <!-- ********************************************************* -->
-
-    <div id="testing-screen" class="container-fluid user-screen">
-        <div class="row">
-            <div class="inner-wrapper col-xs-12">
-                <!-- <iframe src="https://docs.google.com/document/d/1s3hJTaRPnH66tvrfZreA48waUGIl-Pl7IQD-XHz_4i0/pub?embedded=true" style="margin-top:100px; width:600px; height:500px;" frameborder="0"></iframe> -->
-                <div id="pdf" style="margin-top:100px;">
-                  <object width="700" height="500" type="application/pdf" data="test.pdf?#zoom=80&scrollbar=0&toolbar=0&navpanes=0" id="pdf_content">
-                    <p>PDF cannot be displayed</p>
-                  </object>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -292,6 +276,30 @@
             <div class="inner-wrapper col-xs-12">
                 <h2>Choose a field of research:</h2>
                 <div id="choose-article-container">
+                    <!-- filled by research.view.js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- ********************************************************* -->
+    <!-- *********************** ATTACH TERMS ******************** -->
+    <!-- ********************************************************* -->
+
+    <div id="attach-terms-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <!-- <iframe src="https://docs.google.com/document/d/1s3hJTaRPnH66tvrfZreA48waUGIl-Pl7IQD-XHz_4i0/pub?embedded=true" style="margin-top:100px; width:600px; height:500px;" frameborder="0"></iframe> -->
+                <div id="attach-terms-pdf-container">
+                    <!-- filled by research.view.js -->
+                </div>
+                <div id="attach-terms-terms-container">
                     <!-- filled by research.view.js -->
                 </div>
             </div>

@@ -66,12 +66,17 @@
         jQuery('#contribution-nav-btn').addClass('active');
         // if review section
         if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
           if (app.getMyField(app.username) === null) {
-            jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#choose-article-screen').removeClass('hidden');
             app.chooseArticleView.render();
           } else {
-            console.log('Moving to article pdf screen... tbd');
+            jQuery('#attach-terms-screen').removeClass('hidden');
+            app.attachTermsView = new app.View.AttachTermsView({
+              el: '#attach-terms-screen',
+              model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+            });
+            app.attachTermsView.render();
           }
         } else {
           app.buildContributionArray();
@@ -837,6 +842,14 @@
         usersArr.push(app.username);
         model.set('users', usersArr);
         model.save();
+
+        app.hideAllContainers();
+        app.attachTermsView = new app.View.AttachTermsView({
+          el: '#attach-terms-screen',
+          model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+        });
+        app.attachTermsView.render();
+        jQuery('#attach-terms-screen').removeClass('hidden');
       } else {
         jQuery().toastmessage('showErrorToast', "This article has already been chosen by the maximum number of students");
       }
@@ -870,7 +883,53 @@
 
 
 
+  /***********************************************************
+   ***********************************************************
+   ******************** ATTACH TERMS VIEW ********************
+   ***********************************************************
+   ***********************************************************/
 
+  app.View.AttachTermsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing AttachTermsView...', view.el);
+    },
+
+    events: {
+      //'click #choose-article-container img' : 'chooseField'
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering AttachTermsView...");
+
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      jQuery('#attach-terms-pdf-container').html(objEl);
+
+      // http://davidstutz.github.io/bootstrap-multiselect/ for API
+
+      // set up the dropdown types by eaching over the lessons
+      _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
+        var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
+        jQuery('#attach-terms-terms-container').append(el);
+        jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect();
+      });
+
+      // each over the terms and add to dropdown based on term.get('lesson')
+      Skeletor.Model.awake.terms.comparator = function(model) {
+        return model.get('name').toLowerCase();
+      };
+      Skeletor.Model.awake.terms.sort();
+      Skeletor.Model.awake.terms.each(function(term) {
+        var name = term.get('name');
+        jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name,name));
+      });
+
+      jQuery('.lesson-dropdown').each(function() {
+        jQuery(this).multiselect('rebuild');
+      });
+    }
+  });
 
 
 

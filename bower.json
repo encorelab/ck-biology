@@ -22,6 +22,10 @@
     "purl": "https://github.com/allmarkedup/purl.git#~2.3.1",
     "jquery-ui": "~1.10",
     "highcharts": "~4.1.9",
-    "progressbar.js": "~1.0.1"
+    "progressbar.js": "~1.0.1",
+    "multiselect": "https://github.com/davidstutz/bootstrap-multiselect.git"
+  },
+  "resolutions": {
+    "platinum-bluetooth": "^1.0.0"
   }
 }

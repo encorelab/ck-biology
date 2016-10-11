@@ -43,6 +43,7 @@
   app.relationshipView = null;
   app.vettingView = null;
   app.chooseArticleView = null;
+  app.attachTermsView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -296,10 +297,6 @@
           jQuery('#knowledge-base-nav-btn').addClass('active');
           Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
           jQuery('#wall').removeClass('hidden');
-        } else if (jQuery(this).hasClass('goto-testing-btn')) {
-          app.hideAllContainers();
-          jQuery('#testing-nav-btn').addClass('active');
-          jQuery('#testing-screen').removeClass('hidden');
         } else {
           console.log('ERROR: unknown nav button');
         }
