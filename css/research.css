@@ -230,12 +230,14 @@ textarea {
 }
 #teacher-screen h1 {
     display: inline;
+    font-weight: 500;
 }
 #teacher-screen h2 {
     text-align: left;
     display: inline-block;
     width: 120px;
     font-size: 20px;
+    vertical-align: middle;
 }
 #teacher-screen .icon {
     margin-left: 50px;
