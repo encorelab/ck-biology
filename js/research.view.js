@@ -896,7 +896,7 @@
     },
 
     events: {
-      //'click #choose-article-container img' : 'chooseField'
+      'click .lesson-dropdown option' : 'renderTerms'
     },
 
     render: function () {
@@ -912,7 +912,11 @@
       _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
         var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
         jQuery('#attach-terms-terms-container').append(el);
-        jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect();
+        jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect({
+          onChange: function(option, checked, select) {
+            view.renderTerms(option);
+          }
+        });
       });
 
       // each over the terms and add to dropdown based on term.get('lesson')
@@ -925,9 +929,16 @@
         jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name,name));
       });
 
+      // needs a rebuild to show all the terms
       jQuery('.lesson-dropdown').each(function() {
         jQuery(this).multiselect('rebuild');
       });
+    },
+
+    renderTerms: function(option) {
+      //jQuery('#attach-terms-selected-container').append(jQuery(option).val());
+      console.log('rendering...')
+      // START HERE
     }
   });
 

@@ -557,17 +557,17 @@
     }
   }
 
-  app.getMyContributionPercent = function(user, lessonNum, noMax) {
-    var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: user}).length;
-    var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: user, complete: true}).length;
+  app.getMyContributionPercent = function(username, lessonNum, noMax) {
+    var myTotalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: username}).length;
+    var myCompleteTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, assigned_to: username, complete: true}).length;
 
-    var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: user}).length;
-    var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: user, complete: true}).length;
+    var myTotalRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: username}).length;
+    var myCompleteRelationships = Skeletor.Model.awake.relationships.where({lesson: lessonNum, assigned_to: username, complete: true}).length;
 
     //console.log('My Totals: ' + myTotalTerms + ', ' + myTotalRelationships + ', ' + getMyTotalVettings(lessonNum));
-    //console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(user, lessonNum));
+    //console.log('My Completes: ' + myCompleteTerms + ', ' + myCompleteRelationships + ', ' + getMyCompleteVettings(username, lessonNum));
 
-    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(app.username, lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
+    var percent = (myCompleteTerms + myCompleteRelationships + getMyCompleteVettings(username, lessonNum)) / (myTotalTerms + myTotalRelationships + getMyTotalVettings(lessonNum)) * 100;
 
     if (!noMax && percent > 100) {
       percent = 100;
@@ -579,6 +579,8 @@
   };
 
   app.getCommunityContributionPercent = function(lessonNum) {
+    var totalStudents = app.users.where({user_role: "student"}).length;
+
     var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
     var completeTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, complete: true}).length;
 
@@ -589,8 +591,6 @@
       return rel.get('lesson') === lessonNum && rel.get('complete') === true && rel.get('link').length > 0;
     }).length;
 
-    var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
-    var totalStudents = app.users.where({user_role: "student"}).length;
     var totalVettings = totalTerms * app.numVettingTasks[lessonNum - 1];
 
     //console.log('Community Totals: ' + totalTerms + ', ' + totalRelationships + ', ' + totalVettings);
@@ -628,10 +628,16 @@
   };
 
   var getCommunityCompleteVettings = function(lessonNum) {
-    var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
-      return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
+    // var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
+    //   return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
+    // });
+    // return completedVettings.length;
+
+    var count = 0;
+    _.each(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
+      count += term.get('vetted_by').length;
     });
-    return completedVettings.length;
+    return count;
   };
 
   app.getMyField = function(username) {
