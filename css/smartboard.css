@@ -286,9 +286,13 @@ button:hover {
   color: #7F8C8D; /* MD ASBESTOS */
 }
 .content.balloon.opened .media-container {
-  display: block;
+  /* display: block; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   margin-left: 10px;
   overflow: hidden;
+  margin-top: 20px;
 }
 .content.balloon.opened .media {
   display: inline-block;
@@ -296,6 +300,10 @@ button:hover {
   padding: 0 5px;
   width: 100%;
   max-width: 180px;
+  margin-top: 0;
+}
+.content.balloon.opened .media img {
+  padding-bottom: 15px;
 }
 .content.balloon.opened .comments-author {
   color: #E74C3C; /* MD ALIZARIN */
@@ -322,7 +330,7 @@ button:hover {
   margin-left: 10px;
   background: #34495E;
   padding: 0 12px;
-  border-radius: 0.6em
+  border-radius: 0.6em;
   font-size: 18px;
 }
 
