@@ -531,15 +531,35 @@
       app.vettingView.model.save();
       app.vettingView.render();
     } else {
-      // all possible vets are done
-      if (getMyCompleteVettings(app.username, app.lesson) === getMyAllPossibleVettings(app.lesson)) {
-        jQuery().toastmessage('showSuccessToast', "Thank you. You have completed all possible tasks!");
-      } else {
-        jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
-      }
-      jQuery('.top-nav-btn').addClass('hidden');
-      jQuery('#home-screen').removeClass('hidden');
-      app.homeView.render();
+      // damn, this is getting gnarly. I think they have finally settled on a flow, so this needs a big refactor
+      jQuery('#tasks-completed-confirmation').dialog({
+        resizable: false,
+        height: 'auto',
+        width: 'auto',
+        modal: true,
+        dialogClass: 'no-close',
+        autoOpen: true,
+        buttons: {
+          Yes: function() {
+            jQuery(this).dialog('close');
+            app.shownContinueFlag = true;
+            if (getMyCompleteVettings(app.username, app.lesson) === getMyAllPossibleVettings(app.lesson)) {
+              jQuery().toastmessage('showSuccessToast', "Thank you. You have completed all possible tasks!");
+            } else {
+              jQuery().toastmessage('showWarningToast', "There are currently no terms for you to vet. Please return later after the community has provided more definitions");
+            }
+            jQuery('.top-nav-btn').addClass('hidden');
+            jQuery('#home-screen').removeClass('hidden');
+            app.homeView.render();
+          },
+          No: function() {
+            jQuery(this).dialog('close');
+            jQuery('.top-nav-btn').addClass('hidden');
+            jQuery('#home-screen').removeClass('hidden');
+            app.homeView.render();
+          }
+        }
+      });
     }
   }
 
