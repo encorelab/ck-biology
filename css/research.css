@@ -160,6 +160,10 @@ textarea {
     width: calc(170px + 30%);
     margin-bottom: 40px;
 }
+#home-screen .select-lesson-maria {
+    width: 732.81px;
+    text-align: center;
+}
 #home-screen h3 {
     display: inline-block;
     text-align: left;
@@ -205,10 +209,51 @@ textarea {
     left: -11%;
 }
 #home-screen input {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 40px;
-    transform: scale(2);
+    /* transform: scale(1.5); */
 }
+
+.checkbox-blue {
+  position: relative;
+  top: -0.375rem;
+  cursor: pointer;
+}
+.checkbox-blue:before {
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  content: "";
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #bdc3c7;
+}
+.checkbox-blue:checked:before {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  height: 1rem;
+  border-color: #009688;
+  border-top-style: none;
+  border-right-style: none;
+}
+.checkbox-blue:after {
+  content: "";
+  position: absolute;
+  top: -0.125rem;
+  left: 0;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+
 
 /*****************************************************/
 /*****************************************************/
@@ -800,7 +845,7 @@ input:disabled {
     } */
 
     #home-screen h3+img+h3, #teacher-screen h3+img+h3 {
-        vertical-align: baseline;
+        /* vertical-align: baseline; */
     }
     .lesson-title {
         font-size: 1.2em;

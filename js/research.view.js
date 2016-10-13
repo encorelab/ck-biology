@@ -124,9 +124,9 @@
         var el = '<div class="home-row-container">'
         if (app.teacherFlag === true) {
           if (lesson.get('enabled') === true) {
-            el += '<h3>Lesson Enabled</h3><input data-lesson="'+number+'" type="checkbox" value="on" checked />';
+            el += '<h3>Lesson Enabled</h3><input class="checkbox-blue" data-lesson="'+number+'" type="checkbox" value="on" checked />';
           } else {
-            el += '<h3>Lesson Enabled</h3><input data-lesson="'+number+'" type="checkbox" value="off"/>';
+            el += '<h3>Lesson Enabled</h3><input class="checkbox-blue" data-lesson="'+number+'" type="checkbox" value="off"/>';
           }
         }
 
