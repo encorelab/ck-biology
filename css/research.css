@@ -191,6 +191,10 @@ textarea {
 .home-btn:hover {
     color: #fff;
 }
+.home-row-container > h3 {
+    line-height: 1.42857143;
+    vertical-align: sub;
+}
 .lesson-title {
     font-size: 15px;
     margin-left: 20px;
