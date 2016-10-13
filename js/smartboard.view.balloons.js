@@ -317,15 +317,19 @@
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
         return rel.get('lesson') === Skeletor.Mobile.lesson && rel.get('complete') && (rel.get('from') === model.get('name') || rel.get('to') === model.get('name'));
       });
-      var relEl = "<div class='relationship'>";
-      _.each(filteredRelationships, function(rel) {
-        // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
-        if (rel.get('link').length > 0) {
-          relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
-        }
-      });
-      relEl += "</div>"
-      balloon.findOrCreate('.relationship', relEl);
+      // only add the container if there's something to add
+      if (filteredRelationships.length > 0) {
+        var relEl = "<div class='relationship'>";
+        _.each(filteredRelationships, function(rel) {
+          // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
+          if (rel.get('link').length > 0) {
+            relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
+          }
+        });
+        relEl += "</div>"
+        balloon.findOrCreate('.relationship', relEl);
+      }
+
 
       // all comments
       var comEl = "<div class='comments'>";

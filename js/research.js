@@ -632,7 +632,6 @@
     //   return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
     // });
     // return completedVettings.length;
-
     var count = 0;
     _.each(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
       count += term.get('vetted_by').length;
