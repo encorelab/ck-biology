@@ -896,47 +896,25 @@
     },
 
     events: {
-      'click .lesson-dropdown option' : 'renderTerms'
+      'click .submit-attached-terms-btn' : 'submitTerms'
     },
 
-    render: function () {
+    submitTerms: function() {
       var view = this;
-      console.log("Rendering AttachTermsView...");
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
-      jQuery('#attach-terms-pdf-container').html(objEl);
+    },
 
-      // http://davidstutz.github.io/bootstrap-multiselect/ for API
+    updateModel: function(option, checked) {
+      var view = this;
 
-      // set up the dropdown types by eaching over the lessons
-      _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
-        var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
-        jQuery('#attach-terms-terms-container').append(el);
-        jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect({
-          nonSelectedText: lesson.get('title'),
-          onChange: function(option, checked, select) {
-            view.renderTerms(lesson.get('number'), jQuery('#attach-terms-dropdown-'+lesson.get('number')).val());
-          }
-        });
-
-        // set up the containers that this terms will be shown in
-        jQuery('#attach-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
-      });
-
-      // each over the terms and add to dropdown based on term.get('lesson')
-      Skeletor.Model.awake.terms.comparator = function(model) {
-        return model.get('name').toLowerCase();
-      };
-      Skeletor.Model.awake.terms.sort();
-      Skeletor.Model.awake.terms.each(function(term) {
-        var name = term.get('name');
-        jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name,name));
-      });
-
-      // needs a rebuild to show all the terms
-      jQuery('.lesson-dropdown').each(function() {
-        jQuery(this).multiselect('rebuild');
-      });
+      var termsArr = view.model.get('user_associated_terms');
+      if (checked) {
+        termsArr.push(option.val());
+      } else {
+        termsArr = _.without(termsArr, option.val());
+      }
+      view.model.set('user_associated_terms', termsArr);
+      view.model.save();
     },
 
     renderTerms: function(containerNum, values) {
@@ -953,6 +931,60 @@
         jQuery('.submit-attached-terms-btn').addClass('disabled');
         jQuery('.submit-attached-terms-btn').css({'background': app.hexDarkGrey});
       }
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering AttachTermsView...");
+
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      jQuery('#attach-terms-pdf-container').html(objEl);
+
+      // http://davidstutz.github.io/bootstrap-multiselect/ for API
+
+      // set up the dropdown types by eaching over the lessons
+      _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
+        var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
+        jQuery('#attach-terms-terms-container').append(el);
+        jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect({
+          nonSelectedText: lesson.get('title'),
+          onChange: function(option, checked, select) {
+            view.renderTerms(lesson.get('number'), jQuery('#attach-terms-dropdown-'+lesson.get('number')).val());
+            view.updateModel(option, checked);
+          }
+        });
+
+        // set up the containers that this terms will be shown in
+        jQuery('#attach-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
+      });
+
+      // each over the terms and add to dropdown based on term.get('lesson')
+      Skeletor.Model.awake.terms.comparator = function(model) {
+        return model.get('name').toLowerCase();
+      };
+      Skeletor.Model.awake.terms.sort();
+      // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
+      Skeletor.Model.awake.terms.each(function(term) {
+        var name = term.get('name');
+        if (_.contains(view.model.get('user_associated_terms'), name)) {
+          // add the option to the dropdown, set to selected
+          jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name, name, true, true));
+          // add to the respective terms container
+          var container = jQuery('[data-term-container="'+term.get('lesson')+'"]');
+          jQuery(container).append('<div>'+name+'</div>');
+          // user should be able to submit immediately
+          jQuery('.submit-attached-terms-btn').removeClass('disabled');
+          jQuery('.submit-attached-terms-btn').css({'background': app.hexLightBlack});
+        } else {
+          // add the option to the dropdown
+          jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name, name));
+        }
+      });
+
+      // needs a rebuild to show all the terms
+      jQuery('.lesson-dropdown').each(function() {
+        jQuery(this).multiselect('rebuild');
+      });
     }
   });
 
