@@ -1010,7 +1010,13 @@
     },
 
     events: {
+      'click .submit-annotated-article-btn' : 'submitArticle'
+    },
 
+    submitArticle: function() {
+      jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
+      jQuery('#explain-terms-screen').addClass('hidden');
+      jQuery('#home-screen').removeClass('hidden');
     },
 
     render: function() {
