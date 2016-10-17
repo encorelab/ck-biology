@@ -913,10 +913,14 @@
         var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
         jQuery('#attach-terms-terms-container').append(el);
         jQuery('#attach-terms-dropdown-'+lesson.get('number')).multiselect({
+          nonSelectedText: lesson.get('title'),
           onChange: function(option, checked, select) {
-            view.renderTerms(option);
+            view.renderTerms(lesson.get('number'), jQuery('#attach-terms-dropdown-'+lesson.get('number')).val());
           }
         });
+
+        // set up the containers that this terms will be shown in
+        jQuery('#attach-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
       });
 
       // each over the terms and add to dropdown based on term.get('lesson')
@@ -935,14 +939,22 @@
       });
     },
 
-    renderTerms: function(option) {
-      //jQuery('#attach-terms-selected-container').append(jQuery(option).val());
-      console.log('rendering...')
-      // START HERE
+    renderTerms: function(containerNum, values) {
+      var container = jQuery('[data-term-container="'+containerNum+'"]');
+      jQuery(container).html('');
+      _.each(values, function(value) {
+        jQuery(container).append('<div>'+value+'</div>');
+      });
+
+      if (values && values.length > 0) {
+        jQuery('.submit-attached-terms-btn').removeClass('disabled');
+        jQuery('.submit-attached-terms-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-attached-terms-btn').addClass('disabled');
+        jQuery('.submit-attached-terms-btn').css({'background': app.hexDarkGrey});
+      }
     }
   });
-
-
 
 
   this.Skeletor = Skeletor;
