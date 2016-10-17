@@ -902,6 +902,14 @@
     submitTerms: function() {
       var view = this;
 
+      app.explainTermsView = new app.View.ExplainTermsView({
+        el: '#explain-terms-screen',
+        model: view.model
+      });
+      app.explainTermsView.render();
+
+      jQuery('#attach-terms-screen').addClass('hidden');
+      jQuery('#explain-terms-screen').removeClass('hidden');
     },
 
     updateModel: function(option, checked) {
@@ -985,6 +993,29 @@
       jQuery('.lesson-dropdown').each(function() {
         jQuery(this).multiselect('rebuild');
       });
+    }
+  });
+
+
+  /***********************************************************
+   ***********************************************************
+   ******************* EXPLAIN TERMS VIEW ********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ExplainTermsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ExplainTermsView...', view.el);
+    },
+
+    events: {
+
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering ExplainTermsView...");
     }
   });
 
