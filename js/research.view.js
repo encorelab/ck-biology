@@ -725,8 +725,6 @@
         // all of this date nonsense to work around the fact that wakeful/drowsy choke on the nested Date obj (b/c it isn't JSON)
         var d = new Date();
         var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
-        // var dateStr = d.toDateString() + ', ' + d.toTimeString();
-        // dateStr = dateStr.substring(0, dateStr.length - 15);
         var vettingObj = {};
 
         // if radio button is yes, we need to write explanation is blank. This is way over the top, but hoping to future proof since we're going to launch before we get to the knowledge base section
@@ -917,9 +915,24 @@
 
       var termsArr = view.model.get('user_associated_terms');
       if (checked) {
-        termsArr.push(option.val());
+        // add term
+        var d = new Date();
+        var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
+        var termObj = {};
+        termObj.name = option.val();
+        termObj.author = app.username;
+        termObj.explanation = '';
+        termObj.complete = false;
+        termObj.date = dateStr;
+        termObj.removed = false;
+        termsArr.push(termObj);
       } else {
-        termsArr = _.without(termsArr, option.val());
+        // remove term
+        _.each(termsArr, function(termObj, index) {
+          if (termObj.name === option.val()) {
+            termsArr.splice(index, 1);
+          }
+        });
       }
       view.model.set('user_associated_terms', termsArr);
       view.model.save();
@@ -974,7 +987,14 @@
       // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
       Skeletor.Model.awake.terms.each(function(term) {
         var name = term.get('name');
-        if (_.contains(view.model.get('user_associated_terms'), name)) {
+        // THERE MUST BE A BETTER WAY OF DOING THIS
+        var presentFlag = false;
+        _.each(view.model.get('user_associated_terms'), function(termObj) {
+          if (termObj.name === name) {
+            presentFlag = true;
+          }
+        });
+        if (presentFlag) {
           // add the option to the dropdown, set to selected
           jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name, name, true, true));
           // add to the respective terms container
@@ -1022,6 +1042,13 @@
     render: function() {
       var view = this;
       console.log("Rendering ExplainTermsView...");
+
+      jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
+
+      _.each(view.model.get('user_associated_terms'), function(term) {
+        var el = '<button>'+term.name+'</button>'
+        jQuery('#explain-terms-terms-container').append(el);
+      });
     }
   });
 

@@ -530,6 +530,13 @@ textarea {
     height: 500px;
 }
 
+
+/** explain terms screen **/
+#explain-terms-img-container img {
+    width: 300px;
+    height: 400px;
+}
+
 /********** GLOBAL **********/
 
 body, html {
