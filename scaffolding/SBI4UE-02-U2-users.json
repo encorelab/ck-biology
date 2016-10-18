@@ -1,0 +1,167 @@
+[
+    {
+        "username": "jamie",
+        "display_name": "Jamie",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "frank",
+        "display_name": "Frank",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "oliver",
+        "display_name": "Oliver",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "greg",
+        "display_name": "Greg",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "deanna",
+        "display_name": "Deanna",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "adam",
+        "display_name": "Adam",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "amanda",
+        "display_name": "Amanda",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "hannah",
+        "display_name": "Hannah",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "kanav",
+        "display_name": "Kanav",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "roksana",
+        "display_name": "Roksana",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "selina",
+        "display_name": "Selina",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "sam",
+        "display_name": "Sam",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "alex",
+        "display_name": "Alex",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "jason",
+        "display_name": "Jason",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "student",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "username": "maria",
+        "display_name": "Maria",
+        "tags": [
+            "SBI4UE-02-U2"
+        ],
+        "ip_addrs": [],
+        "user_role": "teacher",
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    }
+]
