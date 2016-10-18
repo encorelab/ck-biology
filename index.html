@@ -87,6 +87,7 @@
                     <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn hidden"><a href="#">Knowledge Base</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    <li id="report-bug-btn" class="active"><a class="fa fa-bug fa-2x"></a></li>
                     <li class="active username-display"><a></a></li>
                     <li id="logout-user" class="active logout-user"><a>Logout</a></li>
                 </ul>
@@ -371,6 +372,23 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="report-bug-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h3 class="modal-header">
+                    Bug Reporting
+                </h3>
+                <h3>
+                    <p>If you believe you have experienced a bug, please <a href="mailto:encorelab.toronto@gmail.com">email us</a> to let us know</p>
+                    <p>When reporting a bug, please include the user, the time and date, operating system and browser.</p>
+                    <p>Then detail the series of steps that lead up to the issue - please be as specific as possible here.</p>
+                    <p>Also include a screenshot if appropriate. You can take a screenshot on a Mac using cmd+shift+4. Screenshots on a Windows machine vary depending on the version of the operating system, see eg https://goo.gl/7u4P9i for examples of how to do this.</p>
+                </h3>
+            </div>
+        </div>
+
     </div>
 
     <!-- ok, regretting the jquery-ui approach for this. This is counter intuitive, and their docs are plain wrong about isOpen -->

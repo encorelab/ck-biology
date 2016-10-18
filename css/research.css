@@ -711,11 +711,6 @@ input:disabled {
     display: none;
 }
 
-/* DOES THIS DO ANYTHING??? */
-/* #login-button:disabled {
-    display: none;
-} */
-
 .login-button {
     margin: 1%;
     min-width: 7.3em;
@@ -727,6 +722,10 @@ input:disabled {
 
 .input-alert {
     margin-top: 2%;
+}
+
+#report-bug-modal {
+    margin-top: 100px;
 }
 
 

@@ -271,6 +271,10 @@
       logoutUser();
     });
 
+    jQuery('#report-bug-btn').click(function() {
+      showBugReporter();
+    });
+
     jQuery('.top-nav-btn').click(function() {
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
@@ -751,6 +755,10 @@
 
   var hideUsername = function() {
     jQuery('.username-display').addClass('hidden');
+  };
+
+  var showBugReporter = function() {
+    jQuery('#report-bug-modal').modal();
   };
 
   var showRunPicker = function(runs) {
