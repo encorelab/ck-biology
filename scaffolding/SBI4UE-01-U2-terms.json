@@ -649,7 +649,7 @@
 {
   "name": "ATP",
   "lesson": 2,
-  "assigned_to": "riga",
+  "assigned_to": "",
   "complete": true,
   "locked": "",
   "media": [],
@@ -709,7 +709,7 @@
 {
   "name": "CO2",
   "lesson": 2,
-  "assigned_to": "jacob",
+  "assigned_to": "",
   "complete": true,
   "locked": "",
   "media": [],
@@ -853,7 +853,7 @@
 {
   "name": "H+ gradient",
   "lesson": 2,
-  "assigned_to": "sharon",
+  "assigned_to": "",
   "complete": true,
   "locked": "",
   "media": [],
