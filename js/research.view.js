@@ -1037,7 +1037,22 @@
     },
 
     events: {
+      'click .explain-term-btn'             : 'explainTerm',
       'click .submit-annotated-article-btn' : 'submitArticle'
+    },
+
+    explainTerm: function(ev) {
+      var view = this;
+      var termToExplain = jQuery(ev.target).data('term');
+      app.explainDetailsView = new app.View.ExplainDetailsView({
+        el: '#explain-terms-screen',
+        model: view.model,
+        term: termToExplain
+      });
+      app.explainDetailsView.render();
+
+      jQuery('#explain-terms-screen').addClass('hidden');
+      jQuery('#explain-details-screen').removeClass('hidden');
     },
 
     submitArticle: function() {
@@ -1053,11 +1068,56 @@
       jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
 
       _.each(view.model.get('user_associated_terms'), function(term) {
-        var el = '<button class="explain-term-btn">'+term.name+'</button>'
+        var el = '<button class="explain-term-btn" data-term="'+term.name+'">'+term.name+'</button>'
         jQuery('#explain-terms-terms-container').append(el);
       });
     }
   });
+
+
+  /***********************************************************
+   ***********************************************************
+   ****************** EXPLAIN DETAILS VIEW *******************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ExplainDetailsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ExplainDetailsView for', this.options.term);
+    },
+
+    events: {
+      'click .submit-explain-details-btn' : 'submitExplainDetails'
+    },
+
+    submitExplainDetails: function() {
+      jQuery('#explain-details-screen').addClass('hidden');
+      jQuery('#explain-terms-screen').removeClass('hidden');
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering ExplainDetailsView...");
+
+      var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});
+      // TODO: this wont work with repeated terms - check out the smarboard.view.balloon.js checkForRepeatedTerms function
+      // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
+      //   return term.get('name') === view.object.term
+      // });
+
+      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+        return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
+      });
+
+      //jQuery('#explain-details-term-container');
+
+
+      var titleEl = '<h3><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
+      jQuery('#explain-details-content-title').append(titleEl);
+    }
+  });
+
 
 
   this.Skeletor = Skeletor;

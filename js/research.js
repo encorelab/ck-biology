@@ -45,6 +45,7 @@
   app.chooseArticleView = null;
   app.attachTermsView = null;
   app.explainTermsView = null;
+  app.explainDetailsView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
