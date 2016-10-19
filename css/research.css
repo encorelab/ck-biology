@@ -537,6 +537,12 @@ textarea {
     height: 400px;
 }
 
+#explain-terms-screen .explain-term-btn {
+    background-color: #F1C40F;
+}
+
+
+
 /********** GLOBAL **********/
 
 body, html {
@@ -828,7 +834,8 @@ input:disabled {
 
     #definition-screen .inner-wrapper,
     #relationship-screen .inner-wrapper,
-    #vetting-screen .inner-wrapper {
+    #vetting-screen .inner-wrapper,
+    #explain-terms-screen .inner-wrapper {
         margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
     }

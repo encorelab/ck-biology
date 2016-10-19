@@ -333,13 +333,6 @@
         });
       }
 
-      if (app.relationshipView === null) {
-        app.relationshipView = new app.View.RelationshipView({
-          el: '#relationship-screen',
-          collection: Skeletor.Model.awake.relationships
-        });
-      }
-
       if (app.vettingView === null) {
         app.vettingView = new app.View.VettingView({
           el: '#vetting-screen',

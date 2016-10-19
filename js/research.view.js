@@ -79,6 +79,13 @@
             app.attachTermsView.render();
           }
         } else {
+          // doing this here now, because we need the lesson during the init
+          if (app.relationshipView === null) {
+            app.relationshipView = new app.View.RelationshipView({
+              el: '#relationship-screen',
+              collection: Skeletor.Model.awake.relationships
+            });
+          }
           app.buildContributionArray();
           app.determineNextStep();
         }
@@ -506,7 +513,7 @@
 
       // fill the link drop down
       var relationshipTypes = [];
-      view.collection.each(function(relationship) {
+      _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
         // handling the corner case of pre-populated linkages
         if (relationship.get('link').length > 0) {
           relationshipTypes.push(relationship.get('link'));
@@ -1046,7 +1053,7 @@
       jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
 
       _.each(view.model.get('user_associated_terms'), function(term) {
-        var el = '<button>'+term.name+'</button>'
+        var el = '<button class="explain-term-btn">'+term.name+'</button>'
         jQuery('#explain-terms-terms-container').append(el);
       });
     }
