@@ -714,8 +714,6 @@
     },
 
     checkForAllowedToPublish: function() {
-      var view = this;
-
       if (jQuery('#vetting-addon-input').val().length > 0 || jQuery('input:radio[name=yes]:checked').val() === "on") {
         jQuery('.publish-vetting-btn').css({'background': app.hexLightBlack});
       } else {
@@ -970,6 +968,9 @@
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
 
+      // clear everything out
+      jQuery('#attach-terms-terms-container').html('');
+      jQuery('#attach-terms-selected-container').html('');
       // set up the dropdown types by eaching over the lessons
       _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
         var el = '<select id="attach-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
@@ -1045,7 +1046,7 @@
       var view = this;
       var termToExplain = jQuery(ev.target).data('term');
       app.explainDetailsView = new app.View.ExplainDetailsView({
-        el: '#explain-terms-screen',
+        el: '#explain-details-screen',
         model: view.model,
         term: termToExplain
       });
@@ -1065,10 +1066,18 @@
       var view = this;
       console.log("Rendering ExplainTermsView...");
 
+      jQuery('#explain-terms-img-container').html('');
+      jQuery('#explain-terms-terms-container').html('');
+
       jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
 
       _.each(view.model.get('user_associated_terms'), function(term) {
-        var el = '<button class="explain-term-btn" data-term="'+term.name+'">'+term.name+'</button>'
+        var el = ''
+        if (term.explanation.length > 0) {
+          el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+        } else {
+          el = '<button class="explain-term-btn explain-term-uncomplete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+        }
         jQuery('#explain-terms-terms-container').append(el);
       });
     }
@@ -1084,14 +1093,36 @@
   app.View.ExplainDetailsView = Backbone.View.extend({
     initialize: function() {
       var view = this;
+      // passing in the term name with this.options.term. Good idea, bad idea?
       console.log('Initializing ExplainDetailsView for', this.options.term);
     },
 
     events: {
-      'click .submit-explain-details-btn' : 'submitExplainDetails'
+      'click .submit-explain-details-btn'        : 'submitExplainDetails',
+      'keyup #explain-details-content-container' : 'checkForAllowedToPublish'
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      if (jQuery('#explain-details-content-container').val().length > 0) {
+        jQuery('.submit-explain-details-btn').removeClass('disabled');
+        jQuery('.submit-explain-details-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-explain-details-btn').addClass('disabled');
+        jQuery('.submit-explain-details-btn').css({'background': app.hexDarkGrey});
+      }
     },
 
     submitExplainDetails: function() {
+      var view = this;
+
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          termObj.explanation = jQuery('#explain-details-content-container').val();
+          view.model.save();
+        }
+      });
       jQuery('#explain-details-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
     },
@@ -1100,6 +1131,16 @@
       var view = this;
       console.log("Rendering ExplainDetailsView...");
 
+      jQuery('#explain-details-content-title').html('');
+
+      // this is so fucking convoluted. Need to bug Matt next time about a cleaner way to do this - maybe offload to model?
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          jQuery('#explain-details-content-container').val(termObj.explanation);
+        }
+      });
+
+      // TODO: all of this
       var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});
       // TODO: this wont work with repeated terms - check out the smarboard.view.balloon.js checkForRepeatedTerms function
       // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
@@ -1115,6 +1156,8 @@
 
       var titleEl = '<h3><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
       jQuery('#explain-details-content-title').append(titleEl);
+
+      view.checkForAllowedToPublish();
     }
   });
 

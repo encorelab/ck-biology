@@ -537,10 +537,12 @@ textarea {
     height: 400px;
 }
 
-#explain-terms-screen .explain-term-btn {
+#explain-terms-screen .explain-term-uncomplete-btn {
     background-color: #F1C40F;
 }
-
+#explain-terms-screen .explain-term-complete-btn {
+    background-color: #34495E;
+}
 
 
 /********** GLOBAL **********/
