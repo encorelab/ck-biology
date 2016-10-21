@@ -996,7 +996,7 @@
       // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
       Skeletor.Model.awake.terms.each(function(term) {
         var name = term.get('name');
-        var termsArr = _.where(view.model.get('user_associated_terms'), {"name": name});
+        var termsArr = _.where(view.model.get('user_associated_terms'), {"name": name, "author": app.username});
         // if the user has previously selected this term
         if (termsArr.length > 0) {
           // add the option to the dropdown, set to selected
@@ -1067,7 +1067,8 @@
 
       jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
 
-      _.each(view.model.get('user_associated_terms'), function(term) {
+      var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
+      _.each(myTermsArr, function(term) {
         var el = ''
         if (term.explanation.length > 0) {
           el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
@@ -1139,8 +1140,6 @@
       // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
       //   return term.get('name') === view.object.term
       // });
-
-      // DOES THIS NEED TO REFER TO A
 
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
         return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
