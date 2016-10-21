@@ -670,6 +670,21 @@
     }
   };
 
+  app.checkForRepeatTerm = function(model) {
+    if (model.get('assigned_to') === "") {
+      // we're now going to be rendering the model from a previous lesson, previously completed
+      var modelArr = Skeletor.Model.awake.terms.filter(function(term) {
+        return term.get('name') === model.get('name') && term.get('assigned_to') !== "";
+      });
+      if (modelArr.length > 1) {
+        console.err("Database validation issue: repeated terms with assigned assigned_to. Look into " + modelArr[0].get('name'));
+      }
+      return modelArr[0];
+    } else {
+      return model;
+    }
+  },
+
   app.parseExtension = function(url) {
     return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
   };

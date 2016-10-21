@@ -1052,6 +1052,7 @@
       jQuery('#explain-details-screen').removeClass('hidden');
     },
 
+    // START HERE - multiple bindings, multiple toasts. The view is getting initialized repeatedly? Or bound?
     submitArticle: function() {
       jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
       jQuery('#explain-terms-screen').addClass('hidden');
@@ -1068,10 +1069,18 @@
       jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
-      _.each(myTermsArr, function(term) {
+      _.each(myTermsArr, function(term, index) {
         var el = ''
         if (term.explanation.length > 0) {
           el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+          // check if we should enable the finish button
+          if (myTermsArr.length-1 === index) {
+            jQuery('.submit-annotated-article-btn').removeClass('disabled');
+            jQuery('.submit-annotated-article-btn').css({'background': app.hexLightBlack});
+          } else {
+            jQuery('.submit-annotated-article-btn').addClass('disabled');
+            jQuery('.submit-annotated-article-btn').css({'background': app.hexDarkGrey});
+          }
         } else {
           el = '<button class="explain-term-btn explain-term-uncomplete-btn" data-term="'+term.name+'">'+term.name+'</button>';
         }
@@ -1122,6 +1131,7 @@
       });
       jQuery('#explain-details-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
+      app.explainTermsView.render();
     },
 
     render: function() {
@@ -1134,18 +1144,53 @@
       var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
       jQuery('#explain-details-content-container').val(termObj.explanation);
 
-      // TODO: all of this
-      var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});
-      // TODO: this wont work with repeated terms - check out the smartboard.view.balloon.js checkForRepeatedTerms function
-      // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
-      //   return term.get('name') === view.object.term
-      // });
+      // render the term content
+      jQuery('#explain-details-term-container').html('');
+      // sigh... in the event that there are two terms (second is assigned_to:"")
+      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
+      jQuery('#explain-details-term-container').append('<h3 class="explain-details-term-title"><b>'+term.get('name')+'</b></h3>');
+      var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
+      jQuery('#explain-details-term-container').append('<div class="explain-details-term-author"><b>'+authorText+'</b><div>');
+      jQuery('#explain-details-term-container').append('<div class="explain-details-term-explanation">'+term.get('explanation')+'<div>');
+      var vetEl = "<div class='vetting'>";
+      _.each(term.get('vettings'), function(vet) {
+        vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
+        if (vet.correct === true) {
+          vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
+        } else {
+          vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
+        }
+      });
+      vetEl += "</div>"
+      jQuery('#explain-details-term-container').append(vetEl);
+      var mediaEl = "<div class='media-container'>";
+      _.each(term.get('media'), function(url) {
+        mediaEl += "<span ><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
+      });
+      mediaEl += "</div>";
+      jQuery('#explain-details-term-container').append(mediaEl);
 
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
+        return rel.get('lesson') === app.lesson && (rel.get('from') === view.options.term || rel.get('to') === view.options.term);
       });
+      var relEl = "<div class='relationship'>";
+      _.each(filteredRelationships, function(rel) {
+        // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
+        if (rel.get('link').length > 0) {
+          relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
+        }
+      });
+      relEl += "</div>"
+      jQuery('#explain-details-term-container').append(relEl);
 
-      //jQuery('#explain-details-term-container');
+      var comEl = "<div class='comments'>";
+      _.each(term.get('comments'), function(comment) {
+        comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
+        comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
+      });
+      comEl += "</div>";
+      jQuery('#explain-details-term-container').append(relEl);
+
 
 
       var titleEl = '<h3><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
@@ -1154,7 +1199,6 @@
       view.checkForAllowedToPublish();
     }
   });
-
 
 
   this.Skeletor = Skeletor;

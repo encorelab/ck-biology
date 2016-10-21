@@ -538,9 +538,11 @@ textarea {
 }
 
 
-
 /** explain details screen **/
-
+#explain-details-screen .media {
+    height: 120px;
+    width: 120px;
+}
 
 
 /********** GLOBAL **********/
