@@ -5,7 +5,7 @@
         "to": "fermentation",
         "lesson": 2,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -15,7 +15,7 @@
         "to": "ATP",
         "lesson": 2,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -25,7 +25,7 @@
         "to": "proton motive force",
         "lesson": 2,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -35,7 +35,7 @@
         "to": "ATP",
         "lesson": 2,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -45,7 +45,7 @@
         "to": "FADH2",
         "lesson": 2,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -55,7 +55,7 @@
         "to": "CO2",
         "lesson": 2,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -65,7 +65,7 @@
         "to": "NADH",
         "lesson": 2,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -75,7 +75,7 @@
         "to": "mitochondria",
         "lesson": 2,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -85,17 +85,17 @@
         "to": "chloroplast (plants)",
         "lesson": 2,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "cytochrome",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "electron transport chain",
         "lesson": 2,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -105,7 +105,7 @@
         "to": "mitochondria",
         "lesson": 2,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -115,7 +115,7 @@
         "to": "chloroplast (plants)",
         "lesson": 2,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -125,7 +125,7 @@
         "to": "H2O",
         "lesson": 2,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -135,7 +135,7 @@
         "to": "H+ gradient",
         "lesson": 2,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -145,7 +145,7 @@
         "to": "glycolysis",
         "lesson": 2,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -155,7 +155,7 @@
         "to": "glycolysis",
         "lesson": 2,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -165,7 +165,7 @@
         "to": "electron carrier",
         "lesson": 2,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -175,7 +175,7 @@
         "to": "FADH2",
         "lesson": 2,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -185,7 +185,7 @@
         "to": "FAD",
         "lesson": 2,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -195,7 +195,7 @@
         "to": "electron transport chain",
         "lesson": 2,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -205,17 +205,17 @@
         "to": "anaerobic cellular respiration",
         "lesson": 2,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "glucose",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "glycolysis",
         "lesson": 2,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -225,7 +225,7 @@
         "to": "cytosol",
         "lesson": 2,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -235,7 +235,7 @@
         "to": "NADH",
         "lesson": 2,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -245,7 +245,7 @@
         "to": "pyruvate",
         "lesson": 2,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -255,7 +255,7 @@
         "to": "ATP",
         "lesson": 2,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -265,7 +265,7 @@
         "to": "proton motive force",
         "lesson": 2,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -275,7 +275,7 @@
         "to": "fermentation",
         "lesson": 2,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -285,7 +285,7 @@
         "to": "ATP",
         "lesson": 2,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -295,7 +295,7 @@
         "to": "electron carrier",
         "lesson": 2,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -305,7 +305,7 @@
         "to": "NADH",
         "lesson": 2,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -315,7 +315,7 @@
         "to": "NAD+",
         "lesson": 2,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -325,7 +325,7 @@
         "to": "electron transport chain",
         "lesson": 2,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -335,7 +335,7 @@
         "to": "ATP synthase",
         "lesson": 2,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -345,7 +345,7 @@
         "to": "mitochondria",
         "lesson": 2,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -355,7 +355,7 @@
         "to": "chloroplast (plants)",
         "lesson": 2,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -365,7 +365,7 @@
         "to": "chloroplast (plants)",
         "lesson": 2,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -375,27 +375,27 @@
         "to": "chemiosmosis",
         "lesson": 2,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "pyruvate",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "aerobic cellular respiration",
         "lesson": 2,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "pyruvate",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "anaerobic cellular respiration",
         "lesson": 2,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -405,7 +405,7 @@
         "to": "aerobic cellular respiration",
         "lesson": 2,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -415,7 +415,7 @@
         "to": "CO2",
         "lesson": 2,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -425,7 +425,7 @@
         "to": "acetyl CoA",
         "lesson": 2,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -435,37 +435,37 @@
         "to": "NADH",
         "lesson": 2,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
-        "from": "substrate-level phosphorylation",
+        "from": "reactant-level phosphorylation",
         "link": "occurs in",
         "to": "glycolysis",
         "lesson": 2,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
-        "from": "substrate-level phosphorylation",
+        "from": "reactant-level phosphorylation",
         "link": "occurs in",
         "to": "citric acid (Krebs) cycle",
         "lesson": 2,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
-        "from": "substrate-level phosphorylation",
+        "from": "reactant-level phosphorylation",
         "link": "occurs in",
         "to": "fermentation",
         "lesson": 2,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -475,7 +475,7 @@
         "to": "pigment",
         "lesson": 1,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -485,7 +485,7 @@
         "to": "pigment",
         "lesson": 1,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -495,7 +495,7 @@
         "to": "wavelength",
         "lesson": 1,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -505,7 +505,7 @@
         "to": "photoautotroph",
         "lesson": 1,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -515,7 +515,7 @@
         "to": "noncyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -525,7 +525,7 @@
         "to": "cyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -535,7 +535,7 @@
         "to": "plant",
         "lesson": 1,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -545,7 +545,7 @@
         "to": "plant",
         "lesson": 1,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -555,7 +555,7 @@
         "to": "plant",
         "lesson": 1,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -565,7 +565,7 @@
         "to": "accessory pigment",
         "lesson": 1,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -575,7 +575,7 @@
         "to": "pigment",
         "lesson": 1,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -585,7 +585,7 @@
         "to": "accessory pigment",
         "lesson": 1,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -595,7 +595,7 @@
         "to": "grana",
         "lesson": 1,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -605,7 +605,7 @@
         "to": "lumen",
         "lesson": 1,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -615,7 +615,7 @@
         "to": "stroma",
         "lesson": 1,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -625,17 +625,17 @@
         "to": "thylakoid",
         "lesson": 1,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "CO2",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "Calvin cycle",
         "lesson": 1,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -645,7 +645,7 @@
         "to": "stomata",
         "lesson": 1,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -655,7 +655,7 @@
         "to": "photoautotroph",
         "lesson": 1,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -665,7 +665,7 @@
         "to": "light dependent reaction",
         "lesson": 1,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -675,7 +675,7 @@
         "to": "Calvin cycle",
         "lesson": 1,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -685,7 +685,7 @@
         "to": "stomata",
         "lesson": 1,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -695,7 +695,7 @@
         "to": "mesophyll",
         "lesson": 1,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -705,7 +705,7 @@
         "to": "photosystem",
         "lesson": 1,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -715,7 +715,7 @@
         "to": "wavelength",
         "lesson": 1,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -725,7 +725,7 @@
         "to": "thylakoid membrane",
         "lesson": 1,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -735,7 +735,7 @@
         "to": "cyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -745,7 +745,7 @@
         "to": "noncyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -755,7 +755,7 @@
         "to": "Calvin cycle",
         "lesson": 1,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -765,7 +765,7 @@
         "to": "stroma",
         "lesson": 1,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -775,7 +775,7 @@
         "to": "chloroplast",
         "lesson": 1,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -785,7 +785,7 @@
         "to": "NADPH",
         "lesson": 1,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -795,7 +795,7 @@
         "to": "noncyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -805,7 +805,7 @@
         "to": "NADP+",
         "lesson": 1,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -815,7 +815,7 @@
         "to": "H+ gradient",
         "lesson": 1,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -825,17 +825,17 @@
         "to": "noncyclic photophosphorylation",
         "lesson": 1,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
         "from": "O2",
-        "link": "is a substrate in",
+        "link": "is a reactant in",
         "to": "photorespiration",
         "lesson": 1,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -845,7 +845,7 @@
         "to": "stomata",
         "lesson": 1,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -855,7 +855,7 @@
         "to": "special pair",
         "lesson": 1,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -865,7 +865,7 @@
         "to": "special pair",
         "lesson": 1,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -875,7 +875,7 @@
         "to": "autotroph",
         "lesson": 1,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -885,7 +885,7 @@
         "to": "light dependent reaction",
         "lesson": 1,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -895,7 +895,7 @@
         "to": "light independent reaction",
         "lesson": 1,
         "assigned_to": "jamie",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -905,7 +905,7 @@
         "to": "reaction center",
         "lesson": 1,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -915,7 +915,7 @@
         "to": "P680",
         "lesson": 1,
         "assigned_to": "oliver",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -925,7 +925,7 @@
         "to": "photosystem",
         "lesson": 1,
         "assigned_to": "greg",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -935,7 +935,7 @@
         "to": "P700",
         "lesson": 1,
         "assigned_to": "deanna",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -945,7 +945,7 @@
         "to": "photosystem",
         "lesson": 1,
         "assigned_to": "adam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -955,7 +955,7 @@
         "to": "photoautotroph",
         "lesson": 1,
         "assigned_to": "amanda",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -965,7 +965,7 @@
         "to": "chloroplast",
         "lesson": 1,
         "assigned_to": "hannah",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -975,7 +975,7 @@
         "to": "leaf",
         "lesson": 1,
         "assigned_to": "kanav",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -985,7 +985,7 @@
         "to": "primary electron acceptor",
         "lesson": 1,
         "assigned_to": "roksana",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -995,7 +995,7 @@
         "to": "special pair",
         "lesson": 1,
         "assigned_to": "selina",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1005,7 +1005,7 @@
         "to": "Calvin cycle",
         "lesson": 1,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1015,7 +1015,7 @@
         "to": "photorespiration",
         "lesson": 1,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1025,7 +1025,7 @@
         "to": "chlorophyll a",
         "lesson": 1,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1035,7 +1035,7 @@
         "to": "thylakoid membrane",
         "lesson": 1,
         "assigned_to": "sam",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1045,7 +1045,7 @@
         "to": "chlorophyll a",
         "lesson": 1,
         "assigned_to": "alex",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1055,7 +1055,7 @@
         "to": "cytochrome complex",
         "lesson": 1,
         "assigned_to": "jason",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
@@ -1065,7 +1065,7 @@
         "to": "ATP",
         "lesson": 2,
         "assigned_to": "frank",
-        "complete": true,
+        "complete": false,
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z"
     }

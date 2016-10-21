@@ -1140,7 +1140,7 @@
       //   return term.get('name') === view.object.term
       // });
 
-      // DOES THIS NEED TO REFER TO A USER
+      // DOES THIS NEED TO REFER TO A
 
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
         return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
