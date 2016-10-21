@@ -1129,15 +1129,18 @@
 
       jQuery('#explain-details-content-title').html('');
 
+      // if the user has previously defined this
       var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
       jQuery('#explain-details-content-container').val(termObj.explanation);
 
       // TODO: all of this
       var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});
-      // TODO: this wont work with repeated terms - check out the smarboard.view.balloon.js checkForRepeatedTerms function
+      // TODO: this wont work with repeated terms - check out the smartboard.view.balloon.js checkForRepeatedTerms function
       // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
       //   return term.get('name') === view.object.term
       // });
+
+      // DOES THIS NEED TO REFER TO A USER
 
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
         return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
