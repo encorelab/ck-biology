@@ -417,13 +417,6 @@ textarea {
     z-index: 999;
 }
 
-#definition-btn-container,
-#relationship-btn-container {
-/*     position: relative;
-    margin-top: 20px;
-    width: 70%; */
-}
-
 #definition-btn-container .fa-spinner,
 #vetting-btn-container .fa-spinner {
     font-size: 7em;
@@ -543,6 +536,11 @@ textarea {
 #explain-terms-screen .explain-term-complete-btn {
     background-color: #34495E;
 }
+
+
+
+/** explain details screen **/
+
 
 
 /********** GLOBAL **********/
@@ -750,54 +748,7 @@ input:disabled {
 /*Small devices PORTRAIT (tablets, more than 768px tall)*/
 @media all and (min-height: 768px) and (orientation: portrait) {
 
-/*     .username-display a {
-        max-width: 300px;
-        text-overflow: ellipsis;
-    }
 
-    .side-nav .btn-circular {
-        margin-left: -25px;
-    }
-
-    h2.box1 {
-        width: 495px;
-        margin-left: -10px;
-    }
-    h2.box3 {
-        width: 515px;
-        margin-left: -20px;
-    }
-
-    .definition,
-    .relationship {
-        padding: 5% 7% 0 1%;
-        height: 87%;
-    }
-    .definition-title,
-    .relationship-title {
-        height: 18%;
-    } */
-    /* TODO: this is guesswork, check me on the ipad */
-/*     .definition-body,
-    .relationship-body {
-        height: 57%;
-    }
-    .definition-url,
-    .relationship-url {
-        height: 57%;
-    } */
-    /* TODO check me in ipad */
-/*     .fa-file-image-o,
-    .fa-file-video-o {
-        font-size: 5em;
-        margin-left: 14px;
-    }
-    .fa-circle {
-        bottom: 1.5%;
-    }
-    .self-photo-query {
-        margin-left: 8%;
-    } */
 }
 
 /* Medium Devices (DESKTOPS, 992px and up) */
@@ -837,7 +788,8 @@ input:disabled {
     #definition-screen .inner-wrapper,
     #relationship-screen .inner-wrapper,
     #vetting-screen .inner-wrapper,
-    #explain-terms-screen .inner-wrapper {
+    #explain-terms-screen .inner-wrapper,
+    #explain-details-screen .inner-wrapper {
         margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
     }
@@ -854,14 +806,6 @@ input:disabled {
     .definition-container {
         /* padding-bottom: 25%; */ /* = width for a 1:1 aspect ratio */
     }
-/*     .fa-file-image-o,
-    .fa-file-video-o {
-        font-size: 9em;
-        margin-left: 21%;
-    }
-    .definition h3, .relationship h3 {
-        font-size: 20px;
-    } */
 
     #home-screen h3+img+h3, #teacher-screen h3+img+h3 {
         /* vertical-align: baseline; */
@@ -922,25 +866,6 @@ input:disabled {
 }
 .top-navigation>.active>a:hover {
     background-color: #07384c !important;
-}
-/* .inner-wrapper {
-    margin-top: 15px !important;
-    width: 100%;
-    padding: 0 40px;
-} */
-
-/* .col-xs-offset-2 {
-    margin-left: 0;
-} */
-/* .col-xs-9 {
-    width: 100%;
-} */
-
-
-.nav-forward-btn {
-    float: right;
-    margin-right: 6%;
-    margin-top: 10%;
 }
 
 .top-nav-btn>a{

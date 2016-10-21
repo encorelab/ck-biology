@@ -67,6 +67,7 @@
         // if review section
         if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#contribution-nav-btn').addClass('hidden');
           if (app.getMyField(app.username) === null) {
             jQuery('#choose-article-screen').removeClass('hidden');
             app.chooseArticleView.render();
@@ -995,14 +996,9 @@
       // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
       Skeletor.Model.awake.terms.each(function(term) {
         var name = term.get('name');
-        // THERE MUST BE A BETTER WAY OF DOING THIS
-        var presentFlag = false;
-        _.each(view.model.get('user_associated_terms'), function(termObj) {
-          if (termObj.name === name) {
-            presentFlag = true;
-          }
-        });
-        if (presentFlag) {
+        var termsArr = _.where(view.model.get('user_associated_terms'), {"name": name});
+        // if the user has previously selected this term
+        if (termsArr.length > 0) {
           // add the option to the dropdown, set to selected
           jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name, name, true, true));
           // add to the respective terms container
@@ -1133,12 +1129,8 @@
 
       jQuery('#explain-details-content-title').html('');
 
-      // this is so fucking convoluted. Need to bug Matt next time about a cleaner way to do this - maybe offload to model?
-      _.each(view.model.get('user_associated_terms'), function(termObj) {
-        if (termObj.name === view.options.term) {
-          jQuery('#explain-details-content-container').val(termObj.explanation);
-        }
-      });
+      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
+      jQuery('#explain-details-content-container').val(termObj.explanation);
 
       // TODO: all of this
       var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});

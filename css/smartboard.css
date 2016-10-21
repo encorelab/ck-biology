@@ -22,8 +22,10 @@ body {
   -moz-user-select: none;
   user-select: none;
   /* We need to revisit this */
-  width: 1430px;
-  height: 740px;
+  /* width: 1430px; */
+  width: 100%;
+  max-width: 1273px;
+  /* height: 740px; */
 }
 
 button {
