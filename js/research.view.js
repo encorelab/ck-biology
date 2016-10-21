@@ -67,6 +67,7 @@
         // if review section
         if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#contribution-nav-btn').addClass('hidden');
           if (app.getMyField(app.username) === null) {
             jQuery('#choose-article-screen').removeClass('hidden');
             app.chooseArticleView.render();
