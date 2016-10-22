@@ -163,6 +163,16 @@
 
       // fill in the progress bars
       view.collection.each(function(lesson) {
+        // if student, show both progress bars for all homework lessons
+        // if teacher, show only community progress bar for all homework lessons
+
+        // if review, make invisible (mostly to make the css easier)
+        if (lesson.get('kind') !== "homework") {
+          jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+        }
+
+        // if student
         if (app.teacherFlag === false) {
           var myPercent = '';
           if (app.getMyContributionPercent(app.username, lesson.get('number'), true) > 100) {
@@ -186,6 +196,7 @@
           myBar.animate(app.getMyContributionPercent(app.username, lesson.get('number')) / 100);
         }
 
+        // for students and teachers
         var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
           {
             easing: 'easeInOut',
@@ -1140,7 +1151,7 @@
       var view = this;
       console.log("Rendering ExplainDetailsView...");
 
-      jQuery('#explain-details-content-title').html('');
+      jQuery('#explain-details-content').html('');
 
       // if the user has previously defined this
       var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
@@ -1150,10 +1161,10 @@
       jQuery('#explain-details-term-container').html('');
       // sigh... in the event that there are two terms (second is assigned_to:"")
       var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
-      jQuery('#explain-details-term-container').append('<h3 class="explain-details-term-title"><b>'+term.get('name')+'</b></h3>');
+      jQuery('#explain-details-term-container').append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
       var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
-      jQuery('#explain-details-term-container').append('<div class="explain-details-term-author"><b>'+authorText+'</b><div>');
-      jQuery('#explain-details-term-container').append('<div class="explain-details-term-explanation">'+term.get('explanation')+'<div>');
+      jQuery('#explain-details-term-container').append('<div class="author"><b>'+authorText+'</b><div>');
+      jQuery('#explain-details-term-container').append('<div class="explanation">'+term.get('explanation')+'<div>');
       var vetEl = "<div class='vetting'>";
       _.each(term.get('vettings'), function(vet) {
         vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
@@ -1167,13 +1178,13 @@
       jQuery('#explain-details-term-container').append(vetEl);
       var mediaEl = "<div class='media-container'>";
       _.each(term.get('media'), function(url) {
-        mediaEl += "<span ><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
+        mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
       });
       mediaEl += "</div>";
       jQuery('#explain-details-term-container').append(mediaEl);
 
       var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('lesson') === app.lesson && (rel.get('from') === view.options.term || rel.get('to') === view.options.term);
+        return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
       });
       var relEl = "<div class='relationship'>";
       _.each(filteredRelationships, function(rel) {
@@ -1191,12 +1202,13 @@
         comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
       });
       comEl += "</div>";
-      jQuery('#explain-details-term-container').append(relEl);
+      jQuery('#explain-details-term-container').append(comEl);
 
 
-
-      var titleEl = '<h3><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
-      jQuery('#explain-details-content-title').append(titleEl);
+      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
+      jQuery('#explain-details-content').append(titleEl);
+      var entryEl = '<textarea id="explain-details-content-container"></textarea>';
+      jQuery('#explain-details-content').append(entryEl);
 
       view.checkForAllowedToPublish();
     }

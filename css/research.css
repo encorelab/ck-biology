@@ -539,11 +539,87 @@ textarea {
 
 
 /** explain details screen **/
-#explain-details-screen .media {
-    height: 120px;
-    width: 120px;
+#explain-details-term-container {
+    width: 47%;
+    float: left;
+}
+#explain-details-content {
+    width: 47%;
+    float: right;
 }
 
+/* copied from smartboard.css */
+#explain-details-screen .title, #explain-details-content-title {
+  font-size: 2em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+#explain-details-screen .author,
+#explain-details-screen .vetting-author,
+#explain-details-screen .comments-author {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1em;
+  margin: 5px 0 0;
+}
+#explain-details-screen .relationship {
+  display: block;
+  font-style: italic;
+  margin: 0px 20px 20px 0px;
+  padding: 10px;
+  background: #ecf0f1; /* MD CLOUDS */
+  font-size: 1.2em;
+  font-weight: 700;
+  border: 1px solid #34495e;;
+}
+#explain-details-screen .relationship > div {
+  margin-bottom: 5px;
+}
+#explain-details-screen .author {
+  color: #8e44ad; /* MD WISTERIA */
+}
+#explain-details-screen .body {
+  display: block;
+  margin-bottom: 10px;
+  color: #7F8C8D; /* MD ASBESTOS */
+  /*height: 250px;*/
+}
+#explain-details-screen .vetting-author {
+  color: #1abc9c; /* MD TURQUOISE */
+}
+#explain-details-screen .vetting-content {
+  display: block;
+  margin-bottom: 15px;
+  color: #7F8C8D; /* MD ASBESTOS */
+}
+#explain-details-screen .media-container {
+  /* display: block; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+#explain-details-screen .media {
+  display: inline-block;
+  height: 100%;
+  padding: 0 5px;
+  width: 100%;
+  max-width: 180px;
+  margin-top: 0;
+}
+#explain-details-screen .media img {
+  padding-bottom: 15px;
+}
+#explain-details-screen .comments-author {
+  color: #E74C3C; /* MD ALIZARIN */
+}
+#explain-details-screen .comments-content {
+  display: block;
+  margin-bottom: 5px;
+  color: #7F8C8D; /* MD ASBESTOS */
+}
 
 /********** GLOBAL **********/
 
