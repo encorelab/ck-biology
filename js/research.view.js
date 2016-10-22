@@ -45,7 +45,7 @@
   app.View.HomeView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing HomeView...', view.el);
+      console.log('Initializing HomeView...');
     },
 
     events: {
@@ -215,7 +215,7 @@
   app.View.TeacherView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing TeacherView...', view.el);
+      console.log('Initializing TeacherView...');
     },
 
     render: function () {
@@ -309,7 +309,7 @@
   app.View.DefinitionView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing DefinitionView...', view.el);
+      console.log('Initializing DefinitionView...');
 
       app.defBar = new ProgressBar.Line('#definition-my-progress-bar',
         {
@@ -501,7 +501,7 @@
   app.View.RelationshipView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing RelationshipView...', view.el);
+      console.log('Initializing RelationshipView...');
 
       app.relBar = new ProgressBar.Line('#relationship-my-progress-bar',
         {
@@ -598,7 +598,7 @@
   app.View.VettingView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing VettingView...', view.el);
+      console.log('Initializing VettingView...');
 
       app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar',
         {
@@ -829,7 +829,7 @@
   app.View.ChooseArticleView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing ChooseArticleView...', view.el);
+      console.log('Initializing ChooseArticleView...');
     },
 
     events: {
@@ -896,7 +896,7 @@
   app.View.AttachTermsView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing AttachTermsView...', view.el);
+      console.log('Initializing AttachTermsView...');
     },
 
     events: {
@@ -906,10 +906,12 @@
     submitTerms: function() {
       var view = this;
 
-      app.explainTermsView = new app.View.ExplainTermsView({
-        el: '#explain-terms-screen',
-        model: view.model
-      });
+      if (app.explainTermsView === null) {
+        app.explainTermsView = new app.View.ExplainTermsView({
+          el: '#explain-terms-screen',
+          model: view.model
+        });
+      }
       app.explainTermsView.render();
 
       jQuery('#attach-terms-screen').addClass('hidden');
@@ -1030,7 +1032,7 @@
   app.View.ExplainTermsView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing ExplainTermsView...', view.el);
+      console.log('Initializing ExplainTermsView...');
     },
 
     events: {
