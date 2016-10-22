@@ -543,7 +543,7 @@ textarea {
     width: 47%;
     float: left;
 }
-#explain-details-content {
+#explain-details-content-container {
     width: 47%;
     float: right;
 }

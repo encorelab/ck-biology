@@ -1054,18 +1054,22 @@
     explainTerm: function(ev) {
       var view = this;
       var termToExplain = jQuery(ev.target).data('term');
-      app.explainDetailsView = new app.View.ExplainDetailsView({
-        el: '#explain-details-screen',
-        model: view.model,
-        term: termToExplain
-      });
+      if (app.explainDetailsView=== null) {
+        app.explainDetailsView = new app.View.ExplainDetailsView({
+          el: '#explain-details-screen',
+          model: view.model,
+          term: termToExplain
+        });
+      } else {
+        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in explain being rebound each time the view is created
+        app.explainDetailsView.options.term = termToExplain;
+      }
       app.explainDetailsView.render();
 
       jQuery('#explain-terms-screen').addClass('hidden');
       jQuery('#explain-details-screen').removeClass('hidden');
     },
 
-    // START HERE - multiple bindings, multiple toasts. The view is getting initialized repeatedly? Or bound?
     submitArticle: function() {
       jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
       jQuery('#explain-terms-screen').addClass('hidden');
@@ -1084,7 +1088,7 @@
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
       _.each(myTermsArr, function(term, index) {
         var el = ''
-        if (term.explanation.length > 0) {
+        if (term.complete === true) {
           el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
           // check if we should enable the finish button
           if (myTermsArr.length-1 === index) {
@@ -1117,14 +1121,14 @@
     },
 
     events: {
-      'click .submit-explain-details-btn'        : 'submitExplainDetails',
-      'keyup #explain-details-content-container' : 'checkForAllowedToPublish'
+      'click .submit-explain-details-btn'    : 'submitExplainDetails',
+      'keyup #explain-details-content-entry' : 'checkForAllowedToPublish'
     },
 
     checkForAllowedToPublish: function() {
       var view = this;
 
-      if (jQuery('#explain-details-content-container').val().length > 0) {
+      if (jQuery('#explain-details-content-entry').val().length > 0) {
         jQuery('.submit-explain-details-btn').removeClass('disabled');
         jQuery('.submit-explain-details-btn').css({'background': app.hexLightBlack});
       } else {
@@ -1136,12 +1140,12 @@
     submitExplainDetails: function() {
       var view = this;
 
-      _.each(view.model.get('user_associated_terms'), function(termObj) {
-        if (termObj.name === view.options.term) {
-          termObj.explanation = jQuery('#explain-details-content-container').val();
-          view.model.save();
-        }
-      });
+      // lolololol. I guess this is better than what we had before, but still... is there really no better way!?
+      // this unparsable nonsense sets the explanation and the complete on this specific user_associated term
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('#explain-details-content-entry').val();
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].complete = true;
+      view.model.save();
+
       jQuery('#explain-details-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
       app.explainTermsView.render();
@@ -1150,12 +1154,6 @@
     render: function() {
       var view = this;
       console.log("Rendering ExplainDetailsView...");
-
-      jQuery('#explain-details-content').html('');
-
-      // if the user has previously defined this
-      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
-      jQuery('#explain-details-content-container').val(termObj.explanation);
 
       // render the term content
       jQuery('#explain-details-term-container').html('');
@@ -1205,10 +1203,17 @@
       jQuery('#explain-details-term-container').append(comEl);
 
 
+      // render the user gen'd content
+      jQuery('#explain-details-content-container').html('');
+
       var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
-      jQuery('#explain-details-content').append(titleEl);
-      var entryEl = '<textarea id="explain-details-content-container"></textarea>';
-      jQuery('#explain-details-content').append(entryEl);
+      jQuery('#explain-details-content-container').append(titleEl);
+      var entryEl = '<textarea id="explain-details-content-entry"></textarea>';
+      jQuery('#explain-details-content-container').append(entryEl);
+
+      // if the user has previously defined this
+      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
+      jQuery('#explain-details-content-entry').val(termObj.explanation);
 
       view.checkForAllowedToPublish();
     }
