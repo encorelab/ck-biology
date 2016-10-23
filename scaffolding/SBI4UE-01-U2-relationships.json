@@ -660,16 +660,6 @@
         "modified_at": "2015-03-25T19:09:00.000Z"
     },
     {
-        "from": "cyclic photophosphorylation",
-        "link": "is a type of",
-        "to": "light dependent reaction",
-        "lesson": 1,
-        "assigned_to": "riga",
-        "complete": false,
-        "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z"
-    },
-    {
         "from": "G3P",
         "link": "is a product of",
         "to": "Calvin cycle",
