@@ -563,6 +563,14 @@
       var view = this;
       console.log("Rendering RelationshipView...");
 
+      // special instructions for Unit 2/Lesson 2
+      var u2l2Flag = view.collection.findWhere({"lesson": app.lesson, "link": "produces 34"});
+      if (u2l2Flag) {
+        jQuery('#relationship-screen .instructions').text('Explain how this term applies within the context of the article (relationships that specify quantities are net per 1 molecule of glucose)');
+      } else {
+        jQuery('#relationship-screen .instructions').text('Explain how this term applies within the context of the article.');
+      }
+
       // fill the link drop down
       var relationshipTypes = [];
       view.collection.comparator = function(model) {
