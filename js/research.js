@@ -285,6 +285,7 @@
           jQuery('#tasks-completed-confirmation').dialog('close');
         }
         if (jQuery(this).hasClass('goto-home-btn')) {
+          app.shownContinueFlag = false;
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-screen').removeClass('hidden');
