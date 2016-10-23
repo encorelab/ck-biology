@@ -512,24 +512,6 @@
           svgStyle: app.progressBarStyleTask
         });
 
-      // fill the link drop down
-      var relationshipTypes = [];
-      view.collection.comparator = function(model) {
-        return model.get('link');
-      };
-      view.collection.sort();
-      _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
-        // handling the corner case of pre-populated linkages
-        if (relationship.get('link').length > 0) {
-          relationshipTypes.push(relationship.get('link'));
-        }
-      });
-      var el = '<option value="">Select Relationship</option>';
-      _.each(_.uniq(relationshipTypes), function(type) {
-        el += '<option value="'+type+'">'+type+'</option>'
-      });
-      jQuery('#relationship-link-dropdown').html(el);
-
       view.incorrectCounter = 0;
     },
 
@@ -580,6 +562,24 @@
     render: function () {
       var view = this;
       console.log("Rendering RelationshipView...");
+
+      // fill the link drop down
+      var relationshipTypes = [];
+      view.collection.comparator = function(model) {
+        return model.get('link');
+      };
+      view.collection.sort();
+      _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
+        // handling the corner case of pre-populated linkages
+        if (relationship.get('link').length > 0) {
+          relationshipTypes.push(relationship.get('link'));
+        }
+      });
+      var el = '<option value="">Select Relationship</option>';
+      _.each(_.uniq(relationshipTypes), function(type) {
+        el += '<option value="'+type+'">'+type+'</option>'
+      });
+      jQuery('#relationship-link-dropdown').html(el);
 
       jQuery('#relationship-from-container').text(view.model.get('from'));
       jQuery('#relationship-to-container').text(view.model.get('to'));
