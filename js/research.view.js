@@ -514,6 +514,10 @@
 
       // fill the link drop down
       var relationshipTypes = [];
+      view.collection.comparator = function(model) {
+        return model.get('link');
+      };
+      view.collection.sort();
       _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
         // handling the corner case of pre-populated linkages
         if (relationship.get('link').length > 0) {
