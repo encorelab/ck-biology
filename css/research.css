@@ -674,7 +674,7 @@ ul {
     background-image: none;
     border: none;
     padding-top: 5px;
-    z-index: 9999; /* so that it displays above login modal */
+    z-index: 999999; /* so that it displays above login modal */
 }
 
 .navbar-brand {
