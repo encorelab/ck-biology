@@ -591,7 +591,7 @@
 
     if (!noMax && percent > 100) {
       percent = 100;
-    } else if (Number.isNaN(Number(percent))) {   // could try isNaN(Number(percent))
+    } else if (isNaN(Number(percent))) {   // could try isNaN(Number(percent))
       // for those collections that have not yet been populated
       percent = 0;
     }
