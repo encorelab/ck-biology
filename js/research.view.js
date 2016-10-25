@@ -869,7 +869,7 @@
     chooseField: function(ev) {
       var view = this;
 
-      var model = view.collection.findWhere({"field": jQuery(ev.target).data('field')})
+      var model = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')})
 
       if (model.get('users').length < 4) {
         var usersArr = model.get('users');
@@ -880,7 +880,7 @@
         app.hideAllContainers();
         app.attachTermsView = new app.View.AttachTermsView({
           el: '#attach-terms-screen',
-          model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+          model: Skeletor.Model.awake.articles.findWhere({"field": model.get('field')})
         });
         app.attachTermsView.render();
         jQuery('#attach-terms-screen').removeClass('hidden');
@@ -948,10 +948,11 @@
     },
 
     showTermPopover: function(ev) {
-      console.log(jQuery(ev.target).find('input').val())
-
-      jQuery('#attach-terms-explanation-pane').html('');
-      app.buildTermView('#attach-terms-explanation-pane', jQuery(ev.target).find('input').val());
+      // if we're mousing over the right area
+      if (jQuery(ev.target).find('input').val()) {
+        jQuery('#attach-terms-explanation-pane').html('');
+        app.buildTermView('#attach-terms-explanation-pane', jQuery(ev.target).find('input').val());
+      }
     },
 
     updateModel: function(option, checked) {
@@ -1081,7 +1082,7 @@
     explainTerm: function(ev) {
       var view = this;
       var termToExplain = jQuery(ev.target).data('term');
-      if (app.explainDetailsView=== null) {
+      if (app.explainDetailsView === null) {
         app.explainDetailsView = new app.View.ExplainDetailsView({
           el: '#explain-details-screen',
           model: view.model,
@@ -1169,8 +1170,8 @@
 
       // lolololol. I guess this is better than what we had before, but still... is there really no better way!?
       // this unparsable nonsense sets the explanation and the complete on this specific user_associated term
-      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('#explain-details-content-entry').val();
-      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].complete = true;
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username})[0].explanation = jQuery('#explain-details-content-entry').val();
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username})[0].complete = true;
       view.model.save();
 
       jQuery('#explain-details-screen').addClass('hidden');
@@ -1195,7 +1196,7 @@
       jQuery('#explain-details-content-container').append(entryEl);
 
       // if the user has previously defined this
-      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
+      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username});
       jQuery('#explain-details-content-entry').val(termObj.explanation);
 
       view.checkForAllowedToPublish();
