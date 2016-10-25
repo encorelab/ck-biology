@@ -911,7 +911,8 @@
     },
 
     events: {
-      'click .submit-attached-terms-btn' : 'submitTerms'
+      'click .submit-attached-terms-btn'    : 'submitTerms',
+      'mouseover .multiselect-container li' : 'showTermPopover'
     },
 
     submitTerms: function() {
@@ -927,6 +928,13 @@
 
       jQuery('#attach-terms-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
+    },
+
+    showTermPopover: function(ev) {
+      console.log(jQuery(ev.target).find('input').val())
+
+      jQuery('#attach-terms-explanation-pane').html('');
+      app.buildTermView('#attach-terms-explanation-pane', jQuery(ev.target).find('input').val());
     },
 
     updateModel: function(option, checked) {
@@ -977,7 +985,9 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      jQuery('#attach-terms-explanation-pane').html('');
+
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#attach-terms-pdf-container').html(objEl);
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
@@ -1157,55 +1167,11 @@
 
       // render the term content
       jQuery('#explain-details-term-container').html('');
-      // sigh... in the event that there are two terms (second is assigned_to:"")
-      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
-      jQuery('#explain-details-term-container').append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
-      var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
-      jQuery('#explain-details-term-container').append('<div class="author"><b>'+authorText+'</b><div>');
-      jQuery('#explain-details-term-container').append('<div class="explanation">'+term.get('explanation')+'<div>');
-      var vetEl = "<div class='vetting'>";
-      _.each(term.get('vettings'), function(vet) {
-        vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
-        if (vet.correct === true) {
-          vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
-        } else {
-          vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
-        }
-      });
-      vetEl += "</div>"
-      jQuery('#explain-details-term-container').append(vetEl);
-      var mediaEl = "<div class='media-container'>";
-      _.each(term.get('media'), function(url) {
-        mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
-      });
-      mediaEl += "</div>";
-      jQuery('#explain-details-term-container').append(mediaEl);
-
-      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
-      });
-      var relEl = "<div class='relationship'>";
-      _.each(filteredRelationships, function(rel) {
-        // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
-        if (rel.get('link').length > 0) {
-          relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
-        }
-      });
-      relEl += "</div>"
-      jQuery('#explain-details-term-container').append(relEl);
-
-      var comEl = "<div class='comments'>";
-      _.each(term.get('comments'), function(comment) {
-        comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
-        comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
-      });
-      comEl += "</div>";
-      jQuery('#explain-details-term-container').append(comEl);
-
+      app.buildTermView('#explain-details-term-container', view.options.term);
 
       // render the user gen'd content
       jQuery('#explain-details-content-container').html('');
-
+      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
       var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
       jQuery('#explain-details-content-container').append(titleEl);
       var entryEl = '<textarea id="explain-details-content-entry"></textarea>';

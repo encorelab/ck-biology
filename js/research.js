@@ -647,10 +647,6 @@
   };
 
   var getCommunityCompleteVettings = function(lessonNum) {
-    // var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
-    //   return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
-    // });
-    // return completedVettings.length;
     var count = 0;
     _.each(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
       count += term.get('vetted_by').length;
@@ -668,6 +664,52 @@
     } else {
       return null;
     }
+  };
+
+  app.buildTermView = function(containerEl, termName) {
+    var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": termName}));
+    jQuery(containerEl).append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
+    var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
+    jQuery(containerEl).append('<div class="author"><b>'+authorText+'</b><div>');
+    jQuery(containerEl).append('<div class="explanation">'+term.get('explanation')+'<div>');
+    var vetEl = "<div class='vetting'>";
+    _.each(term.get('vettings'), function(vet) {
+      vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
+      if (vet.correct === true) {
+        vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
+      } else {
+        vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
+      }
+    });
+    vetEl += "</div>"
+    jQuery(containerEl).append(vetEl);
+    var mediaEl = "<div class='media-container'>";
+    _.each(term.get('media'), function(url) {
+      mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
+    });
+    mediaEl += "</div>";
+    jQuery(containerEl).append(mediaEl);
+
+    var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+      return rel.get('from') === termName || rel.get('to') === termName;
+    });
+    var relEl = "<div class='relationship'>";
+    _.each(filteredRelationships, function(rel) {
+      // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
+      if (rel.get('link').length > 0) {
+        relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
+      }
+    });
+    relEl += "</div>"
+    jQuery(containerEl).append(relEl);
+
+    var comEl = "<div class='comments'>";
+    _.each(term.get('comments'), function(comment) {
+      comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
+      comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
+    });
+    comEl += "</div>";
+    jQuery(containerEl).append(comEl);
   };
 
   app.checkForRepeatTerm = function(model) {
