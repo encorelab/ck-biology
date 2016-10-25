@@ -79,6 +79,15 @@
             });
             app.attachTermsView.render();
           }
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#contribution-nav-btn').addClass('hidden');
+          jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+          app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
+            el: '#group-negotiate-terms-screen',
+            model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+          });
+          app.groupNegotiateTermsView.render();
         } else {
           // doing this here now, because we need the lesson during the init
           if (app.relationshipView === null) {
@@ -831,6 +840,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
   /***********************************************************
    ***********************************************************
    ****************** CHOOSE ARTICLE VIEW ********************
@@ -894,8 +913,6 @@
       jQuery('#choose-article-container').html(fieldsEl);
     }
   });
-
-
 
 
   /***********************************************************
@@ -1093,7 +1110,7 @@
       jQuery('#explain-terms-img-container').html('');
       jQuery('#explain-terms-terms-container').html('');
 
-      jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
+      jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
       _.each(myTermsArr, function(term, index) {
@@ -1184,6 +1201,158 @@
       view.checkForAllowedToPublish();
     }
   });
+
+
+
+
+
+
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ************** GROUP NEGOTIATE TERMS VIEW *****************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupNegotiateTermsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing GroupNegotiateTermsView...');
+    },
+
+    events: {
+      //'click .group-negotiate-term-btn'          : 'negotiateTerm',
+      'click .submit-group-negotiated-article-btn' : 'submitArticle'
+    },
+
+    // negotiateTerm: function(ev) {
+    //   var view = this;
+    //   var termToNegotiate = jQuery(ev.target).data('term');
+    //   if (app.groupNegotiateDetailsView=== null) {
+    //     app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
+    //       el: '#group-negotiate-details-screen',
+    //       model: view.model,
+    //       term: termToNegotiate
+    //     });
+    //   } else {
+    //     // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in details being rebound each time the view is created
+    //     app.groupNegotiateDetailsView.options.term = termToNegotiate;
+    //   }
+    //   app.groupNegotiateDetailsView.render();
+
+    //   jQuery('#group-negotiate-terms-screen').addClass('hidden');
+    //   jQuery('#group-negotiate-details-screen').removeClass('hidden');
+    // },
+
+    submitArticle: function() {
+      jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
+      jQuery('#group-negotiate-terms-screen').addClass('hidden');
+      jQuery('#home-screen').removeClass('hidden');
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering GroupNegotiateTermsView...");
+
+      // jQuery('#group-negotiate-terms-img-container').html('');
+      // jQuery('#group-negotiate-terms-terms-container').html('');
+
+      // jQuery('#group-negotiate-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+
+      // var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
+      // _.each(myTermsArr, function(term, index) {
+      //   var el = ''
+      //   if (term.complete === true) {
+      //     el = '<button class="group-negotiate-term-btn group-negotiate-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+      //     // check if we should enable the finish button
+      //     if (myTermsArr.length-1 === index) {
+      //       jQuery('.submit-group-negotiated-article-btn').removeClass('disabled');
+      //       jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexLightBlack});
+      //     } else {
+      //       jQuery('.submit-group-negotiated-article-btn').addClass('disabled');
+      //       jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexDarkGrey});
+      //     }
+      //   } else {
+      //     el = '<button class="group-negotiate-term-btn group-negotiate-term-uncomplete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+      //   }
+      //   jQuery('#group-negotiate-terms-terms-container').append(el);
+      // });
+    }
+  });
+
+
+  /***********************************************************
+   ***********************************************************
+   *************** GROUP NEGOTIATE DETAILS VIEW **************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupNegotiateDetailsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      // passing in the term name with this.options.term. Good idea, bad idea?
+      console.log('Initializing GroupNegotiateDetailsView for', this.options.term);
+    },
+
+    events: {
+      'click .submit-group-negotiate-details-btn'    : 'submitGroupNegotiateDetails',
+      'keyup #group-negotiate-details-content-entry' : 'checkForAllowedToPublish'
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      if (jQuery('#group-negotiate-details-content-entry').val().length > 0) {
+        jQuery('.submit-negotiate-details-btn').removeClass('disabled');
+        jQuery('.submit-negotiate-details-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-negotiate-details-btn').addClass('disabled');
+        jQuery('.submit-negotiate-details-btn').css({'background': app.hexDarkGrey});
+      }
+    },
+
+    submitGroupNegotiateDetails: function() {
+      var view = this;
+
+      // lolololol. I guess this is better than what we had before, but still... is there really no better way!?
+      // this unparsable nonsense sets the explanation and the complete on this specific user_associated term
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('#group-negotiate-details-content-entry').val();
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].complete = true;
+      view.model.save();
+
+      jQuery('#group-negotiate-details-screen').addClass('hidden');
+      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+      app.negotiateTermsView.render();
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering GroupNegotiateDetailsView...");
+
+      // render the term content
+      jQuery('#group-negotiate-details-term-container').html('');
+      app.buildTermView('#group-negotiate-details-term-container', view.options.term);
+
+      // render the user gen'd content
+      jQuery('#group-negotiate-details-content-container').html('');
+      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
+      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
+      jQuery('#group-negotiate-details-content-container').append(titleEl);
+      var entryEl = '<textarea id="negotiate-details-content-entry"></textarea>';
+      jQuery('#group-negotiate-details-content-container').append(entryEl);
+
+      // if the user has previously defined this
+      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
+      jQuery('#group-negotiate-details-content-entry').val(termObj.explanation);
+
+      view.checkForAllowedToPublish();
+    }
+  });
+
+
 
 
   this.Skeletor = Skeletor;

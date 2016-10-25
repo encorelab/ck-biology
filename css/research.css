@@ -878,7 +878,9 @@ input:disabled {
     #relationship-screen .inner-wrapper,
     #vetting-screen .inner-wrapper,
     #explain-terms-screen .inner-wrapper,
-    #explain-details-screen .inner-wrapper {
+    #explain-details-screen .inner-wrapper,
+    #group-negotiate-terms-screen .inner-wrapper,
+    #group-negotiate-details-screen .inner-wrapper {
         margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
     }
