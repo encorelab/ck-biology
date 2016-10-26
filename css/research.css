@@ -632,6 +632,39 @@ textarea {
 }
 
 
+
+
+
+/****** group negotiate screens ********/
+#group-negotiate-terms-img-container img {
+    width: 300px;
+    height: 400px;
+}
+
+.fa-minus {
+    height: 30px;
+    width: 30px;
+    background-color: #E74C3C;
+    margin-top: 75px;
+    margin-right: -10px;
+}
+
+#group-negotiate-details-terms-container .term-details {
+    width: 48%;
+    height: 150px;
+    background: #ECF0F1;
+    margin-bottom: 20px;
+    padding: 15px;
+}
+
+
+
+
+
+
+
+
+
 /********** GLOBAL **********/
 
 body, html {

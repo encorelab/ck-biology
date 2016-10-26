@@ -83,10 +83,12 @@
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           jQuery('#contribution-nav-btn').addClass('hidden');
           jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-          app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
-            el: '#group-negotiate-terms-screen',
-            model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
-          });
+          if (app.groupNegotiateTermsView === null) {
+            app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
+              el: '#group-negotiate-terms-screen',
+              model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+            });
+          }
           app.groupNegotiateTermsView.render();
         } else {
           // doing this here now, because we need the lesson during the init
@@ -1115,7 +1117,7 @@
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
       _.each(myTermsArr, function(term, index) {
-        var el = ''
+        var el = '';
         if (term.complete === true) {
           el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
           // check if we should enable the finish button
@@ -1222,31 +1224,69 @@
     initialize: function() {
       var view = this;
       console.log('Initializing GroupNegotiateTermsView...');
+
+      // go over each user_assoc term and if it's not already in the group_assoc terms, add it
+      _.each(view.model.get('user_associated_terms'), function(myTerm) {
+        var presentFlag = false;
+        presentFlag = _.some(view.model.get('group_associated_terms'), function(groupTerm) {
+          return groupTerm.name === myTerm.name
+        });
+
+        if (!presentFlag) {
+          var groupTerms = view.model.get('group_associated_terms');
+          var groupTerm = {};
+          groupTerm.name = myTerm.name;
+          groupTerm.explanation = "";
+          groupTerm.complete = false;
+          groupTerms.push(groupTerm);
+          view.model.save('group_associated_terms', groupTerms);
+        }
+      });
     },
 
     events: {
-      //'click .group-negotiate-term-btn'          : 'negotiateTerm',
+      'click .group-negotiate-term-btn'          : 'negotiateTerm',
       'click .submit-group-negotiated-article-btn' : 'submitArticle'
     },
 
-    // negotiateTerm: function(ev) {
-    //   var view = this;
-    //   var termToNegotiate = jQuery(ev.target).data('term');
-    //   if (app.groupNegotiateDetailsView=== null) {
-    //     app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
-    //       el: '#group-negotiate-details-screen',
-    //       model: view.model,
-    //       term: termToNegotiate
-    //     });
-    //   } else {
-    //     // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in details being rebound each time the view is created
-    //     app.groupNegotiateDetailsView.options.term = termToNegotiate;
-    //   }
-    //   app.groupNegotiateDetailsView.render();
+    negotiateTerm: function(ev) {
+      var view = this;
 
-    //   jQuery('#group-negotiate-terms-screen').addClass('hidden');
-    //   jQuery('#group-negotiate-details-screen').removeClass('hidden');
-    // },
+      var termToNegotiate = jQuery(ev.target).data('term');
+      if (app.groupNegotiateDetailsView=== null) {
+        app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
+          el: '#group-negotiate-details-screen',
+          model: view.model,
+          term: termToNegotiate
+        });
+      } else {
+        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in details being rebound each time the view is created
+        app.groupNegotiateDetailsView.options.term = termToNegotiate;
+      }
+      app.groupNegotiateDetailsView.render();
+
+      jQuery('#group-negotiate-terms-screen').addClass('hidden');
+      jQuery('#group-negotiate-details-screen').removeClass('hidden');
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      var completeFlag = true
+      _.each(view.model.get('group_associated_terms'), function(term) {
+        if (term.complete === false) {
+          completeFlag = false;
+        }
+      });
+
+      if (completeFlag) {
+        jQuery('.submit-group-negotiated-article-btn').removeClass('disabled');
+        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-group-negotiated-article-btn').addClass('disabled');
+        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexDarkGrey});
+      }
+    },
 
     submitArticle: function() {
       jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
@@ -1258,29 +1298,34 @@
       var view = this;
       console.log("Rendering GroupNegotiateTermsView...");
 
-      // jQuery('#group-negotiate-terms-img-container').html('');
-      // jQuery('#group-negotiate-terms-terms-container').html('');
+      view.checkForAllowedToPublish();
 
-      // jQuery('#group-negotiate-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+      jQuery('#group-negotiate-terms-img-container').html('');
+      jQuery('#group-negotiate-terms-terms-container').html('');
 
-      // var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
-      // _.each(myTermsArr, function(term, index) {
-      //   var el = ''
-      //   if (term.complete === true) {
-      //     el = '<button class="group-negotiate-term-btn group-negotiate-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
-      //     // check if we should enable the finish button
-      //     if (myTermsArr.length-1 === index) {
-      //       jQuery('.submit-group-negotiated-article-btn').removeClass('disabled');
-      //       jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexLightBlack});
-      //     } else {
-      //       jQuery('.submit-group-negotiated-article-btn').addClass('disabled');
-      //       jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexDarkGrey});
-      //     }
-      //   } else {
-      //     el = '<button class="group-negotiate-term-btn group-negotiate-term-uncomplete-btn" data-term="'+term.name+'">'+term.name+'</button>';
-      //   }
-      //   jQuery('#group-negotiate-terms-terms-container').append(el);
-      // });
+      jQuery('#group-negotiate-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+
+      _.each(view.model.get('group_associated_terms'), function(term, index) {
+        // agreementLevel will be btw 1 and 4
+        var agreementLevel = _.where(view.model.get('user_associated_terms'), {"name": term.name}).length;
+
+        var el = '';
+        if (term.complete === true) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:'+view.model.get('colour')+'">'+term.name+'</button>';
+        } else if (agreementLevel === 4) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#0B3982">'+term.name+'</button>';
+        } else if (agreementLevel === 3) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2980B9">'+term.name+'</button>';
+        } else if (agreementLevel === 2) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#3498DB">'+term.name+'</button>';
+        } else if (agreementLevel === 1) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#BACFF2">'+term.name+'</button>';
+        } else {
+          console.error('Cannot determine agreementLevel');
+        }
+
+        jQuery('#group-negotiate-terms-terms-container').append(el);
+      });
     }
   });
 
@@ -1299,55 +1344,84 @@
     },
 
     events: {
-      'click .submit-group-negotiate-details-btn'    : 'submitGroupNegotiateDetails',
-      'keyup #group-negotiate-details-content-entry' : 'checkForAllowedToPublish'
+      'click .submit-group-negotiate-details-btn'      : 'submitDetails',
+      'click .remove-term-group-negotiate-details-btn' : 'removeTerm',
+      'keyup .details-entry'                           : 'checkForAllowedToPublish'
+    },
+
+    submitDetails: function() {
+      var view = this;
+
+      //lolololol. I guess this is better than what we had before, but still... is there really no better way!?
+      //this unparsable nonsense sets the explanation and the complete on this specific user_associated term
+      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('.details-entry').val();
+      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].complete = true;
+      view.model.save();
+
+      jQuery('#group-negotiate-details-screen').addClass('hidden');
+      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+      app.groupNegotiateTermsView.render();
+    },
+
+    removeTerm: function() {
+      var view = this;
+
+      // remove it from the group terms
+      //var term = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+
+      // mark as removed from individual terms
+
+      // TODO: fix the negotiate init, since this is going to affect that
+      // TODO: do 'add terms'
     },
 
     checkForAllowedToPublish: function() {
       var view = this;
 
-      if (jQuery('#group-negotiate-details-content-entry').val().length > 0) {
-        jQuery('.submit-negotiate-details-btn').removeClass('disabled');
-        jQuery('.submit-negotiate-details-btn').css({'background': app.hexLightBlack});
+      if (jQuery('#group-negotiate-details-entry-container').text().length > 0) {
+        jQuery('.submit-group-negotiate-details-btn').removeClass('disabled');
+        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexLightBlack});
       } else {
-        jQuery('.submit-negotiate-details-btn').addClass('disabled');
-        jQuery('.submit-negotiate-details-btn').css({'background': app.hexDarkGrey});
+        jQuery('.submit-group-negotiate-details-btn').addClass('disabled');
+        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexDarkGrey});
       }
-    },
-
-    submitGroupNegotiateDetails: function() {
-      var view = this;
-
-      // lolololol. I guess this is better than what we had before, but still... is there really no better way!?
-      // this unparsable nonsense sets the explanation and the complete on this specific user_associated term
-      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('#group-negotiate-details-content-entry').val();
-      _.where(view.model.get('user_associated_terms'), {"name": view.options.term})[0].complete = true;
-      view.model.save();
-
-      jQuery('#group-negotiate-details-screen').addClass('hidden');
-      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-      app.negotiateTermsView.render();
     },
 
     render: function() {
       var view = this;
       console.log("Rendering GroupNegotiateDetailsView...");
 
-      // render the term content
-      jQuery('#group-negotiate-details-term-container').html('');
-      app.buildTermView('#group-negotiate-details-term-container', view.options.term);
+      // render the text entry box
+      jQuery('#group-negotiate-details-entry-container').html('');
+      jQuery('#group-negotiate-details-entry-container').append('<h3><b>'+view.options.term+'</b> in '+view.model.get('author')+'</h3>');
+      jQuery('#group-negotiate-details-entry-container').append('<textarea class="details-entry"></textarea>');
+      // // if the user has previously defined this
+      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+      jQuery('#group-negotiate-details-entry-container .details-entry').text(termObj.explanation);
 
-      // render the user gen'd content
-      jQuery('#group-negotiate-details-content-container').html('');
-      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
-      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
-      jQuery('#group-negotiate-details-content-container').append(titleEl);
-      var entryEl = '<textarea id="negotiate-details-content-entry"></textarea>';
-      jQuery('#group-negotiate-details-content-container').append(entryEl);
-
-      // if the user has previously defined this
-      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
-      jQuery('#group-negotiate-details-content-entry').val(termObj.explanation);
+      // render the myTerm content
+      jQuery('#group-negotiate-details-terms-container').html('');
+      var termCounter = 0;
+      var termArr = [];
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          termCounter++;
+          termArr.push(termObj);
+        }
+      });
+      jQuery('#group-negotiate-details-terms-container').append('<h3>'+termCounter+' group members have selected this term:</h3>');
+      _.each(termArr, function(termObj, index) {
+        var el = '';
+        if (index%2 === 0) {
+          el += '<div class="term-details" style="float:left">';
+        } else {
+          el += '<div class="term-details" style="float:right">';
+        }
+        el += '<div><b>'+termObj.author+' - '+termObj.date+':</b></div>';
+        el += '<div>'+termObj.explanation+'</div>';
+        el += '</div>';
+        jQuery('#group-negotiate-details-terms-container').append(el);
+      });
 
       view.checkForAllowedToPublish();
     }
