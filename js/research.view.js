@@ -1234,14 +1234,48 @@
 
     events: {
       'click .group-negotiate-term-btn'            : 'negotiateTerm',
+      'change .add-term-dropdown'                  : 'showAddTerm',
+      'click .add-term-group-negotiate-terms-btn'  : 'addTerm',
       'click .submit-group-negotiated-article-btn' : 'submitArticle'
     },
 
     negotiateTerm: function(ev) {
       var view = this;
 
-      var termToNegotiate = jQuery(ev.target).data('term');
-      if (app.groupNegotiateDetailsView=== null) {
+      view.switchToDetailsView(jQuery(ev.target).data('term'));
+    },
+
+    showAddTerm: function() {
+      if (jQuery('.add-term-dropdown').val() === 'Add new term') {
+        jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
+      } else {
+        jQuery('.add-term-group-negotiate-terms-btn').removeClass('invisible');
+      }
+    },
+
+    addTerm: function() {
+      var view = this;
+
+      var term = jQuery('.add-term-dropdown').val();
+
+      var add = confirm("Do you want to add the term "+term+" to this article?");
+      if (add === true) {
+        var groupTerms = view.model.get('group_associated_terms');
+        var groupTerm = {};
+        groupTerm.name = term;
+        groupTerm.explanation = "";
+        groupTerm.complete = true;
+        groupTerms.push(groupTerm);
+        view.model.save('group_associated_terms', groupTerms);
+
+        view.switchToDetailsView(term);
+      }
+    },
+
+    switchToDetailsView(termToNegotiate) {
+      var view = this;
+
+      if (app.groupNegotiateDetailsView === null) {
         app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
           el: '#group-negotiate-details-screen',
           model: view.model,
@@ -1303,6 +1337,19 @@
           groupTerm.complete = false;
           groupTerms.push(groupTerm);
           view.model.save('group_associated_terms', groupTerms);
+        }
+      });
+
+      // populate the add new term dropdown
+      jQuery('.add-term-dropdown').html('');
+      jQuery('.add-term-dropdown').append(new Option('Add new term', 'Add new term'));
+      var termsArr = Skeletor.Model.awake.terms.filter(function(term) {
+        return term.get('assigned_to') !== "";
+      });
+      _.each(termsArr, function(term) {
+        // only add terms that are not already in the group_assoc
+        if (!_.findWhere(view.model.get('group_associated_terms'), {"name": term.get('name')} )) {
+          jQuery('.add-term-dropdown').append(new Option(term.get('name'), term.get('name')));
         }
       });
 
@@ -1430,7 +1477,7 @@
           termArr.push(termObj);
         }
       });
-      jQuery('#group-negotiate-details-terms-container').append('<h3>'+termCounter+' group members have selected this term:</h3>');
+      jQuery('#group-negotiate-details-terms-container').append('<h3>'+termCounter+' group members have selected this term</h3>');
       _.each(termArr, function(termObj, index) {
         var el = '';
         if (index%2 === 0) {
@@ -1447,8 +1494,6 @@
       view.checkForAllowedToPublish();
     }
   });
-
-
 
 
   this.Skeletor = Skeletor;
