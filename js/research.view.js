@@ -1371,8 +1371,7 @@
 
       // mark as removed from individual terms
 
-      // TODO: fix the negotiate init, since this is going to affect that
-      // TODO: do 'add terms'
+
     },
 
     checkForAllowedToPublish: function() {
