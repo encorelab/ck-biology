@@ -80,16 +80,22 @@
             app.attachTermsView.render();
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          jQuery('#contribution-nav-btn').addClass('hidden');
-          jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-          if (app.groupNegotiateTermsView === null) {
-            app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
-              el: '#group-negotiate-terms-screen',
-              model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
-            });
+          if (app.getMyField(app.username)) {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#contribution-nav-btn').addClass('hidden');
+            jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+            if (app.groupNegotiateTermsView === null) {
+              app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
+                el: '#group-negotiate-terms-screen',
+                model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+              });
+            }
+            app.groupNegotiateTermsView.render();
+          } else {
+            jQuery().toastmessage('showErrorToast', "You must select a field of research before proceeding. Please click on Review 1 to make that determination.");
+            jQuery('.top-nav-btn').addClass('hidden');
+            jQuery('#home-screen').removeClass('hidden');
           }
-          app.groupNegotiateTermsView.render();
         } else {
           // doing this here now, because we need the lesson during the init
           if (app.relationshipView === null) {
