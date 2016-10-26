@@ -1230,28 +1230,10 @@
     initialize: function() {
       var view = this;
       console.log('Initializing GroupNegotiateTermsView...');
-
-      // go over each user_assoc term and if it's not already in the group_assoc terms, add it
-      _.each(view.model.get('user_associated_terms'), function(myTerm) {
-        var presentFlag = false;
-        presentFlag = _.some(view.model.get('group_associated_terms'), function(groupTerm) {
-          return groupTerm.name === myTerm.name
-        });
-
-        if (!presentFlag) {
-          var groupTerms = view.model.get('group_associated_terms');
-          var groupTerm = {};
-          groupTerm.name = myTerm.name;
-          groupTerm.explanation = "";
-          groupTerm.complete = false;
-          groupTerms.push(groupTerm);
-          view.model.save('group_associated_terms', groupTerms);
-        }
-      });
     },
 
     events: {
-      'click .group-negotiate-term-btn'          : 'negotiateTerm',
+      'click .group-negotiate-term-btn'            : 'negotiateTerm',
       'click .submit-group-negotiated-article-btn' : 'submitArticle'
     },
 
@@ -1303,6 +1285,26 @@
     render: function() {
       var view = this;
       console.log("Rendering GroupNegotiateTermsView...");
+
+      // go over each user_assoc term and if it's not already in the group_assoc terms, add it
+      // this doesn't really belong here - still thinking about where it best fits
+      var nonRemovedTerms = _.where(view.model.get('user_associated_terms'), {"removed": false});
+      _.each(nonRemovedTerms, function(myTerm) {
+        var presentFlag = false;
+        presentFlag = _.some(view.model.get('group_associated_terms'), function(groupTerm) {
+          return groupTerm.name === myTerm.name
+        });
+
+        if (!presentFlag) {
+          var groupTerms = view.model.get('group_associated_terms');
+          var groupTerm = {};
+          groupTerm.name = myTerm.name;
+          groupTerm.explanation = "";
+          groupTerm.complete = false;
+          groupTerms.push(groupTerm);
+          view.model.save('group_associated_terms', groupTerms);
+        }
+      });
 
       view.checkForAllowedToPublish();
 
@@ -1372,18 +1374,32 @@
     removeTerm: function() {
       var view = this;
 
-      // remove it from the group terms
-      //var term = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+      var remove = confirm("Are you sure you want to remove this term from the article?");
+      if (remove === true) {
+        // remove it from the group terms
+        var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+        var newTermArr = _.without(view.model.get('group_associated_terms'), termObj);
+        view.model.set('group_associated_terms', newTermArr);
 
-      // mark as removed from individual terms
+        // mark as removed from individual terms
+        _.each(view.model.get('user_associated_terms'), function(termObj) {
+          if (termObj.name === view.options.term) {
+            termObj.removed = true;
+          }
+        });
 
+        view.model.save();
 
+        jQuery('#group-negotiate-details-screen').addClass('hidden');
+        jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+        app.groupNegotiateTermsView.render();
+      }
     },
 
     checkForAllowedToPublish: function() {
       var view = this;
 
-      if (jQuery('#group-negotiate-details-entry-container').text().length > 0) {
+      if (jQuery('#group-negotiate-details-entry-container .details-entry').val().length > 0) {
         jQuery('.submit-group-negotiate-details-btn').removeClass('disabled');
         jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexLightBlack});
       } else {
