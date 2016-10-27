@@ -666,8 +666,22 @@ textarea {
     padding: 15px;
 }
 
-
-
+#confirm-add-term-modal, #confirm-remove-term-modal {
+    margin-top: 100px;
+}
+#confirm-add-term-modal .modal-content, #confirm-remove-term-modal .modal-content {
+    padding: 12px 20px;
+}
+#confirm-add-term-modal .modal-header, #confirm-remove-term-modal .modal-header {
+    padding: 5px;
+}
+#confirm-add-term-modal button, #confirm-remove-term-modal button {
+    background-color: #34495E;
+    margin-left: 10px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    width: 80px;
+}
 
 
 

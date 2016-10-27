@@ -399,6 +399,19 @@
 
             <button class="submit-group-negotiated-article-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
         </div>
+
+        <div id="confirm-add-term-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h3 class="modal-header">
+                        Confirmation
+                    </h3>
+                    <span>Do you want to add the term <span class="term-to-add"></span> to this article?</span>
+                    <button class="add-term-yes-btn">Yes</button>
+                    <button class="add-term-no-btn">No</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -421,6 +434,19 @@
             </div>
 
             <button class="submit-group-negotiate-details-btn btn-circular fa fa-check fa-3x pull-right"></button>
+        </div>
+
+        <div id="confirm-remove-term-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h3 class="modal-header">
+                        Confirmation
+                    </h3>
+                    <span>Are you sure you want to remove this term from the article?</span>
+                    <button class="remove-term-yes-btn">Yes</button>
+                    <button class="remove-term-no-btn">No</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -462,7 +488,6 @@
                 </h3>
             </div>
         </div>
-
     </div>
 
     <!-- ok, regretting the jquery-ui approach for this. This is counter intuitive, and their docs are plain wrong about isOpen -->

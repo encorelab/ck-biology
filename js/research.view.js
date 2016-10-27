@@ -1235,8 +1235,40 @@
     events: {
       'click .group-negotiate-term-btn'            : 'negotiateTerm',
       'change .add-term-dropdown'                  : 'showAddTerm',
-      'click .add-term-group-negotiate-terms-btn'  : 'addTerm',
-      'click .submit-group-negotiated-article-btn' : 'submitArticle'
+      'click .add-term-group-negotiate-terms-btn'  : 'openModal',
+      'click .add-term-yes-btn'                    : 'addTerm',
+      'click .add-term-no-btn'                     : 'closeModal',
+      'click .submit-group-negotiated-article-btn' : 'submitArticle',
+    },
+
+    addTerm: function() {
+      var view = this;
+
+      var term = jQuery('.add-term-dropdown').val();
+      var groupTerms = view.model.get('group_associated_terms');
+      var groupTerm = {};
+      groupTerm.name = term;
+      groupTerm.explanation = "";
+      groupTerm.complete = true;
+      groupTerms.push(groupTerm);
+      view.model.save('group_associated_terms', groupTerms);
+
+      jQuery('#confirm-add-term-modal').modal('hide');
+      view.switchToDetailsView(term);
+    },
+
+    closeModal: function() {
+      var view = this;
+
+      jQuery('#confirm-add-term-modal').modal('hide');
+      view.render();          // OVERKILLLLLLLL
+    },
+
+    openModal: function() {
+      var view = this;
+
+      jQuery('.term-to-add').text(jQuery('.add-term-dropdown').val());
+      jQuery('#confirm-add-term-modal').modal({keyboard: false, backdrop: 'static'});
     },
 
     negotiateTerm: function(ev) {
@@ -1250,25 +1282,6 @@
         jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
       } else {
         jQuery('.add-term-group-negotiate-terms-btn').removeClass('invisible');
-      }
-    },
-
-    addTerm: function() {
-      var view = this;
-
-      var term = jQuery('.add-term-dropdown').val();
-
-      var add = confirm("Do you want to add the term "+term+" to this article?");
-      if (add === true) {
-        var groupTerms = view.model.get('group_associated_terms');
-        var groupTerm = {};
-        groupTerm.name = term;
-        groupTerm.explanation = "";
-        groupTerm.complete = true;
-        groupTerms.push(groupTerm);
-        view.model.save('group_associated_terms', groupTerms);
-
-        view.switchToDetailsView(term);
       }
     },
 
@@ -1352,6 +1365,7 @@
           jQuery('.add-term-dropdown').append(new Option(term.get('name'), term.get('name')));
         }
       });
+      jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
 
       view.checkForAllowedToPublish();
 
@@ -1400,8 +1414,41 @@
 
     events: {
       'click .submit-group-negotiate-details-btn'      : 'submitDetails',
-      'click .remove-term-group-negotiate-details-btn' : 'removeTerm',
+      'click .remove-term-group-negotiate-details-btn' : 'openModal',
+      'click .remove-term-no-btn'                      : 'closeModal',
+      'click .remove-term-yes-btn'                     : 'removeTerm',
       'keyup .details-entry'                           : 'checkForAllowedToPublish'
+    },
+
+    openModal: function() {
+      jQuery('#confirm-remove-term-modal').modal({keyboard: false, backdrop: 'static'});
+    },
+
+    closeModal: function() {
+      jQuery('#confirm-remove-term-modal').modal('hide');
+    },
+
+    removeTerm: function() {
+      var view = this;
+
+      // remove it from the group terms
+      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+      var newTermArr = _.without(view.model.get('group_associated_terms'), termObj);
+      view.model.set('group_associated_terms', newTermArr);
+
+      // mark as removed from individual terms
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          termObj.removed = true;
+        }
+      });
+
+      view.model.save();
+
+      jQuery('#confirm-remove-term-modal').modal('hide');
+      jQuery('#group-negotiate-details-screen').addClass('hidden');
+      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+      app.groupNegotiateTermsView.render();
     },
 
     submitDetails: function() {
@@ -1416,31 +1463,6 @@
       jQuery('#group-negotiate-details-screen').addClass('hidden');
       jQuery('#group-negotiate-terms-screen').removeClass('hidden');
       app.groupNegotiateTermsView.render();
-    },
-
-    removeTerm: function() {
-      var view = this;
-
-      var remove = confirm("Are you sure you want to remove this term from the article?");
-      if (remove === true) {
-        // remove it from the group terms
-        var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
-        var newTermArr = _.without(view.model.get('group_associated_terms'), termObj);
-        view.model.set('group_associated_terms', newTermArr);
-
-        // mark as removed from individual terms
-        _.each(view.model.get('user_associated_terms'), function(termObj) {
-          if (termObj.name === view.options.term) {
-            termObj.removed = true;
-          }
-        });
-
-        view.model.save();
-
-        jQuery('#group-negotiate-details-screen').addClass('hidden');
-        jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-        app.groupNegotiateTermsView.render();
-      }
     },
 
     checkForAllowedToPublish: function() {
