@@ -616,7 +616,17 @@
     //console.log('Community Totals: ' + totalTerms + ', ' + totalRelationships + ', ' + totalVettings);
     //console.log('Community Completes: ' + completeTerms + ', ' + completeRelationships + ', ' + getCommunityCompleteVettings(lessonNum));
 
-    var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
+    // var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
+
+    var termPercent = completeTerms / totalTerms * 100;
+    var relPercent = completeRelationships / totalRelationships * 100;
+    var vetPercent = getCommunityCompleteVettings(lessonNum) / totalVettings * 100;
+
+    if (vetPercent > 100) {
+      vetPercent = 100;
+    }
+
+    var percent = (termPercent + relPercent + vetPercent) / 3;
 
     if (percent > 100) {
       percent = 100;
