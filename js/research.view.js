@@ -540,20 +540,6 @@
           svgStyle: app.progressBarStyleTask
         });
 
-      // fill the link drop down
-      var relationshipTypes = [];
-      _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
-        // handling the corner case of pre-populated linkages
-        if (relationship.get('link').length > 0) {
-          relationshipTypes.push(relationship.get('link'));
-        }
-      });
-      var el = '<option value="">Select Relationship</option>';
-      _.each(_.uniq(relationshipTypes), function(type) {
-        el += '<option value="'+type+'">'+type+'</option>'
-      });
-      jQuery('#relationship-link-dropdown').html(el);
-
       view.incorrectCounter = 0;
     },
 
@@ -604,6 +590,32 @@
     render: function () {
       var view = this;
       console.log("Rendering RelationshipView...");
+
+      // special instructions for Unit 2/Lesson 2
+      var u2l2Flag = view.collection.findWhere({"lesson": app.lesson, "link": "produces 34"});
+      if (u2l2Flag) {
+        jQuery('#relationship-screen .instructions').text('Identify the relationship that exists between the following two terms. \b (relationships that specify quantities are net per 1 molecule of glucose)');
+      } else {
+        jQuery('#relationship-screen .instructions').text('Identify the relationship that exists between the following two terms.');
+      }
+
+      // fill the link drop down
+      var relationshipTypes = [];
+      view.collection.comparator = function(model) {
+        return model.get('link');
+      };
+      view.collection.sort();
+      _.each(view.collection.where({"lesson": app.lesson}), function(relationship) {
+        // handling the corner case of pre-populated linkages
+        if (relationship.get('link').length > 0) {
+          relationshipTypes.push(relationship.get('link'));
+        }
+      });
+      var el = '<option value="">Select Relationship</option>';
+      _.each(_.uniq(relationshipTypes), function(type) {
+        el += '<option value="'+type+'">'+type+'</option>'
+      });
+      jQuery('#relationship-link-dropdown').html(el);
 
       jQuery('#relationship-from-container').text(view.model.get('from'));
       jQuery('#relationship-to-container').text(view.model.get('to'));

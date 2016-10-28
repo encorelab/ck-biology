@@ -281,6 +281,7 @@
           jQuery('#tasks-completed-confirmation').dialog('close');
         }
         if (jQuery(this).hasClass('goto-home-btn')) {
+          app.shownContinueFlag = false;
           app.hideAllContainers();
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-screen').removeClass('hidden');
@@ -586,7 +587,7 @@
 
     if (!noMax && percent > 100) {
       percent = 100;
-    } else if (Number.isNaN(Number(percent))) {
+    } else if (isNaN(Number(percent))) {   // could try isNaN(Number(percent))
       // for those collections that have not yet been populated
       percent = 0;
     }
@@ -611,7 +612,17 @@
     //console.log('Community Totals: ' + totalTerms + ', ' + totalRelationships + ', ' + totalVettings);
     //console.log('Community Completes: ' + completeTerms + ', ' + completeRelationships + ', ' + getCommunityCompleteVettings(lessonNum));
 
-    var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
+    // var percent = (completeTerms + completeRelationships + getCommunityCompleteVettings(lessonNum)) / (totalTerms + totalRelationships + totalVettings) * 100;
+
+    var termPercent = completeTerms / totalTerms * 100;
+    var relPercent = completeRelationships / totalRelationships * 100;
+    var vetPercent = getCommunityCompleteVettings(lessonNum) / totalVettings * 100;
+
+    if (vetPercent > 100) {
+      vetPercent = 100;
+    }
+
+    var percent = (termPercent + relPercent + vetPercent) / 3;
 
     if (percent > 100) {
       percent = 100;

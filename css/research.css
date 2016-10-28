@@ -819,7 +819,7 @@ ul {
     background-image: none;
     border: none;
     padding-top: 5px;
-    z-index: 9999; /* so that it displays above login modal */
+    z-index: 1000000; /* so that it displays above kb terms */
 }
 
 .navbar-brand {
