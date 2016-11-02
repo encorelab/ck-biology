@@ -420,6 +420,7 @@
 
     //0. it's complete
     //1. you didn't author that term
+    //1b. the term isn't a repeat term (assigned_to === "" connotes a repeat term)
     //2. you haven't already vetted that term
     //3. it's in this lesson
     //4. it has the lowest number in terms of 'vetted count'. If tied, first alphabetically
@@ -427,7 +428,7 @@
     //5. it is unlocked or locked to this user
 
     var myVettings = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && !_.contains(term.get('vetted_by'), app.username) && term.isUnlocked();
+      return term.get('lesson') === app.lesson && term.get('complete') === true && term.get('assigned_to') !== app.username && term.get('assigned_to') !== "" && !_.contains(term.get('vetted_by'), app.username) && term.isUnlocked();
     });
 
     // To determine the least vetted item:
