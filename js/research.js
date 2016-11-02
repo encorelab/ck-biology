@@ -601,8 +601,13 @@
   app.getCommunityContributionPercent = function(lessonNum) {
     var totalStudents = app.users.where({user_role: "student"}).length;
 
-    var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
-    var completeTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum, complete: true}).length;
+    // do not include repeated terms (TEST ME)
+    var totalTerms = Skeletor.Model.awake.terms.filter(function(term) {
+      return term.get('lesson') === lessonNum && term.get('assigned_to') !== "";
+    }).length;
+    var completeTerms = Skeletor.Model.awake.terms.filter(function(term) {
+      return term.get('lesson') === lessonNum && (term.get('complete') === true || term.get('assigned_to') === "");
+    }).length;
 
     var totalRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
       return rel.get('lesson') === lessonNum && rel.get('link').length > 0;
@@ -638,7 +643,10 @@
   };
 
   var getMyTotalVettings = function(lessonNum) {
-    var totalTerms = Skeletor.Model.awake.terms.where({lesson: lessonNum}).length;
+    // do not include repeated terms (TEST ME)
+    var totalTerms = Skeletor.Model.awake.terms.filter(function(term) {
+      return term.get('lesson') === lessonNum && term.get('assigned_to') !== "";
+    }).length;
     var totalStudents = app.users.where({user_role: "student"}).length;
     return Math.ceil(totalTerms * app.numVettingTasks[lessonNum - 1] / totalStudents);        // round up
   };
