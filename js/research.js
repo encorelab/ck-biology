@@ -607,7 +607,7 @@
       return term.get('lesson') === lessonNum && term.get('assigned_to') !== "";
     }).length;
     var completeTerms = Skeletor.Model.awake.terms.filter(function(term) {
-      return term.get('lesson') === lessonNum && (term.get('complete') === true || term.get('assigned_to') === "");
+      return term.get('lesson') === lessonNum && term.get('complete') === true;
     }).length;
 
     var totalRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
