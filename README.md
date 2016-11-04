@@ -1,6 +1,6 @@
 # ck-biology
 Research tool for CK Biology 2016 run in Toronto
-Trivial change
+
 This repo compromises the tools needed to facilitate the brainstorming part of the CK Biology 2016 run
 
 ## Dev notes
