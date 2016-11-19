@@ -1,0 +1,2608 @@
+[
+{
+"from": "adenine",
+"link": "is a type of",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Avery, McCarty & MacLeod",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "character",
+"link": "contains",
+"to": "trait",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromatin",
+"link": "contains",
+"to": "nucleosome",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromosome",
+"link": "contains",
+"to": "looped domain",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromosome theory of inheritance",
+"link": "contains",
+"to": "chromosome",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "codominance",
+"link": "is a type of",
+"to": "phenotype",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "complete dominance",
+"link": "is a type of",
+"to": "phenotype",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cytosine",
+"link": "is a type of",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "phosphate group",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "pentose sugar",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "double helix",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "dominant allele",
+"link": "is a type of",
+"to": "allele",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Erwin Chargaff",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Erwin Chargaff",
+"link": "discovered",
+"to": "base pairing",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Frederick Griffith",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Frederick Griffith",
+"link": "discovered",
+"to": "transformation principle",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gene",
+"link": "contains",
+"to": "allele",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "genotype",
+"link": "contains",
+"to": "gene",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Gregor Mendel",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Gregor Mendel",
+"link": "discovered",
+"to": "law of segregation",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Gregor Mendel",
+"link": "discovered",
+"to": "law of independent assortment",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "guanine",
+"link": "is a type of",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "heterozygous",
+"link": "is a type of",
+"to": "genotype",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homozygous",
+"link": "is a type of",
+"to": "genotype",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "incomplete dominance",
+"link": "is a type of",
+"to": "phenotype",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "looped domain",
+"link": "contains",
+"to": "chromatin",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleosome",
+"link": "contains",
+"to": "DNA",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleosome",
+"link": "contains",
+"to": "histone",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "phenotype",
+"link": "contains",
+"to": "genotype",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recessive allele",
+"link": "is a type of",
+"to": "allele",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Rosalind Franklin",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Rosalind Franklin",
+"link": "discovered",
+"to": "double helix",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "sex-linked gene",
+"link": "is a type of",
+"to": "linked gene",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Sutton & Boveri",
+"link": "discovered",
+"to": "chromosome theory of inheritance",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "T.H. Morgan",
+"link": "discovered",
+"to": "sex-linked gene",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thymine",
+"link": "is a type of",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "trait",
+"link": "is a type of",
+"to": "phenotype",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uracil",
+"link": "is a type of",
+"to": "nitrogenous base",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Watson & Crick",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Watson & Crick",
+"link": "discovered",
+"to": "double helix",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromosomal mutation",
+"link": "is a type of",
+"to": "mutation",
+"lesson": 2,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "conservative model",
+"link": "is a model of",
+"to": "DNA replication",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "daughter strand",
+"link": "contains",
+"to": "3' end",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "daughter strand",
+"link": "contains",
+"to": "5' end",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "daughter strand",
+"link": "contains",
+"to": "leading strand",
+"lesson": 2,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "daughter strand",
+"link": "contains",
+"to": "lagging strand",
+"lesson": 2,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "daughter strand",
+"link": "contains",
+"to": "primer",
+"lesson": 2,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "deletion",
+"link": "is a type of",
+"to": "frameshift mutation",
+"lesson": 2,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "dispersive model",
+"link": "is a model of",
+"to": "DNA replication",
+"lesson": 2,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "double helix",
+"lesson": 2,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "telomeres",
+"lesson": 2,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA helicase",
+"link": "produces",
+"to": "replication bubble",
+"lesson": 2,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA ligase",
+"link": "joins",
+"to": "Okazaki fragments",
+"lesson": 2,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA polymerase",
+"link": "produces",
+"to": "daughter strand",
+"lesson": 2,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA replication",
+"link": "produces",
+"to": "mutation",
+"lesson": 2,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "double helix",
+"link": "contains",
+"to": "parental strand",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "double helix",
+"link": "contains",
+"to": "daughter strand",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "frameshift mutation",
+"link": "is a type of",
+"to": "point mutation",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insertion",
+"link": "is a type of",
+"to": "frameshift mutation",
+"lesson": 2,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lagging strand",
+"link": "contains",
+"to": "Okazaki fragments",
+"lesson": 2,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mismatch repair",
+"link": "occurs in",
+"to": "DNA replication",
+"lesson": 2,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "missense mutation",
+"link": "is a type of",
+"to": "substitution mutation",
+"lesson": 2,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mutagen",
+"link": "produces",
+"to": "mutation",
+"lesson": 2,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nonsense mutation",
+"link": "is a type of",
+"to": "substitution mutation",
+"lesson": 2,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleotide excision repair",
+"link": "occurs in",
+"to": "DNA replication",
+"lesson": 2,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleotide excision repair",
+"link": "contains",
+"to": "nuclease",
+"lesson": 2,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "origins of replication",
+"link": "produces",
+"to": "replication bubble",
+"lesson": 2,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "parental strand",
+"link": "contains",
+"to": "3' end",
+"lesson": 2,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "parental strand",
+"link": "contains",
+"to": "5' end",
+"lesson": 2,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "parental strand",
+"link": "contains",
+"to": "origins of replication",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "point mutation",
+"link": "is a type of",
+"to": "mutation",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "primase",
+"link": "produces",
+"to": "primer",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "replication bubble",
+"link": "contains",
+"to": "replication fork",
+"lesson": 2,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "replication fork",
+"link": "contains",
+"to": "DNA polymerase",
+"lesson": 2,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "semiconservative model",
+"link": "is a model of",
+"to": "DNA replication",
+"lesson": 2,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "silent mutation",
+"link": "is a type of",
+"to": "mutation",
+"lesson": 2,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "single-strand binding protein",
+"link": "produces",
+"to": "replication bubble",
+"lesson": 2,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "substitution",
+"link": "is a type of",
+"to": "point mutation",
+"lesson": 2,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "telomerase",
+"link": "produces",
+"to": "telomeres",
+"lesson": 2,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "topoisomerase",
+"link": "unwinds",
+"to": "double helix",
+"lesson": 2,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "5' cap",
+"link": "occurs in",
+"to": "RNA processing",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "alternative RNA splicing",
+"link": "is a type of",
+"to": "RNA splicing",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "amino acid",
+"link": "binds to",
+"to": "amino acid attachment site",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "amino acid",
+"link": "binds to",
+"to": "aminoacyl tRNA synthetase",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "aminoacyl tRNA",
+"link": "contains",
+"to": "anticodon",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "aminoacyl tRNA synthetase",
+"link": "produces",
+"to": "aminoacyl tRNA",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "codon",
+"link": "binds to",
+"to": "anticodon",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "gene",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gene",
+"link": "contains",
+"to": "template strand",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "intron",
+"link": "contains",
+"to": "snRNP",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "large ribosomal subunit",
+"link": "contains",
+"to": "P site",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "large ribosomal subunit",
+"link": "contains",
+"to": "A site",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "large ribosomal subunit",
+"link": "contains",
+"to": "E site",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mRNA",
+"link": "contains",
+"to": "reading frame",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mRNA",
+"link": "binds to",
+"to": "mRNA binding site",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mRNA",
+"link": "contains",
+"to": "codon",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "poly(A) tail",
+"link": "occurs in",
+"to": "RNA processing",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polypeptide",
+"link": "contains",
+"to": "domain",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polypeptide",
+"link": "contains",
+"to": "signal peptide",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polypeptide",
+"link": "contains",
+"to": "amino acid",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polyribosome",
+"link": "contains",
+"to": "ribosome",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pre-mRNA",
+"link": "contains",
+"to": "exon",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pre-mRNA",
+"link": "contains",
+"to": "intron",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pre-mRNA",
+"link": "contains",
+"to": "terminator",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pre-mRNA",
+"link": "is a type of",
+"to": "primary transcript",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pre-mRNA",
+"link": "undergoes",
+"to": "RNA processing",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "promoter",
+"link": "contains",
+"to": "TATA box",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "promoter",
+"link": "signals",
+"to": "transcription initiation",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ribosome",
+"link": "contains",
+"to": "large ribosomal subunit",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ribosome",
+"link": "contains",
+"to": "small ribosomal subunit",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ribosome",
+"link": "contains",
+"to": "rRNA",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA polymerase",
+"link": "produces",
+"to": "pre-mRNA",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA polymerase",
+"link": "binds to",
+"to": "promoter",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA processing",
+"link": "produces",
+"to": "mRNA",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA splicing",
+"link": "removes",
+"to": "intron",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA splicing",
+"link": "occurs in",
+"to": "RNA processing",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA splicing",
+"link": "contains",
+"to": "spliceosome",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "signal peptide",
+"link": "binds to",
+"to": "signal recognition particle",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "signal recognition particle",
+"link": "binds to",
+"to": "SRP receptor protein",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "small ribosomal subunit",
+"link": "contains",
+"to": "mRNA binding site",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "snRNP",
+"link": "is a type of",
+"to": "ribozyme",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "snRNP",
+"link": "contains",
+"to": "snRNA",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "spliceosome",
+"link": "binds to",
+"to": "snRNP",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "start codon",
+"link": "is a type of",
+"to": "codon",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "start codon",
+"link": "signals",
+"to": "translation initiation",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stop codon",
+"link": "signals",
+"to": "translation termination",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "template strand",
+"link": "contains",
+"to": "promoter",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "template strand",
+"link": "contains",
+"to": "transcription unit",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "terminator",
+"link": "signals",
+"to": "transcription termination",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription elongation",
+"link": "produces",
+"to": "pre-mRNA",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription elongation",
+"link": "is a stage of",
+"to": "transcription",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription factor",
+"link": "binds to",
+"to": "promoter",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription initiation",
+"link": "is a stage of",
+"to": "transcription",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription initiation complex",
+"link": "contains",
+"to": "RNA polymerase",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription initiation complex",
+"link": "contains",
+"to": "transcription factor",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription termination",
+"link": "is a stage of",
+"to": "transcription",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation",
+"link": "occurs in",
+"to": "ribosome",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation",
+"link": "produces",
+"to": "polypeptide",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation elongation",
+"link": "is a stage of",
+"to": "translation",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation initiation",
+"link": "is a stage of",
+"to": "translation",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation termination",
+"link": "is a stage of",
+"to": "translation",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tRNA",
+"link": "contains",
+"to": "amino acid attachment site",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tRNA",
+"link": "binds to",
+"to": "aminoacyl tRNA synthetase",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tRNA",
+"link": "contains",
+"to": "anticodon",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "wobble",
+"link": "occurs in",
+"to": "tRNA",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "activator",
+"link": "binds to",
+"to": "promoter",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "activator",
+"link": "is a type of",
+"to": "allosteric regulatory protein",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "activator",
+"link": "is a type of",
+"to": "transcription factor",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "allolactase",
+"link": "is a type of",
+"to": "inducer",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "alternative RNA splicing",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cAMP repressor protein (CRP)",
+"link": "is a type of",
+"to": "activator",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cAMP repressor protein (CRP)",
+"link": "binds to",
+"to": "cAMP",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromatin remodeling",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromatin remodeling",
+"link": "is a type of",
+"to": "epigenetic mechanism",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "control element",
+"link": "contains",
+"to": "non-coding DNA",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "control element",
+"link": "binds to",
+"to": "transcription factor",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "coordinate control",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "corepressor",
+"link": "associates with",
+"to": "repressor",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "distal control element (enhancer)",
+"link": "is a type of",
+"to": "control element",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA methylation",
+"link": "is a type of",
+"to": "chromatin remodeling",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "histone acetylation",
+"link": "is a type of",
+"to": "chromatin remodeling",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inducer",
+"link": "binds to",
+"to": "repressor",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lac operon",
+"link": "is a type of",
+"to": "operon",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lacI",
+"link": "is a type of",
+"to": "regulatory gene",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mRNA degradation",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "negative gene regulation",
+"link": "contains",
+"to": "repressor",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "operon",
+"link": "contains",
+"to": "promoter",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "operon",
+"link": "contains",
+"to": "operator",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "operon",
+"link": "contains",
+"to": "gene",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "positive gene regulation",
+"link": "contains",
+"to": "activator",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prokaryotic gene regulation",
+"link": "contains",
+"to": "operon",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "protein degradation",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "protein degradation",
+"link": "contains",
+"to": "proteasome",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "protein degradation",
+"link": "contains",
+"to": "ubiquitin",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "proximal control element",
+"link": "is a type of",
+"to": "control element",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "regulatory gene",
+"link": "produces",
+"to": "repressor",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "repressor",
+"link": "is a type of",
+"to": "allosteric regulatory protein",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "repressor",
+"link": "binds to",
+"to": "operator",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "silencer",
+"link": "is a type of",
+"to": "transcription factor",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription factor",
+"link": "contains",
+"to": "DNA binding domain",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription regulation",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transcription regulation",
+"link": "contains",
+"to": "control element",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "translation regulation",
+"link": "is a type of",
+"to": "eukaryotic gene regulation",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "trp operon",
+"link": "is a type of",
+"to": "operon",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "trp repressor",
+"link": "is a type of",
+"to": "repressor",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "trpR",
+"link": "is a type of",
+"to": "regulatory gene",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tryptophan",
+"link": "is a type of",
+"to": "corepressor",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autoradiography",
+"link": "uses",
+"to": "nucleic acid probe",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autoradiography",
+"link": "uses",
+"to": "radioisotope",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cDNA",
+"link": "is a type of",
+"to": "DNA",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chromosome walking",
+"link": "is a type of",
+"to": "physical DNA mapping",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "clone cell",
+"link": "contains",
+"to": "cloned DNA",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "restriction site",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA",
+"link": "contains",
+"to": "SNPs",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA ligase",
+"link": "produces",
+"to": "recombinant DNA",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA ligase",
+"link": "attaches",
+"to": "sticky end",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA microarray assay",
+"link": "is a type of",
+"to": "genomics",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "DNA sequencing",
+"link": "is a stage of",
+"to": "Human Genome Project",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "expression vector",
+"link": "is a type of",
+"to": "cloning vector",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gel electrophoresis",
+"link": "is a type of",
+"to": "restriction fragment analysis",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gene of interest",
+"link": "contains",
+"to": "DNA",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "genetic linkage mapping",
+"link": "is a stage of",
+"to": "Human Genome Project",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "genomic library",
+"link": "contains",
+"to": "clone cell",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "genomics",
+"link": "uses",
+"to": "bioinformatics",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Human Genome Project",
+"link": "is a type of",
+"to": "genomics",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "in vitro mutagenesis",
+"link": "is a type of",
+"to": "genomics",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleic acid probe",
+"link": "detects",
+"to": "clone cell",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleic acid probe",
+"link": "uses",
+"to": "nucleic acid hybridization",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nucleic acid probe",
+"link": "is labeled with",
+"to": "radioisotope",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PCR",
+"link": "produces",
+"to": "cloned DNA",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PCR",
+"link": "amplifies",
+"to": "DNA",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PCR",
+"link": "uses",
+"to": "DNA polymerase",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PCR",
+"link": "uses",
+"to": "synthetic nucleotides",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "physical DNA mapping",
+"link": "is a stage of",
+"to": "Human Genome Project",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "plasmid",
+"link": "is a type of",
+"to": "cloning vector",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "plasmid",
+"link": "contains",
+"to": "DNA",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "proteomics",
+"link": "uses",
+"to": "bioinformatics",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant bacterium",
+"link": "produces",
+"to": "clone cell",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant bacterium",
+"link": "contains",
+"to": "recombinant plasmid",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant bacterium",
+"link": "uses",
+"to": "growth medium",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant DNA",
+"link": "contains",
+"to": "gene of interest",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant plasmid",
+"link": "is a type of",
+"to": "plasmid",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "recombinant plasmid",
+"link": "contains",
+"to": "recombinant DNA",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "restriction enzyme",
+"link": "detects",
+"to": "restriction site",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "restriction enzyme",
+"link": "produces",
+"to": "restriction fragment",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "restriction fragment",
+"link": "contains",
+"to": "sticky end",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "restriction fragment analysis",
+"link": "analyzes",
+"to": "restriction fragment",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "restriction fragment analysis",
+"link": "detects",
+"to": "RFLP",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reverse transcriptase",
+"link": "produces",
+"to": "cDNA",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reverse transcription",
+"link": "uses",
+"to": "reverse transcriptase",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RNA interference",
+"link": "is a type of",
+"to": "genomics",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Sanger method",
+"link": "is a type of",
+"to": "DNA sequencing",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Southern blotting",
+"link": "is a type of",
+"to": "restriction fragment analysis",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Southern blotting",
+"link": "uses",
+"to": "autoradiography",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "yeast artificial chromosome",
+"link": "is a type of",
+"to": "cloning vector",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+]
