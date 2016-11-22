@@ -695,7 +695,7 @@
 {
 "from": "missense mutation",
 "link": "is a type of",
-"to": "substitution mutation",
+"to": "substitution",
 "lesson": 2,
 "assigned_to": "sharon",
 "complete": true,
@@ -717,7 +717,7 @@
 {
 "from": "nonsense mutation",
 "link": "is a type of",
-"to": "substitution mutation",
+"to": "substitution",
 "lesson": 2,
 "assigned_to": "kevin",
 "complete": true,
