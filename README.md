@@ -10,6 +10,9 @@ npm start to start up the node server
 
 To import scaffolding to local Mongo, eg:
 
-    mongoimport -d ck-biology-maria1 -c users --jsonArray scaffolding/pupils-maria1.json
+    mongoimport -d ck-biology-SBI4UE-01-U3 -c users --file scaffolding/SBI4UE-01-U3-users.json --jsonArray
 
-    mongoimport -d ck-biology-maria1 -c states --jsonArray scaffolding/state.json
+    mongoimport -d ck-biology-SBI4UE-01-U3 -c terms --file scaffolding/SBI4UE-01-U3-terms.json --jsonArray
+    
+    mongoimport -d ck-biology-SBI4UE-01-U3 -c relationships --file scaffolding/SBI4UE-01-U3-relationships.json --jsonArray
+
