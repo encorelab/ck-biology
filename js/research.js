@@ -209,14 +209,14 @@
             console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
           // make sure it exists in the relationships
-          if (Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "from": term.get('name')}) == null &&
-              Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "to": term.get('name')}) == null) {
-            validFlag = false;
-            name = term.get('name');
-            type = "missing from relationships";
-            num = lessonNum;
-            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
-          }
+          // if (Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "from": term.get('name')}) == null &&
+          //     Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "to": term.get('name')}) == null) {
+          //   validFlag = false;
+          //   name = term.get('name');
+          //   type = "missing from relationships";
+          //   num = lessonNum;
+          //   console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
+          // }
         });
         // go through all of the relationships, check that each user has been assigned to is spelled correctly
         _.each(Skeletor.Model.awake.relationships.where({"lesson": lessonNum}), function(relationship) {

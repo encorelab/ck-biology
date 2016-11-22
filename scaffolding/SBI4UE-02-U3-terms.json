@@ -2699,18 +2699,6 @@
   "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
-  "name": "substitution mutation",
-  "lesson": 2,
-  "assigned_to": "jacob",
-  "complete": true,
-  "locked": "",
-  "media": [],
-  "vettings": [],
-  "vetted_by": [],
-  "comments": [],
-  "created_at": "2015-03-25T19:08:00.000Z"
-}
-{
   "name": "SNPs",
   "lesson": 5,
   "assigned_to": "jamie",
