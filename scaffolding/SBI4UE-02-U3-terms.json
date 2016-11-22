@@ -1,4 +1,4 @@
-{ 
+{
   "name": "adenine",
   "lesson": 1,
   "assigned_to": "jamie",
@@ -2690,6 +2690,54 @@
   "name": "yeast artificial chromosome",
   "lesson": 5,
   "assigned_to": "jason",
+  "complete": true,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z"
+}
+{
+  "name": "substitution mutation",
+  "lesson": 2,
+  "assigned_to": "jacob",
+  "complete": true,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z"
+}
+{
+  "name": "SNPs",
+  "lesson": 5,
+  "assigned_to": "jamie",
+  "complete": true,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z"
+}
+{
+  "name": "nucleic acid hybridization",
+  "lesson": 5,
+  "assigned_to": "frank",
+  "complete": true,
+  "locked": "",
+  "media": [],
+  "vettings": [],
+  "vetted_by": [],
+  "comments": [],
+  "created_at": "2015-03-25T19:08:00.000Z"
+}
+{
+  "name": "synthetic nucleotides",
+  "lesson": 5,
+  "assigned_to": "oliver",
   "complete": true,
   "locked": "",
   "media": [],

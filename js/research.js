@@ -206,6 +206,7 @@
             name = term.get('name');
             type = "blank";
             num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
           // make sure it exists in the relationships
           if (Skeletor.Model.awake.relationships.findWhere({"lesson": lessonNum, "from": term.get('name')}) == null &&
@@ -214,6 +215,7 @@
             name = term.get('name');
             type = "missing from relationships";
             num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
         });
         // go through all of the relationships, check that each user has been assigned to is spelled correctly
@@ -223,20 +225,36 @@
             name = relationship.get('from');
             type = "unassigned";
             num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
-          if (relationship.get('from') === "" || relationship.get('to') === "") {
+          if (relationship.get('from') === "") {
             validFlag = false;
             name = relationship.get('from');
             type = "blank";
             num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
+          }
+          if (relationship.get('to') === "") {
+            validFlag = false;
+            name = relationship.get('to');
+            type = "blank";
+            num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
           // make sure it exists in the terms
-          if (Skeletor.Model.awake.terms.findWhere({"name": relationship.get('from')}) == null ||
-              Skeletor.Model.awake.terms.findWhere({"name": relationship.get('to')}) == null) {
+          if (Skeletor.Model.awake.terms.findWhere({"name": relationship.get('from')}) == null) {
             validFlag = false;
             name = relationship.get('from');
             type = "missing from terms";
             num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
+          }
+          if (Skeletor.Model.awake.terms.findWhere({"name": relationship.get('to')}) == null) {
+            validFlag = false;
+            name = relationship.get('to');
+            type = "missing from terms";
+            num = lessonNum;
+            console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
           }
         });
       }
@@ -244,8 +262,6 @@
 
     if (validFlag) {
       console.log('DB validation passed!');
-    } else {
-      console.error('Did not pass DB validation. ' + name + ' is ' + type + ' in lesson ' + num);
     }
   };
 
