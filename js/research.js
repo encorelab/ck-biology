@@ -307,9 +307,18 @@
           jQuery('#contribution-nav-btn').addClass('active');
           app.determineNextStep();
         } else if (jQuery(this).hasClass('goto-teacher-btn')) {
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          }
           app.hideAllContainers();
           jQuery('#teacher-nav-btn').addClass('active');
           jQuery('#teacher-screen').removeClass('hidden');
+          app.teacherView.render();
+        } else if (jQuery(this).hasClass('goto-grouping-btn')) {
+          app.hideAllContainers();
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
           app.teacherView.render();
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();

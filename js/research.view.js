@@ -108,8 +108,23 @@
           app.determineNextStep();
         }
       } else {
-        jQuery('#knowledge-base-nav-btn').addClass('active');
-        jQuery('#wall').removeClass('hidden');
+        if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
+          jQuery('.top-nav-btn').addClass('hidden');
+          jQuery('#home-nav-btn').removeClass('hidden');
+          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
+          jQuery('.top-nav-btn').addClass('hidden');
+          jQuery('#home-nav-btn').removeClass('hidden');
+          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+        } else {
+          jQuery('#knowledge-base-nav-btn').addClass('active');
+          jQuery('#wall').removeClass('hidden');
+        }
+
       }
     },
 
