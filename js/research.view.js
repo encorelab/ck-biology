@@ -61,6 +61,7 @@
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
+      jQuery('#grouping-nav-btn').addClass('hidden');
       // if student
       if (app.teacherFlag === false) {
         jQuery('#contribution-nav-btn').addClass('active');
@@ -108,18 +109,21 @@
           app.determineNextStep();
         }
       } else {
-        if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
+        app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
+        if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
           jQuery().toastmessage('showWarningToast', "Not much to see here!");
-        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
+        } else if (app.reviewSection === "review2") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
           jQuery().toastmessage('showWarningToast', "Not much to see here!");
-        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
+        } else if (app.reviewSection === "review3") {
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-screen').removeClass('hidden');
+          app.groupingView.render();
         } else {
           jQuery('#knowledge-base-nav-btn').addClass('active');
           jQuery('#wall').removeClass('hidden');
@@ -340,6 +344,82 @@
       });
     }
   });
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ********************* GROUPING VIEW ***********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupingView = Backbone.View.extend({
+    initialize: function() {
+      console.log('Initializing GroupingView...');
+    },
+
+    render: function () {
+      var view = this;
+      console.log('Rendering GroupingView...');
+
+      // or move this to init?
+      jQuery('#students-container').html('');
+      jQuery('#groups-container').html('');
+
+      // generate all of the student buttons, and place them in groups as necessary
+      Skeletor.Mobile.users.forEach(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          var button = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+          button.text(user.get('username'));
+          jQuery('#students-container').append(button);
+        }
+      });
+
+      // check how many groups there are for this reviewSection, add a group container for each
+      var groups = view.collection.filter(function(group) {
+        return app.reviewSection === group.get('lesson');
+      });
+      _.each(groups, function(group) {
+        var groupEl = '<div class="group-container"></div>'
+        jQuery('#groups-container').append(groupEl);
+
+      });
+
+      // add related students to each group, or to unassigned (what about absent?)
+      // app.users.forEach(function(user) {
+      //   if (user.get('user_role') !== "teacher" && user.get('user_role') !== "smartboard") {
+      //     var button = jQuery('<button class="btn btn-default btn-base student-button">');
+      //     button.text(user.get('username'));
+      //     var listItem = jQuery('<li>').append(button);
+      //     if (!user.get('habitat_group') || user.get('habitat_group') === "") {
+      //       // if the user has no group
+      //       jQuery('.class-info .students-names').append(listItem);
+      //     } else  if (app.getMyGroup(user.get('username'), app.reviewSection)) {
+      //       // if the user has a group
+      //       var targetHab = jQuery(".habitats-list-item .habitat-thumbnail[data-number="+user.get('habitat_group')+"]").siblings()[0];      // eeeewwwwww. FIXME
+      //       jQuery(targetHab).append(listItem);
+      //     } else {
+      //       console.error('User habitat group error');
+      //     }
+      //   }
+      // });
+
+      // jQuery('#grouping-container').append('<div>I am a group</div>');
+      // "number": 1,
+      // "members": [colin, meagan, alisa],
+      // "lesson": "review3",
+      // "colour": "green",
+      // "kind": "present"
+
+      // <span class="habitat-info">
+      //     <span class="habitat-title" data-number="2">Ecosystem 2</span>
+      //     <span data-number="2" class="habitat-name"></span>
+      //     <textarea class="hidden"></textarea>
+      // </span>
+    }
+  });
+
 
 
 

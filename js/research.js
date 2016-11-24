@@ -34,11 +34,13 @@
   app.currentUser = null;
   app.userIP = null;
   app.lesson = null;
+  app.reviewSection = null;
   app.contributions = [];
   app.shownContinueFlag = false;          // PUUUUUUKE
 
   app.homeView = null;
   app.teacherView = null;
+  app.groupingView = null;
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
@@ -292,6 +294,7 @@
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
+        jQuery('#grouping-nav-btn').addClass('hidden');
         // if the user is sitting on the confirm screen and hits home
         if (jQuery('#tasks-completed-confirmation').dialog('isOpen') === true) {
           jQuery('#tasks-completed-confirmation').dialog('close');
@@ -309,6 +312,7 @@
         } else if (jQuery(this).hasClass('goto-teacher-btn')) {
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#grouping-nav-btn').removeClass('hidden');
           }
           app.hideAllContainers();
           jQuery('#teacher-nav-btn').addClass('active');
@@ -316,10 +320,11 @@
           app.teacherView.render();
         } else if (jQuery(this).hasClass('goto-grouping-btn')) {
           app.hideAllContainers();
+          jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-screen').removeClass('hidden');
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          app.teacherView.render();
+          app.groupingView.render();
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
@@ -375,6 +380,13 @@
         app.teacherView = new app.View.TeacherView({
           el: '#teacher-screen',
           collection: Skeletor.Mobile.users
+        });
+      }
+
+      if (app.groupingView === null) {
+        app.groupingView = new app.View.GroupingView({
+          el: '#grouping-screen',
+          collection: Skeletor.Model.awake.groups
         });
       }
     }
@@ -693,6 +705,17 @@
       count += term.get('vetted_by').length;
     });
     return count;
+  };
+
+  app.getMyGroup = function(username, reviewSection) {
+    var myGroup = Skeletor.Model.awake.groups.filter(function(group) {
+      return reviewSection === group.get('lesson') && _.contains(group.get('members'), username);
+    });
+    if (myGroup.length === 1) {
+      return _.first(myGroup);
+    } else {
+      return null;
+    }
   };
 
   app.getMyField = function(username) {

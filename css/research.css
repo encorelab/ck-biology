@@ -305,6 +305,48 @@ textarea {
 }
 
 
+
+
+/*****************************************************/
+/*****************************************************/
+/****************** GROUPING SCREEN ******************/
+/*****************************************************/
+/*****************************************************/
+
+
+#grouping-screen .inner-wrapper {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 40px;
+}
+#grouping-screen h1 {
+    display: inline;
+    font-weight: 500;
+}
+
+.student-grouping-button {
+    background-color: white;
+}
+
+#grouping-screen #groups-container {
+    width: 100%;
+}
+
+#grouping-screen .group-container {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    margin: 20px;
+}
+
+
+
 /*****************************************************/
 /*****************************************************/
 /******************* WRITE SCREENS *******************/
