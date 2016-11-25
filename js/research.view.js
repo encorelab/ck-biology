@@ -110,6 +110,12 @@
         }
       } else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
+        if (app.groupingView === null) {
+          app.groupingView = new app.View.GroupingView({
+            el: '#grouping-screen',
+            collection: Skeletor.Model.awake.groups
+          });
+        }
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
@@ -356,7 +362,30 @@
 
   app.View.GroupingView = Backbone.View.extend({
     initialize: function() {
+      var view = this;
+
       console.log('Initializing GroupingView...');
+
+      // check how many groups there are for this reviewSection, add a group container for each
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
+        jQuery('#groups-container').append(groupEl);
+      });
+
+      // generate all of the student buttons, and place them in groups as necessary
+      Skeletor.Mobile.users.forEach(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+          studentBtn.text(user.get('username'));
+
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          if (myGroup) {
+            jQuery('.group-container[data-number="'+myGroup.get('number')+'"]').append(studentBtn);
+          } else {
+            jQuery('#students-container').append(studentBtn);
+          }
+        }
+      });
     },
 
     events: {
@@ -398,6 +427,7 @@
         // update the user model
         var group = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
         var membersArr = group.get('members');
+        // START HERE - movign btw groups is broken. Also think about _.uniqing things
         //_.reject(arr, function(d){ return d.id === 3; }); TRY ME
         var updatedArr = membersArr.filter(function(member) {
           return member !== jQuery('.student-grouping-button.selected').text();
@@ -415,62 +445,8 @@
       var view = this;
       console.log('Rendering GroupingView...');
 
-      // or move this to the init?
-      jQuery('#students-container').html('');
-      jQuery('#groups-container').html('');
-
-      // check how many groups there are for this reviewSection, add a group container for each
-      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
-        jQuery('#groups-container').append(groupEl);
-      });
-
-      // generate all of the student buttons, and place them in groups as necessary
-      Skeletor.Mobile.users.forEach(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
-          studentBtn.text(user.get('username'));
-
-          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
-          if (myGroup) {
-            jQuery('.group-container[data-number="'+myGroup.get('number')+'"]').append(studentBtn);
-          } else {
-            jQuery('#students-container').append(studentBtn);
-          }
-        }
-      });
-
-      // add related students to each group, or to unassigned (what about absent?)
-      // app.users.forEach(function(user) {
-      //   if (user.get('user_role') !== "teacher" && user.get('user_role') !== "smartboard") {
-      //     var button = jQuery('<button class="btn btn-default btn-base student-button">');
-      //     button.text(user.get('username'));
-      //     var listItem = jQuery('<li>').append(button);
-      //     if (!user.get('habitat_group') || user.get('habitat_group') === "") {
-      //       // if the user has no group
-      //       jQuery('.class-info .students-names').append(listItem);
-      //     } else  if (app.getMyGroup(user.get('username'), app.reviewSection)) {
-      //       // if the user has a group
-      //       var targetHab = jQuery(".habitats-list-item .habitat-thumbnail[data-number="+user.get('habitat_group')+"]").siblings()[0];      // eeeewwwwww. FIXME
-      //       jQuery(targetHab).append(listItem);
-      //     } else {
-      //       console.error('User habitat group error');
-      //     }
-      //   }
-      // });
-
-      // jQuery('#grouping-container').append('<div>I am a group</div>');
-      // "number": 1,
-      // "members": [colin, meagan, alisa],
-      // "lesson": "review3",
-      // "colour": "green",
-      // "kind": "present"
-
-      // <span class="habitat-info">
-      //     <span class="habitat-title" data-number="2">Ecosystem 2</span>
-      //     <span data-number="2" class="habitat-name"></span>
-      //     <textarea class="hidden"></textarea>
-      // </span>
+      // jQuery('#students-container').html('');
+      // jQuery('#groups-container').html('');
     }
   });
 

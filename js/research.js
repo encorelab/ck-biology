@@ -382,13 +382,6 @@
           collection: Skeletor.Mobile.users
         });
       }
-
-      if (app.groupingView === null) {
-        app.groupingView = new app.View.GroupingView({
-          el: '#grouping-screen',
-          collection: Skeletor.Model.awake.groups
-        });
-      }
     }
 
     app.homeView.render();
