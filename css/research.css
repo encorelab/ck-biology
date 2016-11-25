@@ -329,20 +329,36 @@ textarea {
     display: inline;
     font-weight: 500;
 }
+#grouping-screen .fa-plus-square {
+    padding: 2px 4px;
+    font-size: 30px;
+    border-radius: 4px;
+}
+#grouping-screen .fa-minus-square {
+    padding: 2px 4px;
+    font-size: 20px;
+    border-radius: 8px;
+    margin-left: 93%;
+    margin-top: -10%;               /* NB: this doesn't really do much - bit of a hack */
+}
 
-.student-grouping-button {
+#grouping-screen #students-container {
+    width: 100%;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+}
+
+#grouping-screen .student-grouping-button {
     background-color: white;
 }
 
-#grouping-screen #groups-container {
-    width: 100%;
-}
-
 #grouping-screen .group-container {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     border: 1px solid black;
     margin: 20px;
+    display: inline-block;
 }
 
 

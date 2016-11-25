@@ -359,31 +359,85 @@
       console.log('Initializing GroupingView...');
     },
 
+    events: {
+      'click .student-grouping-button'  : 'selectStudent',
+      'click .group-container'          : 'groupStudent',
+      'click #students-container'       : 'ungroupStudent'
+    },
+
+    selectStudent: function(ev) {
+      jQuery('.student-grouping-button').removeClass('selected');
+      jQuery(ev.target).addClass('selected');
+
+      // to prevent propagation. Otherwise jQuery gets confused and removes the element (!) because it can't figure out what to do with the default click event
+      return false;
+    },
+
+    groupStudent: function(ev) {
+      var view = this;
+
+      // if there is a student selected
+      if (jQuery('.student-grouping-button.selected').length > 0) {
+        // update the user model
+        var group = view.collection.findWhere({'number': jQuery(ev.target).data('number')});
+        var membersArr = group.get('members');
+        membersArr.push(jQuery('.student-grouping-button.selected').text());
+        group.set('members', membersArr);
+        group.save();
+
+        // update the UI
+        jQuery('.student-grouping-button.selected').detach().appendTo(jQuery(ev.target));
+        jQuery('.student-grouping-button').removeClass('selected');
+      }
+    },
+
+    ungroupStudent: function(ev) {
+      var view = this;
+
+      if (jQuery('.student-grouping-button.selected').length > 0) {
+        // update the user model
+        var group = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
+        var membersArr = group.get('members');
+        //_.reject(arr, function(d){ return d.id === 3; }); TRY ME
+        var updatedArr = membersArr.filter(function(member) {
+          return member !== jQuery('.student-grouping-button.selected').text();
+        });
+        group.set('members', updatedArr);
+        group.save();
+
+        // update the UI
+        jQuery('.student-grouping-button.selected').detach().appendTo(jQuery('#students-container'));
+        jQuery('.student-grouping-button').removeClass('selected');
+      }
+    },
+
     render: function () {
       var view = this;
       console.log('Rendering GroupingView...');
 
-      // or move this to init?
+      // or move this to the init?
       jQuery('#students-container').html('');
       jQuery('#groups-container').html('');
+
+      // check how many groups there are for this reviewSection, add a group container for each
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
+        jQuery('#groups-container').append(groupEl);
+      });
 
       // generate all of the student buttons, and place them in groups as necessary
       Skeletor.Mobile.users.forEach(function(user) {
         if (user.get('user_role') !== "teacher") {
-          var button = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
-          button.text(user.get('username'));
-          jQuery('#students-container').append(button);
+          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+          studentBtn.text(user.get('username'));
+
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          if (myGroup) {
+            jQuery('.group-container[data-number="'+myGroup.get('number')+'"]').append(studentBtn);
+          } else {
+            jQuery('#students-container').append(studentBtn);
+          }
         }
-      });
-
-      // check how many groups there are for this reviewSection, add a group container for each
-      var groups = view.collection.filter(function(group) {
-        return app.reviewSection === group.get('lesson');
-      });
-      _.each(groups, function(group) {
-        var groupEl = '<div class="group-container"></div>'
-        jQuery('#groups-container').append(groupEl);
-
       });
 
       // add related students to each group, or to unassigned (what about absent?)
