@@ -389,9 +389,25 @@
     },
 
     events: {
+      'click #add-group-btn'            : 'addGroup',
       'click .student-grouping-button'  : 'selectStudent',
       'click .group-container'          : 'groupStudent',
       'click #students-container'       : 'ungroupStudent'
+    },
+
+    addGroup: function(ev) {
+      var view = this;
+
+      var group = new Model.Group();
+      group.set('number', 3);
+      group.set('lesson', app.reviewSection);
+      group.set('kind', 'present');
+
+
+      // add a group.save();
+
+      var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
+      jQuery('#groups-container').append(groupEl);
     },
 
     selectStudent: function(ev) {
@@ -407,12 +423,23 @@
 
       // if there is a student selected
       if (jQuery('.student-grouping-button.selected').length > 0) {
+        // remove this student from old group, as necessary
+        var prevGroup = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
+        if (prevGroup) {
+          var prevMembersArr = prevGroup.get('members');
+          var updatedArr = prevMembersArr.filter(function(member) {
+            return member !== jQuery('.student-grouping-button.selected').text();
+          });
+          prevGroup.set('members', updatedArr);
+          prevGroup.save();
+        }
+
         // update the user model
-        var group = view.collection.findWhere({'number': jQuery(ev.target).data('number')});
-        var membersArr = group.get('members');
-        membersArr.push(jQuery('.student-grouping-button.selected').text());
-        group.set('members', membersArr);
-        group.save();
+        var newGroup = view.collection.findWhere({'number': jQuery(ev.target).data('number')});
+        var newMembersArr = newGroup.get('members');
+        newMembersArr.push(jQuery('.student-grouping-button.selected').text());
+        newGroup.set('members', newMembersArr);
+        newGroup.save();
 
         // update the UI
         jQuery('.student-grouping-button.selected').detach().appendTo(jQuery(ev.target));
@@ -427,8 +454,8 @@
         // update the user model
         var group = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
         var membersArr = group.get('members');
-        // START HERE - movign btw groups is broken. Also think about _.uniqing things
-        //_.reject(arr, function(d){ return d.id === 3; }); TRY ME
+        // START HERE - moving btw groups is broken. Also think about _.uniqing things
+        // remove 'number' concept from groups... replace with id. Do we need group number for group-report relationship?
         var updatedArr = membersArr.filter(function(member) {
           return member !== jQuery('.student-grouping-button.selected').text();
         });
