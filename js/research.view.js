@@ -368,7 +368,7 @@
 
       // check how many groups there are for this reviewSection, add a group container for each
       _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
+        var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square remove-group-btn" data-number="'+group.get('number')+'"></button></div>'
         jQuery('#groups-container').append(groupEl);
       });
 
@@ -390,24 +390,39 @@
 
     events: {
       'click #add-group-btn'            : 'addGroup',
+      'click .remove-group-btn'         : 'removeGroup',
       'click .student-grouping-button'  : 'selectStudent',
       'click .group-container'          : 'groupStudent',
       'click #students-container'       : 'ungroupStudent'
     },
 
-    addGroup: function(ev) {
-      var view = this;
-
+    addGroup: function() {
       var group = new Model.Group();
-      group.set('number', 3);
+      group.set('number', 3);       // TODO: think hard about this numbering stuff - feels off. Might want either/and id or colour. Dropdown for colour?
       group.set('lesson', app.reviewSection);
       group.set('kind', 'present');
+      group.save();
 
+      // TODO: the group isn't being added to the local collection here!
 
-      // add a group.save();
-
-      var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square"></button></div>'
+      var groupEl = '<div class="group-container" data-number="'+group.get('number')+'"><button class="fa fa-minus-square remove-group-btn" data-number="'+group.get('number')+'"></button></div>'
       jQuery('#groups-container').append(groupEl);
+    },
+
+    removeGroup: function(ev) {
+      var view = this;
+
+      // move the students back to their container
+      var group = view.collection.findWhere({'number': jQuery(ev.target).data('number')});
+      _.each(group.get('members'), function(member) {
+        jQuery('.student-grouping-button:contains("'+member+'")').detach().appendTo(jQuery('#students-container'));
+      });
+
+      // update collection
+      group.destroy();
+
+      // update UI
+      jQuery('.group-container[data-number="'+jQuery(ev.target).data('number')+'"]').remove();
     },
 
     selectStudent: function(ev) {
