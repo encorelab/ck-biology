@@ -37,6 +37,9 @@
   app.reviewSection = null;
   app.contributions = [];
   app.shownContinueFlag = false;          // PUUUUUUKE
+  app.teamColourName = ["red", "green", "purple", "yellow", "orange"];
+  app.teamColourRGB = ["rgba(231,76,60,0.7)", "rgba(46,204,113,0.7)", "rgba(155,89,182,0.7)", "rgba(241,196,15, 0.7)", "rgba(243,156,18,0.7)"];
+  app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
 
   app.homeView = null;
   app.teacherView = null;
@@ -709,6 +712,19 @@
     } else {
       return null;
     }
+  };
+
+  app.getNewTeamColour = function() {
+    var usedColours = [];
+    Skeletor.Model.awake.groups.each(function(group) {
+      usedColours.push(group.get('colour'));
+    });
+
+    return _.first(_.difference(app.teamColourName, usedColours));
+  };
+
+  app.getColourForColour = function(colour) {
+    return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };
 
   app.getMyField = function(username) {
