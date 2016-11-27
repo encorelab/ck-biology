@@ -374,9 +374,9 @@
 }
 ,
 {
-"from": "sex-linked gene",
+"from": "sex-linked genes",
 "link": "is a type of",
-"to": "linked gene",
+"to": "linked genes",
 "lesson": 1,
 "assigned_to": "riga",
 "complete": true,
@@ -398,7 +398,7 @@
 {
 "from": "T.H. Morgan",
 "link": "discovered",
-"to": "sex-linked gene",
+"to": "sex-linked genes",
 "lesson": 1,
 "assigned_to": "sharon",
 "complete": true,
@@ -2601,6 +2601,17 @@
 "to": "cloning vector",
 "lesson": 5,
 "assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Hershey & Chase",
+"link": "made a historical contribution to",
+"to": "heredity",
+"lesson": 1,
+"assigned_to": "serena",
 "complete": true,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
