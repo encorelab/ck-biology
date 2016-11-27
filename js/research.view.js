@@ -366,9 +366,24 @@
 
       console.log('Initializing GroupingView...');
 
+      //check if there is an 'absent' group, if not, create ie
+      if (view.collection.where({"kind": "absent"}).length === 0) {
+        var group = new Model.Group();
+        group.set('lesson', app.reviewSection);
+        group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
+        group.set('kind', "absent");
+        group.save();
+        view.collection.add(group);
+      }
+
       // check how many groups there are for this reviewSection, add a group container for each
       _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        var groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button></div>'
+        var groupEl = ''
+        if (group.get('kind') === "absent") {
+          groupEl = '<div class="group-container" style="background-color: #ECF0F1;" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn invisible" data-group="'+group.get('_id')+'"></button><h2>ABSENT</h2></div>'
+        } else {
+          groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
+        }
         jQuery('#groups-container').append(groupEl);
       });
 
@@ -399,20 +414,25 @@
     addGroup: function() {
       var view = this;
 
-      // create a new group
-      var group = new Model.Group();
-      group.set('lesson', app.reviewSection);
-      group.set('colour', app.getNewTeamColour());     // length will give us an the next colour in the team colour arrays
-      group.set('kind', 'present');
-      group.save();
+      // proxy for checking if we have hit max num of groups
+      if (app.getNewTeamColour()) {
+        // create a new group
+        var group = new Model.Group();
+        group.set('lesson', app.reviewSection);
+        group.set('colour', app.getNewTeamColour());     // length will give us an the next colour in the team colour arrays
+        group.set('kind', 'present');
+        group.save();
 
-      // update UI (think about moving all this UI stuff to render?)
-      // IMPORTANT: updating UI before model gets added to the collection
-      var groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(app.getNewTeamColour())+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button></div>'
-      jQuery('#groups-container').append(groupEl);
+        // update UI (think about moving all this UI stuff to render?)
+        // IMPORTANT: updating UI before model gets added to the collection
+        var groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
+        jQuery('#groups-container').append(groupEl);
 
-      // gotta do this last, due to the .lengths
-      view.collection.add(group);
+        // gotta do this last, due to the .lengths
+        view.collection.add(group);
+      } else {
+        jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
+      }
     },
 
     removeGroup: function(ev) {

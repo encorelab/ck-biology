@@ -329,6 +329,10 @@ textarea {
     display: inline;
     font-weight: 500;
 }
+#grouping-screen h2 {
+    margin-top: 0px;
+    font-weight: 500;
+}
 #grouping-screen .fa-plus-square {
     padding: 2px 4px;
     font-size: 30px;
@@ -348,6 +352,10 @@ textarea {
     margin: 20px;
     padding: 20px;
 }
+#grouping-screen #groups-container {
+    width: 100%;
+    margin: 20px;
+}
 
 #grouping-screen .student-grouping-button {
     background-color: #3498DB;
@@ -357,7 +365,7 @@ textarea {
 }
 
 #grouping-screen .group-container {
-    min-height: 100px;
+    min-height: 85px;
     width: 220px;
     border: 1px solid black;
     margin: 20px;
