@@ -112,7 +112,7 @@ textarea {
 
 /* this should be changed, depending on the final colour of the button (used in the new-notes sections), NOT SURE WE STILL USE THIS */
 .selected {
-    background: #fecc81 !important;
+    background: #F1C40F !important;
 }
 
 /* .heavy-text {
@@ -350,14 +350,18 @@ textarea {
 }
 
 #grouping-screen .student-grouping-button {
-    background-color: white;
+    background-color: #3498DB;
+    color: white;
+    font-size: 20px;
+    margin: 5px;
 }
 
 #grouping-screen .group-container {
-    height: 300px;
-    width: 300px;
+    min-height: 100px;
+    width: 220px;
     border: 1px solid black;
     margin: 20px;
+    padding-bottom: 20px;
     display: inline-block;
 }
 
