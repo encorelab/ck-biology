@@ -709,6 +709,9 @@
     });
     if (myGroup.length === 1) {
       return _.first(myGroup);
+    } else if (myGroup.length > 1) {
+      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first, contact Colin if the issue persists");
+      return null;
     } else {
       return null;
     }

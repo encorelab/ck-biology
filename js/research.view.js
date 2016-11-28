@@ -416,24 +416,31 @@
       var view = this;
       var studentsToGroup = [];
 
-      // ungroup all students
+      // hard remove all groups. This seems to help the (likely) async issue of members going into multiple groups
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      // ungroup all students in UI and set up for the readd
       Skeletor.Mobile.users.each(function(user) {
         if (user.get('user_role') !== "teacher") {
-          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
-          if (myGroup) {
-            view.ungroupStudent(user.get('username'));
-          }
+          // update the UI
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+          // create the array for the shuffle
           studentsToGroup.push(user.get('username'));
         }
       });
 
+      // remove the absent group
+      var presentGroupArr = view.collection.where({'kind': 'present'});
+
       // group students randomly into non-absent group containers
       _.each(_.shuffle(studentsToGroup), function(studentName, index) {
-        // remove the absent group
-        var presentGroupArr = view.collection.where({'kind': 'present'});
-
         // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
-        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)]);
+        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
+
       });
     },
 
@@ -445,17 +452,15 @@
         // create a new group
         var group = new Model.Group();
         group.set('lesson', app.reviewSection);
-        group.set('colour', app.getNewTeamColour());     // length will give us an the next colour in the team colour arrays
+        group.set('colour', app.getNewTeamColour());
         group.set('kind', 'present');
         group.save();
+        view.collection.add(group);
 
         // update UI (think about moving all this UI stuff to render?)
-        // IMPORTANT: updating UI before model gets added to the collection
         var groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
         jQuery('#groups-container').append(groupEl);
 
-        // gotta do this last, due to the .lengths
-        view.collection.add(group);
       } else {
         jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
       }
@@ -467,7 +472,7 @@
       // move the students back to their container
       var group = view.collection.get(jQuery(ev.target).data('group'));
       _.each(group.get('members'), function(member) {
-        jQuery('.student-grouping-button:contains("'+member+'")').detach().appendTo(jQuery('#students-container'));
+        jQuery(jQuery('.student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#students-container'));
       });
 
       // update collection
