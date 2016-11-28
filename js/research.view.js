@@ -407,8 +407,18 @@
       'click #add-group-btn'            : 'addGroup',
       'click .remove-group-btn'         : 'removeGroup',
       'click .student-grouping-button'  : 'selectStudent',
-      'click .group-container'          : 'groupStudent',
-      'click #students-container'       : 'ungroupStudent'
+      'click .group-container'          : 'groupSelected',
+      'click #students-container'       : 'ungroupSelected',
+      'click #assign-randomly-btn'      : 'groupRandomly'
+    },
+
+    groupRandomly: function() {
+      var view = this;
+
+      // ungroup all students except absent
+      view.ungroupStudent
+
+      // group students randomly into non-absent group containers
     },
 
     addGroup: function() {
@@ -459,52 +469,63 @@
       return false;
     },
 
-    groupStudent: function(ev) {
+    groupSelected: function(ev) {
       var view = this;
 
-      // if there is a student selected
       if (jQuery('.student-grouping-button.selected').length > 0) {
-        // remove this student from old group, as necessary
-        var prevGroup = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
-        if (prevGroup) {
-          var prevMembersArr = prevGroup.get('members');
-          var updatedArr = prevMembersArr.filter(function(member) {
-            return member !== jQuery('.student-grouping-button.selected').text();
-          });
-          prevGroup.set('members', updatedArr);
-          prevGroup.save();
-        }
-
-        // update the user model
-        var newGroup = view.collection.get(jQuery(ev.target).data('group'));
-        var newMembersArr = newGroup.get('members');
-        newMembersArr.push(jQuery('.student-grouping-button.selected').text());
-        newGroup.set('members', newMembersArr);
-        newGroup.save();
-
-        // update the UI
-        jQuery('.student-grouping-button.selected').detach().appendTo(jQuery(ev.target));
-        jQuery('.student-grouping-button').removeClass('selected');
+        view.groupStudent(jQuery('.student-grouping-button.selected').text(), jQuery(ev.target).data('group'));
       }
     },
 
-    ungroupStudent: function(ev) {
+    ungroupSelected: function() {
       var view = this;
 
       if (jQuery('.student-grouping-button.selected').length > 0) {
-        // update the user model
-        var group = app.getMyGroup(jQuery('.student-grouping-button.selected').text(), app.reviewSection);
-        var membersArr = group.get('members');
-        var updatedArr = membersArr.filter(function(member) {
-          return member !== jQuery('.student-grouping-button.selected').text();
-        });
-        group.set('members', updatedArr);
-        group.save();
-
-        // update the UI
-        jQuery('.student-grouping-button.selected').detach().appendTo(jQuery('#students-container'));
-        jQuery('.student-grouping-button').removeClass('selected');
+        view.ungroupStudent(jQuery('.student-grouping-button.selected').text());
       }
+    },
+
+    groupStudent: function(name, targetGroup) {
+      var view = this;
+
+      // remove this student from old group, as necessary
+      var prevGroup = app.getMyGroup(jQuery(name).text(), app.reviewSection);
+      if (prevGroup) {
+        var prevMembersArr = prevGroup.get('members');
+        var updatedArr = prevMembersArr.filter(function(member) {
+          return member !== jQuery(name).text();
+        });
+        prevGroup.set('members', updatedArr);
+        prevGroup.save();
+      }
+
+      // update the user model
+      var newGroup = view.collection.get(targetGroup);
+      var newMembersArr = newGroup.get('members');
+      newMembersArr.push(jQuery(name).text());
+      newGroup.set('members', newMembersArr);
+      newGroup.save();
+
+      // update the UI
+      jQuery(jQuery('.student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('.group-container[data-group="'+targetGroup+'"]'));
+      jQuery('.student-grouping-button').removeClass('selected');
+    },
+
+    ungroupStudent: function(name) {
+      var view = this;
+
+      // update the user model
+      var group = app.getMyGroup(name, app.reviewSection);
+      var membersArr = group.get('members');
+      var updatedArr = membersArr.filter(function(member) {
+        return member !== name;
+      });
+      group.set('members', updatedArr);
+      group.save();
+
+      // update the UI
+      jQuery(jQuery('.student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#students-container'));
+      jQuery('.student-grouping-button').removeClass('selected');
     },
 
     render: function () {
