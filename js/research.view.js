@@ -388,7 +388,7 @@
       });
 
       // generate all of the student buttons, and place them in groups as necessary
-      Skeletor.Mobile.users.forEach(function(user) {
+      Skeletor.Mobile.users.each(function(user) {
         if (user.get('user_role') !== "teacher") {
           var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
           studentBtn.text(user.get('username'));
@@ -416,7 +416,7 @@
       var view = this;
 
       // ungroup all students except absent
-      view.ungroupStudent
+      //view.collection.each(function())
 
       // group students randomly into non-absent group containers
     },
@@ -489,11 +489,11 @@
       var view = this;
 
       // remove this student from old group, as necessary
-      var prevGroup = app.getMyGroup(jQuery(name).text(), app.reviewSection);
+      var prevGroup = app.getMyGroup(name, app.reviewSection);
       if (prevGroup) {
         var prevMembersArr = prevGroup.get('members');
         var updatedArr = prevMembersArr.filter(function(member) {
-          return member !== jQuery(name).text();
+          return member !== name;
         });
         prevGroup.set('members', updatedArr);
         prevGroup.save();
@@ -502,7 +502,7 @@
       // update the user model
       var newGroup = view.collection.get(targetGroup);
       var newMembersArr = newGroup.get('members');
-      newMembersArr.push(jQuery(name).text());
+      newMembersArr.push(name);
       newGroup.set('members', newMembersArr);
       newGroup.save();
 
