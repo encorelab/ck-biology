@@ -414,11 +414,27 @@
 
     groupRandomly: function() {
       var view = this;
+      var studentsToGroup = [];
 
-      // ungroup all students except absent
-      //view.collection.each(function())
+      // ungroup all students
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          if (myGroup) {
+            view.ungroupStudent(user.get('username'));
+          }
+          studentsToGroup.push(user.get('username'));
+        }
+      });
 
       // group students randomly into non-absent group containers
+      _.each(_.shuffle(studentsToGroup), function(studentName, index) {
+        // remove the absent group
+        var presentGroupArr = view.collection.where({'kind': 'present'});
+
+        // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
+        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)]);
+      });
     },
 
     addGroup: function() {
