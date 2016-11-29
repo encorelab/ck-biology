@@ -261,19 +261,19 @@
 
   /***********************************************************
    ***********************************************************
-   ********************* TEACHER VIEW ************************
+   **************** HOMEWORK PROGRESS VIEW *******************
    ***********************************************************
    ***********************************************************/
 
-  app.View.TeacherView = Backbone.View.extend({
+  app.View.HomeworkProgressView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing TeacherView...');
+      console.log('Initializing HomeworkProgressView...');
     },
 
     render: function () {
       var view = this;
-      console.log("Rendering TeacherView...");
+      console.log("Rendering HomeworkProgressView...");
 
       // sort collection by most complete to least complete
       var userArray = [];
@@ -300,14 +300,14 @@
 
         var el = '';
         if (index%2 === 0) {
-          el += '<div class="teacher-row-container">';
-          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="teacher-progress-container">';
+          el += '<div class="homework-progress-row-container">';
+          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="homework-progress-bar-container">';
           el += '<span id="'+name+'-progress-bar"></span>';
           el += '</span>';
         } else {
-          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="teacher-progress-container">';
+          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="homework-progress-bar-container">';
           el += '<span id="'+name+'-progress-bar"></span>';
           el += '</span>';
           el += '</div>';
@@ -317,12 +317,12 @@
       });
       // odd number of students, but including maria in the collection
       if (view.collection.length%2 === 0) {
-        teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
-        teacherEl += '<span class="teacher-progress-container">';
+        teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+        teacherEl += '<span class="homework-progress-bar-container">';
         teacherEl += '</span>';
         teacherEl += '</div>';
       }
-      jQuery('#teacher-container').html(teacherEl);
+      jQuery('#homework-progress-container').html(teacherEl);
 
       view.collection.each(function(user) {
         if (user.get('user_role') !== 'teacher') {
@@ -395,14 +395,14 @@
 
     //     var el = '';
     //     if (index%2 === 0) {
-    //       el += '<div class="teacher-row-container">';
-    //       el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-    //       el += '<span class="teacher-progress-container">';
+    //       el += '<div class="homework-progress-row-container">';
+    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="homework-progress-bar-container">';
     //       el += '<span id="'+name+'-progress-bar"></span>';
     //       el += '</span>';
     //     } else {
-    //       el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-    //       el += '<span class="teacher-progress-container">';
+    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="homework-progress-bar-container">';
     //       el += '<span id="'+name+'-progress-bar"></span>';
     //       el += '</span>';
     //       el += '</div>';
@@ -412,12 +412,12 @@
     //   });
     //   // odd number of students, but including maria in the collection
     //   if (view.collection.length%2 === 0) {
-    //     teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
-    //     teacherEl += '<span class="teacher-progress-container">';
+    //     teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+    //     teacherEl += '<span class="homework-progress-bar-container">';
     //     teacherEl += '</span>';
     //     teacherEl += '</div>';
     //   }
-    //   jQuery('#teacher-container').html(teacherEl);
+    //   jQuery('#homework-progress-container').html(teacherEl);
 
     //   view.collection.each(function(user) {
     //     if (user.get('user_role') !== 'teacher') {

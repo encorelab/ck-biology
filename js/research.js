@@ -42,7 +42,7 @@
   app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
 
   app.homeView = null;
-  app.teacherView = null;
+  app.homeworkProgressView = null;
   app.reviewProgressView = null;
   app.groupingView = null;
   app.definitionView = null;
@@ -313,19 +313,19 @@
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
           app.determineNextStep();
-        } else if (jQuery(this).hasClass('goto-teacher-btn')) {
+        } else if (jQuery(this).hasClass('goto-progress-btn')) {
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#grouping-nav-btn').removeClass('hidden');
           }
           app.hideAllContainers();
-          jQuery('#teacher-nav-btn').addClass('active');
+          jQuery('#homework-progress-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
             jQuery('#review-progress-screen').removeClass('hidden');
             app.reviewProgressView.render();
           } else {
-            jQuery('#teacher-screen').removeClass('hidden');
-            app.teacherView.render();
+            jQuery('#homework-progress-screen').removeClass('hidden');
+            app.homeworkProgressView.render();
           }
         } else if (jQuery(this).hasClass('goto-grouping-btn')) {
           app.hideAllContainers();
@@ -385,9 +385,9 @@
       }
     }
     else {
-      if (app.teacherView === null) {
-        app.teacherView = new app.View.TeacherView({
-          el: '#teacher-screen',
+      if (app.homeworkProgressView === null) {
+        app.homeworkProgressView = new app.View.HomeworkProgressView({
+          el: '#homework-progress-screen',
           collection: Skeletor.Mobile.users
         });
       }

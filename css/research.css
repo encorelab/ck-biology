@@ -266,7 +266,7 @@ textarea {
 /*****************************************************/
 
 
-#teacher-screen .inner-wrapper {
+#homework-progress-screen .inner-wrapper {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -277,29 +277,29 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
-#teacher-screen h1 {
+#homework-progress-screen h1 {
     display: inline;
     font-weight: 500;
 }
-#teacher-screen h2 {
+#homework-progress-screen h2 {
     text-align: left;
     display: inline-block;
     width: 120px;
     font-size: 20px;
     vertical-align: middle;
 }
-#teacher-screen .icon {
+#homework-progress-screen .icon {
     margin-left: 50px;
     margin-top: -25px;
 }
-#teacher-container {
+#homework-progress-container {
     margin-top: 40px;
 }
-.teacher-row-container {
+.homework-progress-row-container {
     margin-left: 80px;
     margin-bottom: 20px;
 }
-.teacher-progress-container {
+.homework-progress-bar-container {
     margin-right: 160px;
     margin-left: 30px;
 }
@@ -996,7 +996,7 @@ input:disabled {
         /*background-color: #3092ae;*/
     }
 
-    #home-screen .inner-wrapper, #teacher-screen .inner-wrapper {
+    #home-screen .inner-wrapper, #homework-progress-screen .inner-wrapper {
         top: 10%;
     }
 
@@ -1024,7 +1024,7 @@ input:disabled {
         /* padding-bottom: 25%; */ /* = width for a 1:1 aspect ratio */
     }
 
-    #home-screen h3+img+h3, #teacher-screen h3+img+h3 {
+    #home-screen h3+img+h3, #homework-progress-screen h3+img+h3 {
         /* vertical-align: baseline; */
     }
     .lesson-title {
