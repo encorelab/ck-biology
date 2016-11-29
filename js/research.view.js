@@ -409,14 +409,70 @@
       'click .student-grouping-button'  : 'selectStudent',
       'click .group-container'          : 'groupSelected',
       'click #students-container'       : 'ungroupSelected',
-      'click #assign-randomly-btn'      : 'groupRandomly'
+      'click #reset-students-btn'       : 'resetAll',
+      'click #assign-randomly-btn'      : 'groupRandomly',
+      'click #assign-by-progress-btn'   : 'assignByProgress'
+    },
+
+    assignByProgress: function() {
+      var view = this;
+      var studentsToGroup = [];
+
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      // ungroup all students in UI and create array for the readd
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          // update the UI
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+
+          var student = {};
+          student.name = user.get('username');
+          student.unit_progress = app.getMyContributionPercentForUnit(user.get('username'));
+
+          studentsToGroup.push(student);
+        }
+      });
+
+      // sort the array by progress to order students based on total % complete
+      function compare(a,b) {
+        if (a.unit_progress > b.unit_progress)
+          return -1;
+        if (a.unit_progress < b.unit_progress)
+          return 1;
+        return 0;
+      }
+      studentsToGroup.sort(compare);
+
+      // determine number of students per group (excluding absent)
+      var minNumStudentsPerGroup = Math.floor(studentsToGroup.length / (view.collection.length - 1));
+      var numExtraStudents = studentsToGroup.length % (view.collection.length - 1);
+
+      // populate the groups
+      _.each(view.collection.where({"kind":"present"}), function(group, index) {
+        // add the min number of students per group
+        for (var i = 0; i < minNumStudentsPerGroup; i++) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+        // NB: ASSUMPTION - the remainder of students (see the mod above) are added to the first groups
+        if (index < numExtraStudents) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+      });
     },
 
     groupRandomly: function() {
       var view = this;
       var studentsToGroup = [];
 
-      // hard remove all groups. This seems to help the (likely) async issue of members going into multiple groups
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
       view.collection.each(function(group) {
         // update the user model
         group.set('members', []);
@@ -440,7 +496,22 @@
       _.each(_.shuffle(studentsToGroup), function(studentName, index) {
         // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
         view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
+      });
+    },
 
+    resetAll: function() {
+      var view = this;
+
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+        }
       });
     },
 

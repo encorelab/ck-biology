@@ -628,6 +628,18 @@
     return Math.round(percent);
   };
 
+  app.getMyContributionPercentForUnit = function(username) {
+    var totalPercents = 0;
+
+    Skeletor.Model.awake.lessons.each(function(lesson) {
+      totalPercents += app.getMyContributionPercent(username, lesson.get('number'), true);
+    });
+
+    var percent = totalPercents / Skeletor.Model.awake.lessons.where({"kind":"homework"}).length;
+
+    return Math.round(percent);
+  };
+
   app.getCommunityContributionPercent = function(lessonNum) {
     var totalStudents = app.users.where({user_role: "student"}).length;
 
@@ -710,7 +722,7 @@
     if (myGroup.length === 1) {
       return _.first(myGroup);
     } else if (myGroup.length > 1) {
-      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first, contact Colin if the issue persists");
+      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
       return null;
     } else {
       return null;
