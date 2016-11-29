@@ -43,6 +43,7 @@
 
   app.homeView = null;
   app.teacherView = null;
+  app.reviewProgressView = null;
   app.groupingView = null;
   app.definitionView = null;
   app.relationshipView = null;
@@ -319,8 +320,13 @@
           }
           app.hideAllContainers();
           jQuery('#teacher-nav-btn').addClass('active');
-          jQuery('#teacher-screen').removeClass('hidden');
-          app.teacherView.render();
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+            jQuery('#review-progress-screen').removeClass('hidden');
+            app.reviewProgressView.render();
+          } else {
+            jQuery('#teacher-screen').removeClass('hidden');
+            app.teacherView.render();
+          }
         } else if (jQuery(this).hasClass('goto-grouping-btn')) {
           app.hideAllContainers();
           jQuery('#grouping-nav-btn').removeClass('hidden');
@@ -383,6 +389,13 @@
         app.teacherView = new app.View.TeacherView({
           el: '#teacher-screen',
           collection: Skeletor.Mobile.users
+        });
+      }
+
+      if (app.reviewProgressView === null) {
+        app.reviewProgressView = new app.View.ReviewProgressView({
+          el: '#review-progress-screen',
+          collection: Skeletor.Mobile.groups
         });
       }
     }

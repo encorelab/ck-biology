@@ -356,6 +356,101 @@
 
   /***********************************************************
    ***********************************************************
+   **************** REVIEW PROGRESS VIEW *********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ReviewProgressView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ReviewProgressView...');
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering ReviewProgressView...");
+
+      // sort collection by most complete to least complete
+    //   var userArray = [];
+    //   view.collection.each(function(user) {
+    //     if (user.get('user_role') !== "teacher") {
+    //       user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
+    //       userArray.push(user);
+    //     }
+    //   });
+
+    //   function compare(a,b) {
+    //     if (a.get('complete_percent') > b.get('complete_percent'))
+    //       return -1;
+    //     if (a.get('complete_percent') < b.get('complete_percent'))
+    //       return 1;
+    //     return 0;
+    //   }
+    //   userArray.sort(compare);
+
+    //   // create the html for the buttons and progress bars
+    //   var teacherEl = '';
+    //   _.each(userArray, function(user, index) {
+    //     var name = user.get('username');
+
+    //     var el = '';
+    //     if (index%2 === 0) {
+    //       el += '<div class="teacher-row-container">';
+    //       el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="teacher-progress-container">';
+    //       el += '<span id="'+name+'-progress-bar"></span>';
+    //       el += '</span>';
+    //     } else {
+    //       el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="teacher-progress-container">';
+    //       el += '<span id="'+name+'-progress-bar"></span>';
+    //       el += '</span>';
+    //       el += '</div>';
+    //     }
+
+    //     teacherEl += el;
+    //   });
+    //   // odd number of students, but including maria in the collection
+    //   if (view.collection.length%2 === 0) {
+    //     teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
+    //     teacherEl += '<span class="teacher-progress-container">';
+    //     teacherEl += '</span>';
+    //     teacherEl += '</div>';
+    //   }
+    //   jQuery('#teacher-container').html(teacherEl);
+
+    //   view.collection.each(function(user) {
+    //     if (user.get('user_role') !== 'teacher') {
+    //       var myPercent = '';
+    //       if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
+    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
+    //       } else {
+    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+    //       }
+
+    //       var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
+    //         {
+    //           easing: 'easeInOut',
+    //           color: app.hexDarkPurple,
+    //           trailColor: app.hexLightGrey,
+    //           strokeWidth: 8,
+    //           svgStyle: app.progressBarStyleHome,
+    //           text: {
+    //             value: myPercent,
+    //             style: app.progressBarTextStyle
+    //           }
+    //         });
+    //       myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+    //     }
+    //   });
+    }
+  });
+
+
+
+
+  /***********************************************************
+   ***********************************************************
    ********************* GROUPING VIEW ***********************
    ***********************************************************
    ***********************************************************/
