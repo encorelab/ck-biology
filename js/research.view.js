@@ -1508,7 +1508,7 @@
           term: termToExplain
         });
       } else {
-        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in explain being rebound each time the view is created
+        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in explain being re-bound each time the view is created
         app.explainDetailsView.options.term = termToExplain;
       }
       app.explainDetailsView.render();
@@ -1791,7 +1791,8 @@
 
         var el = '';
         if (term.complete === true) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:'+view.model.get('colour')+'">'+term.name+'</button>';
+          // maybe add a colour to the term.complete == true (marking as complete)
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'">'+term.name+'</button>';
         } else if (agreementLevel === 4) {
           el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#0B3982">'+term.name+'</button>';
         } else if (agreementLevel === 3) {
