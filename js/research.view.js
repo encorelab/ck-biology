@@ -45,7 +45,7 @@
   app.View.HomeView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing HomeView...', view.el);
+      console.log('Initializing HomeView...');
     },
 
     events: {
@@ -61,6 +61,7 @@
       app.hideAllContainers();
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
+      jQuery('#grouping-nav-btn').addClass('hidden');
       // if student
       if (app.teacherFlag === false) {
         jQuery('#contribution-nav-btn').addClass('active');
@@ -79,6 +80,23 @@
             });
             app.attachTermsView.render();
           }
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
+          if (app.getMyField(app.username)) {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#contribution-nav-btn').addClass('hidden');
+            jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+            if (app.groupNegotiateTermsView === null) {
+              app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
+                el: '#group-negotiate-terms-screen',
+                model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+              });
+            }
+            app.groupNegotiateTermsView.render();
+          } else {
+            jQuery().toastmessage('showErrorToast', "You must select a field of research before proceeding. Please click on Review 1 to make that determination.");
+            jQuery('.top-nav-btn').addClass('hidden');
+            jQuery('#home-screen').removeClass('hidden');
+          }
         } else {
           // doing this here now, because we need the lesson during the init
           if (app.relationshipView === null) {
@@ -91,8 +109,32 @@
           app.determineNextStep();
         }
       } else {
-        jQuery('#knowledge-base-nav-btn').addClass('active');
-        jQuery('#wall').removeClass('hidden');
+        app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
+        if (app.groupingView === null) {
+          app.groupingView = new app.View.GroupingView({
+            el: '#grouping-screen',
+            collection: Skeletor.Model.awake.groups
+          });
+        }
+        if (app.reviewSection === "review1") {
+          jQuery('.top-nav-btn').addClass('hidden');
+          jQuery('#home-nav-btn').removeClass('hidden');
+          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+        } else if (app.reviewSection === "review2") {
+          jQuery('.top-nav-btn').addClass('hidden');
+          jQuery('#home-nav-btn').removeClass('hidden');
+          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+        } else if (app.reviewSection === "review3") {
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#grouping-nav-btn').removeClass('hidden');
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+          app.groupingView.render();
+        } else {
+          jQuery('#knowledge-base-nav-btn').addClass('active');
+          jQuery('#wall').removeClass('hidden');
+        }
+
       }
     },
 
@@ -163,6 +205,16 @@
 
       // fill in the progress bars
       view.collection.each(function(lesson) {
+        // if student, show both progress bars for all homework lessons
+        // if teacher, show only community progress bar for all homework lessons
+
+        // if review, make invisible (mostly to make the css easier)
+        if (lesson.get('kind') !== "homework") {
+          jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+        }
+
+        // if student
         if (app.teacherFlag === false) {
           var myPercent = '';
           if (app.getMyContributionPercent(app.username, lesson.get('number'), true) > 100) {
@@ -186,6 +238,7 @@
           myBar.animate(app.getMyContributionPercent(app.username, lesson.get('number')) / 100);
         }
 
+        // for students and teachers
         var communityBar = new ProgressBar.Line('#lesson'+lesson.get('number')+'-community-progress-bar',
           {
             easing: 'easeInOut',
@@ -208,19 +261,19 @@
 
   /***********************************************************
    ***********************************************************
-   ********************* TEACHER VIEW ************************
+   **************** HOMEWORK PROGRESS VIEW *******************
    ***********************************************************
    ***********************************************************/
 
-  app.View.TeacherView = Backbone.View.extend({
+  app.View.HomeworkProgressView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing TeacherView...', view.el);
+      console.log('Initializing HomeworkProgressView...');
     },
 
     render: function () {
       var view = this;
-      console.log("Rendering TeacherView...");
+      console.log("Rendering HomeworkProgressView...");
 
       // sort collection by most complete to least complete
       var userArray = [];
@@ -247,14 +300,14 @@
 
         var el = '';
         if (index%2 === 0) {
-          el += '<div class="teacher-row-container">';
-          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="teacher-progress-container">';
+          el += '<div class="homework-progress-row-container">';
+          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="homework-progress-bar-container">';
           el += '<span id="'+name+'-progress-bar"></span>';
           el += '</span>';
         } else {
-          el += '<span class="teacher-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="teacher-progress-container">';
+          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+          el += '<span class="homework-progress-bar-container">';
           el += '<span id="'+name+'-progress-bar"></span>';
           el += '</span>';
           el += '</div>';
@@ -264,12 +317,12 @@
       });
       // odd number of students, but including maria in the collection
       if (view.collection.length%2 === 0) {
-        teacherEl += '<span class="teacher-name-container"><h2></h2></span>';
-        teacherEl += '<span class="teacher-progress-container">';
+        teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+        teacherEl += '<span class="homework-progress-bar-container">';
         teacherEl += '</span>';
         teacherEl += '</div>';
       }
-      jQuery('#teacher-container').html(teacherEl);
+      jQuery('#homework-progress-container').html(teacherEl);
 
       view.collection.each(function(user) {
         if (user.get('user_role') !== 'teacher') {
@@ -300,6 +353,380 @@
 
 
 
+
+  /***********************************************************
+   ***********************************************************
+   **************** REVIEW PROGRESS VIEW *********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ReviewProgressView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ReviewProgressView...');
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering ReviewProgressView...");
+
+      // sort collection by most complete to least complete
+    //   var userArray = [];
+    //   view.collection.each(function(user) {
+    //     if (user.get('user_role') !== "teacher") {
+    //       user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
+    //       userArray.push(user);
+    //     }
+    //   });
+
+    //   function compare(a,b) {
+    //     if (a.get('complete_percent') > b.get('complete_percent'))
+    //       return -1;
+    //     if (a.get('complete_percent') < b.get('complete_percent'))
+    //       return 1;
+    //     return 0;
+    //   }
+    //   userArray.sort(compare);
+
+    //   // create the html for the buttons and progress bars
+    //   var teacherEl = '';
+    //   _.each(userArray, function(user, index) {
+    //     var name = user.get('username');
+
+    //     var el = '';
+    //     if (index%2 === 0) {
+    //       el += '<div class="homework-progress-row-container">';
+    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="homework-progress-bar-container">';
+    //       el += '<span id="'+name+'-progress-bar"></span>';
+    //       el += '</span>';
+    //     } else {
+    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+    //       el += '<span class="homework-progress-bar-container">';
+    //       el += '<span id="'+name+'-progress-bar"></span>';
+    //       el += '</span>';
+    //       el += '</div>';
+    //     }
+
+    //     teacherEl += el;
+    //   });
+    //   // odd number of students, but including maria in the collection
+    //   if (view.collection.length%2 === 0) {
+    //     teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+    //     teacherEl += '<span class="homework-progress-bar-container">';
+    //     teacherEl += '</span>';
+    //     teacherEl += '</div>';
+    //   }
+    //   jQuery('#homework-progress-container').html(teacherEl);
+
+    //   view.collection.each(function(user) {
+    //     if (user.get('user_role') !== 'teacher') {
+    //       var myPercent = '';
+    //       if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
+    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
+    //       } else {
+    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+    //       }
+
+    //       var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
+    //         {
+    //           easing: 'easeInOut',
+    //           color: app.hexDarkPurple,
+    //           trailColor: app.hexLightGrey,
+    //           strokeWidth: 8,
+    //           svgStyle: app.progressBarStyleHome,
+    //           text: {
+    //             value: myPercent,
+    //             style: app.progressBarTextStyle
+    //           }
+    //         });
+    //       myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+    //     }
+    //   });
+    }
+  });
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ********************* GROUPING VIEW ***********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupingView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+
+      console.log('Initializing GroupingView...');
+
+      //check if there is an 'absent' group, if not, create ie
+      if (view.collection.where({"kind": "absent"}).length === 0) {
+        var group = new Model.Group();
+        group.set('lesson', app.reviewSection);
+        group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
+        group.set('kind', "absent");
+        group.save();
+        view.collection.add(group);
+      }
+
+      // check how many groups there are for this reviewSection, add a group container for each
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        var groupEl = ''
+        if (group.get('kind') === "absent") {
+          groupEl = '<div class="group-container" style="background-color: #ECF0F1;" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn invisible" data-group="'+group.get('_id')+'"></button><h2>ABSENT</h2></div>'
+        } else {
+          groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
+        }
+        jQuery('#groups-container').append(groupEl);
+      });
+
+      // generate all of the student buttons, and place them in groups as necessary
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+          studentBtn.text(user.get('username'));
+
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          if (myGroup) {
+            jQuery('.group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
+          } else {
+            jQuery('#students-container').append(studentBtn);
+          }
+        }
+      });
+    },
+
+    events: {
+      'click #add-group-btn'            : 'addGroup',
+      'click .remove-group-btn'         : 'removeGroup',
+      'click .student-grouping-button'  : 'selectStudent',
+      'click .group-container'          : 'groupSelected',
+      'click #students-container'       : 'ungroupSelected',
+      'click #reset-students-btn'       : 'resetAll',
+      'click #assign-randomly-btn'      : 'groupRandomly',
+      'click #assign-by-progress-btn'   : 'assignByProgress'
+    },
+
+    assignByProgress: function() {
+      var view = this;
+      var studentsToGroup = [];
+
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      // ungroup all students in UI and create array for the readd
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          // update the UI
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+
+          var student = {};
+          student.name = user.get('username');
+          student.unit_progress = app.getMyContributionPercentForUnit(user.get('username'));
+
+          studentsToGroup.push(student);
+        }
+      });
+
+      // sort the array by progress to order students based on total % complete
+      function compare(a,b) {
+        if (a.unit_progress > b.unit_progress)
+          return -1;
+        if (a.unit_progress < b.unit_progress)
+          return 1;
+        return 0;
+      }
+      studentsToGroup.sort(compare);
+
+      // determine number of students per group (excluding absent)
+      var minNumStudentsPerGroup = Math.floor(studentsToGroup.length / (view.collection.length - 1));
+      var numExtraStudents = studentsToGroup.length % (view.collection.length - 1);
+
+      // populate the groups
+      _.each(view.collection.where({"kind":"present"}), function(group, index) {
+        // add the min number of students per group
+        for (var i = 0; i < minNumStudentsPerGroup; i++) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+        // NB: ASSUMPTION - the remainder of students (see the mod above) are added to the first groups
+        if (index < numExtraStudents) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+      });
+    },
+
+    groupRandomly: function() {
+      var view = this;
+      var studentsToGroup = [];
+
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      // ungroup all students in UI and set up for the readd
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          // update the UI
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+          // create the array for the shuffle
+          studentsToGroup.push(user.get('username'));
+        }
+      });
+
+      // remove the absent group
+      var presentGroupArr = view.collection.where({'kind': 'present'});
+
+      // group students randomly into non-absent group containers
+      _.each(_.shuffle(studentsToGroup), function(studentName, index) {
+        // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
+        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
+      });
+    },
+
+    resetAll: function() {
+      var view = this;
+
+      view.collection.each(function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          jQuery(jQuery('.student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#students-container'));
+        }
+      });
+    },
+
+    addGroup: function() {
+      var view = this;
+
+      // proxy for checking if we have hit max num of groups
+      if (app.getNewTeamColour()) {
+        // create a new group
+        var group = new Model.Group();
+        group.set('lesson', app.reviewSection);
+        group.set('colour', app.getNewTeamColour());
+        group.set('kind', 'present');
+        group.save();
+        view.collection.add(group);
+
+        // update UI (think about moving all this UI stuff to render?)
+        var groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
+        jQuery('#groups-container').append(groupEl);
+
+      } else {
+        jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
+      }
+    },
+
+    removeGroup: function(ev) {
+      var view = this;
+
+      // move the students back to their container
+      var group = view.collection.get(jQuery(ev.target).data('group'));
+      _.each(group.get('members'), function(member) {
+        jQuery(jQuery('.student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#students-container'));
+      });
+
+      // update collection
+      group.destroy();
+
+      // update UI
+      jQuery('.group-container[data-group="'+jQuery(ev.target).data('group')+'"]').remove();
+    },
+
+    selectStudent: function(ev) {
+      jQuery('.student-grouping-button').removeClass('selected');
+      jQuery(ev.target).addClass('selected');
+
+      // to prevent propagation. Otherwise jQuery gets confused and removes the element (!) because it can't figure out what to do with the default click event
+      return false;
+    },
+
+    groupSelected: function(ev) {
+      var view = this;
+
+      if (jQuery('.student-grouping-button.selected').length > 0) {
+        view.groupStudent(jQuery('.student-grouping-button.selected').text(), jQuery(ev.target).data('group'));
+      }
+    },
+
+    ungroupSelected: function() {
+      var view = this;
+
+      if (jQuery('.student-grouping-button.selected').length > 0) {
+        view.ungroupStudent(jQuery('.student-grouping-button.selected').text());
+      }
+    },
+
+    groupStudent: function(name, targetGroup) {
+      var view = this;
+
+      // remove this student from old group, as necessary
+      var prevGroup = app.getMyGroup(name, app.reviewSection);
+      if (prevGroup) {
+        var prevMembersArr = prevGroup.get('members');
+        var updatedArr = prevMembersArr.filter(function(member) {
+          return member !== name;
+        });
+        prevGroup.set('members', updatedArr);
+        prevGroup.save();
+      }
+
+      // update the user model
+      var newGroup = view.collection.get(targetGroup);
+      var newMembersArr = newGroup.get('members');
+      newMembersArr.push(name);
+      newGroup.set('members', newMembersArr);
+      newGroup.save();
+
+      // update the UI
+      jQuery(jQuery('.student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('.group-container[data-group="'+targetGroup+'"]'));
+      jQuery('.student-grouping-button').removeClass('selected');
+    },
+
+    ungroupStudent: function(name) {
+      var view = this;
+
+      // update the user model
+      var group = app.getMyGroup(name, app.reviewSection);
+      var membersArr = group.get('members');
+      var updatedArr = membersArr.filter(function(member) {
+        return member !== name;
+      });
+      group.set('members', updatedArr);
+      group.save();
+
+      // update the UI
+      jQuery(jQuery('.student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#students-container'));
+      jQuery('.student-grouping-button').removeClass('selected');
+    },
+
+    render: function () {
+      var view = this;
+      console.log('Rendering GroupingView...');
+
+      // jQuery('#students-container').html('');
+      // jQuery('#groups-container').html('');
+    }
+  });
+
+
+
+
   /***********************************************************
    ***********************************************************
    ******************** DEFINITION VIEW **********************
@@ -309,7 +736,7 @@
   app.View.DefinitionView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing DefinitionView...', view.el);
+      console.log('Initializing DefinitionView...');
 
       app.defBar = new ProgressBar.Line('#definition-my-progress-bar',
         {
@@ -501,7 +928,7 @@
   app.View.RelationshipView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing RelationshipView...', view.el);
+      console.log('Initializing RelationshipView...');
 
       app.relBar = new ProgressBar.Line('#relationship-my-progress-bar',
         {
@@ -610,7 +1037,7 @@
   app.View.VettingView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing VettingView...', view.el);
+      console.log('Initializing VettingView...');
 
       app.vetBar = new ProgressBar.Line('#vetting-my-progress-bar',
         {
@@ -832,6 +1259,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
   /***********************************************************
    ***********************************************************
    ****************** CHOOSE ARTICLE VIEW ********************
@@ -841,7 +1278,7 @@
   app.View.ChooseArticleView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing ChooseArticleView...', view.el);
+      console.log('Initializing ChooseArticleView...');
     },
 
     events: {
@@ -851,7 +1288,7 @@
     chooseField: function(ev) {
       var view = this;
 
-      var model = view.collection.findWhere({"field": jQuery(ev.target).data('field')})
+      var model = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')})
 
       if (model.get('users').length < 4) {
         var usersArr = model.get('users');
@@ -862,7 +1299,7 @@
         app.hideAllContainers();
         app.attachTermsView = new app.View.AttachTermsView({
           el: '#attach-terms-screen',
-          model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+          model: Skeletor.Model.awake.articles.findWhere({"field": model.get('field')})
         });
         app.attachTermsView.render();
         jQuery('#attach-terms-screen').removeClass('hidden');
@@ -897,8 +1334,6 @@
   });
 
 
-
-
   /***********************************************************
    ***********************************************************
    ******************** ATTACH TERMS VIEW ********************
@@ -908,24 +1343,35 @@
   app.View.AttachTermsView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing AttachTermsView...', view.el);
+      console.log('Initializing AttachTermsView...');
     },
 
     events: {
-      'click .submit-attached-terms-btn' : 'submitTerms'
+      'click .submit-attached-terms-btn'    : 'submitTerms',
+      'mouseover .multiselect-container li' : 'showTermPopover'
     },
 
     submitTerms: function() {
       var view = this;
 
-      app.explainTermsView = new app.View.ExplainTermsView({
-        el: '#explain-terms-screen',
-        model: view.model
-      });
+      if (app.explainTermsView === null) {
+        app.explainTermsView = new app.View.ExplainTermsView({
+          el: '#explain-terms-screen',
+          model: view.model
+        });
+      }
       app.explainTermsView.render();
 
       jQuery('#attach-terms-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
+    },
+
+    showTermPopover: function(ev) {
+      // if we're mousing over the right area
+      if (jQuery(ev.target).find('input').val()) {
+        jQuery('#attach-terms-explanation-pane').html('');
+        app.buildTermView('#attach-terms-explanation-pane', jQuery(ev.target).find('input').val());
+      }
     },
 
     updateModel: function(option, checked) {
@@ -976,7 +1422,9 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="articles/pdfs/'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      jQuery('#attach-terms-explanation-pane').html('');
+
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#attach-terms-pdf-container').html(objEl);
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
@@ -1008,7 +1456,7 @@
       // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
       Skeletor.Model.awake.terms.each(function(term) {
         var name = term.get('name');
-        var termsArr = _.where(view.model.get('user_associated_terms'), {"name": name});
+        var termsArr = _.where(view.model.get('user_associated_terms'), {"name": name, "author": app.username});
         // if the user has previously selected this term
         if (termsArr.length > 0) {
           // add the option to the dropdown, set to selected
@@ -1042,7 +1490,7 @@
   app.View.ExplainTermsView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing ExplainTermsView...', view.el);
+      console.log('Initializing ExplainTermsView...');
     },
 
     events: {
@@ -1053,11 +1501,16 @@
     explainTerm: function(ev) {
       var view = this;
       var termToExplain = jQuery(ev.target).data('term');
-      app.explainDetailsView = new app.View.ExplainDetailsView({
-        el: '#explain-details-screen',
-        model: view.model,
-        term: termToExplain
-      });
+      if (app.explainDetailsView === null) {
+        app.explainDetailsView = new app.View.ExplainDetailsView({
+          el: '#explain-details-screen',
+          model: view.model,
+          term: termToExplain
+        });
+      } else {
+        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in explain being rebound each time the view is created
+        app.explainDetailsView.options.term = termToExplain;
+      }
       app.explainDetailsView.render();
 
       jQuery('#explain-terms-screen').addClass('hidden');
@@ -1077,12 +1530,21 @@
       jQuery('#explain-terms-img-container').html('');
       jQuery('#explain-terms-terms-container').html('');
 
-      jQuery('#explain-terms-img-container').append('<img src="articles/pdfs/'+view.model.get('source_img')+'"/>');
+      jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
 
-      _.each(view.model.get('user_associated_terms'), function(term) {
-        var el = ''
-        if (term.explanation.length > 0) {
+      var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
+      _.each(myTermsArr, function(term, index) {
+        var el = '';
+        if (term.complete === true) {
           el = '<button class="explain-term-btn explain-term-complete-btn" data-term="'+term.name+'">'+term.name+'</button>';
+          // check if we should enable the finish button
+          if (myTermsArr.length-1 === index) {
+            jQuery('.submit-annotated-article-btn').removeClass('disabled');
+            jQuery('.submit-annotated-article-btn').css({'background': app.hexLightBlack});
+          } else {
+            jQuery('.submit-annotated-article-btn').addClass('disabled');
+            jQuery('.submit-annotated-article-btn').css({'background': app.hexDarkGrey});
+          }
         } else {
           el = '<button class="explain-term-btn explain-term-uncomplete-btn" data-term="'+term.name+'">'+term.name+'</button>';
         }
@@ -1106,14 +1568,14 @@
     },
 
     events: {
-      'click .submit-explain-details-btn'        : 'submitExplainDetails',
-      'keyup #explain-details-content-container' : 'checkForAllowedToPublish'
+      'click .submit-explain-details-btn'    : 'submitExplainDetails',
+      'keyup #explain-details-content-entry' : 'checkForAllowedToPublish'
     },
 
     checkForAllowedToPublish: function() {
       var view = this;
 
-      if (jQuery('#explain-details-content-container').val().length > 0) {
+      if (jQuery('#explain-details-content-entry').val().length > 0) {
         jQuery('.submit-explain-details-btn').removeClass('disabled');
         jQuery('.submit-explain-details-btn').css({'background': app.hexLightBlack});
       } else {
@@ -1125,49 +1587,346 @@
     submitExplainDetails: function() {
       var view = this;
 
-      _.each(view.model.get('user_associated_terms'), function(termObj) {
-        if (termObj.name === view.options.term) {
-          termObj.explanation = jQuery('#explain-details-content-container').val();
-          view.model.save();
-        }
-      });
+      // lolololol. I guess this is better than what we had before, but still... is there really no better way!?
+      // this unparsable nonsense sets the explanation and the complete on this specific user_associated term
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username})[0].explanation = jQuery('#explain-details-content-entry').val();
+      _.where(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username})[0].complete = true;
+      view.model.save();
+
       jQuery('#explain-details-screen').addClass('hidden');
       jQuery('#explain-terms-screen').removeClass('hidden');
+      app.explainTermsView.render();
     },
 
     render: function() {
       var view = this;
       console.log("Rendering ExplainDetailsView...");
 
-      jQuery('#explain-details-content-title').html('');
+      // render the term content
+      jQuery('#explain-details-term-container').html('');
+      app.buildTermView('#explain-details-term-container', view.options.term);
+
+      // render the user gen'd content
+      jQuery('#explain-details-content-container').html('');
+      var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
+      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
+      jQuery('#explain-details-content-container').append(titleEl);
+      var entryEl = '<textarea id="explain-details-content-entry"></textarea>';
+      jQuery('#explain-details-content-container').append(entryEl);
 
       // if the user has previously defined this
-      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term});
-      jQuery('#explain-details-content-container').val(termObj.explanation);
-
-      // TODO: all of this
-      var term = Skeletor.Model.awake.terms.findWhere({"name": view.options.term});
-      // TODO: this wont work with repeated terms - check out the smartboard.view.balloon.js checkForRepeatedTerms function
-      // var termModel = Skeletor.Model.awake.terms.filter(function(term) {
-      //   return term.get('name') === view.object.term
-      // });
-
-      // DOES THIS NEED TO REFER TO A
-
-      var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
-        return rel.get('from') === view.options.term || rel.get('to') === view.options.term;
-      });
-
-      //jQuery('#explain-details-term-container');
-
-
-      var titleEl = '<h3><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
-      jQuery('#explain-details-content-title').append(titleEl);
+      var termObj = _.findWhere(view.model.get('user_associated_terms'), {"name": view.options.term, "author": app.username});
+      jQuery('#explain-details-content-entry').val(termObj.explanation);
 
       view.checkForAllowedToPublish();
     }
   });
 
+
+
+
+
+
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ************** GROUP NEGOTIATE TERMS VIEW *****************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupNegotiateTermsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing GroupNegotiateTermsView...');
+    },
+
+    events: {
+      'click .group-negotiate-term-btn'            : 'negotiateTerm',
+      'change .add-term-dropdown'                  : 'showAddTerm',
+      'click .add-term-group-negotiate-terms-btn'  : 'openModal',
+      'click .add-term-yes-btn'                    : 'addTerm',
+      'click .add-term-no-btn'                     : 'closeModal',
+      'click .submit-group-negotiated-article-btn' : 'submitArticle',
+    },
+
+    addTerm: function() {
+      var view = this;
+
+      var term = jQuery('.add-term-dropdown').val();
+      var groupTerms = view.model.get('group_associated_terms');
+      var groupTerm = {};
+      groupTerm.name = term;
+      groupTerm.explanation = "";
+      groupTerm.complete = true;
+      groupTerms.push(groupTerm);
+      view.model.save('group_associated_terms', groupTerms);
+
+      jQuery('#confirm-add-term-modal').modal('hide');
+      view.switchToDetailsView(term);
+    },
+
+    closeModal: function() {
+      var view = this;
+
+      jQuery('#confirm-add-term-modal').modal('hide');
+      view.render();          // OVERKILLLLLLLL
+    },
+
+    openModal: function() {
+      var view = this;
+
+      jQuery('.term-to-add').text(jQuery('.add-term-dropdown').val());
+      jQuery('#confirm-add-term-modal').modal({keyboard: false, backdrop: 'static'});
+    },
+
+    negotiateTerm: function(ev) {
+      var view = this;
+
+      view.switchToDetailsView(jQuery(ev.target).data('term'));
+    },
+
+    showAddTerm: function() {
+      if (jQuery('.add-term-dropdown').val() === 'Add new term') {
+        jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
+      } else {
+        jQuery('.add-term-group-negotiate-terms-btn').removeClass('invisible');
+      }
+    },
+
+    switchToDetailsView(termToNegotiate) {
+      var view = this;
+
+      if (app.groupNegotiateDetailsView === null) {
+        app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
+          el: '#group-negotiate-details-screen',
+          model: view.model,
+          term: termToNegotiate
+        });
+      } else {
+        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in details being rebound each time the view is created
+        app.groupNegotiateDetailsView.options.term = termToNegotiate;
+      }
+      app.groupNegotiateDetailsView.render();
+
+      jQuery('#group-negotiate-terms-screen').addClass('hidden');
+      jQuery('#group-negotiate-details-screen').removeClass('hidden');
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      var completeFlag = true
+      _.each(view.model.get('group_associated_terms'), function(term) {
+        if (term.complete === false) {
+          completeFlag = false;
+        }
+      });
+
+      if (completeFlag) {
+        jQuery('.submit-group-negotiated-article-btn').removeClass('disabled');
+        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-group-negotiated-article-btn').addClass('disabled');
+        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexDarkGrey});
+      }
+    },
+
+    submitArticle: function() {
+      jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
+      jQuery('#group-negotiate-terms-screen').addClass('hidden');
+      jQuery('#home-screen').removeClass('hidden');
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering GroupNegotiateTermsView...");
+
+      // go over each user_assoc term and if it's not already in the group_assoc terms, add it
+      // this doesn't really belong here - still thinking about where it best fits
+      var nonRemovedTerms = _.where(view.model.get('user_associated_terms'), {"removed": false});
+      _.each(nonRemovedTerms, function(myTerm) {
+        var presentFlag = false;
+        presentFlag = _.some(view.model.get('group_associated_terms'), function(groupTerm) {
+          return groupTerm.name === myTerm.name
+        });
+
+        if (!presentFlag) {
+          var groupTerms = view.model.get('group_associated_terms');
+          var groupTerm = {};
+          groupTerm.name = myTerm.name;
+          groupTerm.explanation = "";
+          groupTerm.complete = false;
+          groupTerms.push(groupTerm);
+          view.model.save('group_associated_terms', groupTerms);
+        }
+      });
+
+      // populate the add new term dropdown
+      jQuery('.add-term-dropdown').html('');
+      jQuery('.add-term-dropdown').append(new Option('Add new term', 'Add new term'));
+      var termsArr = Skeletor.Model.awake.terms.filter(function(term) {
+        return term.get('assigned_to') !== "";
+      });
+      _.each(termsArr, function(term) {
+        // only add terms that are not already in the group_assoc
+        if (!_.findWhere(view.model.get('group_associated_terms'), {"name": term.get('name')} )) {
+          jQuery('.add-term-dropdown').append(new Option(term.get('name'), term.get('name')));
+        }
+      });
+      jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
+
+      view.checkForAllowedToPublish();
+
+      jQuery('#group-negotiate-terms-img-container').html('');
+      jQuery('#group-negotiate-terms-terms-container').html('');
+
+      jQuery('#group-negotiate-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+
+      _.each(view.model.get('group_associated_terms'), function(term, index) {
+        // agreementLevel will be btw 1 and 4
+        var agreementLevel = _.where(view.model.get('user_associated_terms'), {"name": term.name}).length;
+
+        var el = '';
+        if (term.complete === true) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:'+view.model.get('colour')+'">'+term.name+'</button>';
+        } else if (agreementLevel === 4) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#0B3982">'+term.name+'</button>';
+        } else if (agreementLevel === 3) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2980B9">'+term.name+'</button>';
+        } else if (agreementLevel === 2) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#3498DB">'+term.name+'</button>';
+        } else if (agreementLevel === 1) {
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#BACFF2">'+term.name+'</button>';
+        } else {
+          console.error('Cannot determine agreementLevel');
+        }
+
+        jQuery('#group-negotiate-terms-terms-container').append(el);
+      });
+    }
+  });
+
+
+  /***********************************************************
+   ***********************************************************
+   *************** GROUP NEGOTIATE DETAILS VIEW **************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.GroupNegotiateDetailsView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      // passing in the term name with this.options.term. Good idea, bad idea?
+      console.log('Initializing GroupNegotiateDetailsView for', this.options.term);
+    },
+
+    events: {
+      'click .submit-group-negotiate-details-btn'      : 'submitDetails',
+      'click .remove-term-group-negotiate-details-btn' : 'openModal',
+      'click .remove-term-no-btn'                      : 'closeModal',
+      'click .remove-term-yes-btn'                     : 'removeTerm',
+      'keyup .details-entry'                           : 'checkForAllowedToPublish'
+    },
+
+    openModal: function() {
+      jQuery('#confirm-remove-term-modal').modal({keyboard: false, backdrop: 'static'});
+    },
+
+    closeModal: function() {
+      jQuery('#confirm-remove-term-modal').modal('hide');
+    },
+
+    removeTerm: function() {
+      var view = this;
+
+      // remove it from the group terms
+      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+      var newTermArr = _.without(view.model.get('group_associated_terms'), termObj);
+      view.model.set('group_associated_terms', newTermArr);
+
+      // mark as removed from individual terms
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          termObj.removed = true;
+        }
+      });
+
+      view.model.save();
+
+      jQuery('#confirm-remove-term-modal').modal('hide');
+      jQuery('#group-negotiate-details-screen').addClass('hidden');
+      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+      app.groupNegotiateTermsView.render();
+    },
+
+    submitDetails: function() {
+      var view = this;
+
+      //lolololol. I guess this is better than what we had before, but still... is there really no better way!?
+      //this unparsable nonsense sets the explanation and the complete on this specific user_associated term
+      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('.details-entry').val();
+      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].complete = true;
+      view.model.save();
+
+      jQuery('#group-negotiate-details-screen').addClass('hidden');
+      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
+      app.groupNegotiateTermsView.render();
+    },
+
+    checkForAllowedToPublish: function() {
+      var view = this;
+
+      if (jQuery('#group-negotiate-details-entry-container .details-entry').val().length > 0) {
+        jQuery('.submit-group-negotiate-details-btn').removeClass('disabled');
+        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('.submit-group-negotiate-details-btn').addClass('disabled');
+        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexDarkGrey});
+      }
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering GroupNegotiateDetailsView...");
+
+      // render the text entry box
+      jQuery('#group-negotiate-details-entry-container').html('');
+      jQuery('#group-negotiate-details-entry-container').append('<h3><b>'+view.options.term+'</b> in '+view.model.get('author')+'</h3>');
+      jQuery('#group-negotiate-details-entry-container').append('<textarea class="details-entry"></textarea>');
+      // // if the user has previously defined this
+      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
+      jQuery('#group-negotiate-details-entry-container .details-entry').text(termObj.explanation);
+
+      // render the myTerm content
+      jQuery('#group-negotiate-details-terms-container').html('');
+      var termCounter = 0;
+      var termArr = [];
+      _.each(view.model.get('user_associated_terms'), function(termObj) {
+        if (termObj.name === view.options.term) {
+          termCounter++;
+          termArr.push(termObj);
+        }
+      });
+      jQuery('#group-negotiate-details-terms-container').append('<h3>'+termCounter+' group members have selected this term</h3>');
+      _.each(termArr, function(termObj, index) {
+        var el = '';
+        if (index%2 === 0) {
+          el += '<div class="term-details" style="float:left">';
+        } else {
+          el += '<div class="term-details" style="float:right">';
+        }
+        el += '<div><b>'+termObj.author+' - '+termObj.date+':</b></div>';
+        el += '<div>'+termObj.explanation+'</div>';
+        el += '</div>';
+        jQuery('#group-negotiate-details-terms-container').append(el);
+      });
+
+      view.checkForAllowedToPublish();
+    }
+  });
 
 
   this.Skeletor = Skeletor;

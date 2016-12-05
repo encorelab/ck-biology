@@ -72,6 +72,7 @@
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
                    <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
                </button>
                 <a class="navbar-brand brand" href="#">Loading...</a>
             </div>
@@ -79,8 +80,9 @@
             <div id="bs-example-navbar-collapse-1" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav top-navigation">
                     <li id="home-nav-btn" class="goto-home-btn top-nav-btn hidden"><a href="#">Home</a></li>
-                    <li id="teacher-nav-btn" class="goto-teacher-btn top-nav-btn hidden"><a href="#">Progress Overview</a></li>
+                    <li id="progress-nav-btn" class="goto-progress-btn top-nav-btn hidden"><a href="#">Progress Overview</a></li>
                     <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn hidden"><a href="#">Knowledge Base</a></li>
+                    <li id="grouping-nav-btn" class="goto-grouping-btn top-nav-btn hidden"><a href="#">Groups</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active username-display"><a></a></li>
@@ -112,15 +114,15 @@
 
 
     <!-- ********************************************************* -->
-    <!-- ************************ TEACHER ************************ -->
+    <!-- ******************* HOMEWORK PROGRESS ******************* -->
     <!-- ********************************************************* -->
 
-    <div id="teacher-screen" class="container-fluid user-screen">
+    <div id="homework-progress-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
                 <img src="img/individual.png" class="icon" alt="community icon">
                 <h1>Community Progress</h1>
-                <div id="teacher-container">
+                <div id="homework-progress-container">
                     <!-- filled by research.view.js -->
                 </div>
             </div>
@@ -128,160 +130,41 @@
     </div>
 
 
-
     <!-- ********************************************************* -->
-    <!-- ********************** DEFINITION *********************** -->
+    <!-- ******************* REVIEW PROGRESS ********************* -->
     <!-- ********************************************************* -->
 
-    <div id="definition-screen" class="container-fluid user-screen">
+    <div id="review-progress-screen" class="container-fluid user-screen">
         <div class="row">
-            <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
-                <!-- <br /> -->
-                <div class="definition-progress-bar-container progress-bar-container"><img src="img/individual.png" class="icon" alt="user icon"><span id="definition-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span></div>
-
-                <div class="inner-inner-wrapper">
-                    <h2>Explain the following term/concept and provide example(s) where possible.</h2>
-                    <h1 id="definition-name-field"> <!-- FILLED BY VIEW --> </h1>
-                    <div id="definition-body-container">
-                        <textarea id="definition-explanation-input" class="input-field editable" name="explanation"></textarea>
-                    </div>
-                    <h2>Images:</h2>
-                    <div id="definition-media-container"></div>
-
-                    <div id="definition-btn-container" class="editable">
-                        <div class="photo-wrapper">
-                           <label for="definition-photo-file" class="upload-icon camera-icon-label"><img src="img/add_file.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                           <input id="definition-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
-                        </div>
-                        <i id="definition-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
-                    </div>
-                </div>
-
-                <button class="publish-definition-btn btn-circular fa fa-check fa-3x pull-right"></button>
-
-            </div>
-        </div>
-
-        <div id="definition-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
-                                <!-- REMOVE ME? -->
-                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <img class="photo-content" />
-                            </div>
-                        </div>
-                    </div>
+            <div class="inner-wrapper col-xs-12">
+                <img src="img/individual.png" class="icon" alt="community icon">
+                <h1>Team Progress</h1>
+                <div id="review-progress-container">
+                    <!-- filled by research.view.js -->
                 </div>
             </div>
         </div>
     </div>
 
 
-
     <!-- ********************************************************* -->
-    <!-- ********************* RELATIONSHIP ********************** -->
+    <!-- *********************** GROUPING ************************ -->
     <!-- ********************************************************* -->
 
-    <div id="relationship-screen" class="container-fluid user-screen">
+    <div id="grouping-screen" class="container-fluid user-screen">
         <div class="row">
-            <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
-                <!-- <br /> -->
-                <div class="progress-bar-container"><img src="img/individual.png" class="icon" alt="user icon"><span id="relationship-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span></div>
-
-                <div class="inner-inner-wrapper">
-                    <h2>Identify the relationship that exists between the following two terms.</h2>
-                    <div id="relationship-container" class="editable">
-                        <h1 id="relationship-from-container" class="relationship-name-container"></h1>
-                        <div id="relationship-link-container">
-                            <select id="relationship-link-dropdown">
-                            <!-- filled by the view -->
-                            </select>
-                        </div>
-                        <h1 id="relationship-to-container" class="relationship-name-container"></h1>
-                        <h3 id="relationship-correct" class="relationship-outcome-container invisible">Correct!</h3>
-                        <h3 id="relationship-incorrect" class="relationship-outcome-container invisible">Sorry, this answer is incorrect. Please try again.</h3>
-                    </div>
+            <div class="inner-wrapper col-xs-12">
+                <h1>Groups</h1>
+                <button id="add-group-btn" class="fa fa-plus-square"></button>
+                <div id="students-container">
+                    <!-- filled by research.view.js -->
                 </div>
-
-                <div id="relationship-btn-container" class="editable">
-                    <button class="publish-relationship-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- ********************************************************* -->
-    <!-- *********************** VETTING ************************* -->
-    <!-- ********************************************************* -->
-
-    <div id="vetting-screen" class="container-fluid user-screen">
-        <div class="row">
-            <div class="inner-wrapper col-xs-12 col-lg-8 col-lg-offset-2">
-                <div class="progress-bar-container">
-                    <img src="img/individual.png" class="icon" alt="user icon">
-                    <span class="fa fa-star vetting-fa-star hidden"></span>
-                    <span id="vetting-my-progress-bar" class="my-progress-bar"/>
-                    <span class="my-progress-percent"></span><span class="percent">%</span>
-                </div>
-
-                <div class="inner-inner-wrapper">
-                    <h2>Read the following explanation:</h2>
-                    <h1 id="vetting-name-field"> <!-- FILLED BY VIEW --> </h1>
-                    <div id="vetting-body-container">
-                        <textarea id="vetting-explanation-input" class="input-field" readonly></textarea>
-                    </div>
-
-                    <h3>Is this explanation <b>complete and correct</b>?</h3>
-                    <div class="radio">
-                      <label><input class="vetting-radio-btn" type="radio" name="yes">Yes</label>
-                    </div>
-                    <div class="radio">
-                      <label><input class="vetting-radio-btn" type="radio" name="no">No</label>
-                    </div>
-                    <div id="vetting-addon-container" class="hidden">
-                        <textarea id="vetting-addon-input" class="input-field" placeholder="Add a comment to contribute any new/corrected information"></textarea>
-                    </div>
-
-                    <div id="vetting-media-container"></div>
-
-                    <div id="vetting-btn-container">
-                        <div class="photo-wrapper hidden">
-                           <label for="vetting-photo-file" class="upload-icon camera-icon-label"><img src="img/add_file.png" class="upload-icon camera-icon img-responsive" alt="camera icon" /></label>
-                           <input id="vetting-photo-file" class="upload-icon" type="file" name="file" accept=".jpg,.gif,.jpeg,.png,.mp4,.m4v,.mov" capture="camera"/>
-                        </div>
-                        <i id="vetting-photo-upload-spinner" class="fa fa-spinner fa-pulse hidden"></i>
-                    </div>
-                </div>
-
-                <button class="publish-vetting-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
-            </div>
-        </div>
-
-        <div id="vetting-photo-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <!-- NB: not supported by Safari or IE. And FF makes a mess of it. -->
-                                <!-- REMOVE ME? -->
-                                <button class="download-photo-btn"><a href="unknown-url" download="unknown-file-name">Download this!</a></button>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <img class="photo-content" />
-                            </div>
-                        </div>
-                    </div>
+                <button id="assign-randomly-btn" class="btn">Assign Randomly</button>
+                <button class="btn">Assign By Jigsaw</button>
+                <button id="assign-by-progress-btn" class="btn">Assign By Progress</button>
+                <button id="reset-students-btn" class="btn">Reset</button>
+                <div id="groups-container">
+                    <!-- filled by research.view.js -->
                 </div>
             </div>
         </div>

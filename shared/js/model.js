@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons'];
+    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons', 'groups'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -145,19 +145,6 @@
         }
       };
 
-      // board insists and this could be used for PAUSE
-      // this.State = this.db.Document('states').extend({
-      //   defaults: {
-      //     'created_at': new Date(),
-      //     'modified_at': new Date(),
-      //     'paused': false
-      //   }
-      // });
-
-      // this.States = this.db.Collection('states').extend({
-      //   model: Skeletor.Model.State
-      // });
-
       this.Term = this.db.Document('terms').extend({
         defaults: {
           'created_at': new Date(),
@@ -206,6 +193,18 @@
 
       this.Lessons = this.db.Collection('lessons').extend({
         model: Skeletor.Model.Lesson
+      });
+
+      this.Group = this.db.Document('groups').extend({
+        defaults: {
+          'created_at': new Date(),
+          'modified_at': new Date(),
+          'members': []
+        }
+      });
+
+      this.Groups = this.db.Collection('groups').extend({
+        model: Skeletor.Model.Group
       });
     };
 

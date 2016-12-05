@@ -304,9 +304,6 @@
 
 
 
-
-
-
     <!-- ********************************************************* -->
     <!-- *********************** ATTACH TERMS ******************** -->
     <!-- ********************************************************* -->
@@ -314,7 +311,9 @@
     <div id="attach-terms-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-                <!-- <iframe src="https://docs.google.com/document/d/1s3hJTaRPnH66tvrfZreA48waUGIl-Pl7IQD-XHz_4i0/pub?embedded=true" style="margin-top:100px; width:600px; height:500px;" frameborder="0"></iframe> -->
+                <div id="attach-terms-explanation-pane">
+                    <!-- filled by research.view.js -->
+                </div>
                 <div id="attach-terms-pdf-container">
                     <!-- filled by research.view.js -->
                 </div>
@@ -360,19 +359,120 @@
     <div id="explain-details-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-            <h3>Explain how this term applies within the context of the article</h3>
+            <h3 class="title">Explain how this term applies within the context of the article</h3>
                 <div id="explain-details-term-container">
                     <!-- filled by research.view.js -->
                 </div>
-                <div id="explain-details-content-title">
+                <div id="explain-details-content-container">
                     <!-- filled by research.view.js -->
                 </div>
-                <textarea id="explain-details-content-container"></textarea>
             </div>
 
             <button class="submit-explain-details-btn btn-circular fa fa-check fa-3x pull-right"></button>
         </div>
     </div>
+
+
+
+
+
+
+    <!-- ********************************************************* -->
+    <!-- **************** GROUP NEGOTIATE TERMS ****************** -->
+    <!-- ********************************************************* -->
+
+    <div id="group-negotiate-terms-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <button class="add-term-group-negotiate-terms-btn btn-circular fa fa-plus fa-2x pull-right invisible"></button>
+                <select class="add-term-dropdown">
+                    <!-- filled by research.view.js -->
+                </select>
+                <div id="group-negotiate-terms-img-container">
+                    <!-- filled by research.view.js -->
+                </div>
+                <div id="group-negotiate-terms-terms-container">
+                    <!-- filled by research.view.js -->
+                </div>
+            </div>
+
+            <button class="submit-group-negotiated-article-btn btn-circular fa fa-check fa-3x pull-right disabled"></button>
+        </div>
+
+        <div id="confirm-add-term-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h3 class="modal-header">
+                        Confirmation
+                    </h3>
+                    <span>Do you want to add the term <span class="term-to-add"></span> to this article?</span>
+                    <button class="add-term-yes-btn">Yes</button>
+                    <button class="add-term-no-btn">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ******************* NEGOTIATE DETAILS ******************* -->
+    <!-- ********************************************************* -->
+
+    <div id="group-negotiate-details-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <button class="remove-term-group-negotiate-details-btn btn-circular fa fa-minus fa-1x pull-right"></button>
+                <h2 class="title">As a group, come up with the best explanation as to how the term/concept below applies within the context of this article</h2>
+                <div id="group-negotiate-details-entry-container">
+                    <!-- filled by research.view.js -->
+                </div>
+                <div id="group-negotiate-details-terms-container">
+                    <!-- filled by research.view.js -->
+                </div>
+            </div>
+
+            <button class="submit-group-negotiate-details-btn btn-circular fa fa-check fa-3x pull-right"></button>
+        </div>
+
+        <div id="confirm-remove-term-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <h3 class="modal-header">
+                        Confirmation
+                    </h3>
+                    <span>Are you sure you want to remove this term from the article?</span>
+                    <button class="remove-term-yes-btn">Yes</button>
+                    <button class="remove-term-no-btn">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ********************************************************* -->
+    <!-- ******************* PART SKELETON?? ******************* -->
+    <!-- ********************************************************* -->
+
+    <div id="" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <!-- AREA FOR PROGRESS BAR -->
+
+                <!-- maybe this is just a content field, inject all html (inc eg title, content, etc). Rename to something more specific? -->
+                <h2 class="title"></h2>
+                <div class="content">
+
+                </div>
+            </div>
+
+            <button class="btn-circular fa fa-step-backward fa-3x pull-left"></button>
+            <button class="btn-circular fa fa-check fa-3x pull-right"></button>
+        </div>
+
+    </div>
+
 
 
 
@@ -411,7 +511,6 @@
                 </h3>
             </div>
         </div>
-
     </div>
 
     <!-- ok, regretting the jquery-ui approach for this. This is counter intuitive, and their docs are plain wrong about isOpen -->
@@ -420,6 +519,7 @@
             <p>Would you like to continue contributing your knowledge to the community?</p>
         </div>
     </div>
+
 
     <script type="text/javascript">
         jQuery(document).ready(function() {

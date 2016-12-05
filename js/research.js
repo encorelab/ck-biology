@@ -34,11 +34,17 @@
   app.currentUser = null;
   app.userIP = null;
   app.lesson = null;
+  app.reviewSection = null;
   app.contributions = [];
   app.shownContinueFlag = false;          // PUUUUUUKE
+  app.teamColourName = ["red", "green", "purple", "yellow", "orange"];
+  app.teamColourRGB = ["rgba(231,76,60,0.7)", "rgba(46,204,113,0.7)", "rgba(155,89,182,0.7)", "rgba(241,196,15, 0.7)", "rgba(243,156,18,0.7)"];
+  app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
 
   app.homeView = null;
-  app.teacherView = null;
+  app.homeworkProgressView = null;
+  app.reviewProgressView = null;
+  app.groupingView = null;
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
@@ -46,6 +52,8 @@
   app.attachTermsView = null;
   app.explainTermsView = null;
   app.explainDetailsView = null;
+  app.groupNegotiateTermsView = null;
+  app.groupNegotiateDetailsView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -195,12 +203,6 @@
       if (lessonNum !== 1) {
         // go through all of the terms, check that each user has been assigned to is spelled correctly
         _.each(Skeletor.Model.awake.terms.where({"lesson": lessonNum}), function(term) {
-          // if (term.get('assigned_to') === "" || app.users.findWhere({"username": term.get('assigned_to')}) == null) {
-          //   validFlag = false;
-          //   name = term.get('name');
-          //   type = "unassigned";
-          //   num = lessonNum;
-          // }
           if (term.get('name') === "") {
             validFlag = false;
             name = term.get('name');
@@ -296,6 +298,7 @@
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
+        jQuery('#grouping-nav-btn').addClass('hidden');
         // if the user is sitting on the confirm screen and hits home
         if (jQuery('#tasks-completed-confirmation').dialog('isOpen') === true) {
           jQuery('#tasks-completed-confirmation').dialog('close');
@@ -310,11 +313,27 @@
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
           app.determineNextStep();
-        } else if (jQuery(this).hasClass('goto-teacher-btn')) {
+        } else if (jQuery(this).hasClass('goto-progress-btn')) {
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#grouping-nav-btn').removeClass('hidden');
+          }
           app.hideAllContainers();
-          jQuery('#teacher-nav-btn').addClass('active');
-          jQuery('#teacher-screen').removeClass('hidden');
-          app.teacherView.render();
+          jQuery('#homework-progress-btn').addClass('active');
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+            jQuery('#review-progress-screen').removeClass('hidden');
+            app.reviewProgressView.render();
+          } else {
+            jQuery('#homework-progress-screen').removeClass('hidden');
+            app.homeworkProgressView.render();
+          }
+        } else if (jQuery(this).hasClass('goto-grouping-btn')) {
+          app.hideAllContainers();
+          jQuery('#grouping-nav-btn').removeClass('hidden');
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          app.groupingView.render();
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
@@ -366,10 +385,17 @@
       }
     }
     else {
-      if (app.teacherView === null) {
-        app.teacherView = new app.View.TeacherView({
-          el: '#teacher-screen',
+      if (app.homeworkProgressView === null) {
+        app.homeworkProgressView = new app.View.HomeworkProgressView({
+          el: '#homework-progress-screen',
           collection: Skeletor.Mobile.users
+        });
+      }
+
+      if (app.reviewProgressView === null) {
+        app.reviewProgressView = new app.View.ReviewProgressView({
+          el: '#review-progress-screen',
+          collection: Skeletor.Mobile.groups
         });
       }
     }
@@ -615,6 +641,18 @@
     return Math.round(percent);
   };
 
+  app.getMyContributionPercentForUnit = function(username) {
+    var totalPercents = 0;
+
+    Skeletor.Model.awake.lessons.each(function(lesson) {
+      totalPercents += app.getMyContributionPercent(username, lesson.get('number'), true);
+    });
+
+    var percent = totalPercents / Skeletor.Model.awake.lessons.where({"kind":"homework"}).length;
+
+    return Math.round(percent);
+  };
+
   app.getCommunityContributionPercent = function(lessonNum) {
     var totalStudents = app.users.where({user_role: "student"}).length;
 
@@ -683,15 +721,38 @@
   };
 
   var getCommunityCompleteVettings = function(lessonNum) {
-    // var completedVettings = _.filter(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
-    //   return term.get('vetted_by').length >= app.numVettingTasks[lessonNum - 1]
-    // });
-    // return completedVettings.length;
     var count = 0;
     _.each(Skeletor.Model.awake.terms.where({lesson: lessonNum}), function(term) {
       count += term.get('vetted_by').length;
     });
     return count;
+  };
+
+  app.getMyGroup = function(username, reviewSection) {
+    var myGroup = Skeletor.Model.awake.groups.filter(function(group) {
+      return reviewSection === group.get('lesson') && _.contains(group.get('members'), username);
+    });
+    if (myGroup.length === 1) {
+      return _.first(myGroup);
+    } else if (myGroup.length > 1) {
+      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
+      return null;
+    } else {
+      return null;
+    }
+  };
+
+  app.getNewTeamColour = function() {
+    var usedColours = [];
+    Skeletor.Model.awake.groups.each(function(group) {
+      usedColours.push(group.get('colour'));
+    });
+
+    return _.first(_.difference(app.teamColourName, usedColours));
+  };
+
+  app.getColourForColour = function(colour) {
+    return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };
 
   app.getMyField = function(username) {
@@ -705,6 +766,67 @@
       return null;
     }
   };
+
+  app.buildTermView = function(containerEl, termName) {
+    var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": termName}));
+    jQuery(containerEl).append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
+    var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
+    jQuery(containerEl).append('<div class="author"><b>'+authorText+'</b><div>');
+    jQuery(containerEl).append('<div class="explanation">'+term.get('explanation')+'<div>');
+    var vetEl = "<div class='vetting'>";
+    _.each(term.get('vettings'), function(vet) {
+      vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
+      if (vet.correct === true) {
+        vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
+      } else {
+        vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
+      }
+    });
+    vetEl += "</div>"
+    jQuery(containerEl).append(vetEl);
+    var mediaEl = "<div class='media-container'>";
+    _.each(term.get('media'), function(url) {
+      mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
+    });
+    mediaEl += "</div>";
+    jQuery(containerEl).append(mediaEl);
+
+    var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
+      return rel.get('from') === termName || rel.get('to') === termName;
+    });
+    var relEl = "<div class='relationship'>";
+    _.each(filteredRelationships, function(rel) {
+      // corner case for where there is no listed 'link' for pre-populated terms, we don't want to display the text
+      if (rel.get('link').length > 0) {
+        relEl += "<div>" + rel.get('from') + " " + rel.get('link') + " " + rel.get('to') + "</div>"
+      }
+    });
+    relEl += "</div>"
+    jQuery(containerEl).append(relEl);
+
+    var comEl = "<div class='comments'>";
+    _.each(term.get('comments'), function(comment) {
+      comEl += "<div class='comments-author'>" + comment.author + " - " + comment.date + "</div>";
+      comEl += "<div class='comments-content'>" + comment.explanation + "</div>"
+    });
+    comEl += "</div>";
+    jQuery(containerEl).append(comEl);
+  };
+
+  app.checkForRepeatTerm = function(model) {
+    if (model.get('assigned_to') === "") {
+      // we're now going to be rendering the model from a previous lesson, previously completed
+      var modelArr = Skeletor.Model.awake.terms.filter(function(term) {
+        return term.get('name') === model.get('name') && term.get('assigned_to') !== "";
+      });
+      if (modelArr.length > 1) {
+        console.err("Database validation issue: repeated terms with assigned assigned_to. Look into " + modelArr[0].get('name'));
+      }
+      return modelArr[0];
+    } else {
+      return model;
+    }
+  },
 
   app.parseExtension = function(url) {
     return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
