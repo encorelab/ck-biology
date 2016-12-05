@@ -1,0 +1,46 @@
+[
+    {
+        "field": "Pharmacology",
+        "field_img": "articles/imgs/pharmacology.jpg",
+        "source": "articles/pdfs/pharmacology.pdf",
+        "source_img": "articles/imgs/pharmacology_articlethumb.png",
+        "users": [],
+        "user_associated_terms": [],
+        "group_associated_terms": [],
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "field": "Pathology",
+        "field_img": "articles/imgs/pathology.jpg",
+        "source": "articles/pdfs/pathology.pdf",
+        "source_img": "articles/imgs/pathology_articlethumb.png",
+        "users": [],
+        "user_associated_terms": [],
+        "group_associated_terms": [],
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "field": "Food Science",
+        "field_img": "articles/imgs/food_science.jpg",
+        "source": "articles/pdfs/food_science.pdf",
+        "source_img": "articles/imgs/food_science_articlethumb.png",
+        "users": [],
+        "user_associated_terms": [],
+        "group_associated_terms": [],
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    },
+    {
+        "field": "Health and Nutrition",
+        "field_img": "articles/imgs/cell_biology.jpg",
+        "source": "articles/pdfs/cell_biology.pdf",
+        "source_img": "articles/imgs/cell_biology_articlethumb.png",
+        "users": [],
+        "user_associated_terms": [],
+        "group_associated_terms": [],
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z"
+    }
+]
