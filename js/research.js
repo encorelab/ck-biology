@@ -769,27 +769,29 @@
 
   app.buildTermView = function(containerEl, termName) {
     var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": termName}));
-    jQuery(containerEl).append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
-    var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
-    jQuery(containerEl).append('<div class="author"><b>'+authorText+'</b><div>');
-    jQuery(containerEl).append('<div class="explanation">'+term.get('explanation')+'<div>');
-    var vetEl = "<div class='vetting'>";
-    _.each(term.get('vettings'), function(vet) {
-      vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
-      if (vet.correct === true) {
-        vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
-      } else {
-        vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
-      }
-    });
-    vetEl += "</div>"
-    jQuery(containerEl).append(vetEl);
-    var mediaEl = "<div class='media-container'>";
-    _.each(term.get('media'), function(url) {
-      mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
-    });
-    mediaEl += "</div>";
-    jQuery(containerEl).append(mediaEl);
+    if (term.get('complete') === true) {
+      jQuery(containerEl).append('<h3 class="title"><b>'+term.get('name')+'</b> in the knowledge base</h3>');
+      var authorText = term.get('assigned_to') + " - " + term.get("submitted_at").toDateString() + ", " + term.get("submitted_at").toLocaleTimeString() + ":";
+      jQuery(containerEl).append('<div class="author"><b>'+authorText+'</b><div>');
+      jQuery(containerEl).append('<div class="explanation">'+term.get('explanation')+'<div>');
+      var vetEl = "<div class='vetting'>";
+      _.each(term.get('vettings'), function(vet) {
+        vetEl += "<div class='vetting-author'>" + vet.author + " - " + vet.date + "</div>";
+        if (vet.correct === true) {
+          vetEl += "<div class='vetting-content'>This explanation is complete and correct</div>";
+        } else {
+          vetEl += "<div class='vetting-content'>"+vet.explanation+"</div>";
+        }
+      });
+      vetEl += "</div>"
+      jQuery(containerEl).append(vetEl);
+      var mediaEl = "<div class='media-container'>";
+      _.each(term.get('media'), function(url) {
+        mediaEl += "<span class='media'><img src='"+Skeletor.Mobile.config.pikachu.url+url+"' class='media'></img></span>"
+      });
+      mediaEl += "</div>";
+      jQuery(containerEl).append(mediaEl);
+    }
 
     var filteredRelationships = Skeletor.Model.awake.relationships.filter(function(rel) {
       return rel.get('from') === termName || rel.get('to') === termName;
