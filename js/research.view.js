@@ -2014,6 +2014,8 @@
     stepForward: function() {
       var view = this;
 
+      view.updateReport();
+
       app.currentWizardPage++;
       view.render();
     },
@@ -2021,10 +2023,21 @@
     stepBack: function() {
       var view = this;
 
+      view.updateReport();
+
       app.currentWizardPage--;
       view.render();
     },
 
+    updateReport: function() {
+      jQuery('#wizard-content-container textarea').each(function(index, el) {
+        // key should be related to how the info will be displayed in the report, instead of entry0, entry1, etc
+        var key = "entry"+index;
+        app.report.parts[app.currentWizardPage - 1][key] = jQuery(el).val();
+      });
+    },
+
+    // this returns a 'non-updateable' object. Maybe refactor so that this is essentially a getter/setter (or better yet, put this all in the model)
     getReportPart: function(pageNum) {
       var partObj;
       _.each(app.report.parts, function(part) {
