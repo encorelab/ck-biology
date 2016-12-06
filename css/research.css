@@ -756,6 +756,32 @@ textarea {
 
 
 
+/*****************************************************/
+/*****************************************************/
+/****************** REVIEW SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+
+
+#review-wizard-screen .inner-wrapper {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    margin-bottom: 40px;
+}
+
+#wizard-step-forward-btn, #wizard-step-back-btn {
+    margin-bottom: 20px;
+    background: #95A5A6;
+}
+
+
+
+
 
 
 /********** GLOBAL **********/

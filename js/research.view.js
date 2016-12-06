@@ -97,6 +97,23 @@
             jQuery('.top-nav-btn').addClass('hidden');
             jQuery('#home-screen').removeClass('hidden');
           }
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          if (app.getMyGroup(app.username, "review3")) {
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#contribution-nav-btn').addClass('hidden');
+            jQuery('#review-wizard-screen').removeClass('hidden');
+            if (app.reviewWizardView === null) {
+              app.reviewWizardView = new app.View.ReviewWizardView({
+                el: '#review-wizard-screen'
+                //model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+              });
+            }
+            app.reviewWizardView.render();
+          } else {
+            jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
+            jQuery('.top-nav-btn').addClass('hidden');
+            jQuery('#home-screen').removeClass('hidden');
+          }
         } else {
           // doing this here now, because we need the lesson during the init
           if (app.relationshipView === null) {
@@ -1928,6 +1945,108 @@
       view.checkForAllowedToPublish();
     }
   });
+
+
+
+
+
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ****************** REVIEW WIZARD VIEW *********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.report = {
+    "group_colour": "red",
+    "source": "/reports/pdfs/cow_burps.pdf",
+    "lesson": "review3",
+    "parts": [
+      {
+        "number": 1,
+        "kind": "intro",
+        "name": "Introduction"
+      },
+      {
+        "number": 2,
+        "kind": "progress",
+        "name": "Explanation of Gene Sequences for Transcription and Translation"
+      },
+      {
+        "number": 3,
+        "kind": "progress",
+        "name": "Transcription and Translation of Mutation"
+      }
+    ]
+  }
+
+  app.html = [
+    `<h2>Introduction</h2>
+    <p>Cattle farming is a key component of Canadian agriculture. However, approximately 23% of Canada’s methane emissions are from cow burps ("enteric fermentations"). This number is troubling because the Global Warming Potential (GWP) of methane is 21 times that of carbon dioxide on a 100-year time scale (Environmental Protection Agency, 2013). Some progress in methane reduction has been made by scientists who have adjusted the composition of cattle feed (Rathke, 2013), but opportunities exist to pursue more cutting-edge approaches.</p>
+    <p>Maria Niño-Soto, a self-made billionaire, has decided to become a leader in the cattle industry by finding ways to make it more environmentally friendly. Towards this end, she has started the Niño-Soto Foundation (NSF) to fund research projects that could provide new solutions to problems in the cattle industry. You have been hired by the NSF as an expert reviewer, tasked with evaluating a research proposal in order to decide if the proposed project is both possible and scientifically sound. As part of your evaluation, you will prepare a report to Maria Niño-Soto in which you explain key elements of the research and comment on its plausibility.</p>`
+    ,
+    `<h2>Explanation of Gene Sequences for Transcription and Translation</h2>
+    <p>A gene includes a number of important sequences that ensure transcription and translation of the gene: Promoter, initiation and termination sequences, RBS, start and stop codons. Briefly describe the role and function of each of these within the <i>M. capsulatus</i> (be sure to indicate whether it is important for transcription or for translation). Since billionaire Ni&ntilde;o-Soto may question why she must understand such detail, indicate why you think it is important to understand in your report to the NSF (i.e. the text box below).</p>
+    <textarea placeholder='Enter your text here'></textarea>`
+    ,
+    `<h2>Transcription and Translation of Mutation</h2>
+    <p>The DNA sequence shown on the previous page is the sense (+) strand of the double stranded DNA that makes up the pmoC gene, encoding PmoC.</p>
+    <p>What would the mRNA sequence be when the "mistake" template (−) strand DNA is transcribed? (Give the first 60 bases).</p>
+    <i>Hint: Recall that the first nucleotide of pmoC1 begins at site 1557.</i>
+    <textarea placeholder='Enter your text here'></textarea>
+    <p>What would the amino acid sequence be when this mRNA is translated? (Give the first 15 amino acids).</p>
+    <textarea placeholder='Enter your text here'></textarea>`
+  ]
+
+  app.View.ReviewWizardView = Backbone.View.extend({
+    initialize: function() {
+      console.log('Initializing ReviewWizardView...');
+    },
+
+    events: {
+      'click #wizard-step-forward-btn' : 'stepForward',
+      'click #wizard-step-back-btn'    : 'stepBack'
+    },
+
+    stepForward: function() {
+      var view = this;
+
+      app.currentWizardPage++;
+      view.render();
+    },
+
+    stepBack: function() {
+      var view = this;
+
+      app.currentWizardPage--;
+      view.render();
+    },
+
+    getReportPart: function(pageNum) {
+      var partObj;
+      _.each(app.report.parts, function(part) {
+        if (part.number === pageNum) {
+          partObj = part;
+        };
+      });
+      return partObj;
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering ReviewWizardView...");
+
+      jQuery('#wizard-content-container').html('');
+
+      var currentPart = view.getReportPart(app.currentWizardPage)
+
+      jQuery('#wizard-content-container').append(app.html[currentPart.number - 1]);
+    }
+  });
+
 
 
   this.Skeletor = Skeletor;

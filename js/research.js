@@ -40,6 +40,7 @@
   app.teamColourName = ["red", "green", "purple", "yellow", "orange"];
   app.teamColourRGB = ["rgba(231,76,60,0.7)", "rgba(46,204,113,0.7)", "rgba(155,89,182,0.7)", "rgba(241,196,15, 0.7)", "rgba(243,156,18,0.7)"];
   app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
+  app.currentWizardPage = 1;
 
   app.homeView = null;
   app.homeworkProgressView = null;
@@ -54,6 +55,7 @@
   app.explainDetailsView = null;
   app.groupNegotiateTermsView = null;
   app.groupNegotiateDetailsView = null;
+  app.reviewWizardView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
