@@ -763,7 +763,7 @@ textarea {
 /*****************************************************/
 
 
-#review-wizard-screen .inner-wrapper {
+#report-screen .inner-wrapper {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -774,7 +774,7 @@ textarea {
     margin-bottom: 40px;
 }
 
-#wizard-step-forward-btn, #wizard-step-back-btn {
+#report-step-forward-btn, #report-step-back-btn {
     margin-bottom: 20px;
     background: #95A5A6;
 }
