@@ -423,7 +423,7 @@
       jQuery('#review-progress-container').html('');
       var el = '';
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-        el += '<button class="group-btn" data-colour="'+group.get('colour')+'">'+group.get('colour')+'</button>'
+        el += '<button class="group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+'</button>'
       });
       jQuery('#review-progress-container').append(el);
 
