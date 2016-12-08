@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons', 'groups'];
+    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons', 'groups', 'reports'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -205,6 +205,17 @@
 
       this.Groups = this.db.Collection('groups').extend({
         model: Skeletor.Model.Group
+      });
+
+      this.Report = this.db.Document('reports').extend({
+        defaults: {
+          'created_at': new Date(),
+          'modified_at': new Date()
+        }
+      });
+
+      this.Reports = this.db.Collection('reports').extend({
+        model: Skeletor.Model.Report
       });
     };
 

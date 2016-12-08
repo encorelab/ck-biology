@@ -45,6 +45,7 @@
   app.homeView = null;
   app.homeworkProgressView = null;
   app.reviewProgressView = null;
+  app.teacherReportView = null;
   app.groupingView = null;
   app.definitionView = null;
   app.relationshipView = null;
@@ -324,6 +325,12 @@
           jQuery('#homework-progress-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
             jQuery('#review-progress-screen').removeClass('hidden');
+            if (app.reviewProgressView === null) {
+              app.reviewProgressView = new app.View.ReviewProgressView({
+                el: '#review-progress-screen',
+                collection: Skeletor.Model.awake.groups
+              });
+            }
             app.reviewProgressView.render();
           } else {
             jQuery('#homework-progress-screen').removeClass('hidden');
@@ -391,13 +398,6 @@
         app.homeworkProgressView = new app.View.HomeworkProgressView({
           el: '#homework-progress-screen',
           collection: Skeletor.Mobile.users
-        });
-      }
-
-      if (app.reviewProgressView === null) {
-        app.reviewProgressView = new app.View.ReviewProgressView({
-          el: '#review-progress-screen',
-          collection: Skeletor.Mobile.groups
         });
       }
     }

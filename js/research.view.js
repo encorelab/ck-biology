@@ -102,12 +102,26 @@
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
+
+            var myGroup = app.getMyGroup(app.username, "review3");
+            var report = null;
+            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
+              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            } else {
+              // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
+              report = new Model.Report();
+              report.set('group_colour', myGroup.get('colour'));
+              report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
+              report.set('parts', app.report.parts);
+              report.save();
+            }
             if (app.reportView === null) {
               app.reportView = new app.View.ReportView({
-                el: '#report-screen'
-                //model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+                el: '#report-screen',
+                model: report
               });
             }
+
             app.reportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
@@ -383,87 +397,73 @@
       console.log('Initializing ReviewProgressView...');
     },
 
+    events: {
+      'click .group-btn' : 'switchToReportView'
+    },
+
+    switchToReportView: function(ev) {
+      var report = Skeletor.Model.awake.reports.findWhere({"group_colour": jQuery(ev.target).data('colour')});
+      if (app.teacherReportView === null) {
+        app.teacherReportView = new app.View.TeacherReportView({
+          el: '#teacher-report-screen',
+          model: report
+        });
+      } else {
+        app.teacherReportView.model = report;
+      }
+      app.teacherReportView.render();
+      jQuery('#review-progress-screen').addClass('hidden');
+      jQuery('#teacher-report-screen').removeClass('hidden');
+    },
+
     render: function () {
       var view = this;
       console.log("Rendering ReviewProgressView...");
 
-      // sort collection by most complete to least complete
-    //   var userArray = [];
-    //   view.collection.each(function(user) {
-    //     if (user.get('user_role') !== "teacher") {
-    //       user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
-    //       userArray.push(user);
-    //     }
-    //   });
+      jQuery('#review-progress-container').html('');
+      var el = '';
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        el += '<button class="group-btn" data-colour="'+group.get('colour')+'">'+group.get('colour')+'</button>'
+      });
+      jQuery('#review-progress-container').append(el);
 
-    //   function compare(a,b) {
-    //     if (a.get('complete_percent') > b.get('complete_percent'))
-    //       return -1;
-    //     if (a.get('complete_percent') < b.get('complete_percent'))
-    //       return 1;
-    //     return 0;
-    //   }
-    //   userArray.sort(compare);
-
-    //   // create the html for the buttons and progress bars
-    //   var teacherEl = '';
-    //   _.each(userArray, function(user, index) {
-    //     var name = user.get('username');
-
-    //     var el = '';
-    //     if (index%2 === 0) {
-    //       el += '<div class="homework-progress-row-container">';
-    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-    //       el += '<span class="homework-progress-bar-container">';
-    //       el += '<span id="'+name+'-progress-bar"></span>';
-    //       el += '</span>';
-    //     } else {
-    //       el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-    //       el += '<span class="homework-progress-bar-container">';
-    //       el += '<span id="'+name+'-progress-bar"></span>';
-    //       el += '</span>';
-    //       el += '</div>';
-    //     }
-
-    //     teacherEl += el;
-    //   });
-    //   // odd number of students, but including maria in the collection
-    //   if (view.collection.length%2 === 0) {
-    //     teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
-    //     teacherEl += '<span class="homework-progress-bar-container">';
-    //     teacherEl += '</span>';
-    //     teacherEl += '</div>';
-    //   }
-    //   jQuery('#homework-progress-container').html(teacherEl);
-
-    //   view.collection.each(function(user) {
-    //     if (user.get('user_role') !== 'teacher') {
-    //       var myPercent = '';
-    //       if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
-    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
-    //       } else {
-    //         myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
-    //       }
-
-    //       var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
-    //         {
-    //           easing: 'easeInOut',
-    //           color: app.hexDarkPurple,
-    //           trailColor: app.hexLightGrey,
-    //           strokeWidth: 8,
-    //           svgStyle: app.progressBarStyleHome,
-    //           text: {
-    //             value: myPercent,
-    //             style: app.progressBarTextStyle
-    //           }
-    //         });
-    //       myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
-    //     }
-    //   });
+      // TODO: add progress bars
     }
   });
 
+  /***********************************************************
+   ***********************************************************
+   **************** TEACHER REPORT VIEW* *********************
+   ***********************************************************
+   ***********************************************************/
 
+  app.View.TeacherReportView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing TeacherReportView...');
+    },
+
+    events: {
+      'click #close-teacher-report-view-btn' : 'switchToProgressView'
+    },
+
+    switchToProgressView: function() {
+      jQuery('#teacher-report-screen').addClass('hidden');
+      jQuery('#review-progress-screen').removeClass('hidden');
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering TeacherReportView...");
+
+      jQuery('#teacher-report-container').html('');
+      var reportEl = '';
+      reportEl += 'This is the ' + view.model.get('group_colour') + ' team report';
+      reportEl += '<button id="close-teacher-report-view-btn">Close</button>';
+
+      jQuery('#teacher-report-container').append(reportEl);
+    }
+  });
 
 
   /***********************************************************
@@ -2046,11 +2046,6 @@
   app.View.ReportView = Backbone.View.extend({
     initialize: function() {
       console.log('Initializing ReportView...');
-
-      // insert html into report data structure. This is a convenience function until the html is completely nailed down
-      // _.each(app.report.parts, function(part, index) {
-      //   part.html = app.html[index];
-      // });
     },
 
     events: {
@@ -2064,7 +2059,7 @@
 
       view.updateReport();
 
-      if (app.currentReportPage < app.report.parts.length) {
+      if (app.currentReportPage < view.model.get('parts').length) {
         app.currentReportPage++;
         view.render();
       } else {
@@ -2095,19 +2090,30 @@
     },
 
     updateReport: function() {
+      var view = this;
       var inputs = [];
       jQuery('#report-content-container textarea').each(function(index, el) {
         // should the entries should be keyed to something? Use objects instead? Depends on output
         inputs.push(jQuery(el).val());
       });
 
-      app.report.parts[app.currentReportPage - 1].entries = inputs;
+      // move this to the model, make a good solid setter there (with depth)
+      var partsArr = view.model.get('parts');
+      partsArr[app.currentReportPage - 1].entries = inputs;
+      view.model.set('parts', partsArr);
+      view.model.save();
     },
+
+    // START HERE. Model now incorporated. Needs a getter and setter.
+    // then move to teacher view to add viewable report parts (inc image)
+    // then figure out the binding so that it will render on change
+
 
     // this returns a 'non-updateable' object. Move this all in to the model, add setter
     getReportPart: function(pageNum) {
+      var view = this;
       var partObj;
-      _.each(app.report.parts, function(part) {
+      _.each(view.model.get('parts'), function(part) {
         if (part.number === pageNum) {
           partObj = part;
         };

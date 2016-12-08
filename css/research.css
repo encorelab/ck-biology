@@ -373,6 +373,34 @@ textarea {
     display: inline-block;
 }
 
+/****** REVIEW PROGRESS SCREEN ******/
+
+#review-progress-screen {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/****** TEACHER REPORT SCREEN ******/
+
+#teacher-report-screen {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 
 
 /*****************************************************/
@@ -758,7 +786,7 @@ textarea {
 
 /*****************************************************/
 /*****************************************************/
-/****************** REVIEW SCREENS *******************/
+/****************** REPORT SCREENS *******************/
 /*****************************************************/
 /*****************************************************/
 
