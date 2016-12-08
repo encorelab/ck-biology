@@ -774,9 +774,23 @@ textarea {
     margin-bottom: 40px;
 }
 
+/* absolute positioning, bottom/right, etc are temp? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn, #report-step-back-btn {
     margin-bottom: 20px;
     background: #95A5A6;
+    position: absolute;
+    bottom: 0;
+}
+#report-step-forward-btn {
+    right: 0;
+}
+#report-step-back-btn {
+    left: 0;
+}
+
+
+#report-screen img {
+    width: 100%;
 }
 
 
