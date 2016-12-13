@@ -115,6 +115,7 @@
               report.set('parts', app.report.parts);
               report.save();
             }
+            report.wake(app.config.wakeful.url);
             if (app.reportView === null) {
               app.reportView = new app.View.ReportView({
                 el: '#report-screen',
@@ -433,7 +434,7 @@
 
   /***********************************************************
    ***********************************************************
-   **************** TEACHER REPORT VIEW* *********************
+   **************** TEACHER REPORT VIEW **********************
    ***********************************************************
    ***********************************************************/
 
@@ -441,6 +442,10 @@
     initialize: function() {
       var view = this;
       console.log('Initializing TeacherReportView...');
+
+      view.model.on('change', function () {
+        view.render();
+      });
     },
 
     events: {
@@ -458,7 +463,17 @@
 
       jQuery('#teacher-report-container').html('');
       var reportEl = '';
-      reportEl += 'This is the ' + view.model.get('group_colour') + ' team report';
+      _.each(view.model.get('parts'), function(part) {
+        // only add text chunks for things the students have written (not intro stuff)
+        if (part.kind === 'write') {
+          reportEl += '<h2>' + part.name + '</h2>';
+          _.each(part.entries, function(entry) {
+            reportEl += '<p>' + entry + '</p>';
+          })
+        }
+      });
+
+      // move this to the html
       reportEl += '<button id="close-teacher-report-view-btn">Close</button>';
 
       jQuery('#teacher-report-container').append(reportEl);
@@ -2103,6 +2118,8 @@
 
     // then move to teacher view to add viewable report parts (inc image)
     // then figure out the binding so that it will render on change
+    // then move the html somewhere else in here (not db?)
+    // then finish the html
 
     render: function() {
       var view = this;
