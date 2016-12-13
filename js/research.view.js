@@ -2059,6 +2059,7 @@
 
       view.updateReport();
 
+      // if we're not at the end of the report
       if (app.currentReportPage < view.model.get('parts').length) {
         app.currentReportPage++;
         view.render();
@@ -2096,30 +2097,12 @@
         // should the entries should be keyed to something? Use objects instead? Depends on output
         inputs.push(jQuery(el).val());
       });
-
-      // move this to the model, make a good solid setter there (with depth)
-      var partsArr = view.model.get('parts');
-      partsArr[app.currentReportPage - 1].entries = inputs;
-      view.model.set('parts', partsArr);
+      view.model.setEntries(app.currentReportPage, inputs);
       view.model.save();
     },
 
-    // START HERE. Model now incorporated. Needs a getter and setter.
     // then move to teacher view to add viewable report parts (inc image)
     // then figure out the binding so that it will render on change
-
-
-    // this returns a 'non-updateable' object. Move this all in to the model, add setter
-    getReportPart: function(pageNum) {
-      var view = this;
-      var partObj;
-      _.each(view.model.get('parts'), function(part) {
-        if (part.number === pageNum) {
-          partObj = part;
-        };
-      });
-      return partObj;
-    },
 
     render: function() {
       var view = this;
@@ -2127,11 +2110,11 @@
 
       jQuery('#report-content-container').html('');
       // create the html
-      jQuery('#report-content-container').append(view.getReportPart(app.currentReportPage).html);
+      jQuery('#report-content-container').append(view.model.getPart(app.currentReportPage).html);
       // add the text entries
       jQuery('#report-content-container textarea').each(function(index, el) {
-        if (view.getReportPart(app.currentReportPage).entries) {
-          jQuery(el).val(view.getReportPart(app.currentReportPage).entries[index]);
+        if (view.model.getPart(app.currentReportPage).entries) {
+          jQuery(el).val(view.model.getPart(app.currentReportPage).entries[index]);
         }
       });
 

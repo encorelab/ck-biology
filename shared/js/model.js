@@ -95,6 +95,7 @@
     };
 
     Model.defineModelClasses = function() {
+      // Locking of terms to users, *not* locking the board
       var LockingTrait = {
         lock: function() {
           this.set('locked', Skeletor.Mobile.username);
@@ -142,6 +143,24 @@
           var ctx = context || "_";
           return this.has('pos') &&
             !_.isUndefined(this.get('pos')[ctx]);
+        }
+      };
+
+      var PartsTrait = {
+        getPart: function(pageNum) {
+          var partObj;
+          _.each(this.get('parts'), function(part) {
+            if (part.number === pageNum) {
+              partObj = part;
+            };
+          });
+          return partObj;
+        },
+        // inputs is expected to be an array
+        setEntries: function(pageNum, inputs) {
+          var partsArr = this.get('parts');
+          partsArr[pageNum-1].entries = inputs;
+          this.set('parts', partsArr);
         }
       };
 
@@ -212,7 +231,8 @@
           'created_at': new Date(),
           'modified_at': new Date()
         }
-      });
+      })
+      .extend(PartsTrait);
 
       this.Reports = this.db.Collection('reports').extend({
         model: Skeletor.Model.Report
