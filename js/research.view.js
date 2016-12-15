@@ -112,7 +112,7 @@
               report = new Model.Report();
               report.set('group_colour', myGroup.get('colour'));
               report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
-              report.set('parts', app.report.parts);
+              report.set('parts', app.report.parts);      // TODO
               report.save();
             }
             report.wake(app.config.wakeful.url);
@@ -449,7 +449,15 @@
     },
 
     events: {
+      'click img'                            : 'openImgModal',
       'click #close-teacher-report-view-btn' : 'switchToProgressView'
+    },
+
+    openImgModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      jQuery('#teacher-report-modal .photo-content').attr('src', url);
+      jQuery('#teacher-report-modal').modal({keyboard: true, backdrop: true});
     },
 
     switchToProgressView: function() {
@@ -467,6 +475,10 @@
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
           reportEl += '<h2>' + part.name + '</h2>';
+          if (part.thumbnail.length > 0) {
+            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
+          }
+
           _.each(part.entries, function(entry) {
             reportEl += '<p>' + entry + '</p>';
           })
@@ -2115,11 +2127,6 @@
       view.model.setEntries(app.currentReportPage, inputs);
       view.model.save();
     },
-
-    // then move to teacher view to add viewable report parts (inc image)
-    // then figure out the binding so that it will render on change
-    // then move the html somewhere else in here (not db?)
-    // then finish the html
 
     render: function() {
       var view = this;
