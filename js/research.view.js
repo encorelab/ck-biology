@@ -105,16 +105,22 @@
 
             var myGroup = app.getMyGroup(app.username, "review3");
             var report = null;
+            // if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
+            //   report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            // } else {
+            //   // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
+            //   report = new Model.Report();
+            //   report.set('group_colour', myGroup.get('colour'));
+            //   report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
+            //   report.set('parts', app.report.parts);      // TODO
+            //   report.save();
+            // }
+            // TODO: REVERT ME
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
               report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
-            } else {
-              // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-              report = new Model.Report();
-              report.set('group_colour', myGroup.get('colour'));
-              report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
-              report.set('parts', app.report.parts);      // TODO
-              report.save();
             }
+            report.set('parts', app.report.parts);
+            report.save();
             report.wake(app.config.wakeful.url);
             if (app.reportView === null) {
               app.reportView = new app.View.ReportView({
@@ -1994,9 +2000,13 @@
     },
 
     events: {
+      // general functionality
       'click #report-step-forward-btn' : 'stepForward',
       'click #report-step-back-btn'    : 'stepBack',
-      'keyup textarea'                 : 'checkForAllowedToProceed'
+      'keyup textarea'                 : 'checkForAllowedToProceed',
+      // unique unit-specific functionality
+      'click .unit3-view-sequence-btn' : 'unit3ViewSequence',
+      'click .unit3-check-answer'      : 'unit3checkAnswer'
     },
 
     stepForward: function() {
@@ -2028,11 +2038,12 @@
       jQuery('#report-step-forward-btn').removeClass('disabled');
       jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
 
-      jQuery('#report-content-container textarea').each(function(index, el) {
-        if (jQuery(el).val() === "") {
-          jQuery('#report-step-forward-btn').addClass('disabled');
-        }
-      });
+      // TODO: revert me
+      // jQuery('#report-content-container textarea').each(function(index, el) {
+      //   if (jQuery(el).val() === "") {
+      //     jQuery('#report-step-forward-btn').addClass('disabled');
+      //   }
+      // });
     },
 
     updateReport: function() {
@@ -2068,6 +2079,28 @@
         jQuery('#report-step-back-btn').removeClass('disabled');
         jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
       }
+    },
+
+
+    // UNIT SPECIFIC FUNCTIONALITY
+
+    unit3ViewSequence: function() {
+      jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    unit3checkAnswer: function(ev) {
+      var num = jQuery(ev.target).data('answer');
+      // ignoring whitespace and cap'd letters
+      if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
+        jQuery('.unit3-correct'+num).removeClass('hidden')
+      } else {
+        jQuery('.unit3-correct'+num).addClass('hidden')
+      }
+
+      // NOT GOING TO BOTHER WITH THIS FOR NOW. MAYBE TODO?
+      // if (!jQuery('.unit3-correct1').hasClass('hidden') && !jQuery('.unit3-correct2').hasClass('hidden')) {
+      //   allowProceed
+      // }
     }
   });
 

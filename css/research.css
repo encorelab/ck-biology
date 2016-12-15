@@ -788,23 +788,35 @@ textarea {
 /*****************************************************/
 
 
-#report-screen .inner-wrapper {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    margin-bottom: 40px;
+#report-screen img {
+    width: 100%;
+}
+#report-screen li {
+    margin-left: 40px;
+}
+#report-screen button {
+    font-size: 11px;
+    padding: 6px;
+    border-radius: 6px;
+    background: #34495E;
+}
+#report-screen .modal {
+    margin-top: 20px;
+    font-size: 10px;
 }
 
-/* absolute positioning, bottom/right, etc are temp? They overwrite the bootstrap pull-right etc */
+/* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn, #report-step-back-btn {
     margin-bottom: 20px;
-    background: #95A5A6;
     position: absolute;
     bottom: 0;
+    width: 75px;
+    height: 75px;
+    border-radius: 50% !important;
+    border: none;
+    color: #fff;
+    padding: 0 !important;
+    font-size: 3em !important;
 }
 #report-step-forward-btn {
     right: 0;
@@ -812,12 +824,6 @@ textarea {
 #report-step-back-btn {
     left: 0;
 }
-
-
-#report-screen img {
-    width: 100%;
-}
-
 
 
 
@@ -1072,6 +1078,7 @@ input:disabled {
     #explain-details-screen .inner-wrapper,
     #group-negotiate-terms-screen .inner-wrapper,
     #group-negotiate-details-screen .inner-wrapper,
+    #report-screen .inner-wrapper,
     #teacher-report-screen .inner-wrapper {
         margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
