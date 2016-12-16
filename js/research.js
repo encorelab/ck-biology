@@ -44,10 +44,12 @@
   app.report = null;
 
   app.homeView = null;
+  // teacher views
   app.homeworkProgressView = null;
+  app.groupingView = null;
   app.reviewProgressView = null;
   app.teacherReportView = null;
-  app.groupingView = null;
+  // student views
   app.definitionView = null;
   app.relationshipView = null;
   app.vettingView = null;
@@ -298,6 +300,7 @@
       showBugReporter();
     });
 
+    // this section now officially a spaghetti nightmare. For your own sanity, do not look
     jQuery('.top-nav-btn').click(function() {
       if (app.username) {
         jQuery('.top-nav-btn').removeClass('hidden');
@@ -317,6 +320,18 @@
           app.hideAllContainers();
           jQuery('#contribution-nav-btn').addClass('active');
           app.determineNextStep();
+        } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
+          app.hideAllContainers();
+          jQuery('#knowledge-base-nav-btn').addClass('active');
+          Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
+          jQuery('#wall').removeClass('hidden');
+        } else if (jQuery(this).hasClass('goto-grouping-btn')) {
+          app.hideAllContainers();
+          jQuery('#grouping-nav-btn').removeClass('hidden');
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          app.groupingView.render();
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
@@ -337,18 +352,6 @@
             jQuery('#homework-progress-screen').removeClass('hidden');
             app.homeworkProgressView.render();
           }
-        } else if (jQuery(this).hasClass('goto-grouping-btn')) {
-          app.hideAllContainers();
-          jQuery('#grouping-nav-btn').removeClass('hidden');
-          jQuery('#grouping-nav-btn').addClass('active');
-          jQuery('#grouping-screen').removeClass('hidden');
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          app.groupingView.render();
-        } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
-          app.hideAllContainers();
-          jQuery('#knowledge-base-nav-btn').addClass('active');
-          Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
-          jQuery('#wall').removeClass('hidden');
         } else {
           console.log('ERROR: unknown nav button');
         }
@@ -731,60 +734,6 @@
     return count;
   };
 
-  app.getMyGroup = function(username, reviewSection) {
-    var myGroup = Skeletor.Model.awake.groups.filter(function(group) {
-      return reviewSection === group.get('lesson') && _.contains(group.get('members'), username);
-    });
-    if (myGroup.length === 1) {
-      return _.first(myGroup);
-    } else if (myGroup.length > 1) {
-      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
-      return null;
-    } else {
-      return null;
-    }
-  };
-
-  app.getReportCompletionPercent = function(lesson, groupColour) {
-    var report = Skeletor.Model.awake.reports.findWhere({"lesson": lesson, "group_colour": groupColour});
-
-    var totalParts = 0;
-    var completedParts = 0;
-
-    // in the event the report hasn't been created yet
-    if (report && report.get('parts')) {
-      _.each(report.get('parts'), function(part) {
-        if (part.kind === "write") {
-          totalParts++;
-
-          if (part.entries && part.entries.length > 0) {
-            completedParts++;
-          }
-        }
-      });
-    }
-
-    var percent = 0;
-    // in the event the report hasn't been created yet
-    if (totalParts > 0) {
-      percent = (completedParts / totalParts) * 100;
-    }
-    return Math.round(percent);
-  };
-
-  app.getNewTeamColour = function() {
-    var usedColours = [];
-    Skeletor.Model.awake.groups.each(function(group) {
-      usedColours.push(group.get('colour'));
-    });
-
-    return _.first(_.difference(app.teamColourName, usedColours));
-  };
-
-  app.getColourForColour = function(colour) {
-    return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
-  };
-
   app.getMyField = function(username) {
     var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
       return _.contains(article.get('users'), app.username)
@@ -861,9 +810,63 @@
     }
   },
 
-  app.parseExtension = function(url) {
-    return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
+  app.getMyGroup = function(username, reviewSection) {
+    var myGroup = Skeletor.Model.awake.groups.filter(function(group) {
+      return reviewSection === group.get('lesson') && _.contains(group.get('members'), username);
+    });
+    if (myGroup.length === 1) {
+      return _.first(myGroup);
+    } else if (myGroup.length > 1) {
+      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
+      return null;
+    } else {
+      return null;
+    }
   };
+
+  app.getReportCompletionPercent = function(lesson, groupColour) {
+    var report = Skeletor.Model.awake.reports.findWhere({"lesson": lesson, "group_colour": groupColour});
+
+    var totalParts = 0;
+    var completedParts = 0;
+
+    // in the event the report hasn't been created yet
+    if (report && report.get('parts')) {
+      _.each(report.get('parts'), function(part) {
+        if (part.kind === "write") {
+          totalParts++;
+
+          if (part.entries && part.entries.length > 0) {
+            completedParts++;
+          }
+        }
+      });
+    }
+
+    var percent = 0;
+    // in the event the report hasn't been created yet
+    if (totalParts > 0) {
+      percent = (completedParts / totalParts) * 100;
+    }
+    return Math.round(percent);
+  };
+
+  app.getNewTeamColour = function() {
+    var usedColours = [];
+    Skeletor.Model.awake.groups.each(function(group) {
+      usedColours.push(group.get('colour'));
+    });
+
+    return _.first(_.difference(app.teamColourName, usedColours));
+  };
+
+  app.getColourForColour = function(colour) {
+    return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
+  };
+
+  // app.parseExtension = function(url) {
+  //   return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
+  // };
 
 
   //*************** LOGIN FUNCTIONS ***************//

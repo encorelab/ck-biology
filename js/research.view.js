@@ -53,6 +53,7 @@
       'click input'              : 'updateEnabled'
     },
 
+    // WARNING: SPAGHETTI NIGHTMARE LIES THIS WAY
     chooseLesson: function(ev) {
       var view = this;
       // check which lesson from data value
@@ -62,7 +63,7 @@
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#grouping-nav-btn').addClass('hidden');
-      // if student
+      // STUDENT
       if (app.teacherFlag === false) {
         jQuery('#contribution-nav-btn').addClass('active');
         // if review section
@@ -140,7 +141,9 @@
           app.buildContributionArray();
           app.determineNextStep();
         }
-      } else {
+      }
+      // TEACHER
+      else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
@@ -290,7 +293,6 @@
   });
 
 
-
   /***********************************************************
    ***********************************************************
    **************** HOMEWORK PROGRESS VIEW *******************
@@ -380,151 +382,6 @@
           myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
         }
       });
-    }
-  });
-
-
-
-
-  /***********************************************************
-   ***********************************************************
-   **************** REVIEW PROGRESS VIEW *********************
-   ***********************************************************
-   ***********************************************************/
-
-  app.View.ReviewProgressView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      console.log('Initializing ReviewProgressView...');
-
-      Skeletor.Model.awake.reports.on('change', function () {
-        view.render();
-      });
-    },
-
-    events: {
-      'click .teacher-report-group-btn' : 'switchToReportView'
-    },
-
-    switchToReportView: function(ev) {
-      var report = Skeletor.Model.awake.reports.findWhere({"group_colour": jQuery(ev.target).data('colour')});
-      // if this group has started their report
-      if (report) {
-        if (app.teacherReportView === null) {
-          app.teacherReportView = new app.View.TeacherReportView({
-            el: '#teacher-report-screen',
-            model: report
-          });
-        } else {
-          app.teacherReportView.model = report;
-        }
-        app.teacherReportView.render();
-        jQuery('#review-progress-screen').addClass('hidden');
-        jQuery('#teacher-report-screen').removeClass('hidden');
-      } else {
-        jQuery().toastmessage('showErrorToast', "This group has not started their report yet");
-      }
-    },
-
-    render: function () {
-      var view = this;
-      console.log("Rendering ReviewProgressView...");
-
-      jQuery('#review-progress-container').html('');
-      var el = '';
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-        el += '<div class="teacher-report-group-container">';
-        el += '<button class="teacher-report-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+' team</button>';
-        el += '<div class="teacher-report-progress-bar-container">';
-        el += '<span id="teacher-report-'+group.get('colour')+'-progress-bar" class="teacher-report-group-progress-bar"/>'
-        el += '<span class="teacher-report-group-progress-percent"></span>';
-        el += '<span class="teacher-report-percent"></span>';
-        el += '</div>';
-        el += '</div>';
-      });
-      jQuery('#review-progress-container').append(el);
-
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-        //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
-        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
-        var myBar = new ProgressBar.Line('#teacher-report-'+group.get('colour')+'-progress-bar',
-          {
-            easing: 'easeInOut',
-            color: app.hexDarkPurple,
-            trailColor: app.hexLightGrey,
-            strokeWidth: 8,
-            svgStyle: app.progressBarStyleHome,
-            text: {
-              value: myPercent,
-              style: app.progressBarTextStyle
-            }
-          });
-        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
-      });
-    }
-  });
-
-
-
-
-
-  /***********************************************************
-   ***********************************************************
-   **************** TEACHER REPORT VIEW **********************
-   ***********************************************************
-   ***********************************************************/
-
-  app.View.TeacherReportView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      console.log('Initializing TeacherReportView...');
-
-      view.model.on('change', function () {
-        view.render();
-      });
-    },
-
-    events: {
-      'click img'                            : 'openImgModal',
-      'click #close-teacher-report-view-btn' : 'switchToProgressView'
-    },
-
-    openImgModal: function(ev) {
-      var view = this;
-      var url = jQuery(ev.target).attr('src');
-      jQuery('#teacher-report-modal .photo-content').attr('src', url);
-      jQuery('#teacher-report-modal').modal({keyboard: true, backdrop: true});
-    },
-
-    switchToProgressView: function() {
-      jQuery('#teacher-report-screen').addClass('hidden');
-      jQuery('#review-progress-screen').removeClass('hidden');
-    },
-
-    render: function () {
-      var view = this;
-      console.log("Rendering TeacherReportView...");
-
-      jQuery('#teacher-report-container').html('');
-      var reportEl = '';
-      _.each(view.model.get('parts'), function(part) {
-        // only add text chunks for things the students have written (not intro stuff)
-        if (part.kind === 'write') {
-          reportEl += '<h2>' + part.name + '</h2>';
-          if (part.thumbnail.length > 0) {
-            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
-          }
-
-          _.each(part.entries, function(entry) {
-            reportEl += '<p>' + entry + '</p>';
-          })
-        }
-      });
-
-      // move this to the html
-      reportEl += '<button id="close-teacher-report-view-btn">Close</button>';
-
-      jQuery('#teacher-report-container').append(reportEl);
     }
   });
 
@@ -798,12 +655,164 @@
     render: function () {
       var view = this;
       console.log('Rendering GroupingView...');
-
-      // jQuery('#students-container').html('');
-      // jQuery('#groups-container').html('');
     }
   });
 
+
+  /***********************************************************
+   ***********************************************************
+   **************** REVIEW PROGRESS VIEW *********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.ReviewProgressView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing ReviewProgressView...');
+
+      Skeletor.Model.awake.reports.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click .review-progress-group-btn' : 'switchToReportView'
+    },
+
+    switchToReportView: function(ev) {
+      var report = Skeletor.Model.awake.reports.findWhere({"group_colour": jQuery(ev.target).data('colour')});
+      // if this group has started their report
+      if (report) {
+        if (app.teacherReportView === null) {
+          app.teacherReportView = new app.View.TeacherReportView({
+            el: '#teacher-report-screen',
+            model: report
+          });
+        } else {
+          app.teacherReportView.model = report;
+        }
+        app.teacherReportView.render();
+        jQuery('#review-progress-screen').addClass('hidden');
+        jQuery('#teacher-report-screen').removeClass('hidden');
+      } else {
+        jQuery().toastmessage('showErrorToast', "This group has not started their report yet");
+      }
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering ReviewProgressView...");
+
+      jQuery('#review-progress-container').html('');
+      var el = '';
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        el += '<div class="review-progress-group-container">';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+' team</button>';
+        el += '<div class="review-progress-progress-bar-container">';
+        el += '<span id="review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
+        el += '<span class="review-progress-group-progress-percent"></span>';
+        el += '<span class="review-progress-percent"></span>';
+        el += '</div>';
+        el += '</div>';
+      });
+      jQuery('#review-progress-container').append(el);
+
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
+        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
+        var myBar = new ProgressBar.Line('#review-progress-'+group.get('colour')+'-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexDarkPurple,
+            trailColor: app.hexLightGrey,
+            strokeWidth: 8,
+            svgStyle: app.progressBarStyleHome,
+            text: {
+              value: myPercent,
+              style: app.progressBarTextStyle
+            }
+          });
+        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+      });
+    }
+  });
+
+
+  /***********************************************************
+   ***********************************************************
+   **************** TEACHER REPORT VIEW **********************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.TeacherReportView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing TeacherReportView...');
+
+      view.model.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click img'                            : 'openImgModal',
+      'click #close-teacher-report-view-btn' : 'switchToProgressView'
+    },
+
+    openImgModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      jQuery('#teacher-report-modal .photo-content').attr('src', url);
+      jQuery('#teacher-report-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    switchToProgressView: function() {
+      jQuery('#teacher-report-screen').addClass('hidden');
+      jQuery('#review-progress-screen').removeClass('hidden');
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering TeacherReportView...");
+
+      jQuery('#teacher-report-container').html('');
+      var reportEl = '';
+      _.each(view.model.get('parts'), function(part) {
+        // only add text chunks for things the students have written (not intro stuff)
+        if (part.kind === 'write') {
+          reportEl += '<h2>' + part.name + '</h2>';
+          if (part.thumbnail.length > 0) {
+            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
+          }
+
+          _.each(part.entries, function(entry) {
+            reportEl += '<p>' + entry + '</p>';
+          })
+        }
+      });
+
+      jQuery('#teacher-report-container').append(reportEl);
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*****************************************************************************************************
+   *****************************************************************************************************
+   ************************************ STUDENT RELATED VIEWS ******************************************
+   *****************************************************************************************************
+   *****************************************************************************************************/
 
 
 
@@ -995,10 +1004,6 @@
   });
 
 
-
-
-
-
   /***********************************************************
    ***********************************************************
    ******************* RELATIONSHIP VIEW *********************
@@ -1103,9 +1108,6 @@
       app.relBar.animate(app.getMyContributionPercent(app.username, app.lesson) / 100);
     }
   });
-
-
-
 
 
   /***********************************************************
@@ -1347,6 +1349,11 @@
 
 
 
+/*****************************************************************************************************
+ *****************************************************************************************************
+ ************************************* STUDENT REVIEW VIEWS ******************************************
+ *****************************************************************************************************
+ *****************************************************************************************************/
 
 
   /***********************************************************
@@ -1703,14 +1710,6 @@
   });
 
 
-
-
-
-
-
-
-
-
   /***********************************************************
    ***********************************************************
    ************** GROUP NEGOTIATE TERMS VIEW *****************
@@ -2008,9 +2007,6 @@
       view.checkForAllowedToPublish();
     }
   });
-
-
-
 
 
 

@@ -261,7 +261,7 @@ textarea {
 
 /*****************************************************/
 /*****************************************************/
-/****************** TEACHER SCREEN *******************/
+/***************** HOMEWORK SCREEN *******************/
 /*****************************************************/
 /*****************************************************/
 
@@ -303,7 +303,6 @@ textarea {
     margin-right: 160px;
     margin-left: 30px;
 }
-
 
 
 
@@ -373,7 +372,11 @@ textarea {
     display: inline-block;
 }
 
-/****** REVIEW PROGRESS SCREEN ******/
+/*****************************************************/
+/*****************************************************/
+/************** REVIEW PROGRESS SCREEN ***************/
+/*****************************************************/
+/*****************************************************/
 
 #review-progress-screen {
     position: absolute;
@@ -386,17 +389,23 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
-.teacher-report-group-container {
+.review-progress-group-container {
     margin-top: 60px;
 }
-.teacher-report-group-btn {
+.review-progress-group-btn {
     width: 150px;
 }
-.teacher-report-progress-bar-container {
+.review-progress-progress-bar-container {
     margin-top: 15px;
 }
 
-/****** TEACHER REPORT SCREEN ******/
+
+
+/*****************************************************/
+/*****************************************************/
+/************** TEACHER REPORT SCREEN ****************/
+/*****************************************************/
+/*****************************************************/
 
 #teacher-report-screen h2 {
     display: inline;
@@ -408,9 +417,16 @@ textarea {
 }
 
 
+
+
+
+
+
+
+
 /*****************************************************/
 /*****************************************************/
-/******************* WRITE SCREENS *******************/
+/***************** STUDENT SCREENS *******************/
 /*****************************************************/
 /*****************************************************/
 
@@ -592,7 +608,13 @@ textarea {
 }
 
 
-/** choose article screen **/
+/*****************************************************/
+/*****************************************************/
+/************* STUDENT REVIEW SCREENS ****************/
+/*****************************************************/
+/*****************************************************/
+
+/** CHOOSE ARTICLE SCREEN **/
 #choose-article-screen .inner-wrapper {
     position: absolute;
     top: 20%;
@@ -618,7 +640,7 @@ textarea {
 }
 
 
-/** attach terms screen **/
+/** ATTACH TERMS SCREEN **/
 #attach-terms-pdf-container {
     margin-top: 100px;
 }
@@ -639,7 +661,7 @@ textarea {
 }
 
 
-/** explain terms screen **/
+/** EXPLAIN TERMS SCREEN **/
 #explain-terms-img-container img {
     width: 300px;
     height: 400px;
@@ -653,7 +675,7 @@ textarea {
 }
 
 
-/** explain details screen **/
+/** EXPLAIN DETAILS SCREEN **/
 #explain-details-term-container {
     width: 47%;
     float: left;
@@ -740,7 +762,7 @@ textarea {
 
 
 
-/****** group negotiate screens ********/
+/****** GROUP NEGOTIATE SCREEN ********/
 #group-negotiate-terms-img-container img {
     width: 300px;
     height: 400px;
