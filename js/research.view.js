@@ -396,10 +396,14 @@
     initialize: function() {
       var view = this;
       console.log('Initializing ReviewProgressView...');
+
+      Skeletor.Model.awake.reports.on('change', function () {
+        view.render();
+      });
     },
 
     events: {
-      'click .group-btn' : 'switchToReportView'
+      'click .teacher-report-group-btn' : 'switchToReportView'
     },
 
     switchToReportView: function(ev) {
@@ -429,15 +433,20 @@
       jQuery('#review-progress-container').html('');
       var el = '';
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-        el += '<div>';
-        el += '<button class="group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+'</button>';
-        el += '<div class="teacher-report-progress-bar-container group-progress-bar-container"><span id="teacher-report-'+group.get('colour')+'-progress-bar" class="group-progress-bar"/><span class="group-progress-percent"></span><span class="percent">%</span></div>';
+        el += '<div class="teacher-report-group-container">';
+        el += '<button class="teacher-report-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+' team</button>';
+        el += '<div class="teacher-report-progress-bar-container">';
+        el += '<span id="teacher-report-'+group.get('colour')+'-progress-bar" class="teacher-report-group-progress-bar"/>'
+        el += '<span class="teacher-report-group-progress-percent"></span>';
+        el += '<span class="teacher-report-percent"></span>';
+        el += '</div>';
+        el += '</div>';
       });
       jQuery('#review-progress-container').append(el);
 
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
         //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
-        var myPercent = app.getReportCompletionPercent("review3", group.get('colour'));
+        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
         var myBar = new ProgressBar.Line('#teacher-report-'+group.get('colour')+'-progress-bar',
           {
             easing: 'easeInOut',
@@ -450,7 +459,7 @@
               style: app.progressBarTextStyle
             }
           });
-        myBar.animate(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
       });
     }
   });

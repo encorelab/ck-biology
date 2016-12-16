@@ -386,10 +386,15 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
-/*.group-progress-bar-container {
-    margin-right: 160px;
-    margin-left: 30px;
-}*/
+.teacher-report-group-container {
+    margin-top: 60px;
+}
+.teacher-report-group-btn {
+    width: 150px;
+}
+.teacher-report-progress-bar-container {
+    margin-top: 15px;
+}
 
 /****** TEACHER REPORT SCREEN ******/
 
