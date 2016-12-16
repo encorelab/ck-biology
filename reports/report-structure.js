@@ -34,10 +34,10 @@ Skeletor.Mobile.report = {
     {
       "number": 4,
       "kind": "write",
-      "name": "Step 1: Representation of the pmoCAB Operon",
+      "name": "Part 1: Representation of the pmoCAB Operon",
       "thumbnail": "reports/imgs/pmo_genes.png",
       "html": `
-        <h2>Step 1: Representation of the <i>pmoCAB</i> Operon</h2>
+        <h2>Part 1: Representation of the <i>pmoCAB</i> Operon</h2>
         <p>Which diagram would you choose as the most useful and accurate depiction of the arrangement of the genes in the chromosome of <i>M. capsulatus</i>? In the text box below, indicate the letter of your chosen diagram and give reasons to support your choice.</p>
         <img src="reports/imgs/pmo_genes.png"></img>
         <textarea placeholder="Enter your text here"></textarea>`
@@ -45,20 +45,20 @@ Skeletor.Mobile.report = {
     {
       "number": 5,
       "kind": "write",
-      "name": "Step 2: Explanation of Gene Sequences for Transcription and Translation",
+      "name": "Part 2: Explanation of Gene Sequences for Transcription and Translation",
       "thumbnail": "",
       "html": `
-        <h2>Step 2: Explanation of Gene Sequences for Transcription and Translation</h2>
+        <h2>Part 2: Explanation of Gene Sequences for Transcription and Translation</h2>
         <p>A gene includes a number of important sequences that ensure transcription and translation of the gene: Promoter, initiation and termination sequences, RBS, start and stop codons. Briefly describe the role and function of each of these within the <i>M. capsulatus</i> (be sure to indicate whether it is important for transcription or for translation). Since billionaire Ni&ntilde;o-Soto may question why she must understand such detail, indicate why you think it is important to understand in your report to the NSF (i.e. the text box below).</p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
     {
       "number": 6,
       "kind": "write",
-      "name": "Step 3: Structure of the pmoCAB Operon",
+      "name": "Part 3: Structure of the pmoCAB Operon",
       "thumbnail": "/reports/imgs/pmo_operon.png",
       "html": `
-        <h2>Step 3: Structure of the <i>pmoCAB</i> Operon</h2>
+        <h2>Part 3: Structure of the <i>pmoCAB</i> Operon</h2>
         <ul>In the text box below, respond to the following questions using full sentences:
           <li>1. How many promoters would be necessary to allow transcription of the pmoCAB operon?</li>
           <li>2. How many mRNA molecules will be produced when this operon is transcribed?</li>
@@ -83,10 +83,10 @@ Skeletor.Mobile.report = {
     {
       "number": 7,
       "kind": "write",
-      "name": "Step 4: Genetic Sequencing of pmoC1",
+      "name": "Part 4: Genetic Sequencing of pmoC1",
       "thumbnail": "",
       "html": `
-        <h2>Step 4: Genetic Sequencing of <i>pmoCAB</i></h2>
+        <h2>Part 4: Genetic Sequencing of <i>pmoCAB</i></h2>
         <p>Cloning pMMO genes in <i>E. coli</i> will allow <i>E. coli</i> to produce the methane monooxidase that oxidizes methane to methanol, the first step to converting the methane to biomass. You want billionaire Niño-Soto to understand that taking the DNA from <i>M. capsulatus</i> and cloning it in <i>E. coli</i> will result in <i>E. coli</i> producing pMMO enzyme that is identical to that produced in <i>M. capsulatus</i>. The easiest way to show this is to look at the sequence of DNA and compare it to the sequence of amino acids in the protein.</p>
         <p>One of your colleagues has obtained the gene sequence for pmoC1 from the National Center for Biotechnology Information (NCBI) site at: <a href="http://www.ncbi.nlm.nih.gov/nuccore/14456718" target="_blank">http://www.ncbi.nlm.nih.gov/nuccore/14456718</a> which you will use in your report to the NSF to show how the gene will be transcribed and translated to make a protein.</p>
         <p>Here is the sequence that your colleague has prepared: <button class="unit3-view-sequence-btn">View Sequence</button></p>
@@ -161,40 +161,46 @@ Skeletor.Mobile.report = {
     {
       "number": 8,
       "kind": "write",
-      "name": "Step 5: Transcription and Translation of Mutation",
+      "name": "Part 5: Transcription and Translation of Mutation",
       "thumbnail": "",
       "html": `
-        <h2>Step 5: Transcription and Translation of Mutation</h2>
+        <h2>Part 5: Transcription and Translation of Mutation</h2>
         <p>The DNA sequence shown on the previous page is the sense (+) strand of the double stranded DNA that makes up the <i>pmoC</i> gene, encoding PmoC.</p>
         What would the mRNA sequence be when the "mistake" template (−) strand DNA is transcribed? (Give the first 60 bases). <i>Hint: Recall that the first nucleotide of pmoC1 begins at site 1557.</i>
         <textarea class="unit3-entry1" placeholder="Enter your text here"></textarea>
         <button class="unit3-check-answer" data-answer="1" style="display:inline;">Check your answer</button>
         <span class="unit3-correct1 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
-        <span class="unit3-answer1 hidden">CAGCTGACCC GTGGTCGGCC TAGGCAGGCA GTTGGGGCTG ACAAGGCGGT TCTTGAGGCC</span>
+        <span class="unit3-answer1 hidden">TACCGTCGTTGTTGGTAACCACCACGTCGACGCCGCATTCGCGGCGACGACCTGTTCTTC</span>
         <br /><br />
         What would the amino acid sequence be when this mRNA is translated? (Give the first 15 amino acids).
         <textarea class="unit3-entry2" placeholder="Enter your text here"></textarea>
         <button class="unit3-check-answer" data-answer="2" style="display:inline;">Check your answer</button>
         <span class="unit3-correct2 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
-        <span class="unit3-answer2 hidden">MAATTIGGAA AAEAP</span>`
+        <span class="unit3-answer2 hidden">AUGGCAGCAACAACCAUUGGUGGUGCAGCUGCGGCGUAAGCGCCGCUGCUGGACAAGAAG</span>
+        <br /><br />
+        What would the amino acid sequence be when this mRNA is translated? (Give the first 15 amino acids using their 3-letter abbreviations).
+        <textarea class="unit3-entry3" placeholder="Enter your text here"></textarea>
+        <button class="unit3-check-answer" data-answer="3" style="display:inline;">Check your answer</button>
+        <span class="unit3-correct3 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
+        <span class="unit3-answer3 hidden">Met Ala Ala Thr Thr Ile Gly Gly Ala Ala Ala Ala STOP Ala Pro</span>`
     },
     {
       "number": 9,
       "kind": "write",
-      "name": "Step 6: Protein Product Analysis",
+      "name": "Part 6: Protein Product Analysis",
       "thumbnail": "",
       "html": `
-        <h2>Step 6: Protein Product Analysis</h2>
+        <h2>Part 6: Protein Product Analysis</h2>
         <p>How would the protein product of this DNA sequence differ from the PmoC that would be made if the gene did not have a mutation? Make a prediction as to the functionality of this altered protein compared to PmoC.</p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
     {
       "number": 10,
       "kind": "write",
-      "name": "Step 7: Analysis of the Cloning Vector",
+      "name": "Part 7: Analysis of the Cloning Vector",
       "thumbnail": "/reports/imgs/cloning.jpg",
       "html": `
-        <h2>Step 7: Analysis of the Cloning Vector</h2>
+        <h2>Part 7: Analysis of the Cloning Vector</h2>
         <p>Billionaire Niño-Soto will now have enough information from your report to understand the basic mechanisms of DNA replication, transcription, and translation.  Now you are ready to explain the cloning process proposed by Dr. Sutherland that will create the plasmid that allows E. coli to express these genes.  You have prepared the diagram below to illustrate this process.  Your goal is to explain why each labeled section is important.</p>
         Diagrammatic depiction of the cloning scheme:
         <img src="/reports/imgs/cloning.jpg"></img>
@@ -204,10 +210,10 @@ Skeletor.Mobile.report = {
     {
       "number": 11,
       "kind": "write",
-      "name": "Step 8: Review of the Cloning Vector",
+      "name": "Part 8: Review of the Cloning Vector",
       "thumbnail": "/reports/imgs/cloning.jpg",
       "html": `
-        <h2>Step 8: Review of the Cloning Vector</h2>
+        <h2>Part 8: Review of the Cloning Vector</h2>
         <ul>Use the diagram below to respond to the following questions.  Type your answers into the text box below using full sentences.
           <li>1. During which step is DNA ligase used?<li>
           <li>2. During which step would a restriction endonuclease be used?<li>
@@ -221,10 +227,10 @@ Skeletor.Mobile.report = {
     {
       "number": 12,
       "kind": "write",
-      "name": "Step 9: Mechanisms of Genetic Exchange",
+      "name": "Part 9: Mechanisms of Genetic Exchange",
       "thumbnail": "",
       "html": `
-        <h2>Step 9: Mechanisms of Genetic Exchange</h2>
+        <h2>Part 9: Mechanisms of Genetic Exchange</h2>
         <p>Genetic exchange can occur naturally between bacteria by three different mechanisms. Once in the cow, each of these mechanisms could result in the transfer of pCK1::mmo from the recombinant <i>E. coli</i> to a bacterium resident in the cow rumen.<p>
         Explain how each mechanism would occur.
         <textarea placeholder="Enter your text here"></textarea>`
@@ -232,10 +238,10 @@ Skeletor.Mobile.report = {
     {
       "number": 13,
       "kind": "write",
-      "name": "Step 10: Judgment of Research Proposal",
+      "name": "Part 10: Judgment of Research Proposal",
       "thumbnail": "",
       "html": `
-        <h2>Step 10: Judgment of Research Proposal</h2>
+        <h2>Part 10: Judgment of Research Proposal</h2>
         Based on your review, would you recommend that the NSF funds this project?  Provide a summary of your review findings below to support your reasoning.
         <textarea placeholder="Enter your text here"></textarea>`
     },

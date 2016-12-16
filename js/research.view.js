@@ -102,12 +102,6 @@
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
-
-            // START HERE
-            // when should reports be created? Same time as groups? So move the below?
-            // this currently blows up with a new group, since the save is too slow, I think? app.getReportCompletionPercent can't find the parts component on a new report
-            // could do it as part of addGroup/removeGroup. Need to put a check around removeGroup - will remove report too!
-            // but first figure out why this currently blows up
             var myGroup = app.getMyGroup(app.username, "review3");
             var report = null;
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
@@ -119,6 +113,7 @@
               report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
               report.set('parts', app.report.parts);      // TODO
               report.save();
+              Skeletor.Model.awake.reports.add(report);
             }
             report.wake(app.config.wakeful.url);
             if (app.reportView === null) {
@@ -2001,6 +1996,15 @@
   app.View.ReportView = Backbone.View.extend({
     initialize: function() {
       console.log('Initializing ReportView...');
+
+      app.reportBar = new ProgressBar.Line('#report-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexDarkPurple,
+          trailColor: app.hexLightGrey,
+          strokeWidth: 3,
+          svgStyle: app.progressBarStyleTask
+        });
     },
 
     events: {
@@ -2091,7 +2095,8 @@
         jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
       }
 
-      console.log(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
+      jQuery('#report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
+      app.reportBar.animate(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')) / 100);
     },
 
 
@@ -2100,7 +2105,7 @@
       jQuery('#report-step-forward-btn').removeClass('disabled');
       jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
 
-      if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden')) {
+      if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden') || jQuery('.unit3-correct3').hasClass('hidden')) {
         jQuery('#report-step-forward-btn').addClass('disabled');
       }
     },
