@@ -105,22 +105,16 @@
 
             var myGroup = app.getMyGroup(app.username, "review3");
             var report = null;
-            // if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
-            //   report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
-            // } else {
-            //   // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-            //   report = new Model.Report();
-            //   report.set('group_colour', myGroup.get('colour'));
-            //   report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
-            //   report.set('parts', app.report.parts);      // TODO
-            //   report.save();
-            // }
-            // TODO: REVERT ME
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
               report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            } else {
+              // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
+              report = new Model.Report();
+              report.set('group_colour', myGroup.get('colour'));
+              report.set('lesson', 'review3');            // is this still necessary? See the findWhere above if removed
+              report.set('parts', app.report.parts);      // TODO
+              report.save();
             }
-            report.set('parts', app.report.parts);
-            report.save();
             report.wake(app.config.wakeful.url);
             if (app.reportView === null) {
               app.reportView = new app.View.ReportView({
@@ -2035,15 +2029,22 @@
     },
 
     checkForAllowedToProceed: function() {
+      var view = this;
+
       jQuery('#report-step-forward-btn').removeClass('disabled');
       jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
 
       // TODO: revert me
-      // jQuery('#report-content-container textarea').each(function(index, el) {
-      //   if (jQuery(el).val() === "") {
-      //     jQuery('#report-step-forward-btn').addClass('disabled');
-      //   }
-      // });
+      jQuery('#report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          jQuery('#report-step-forward-btn').addClass('disabled');
+        }
+      });
+
+      // for the unit 3 check answer screen
+      if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
+        view.unit3CheckForAllowedToProceed();
+      }
     },
 
     updateReport: function() {
@@ -2083,12 +2084,22 @@
 
 
     // UNIT SPECIFIC FUNCTIONALITY
+    unit3CheckForAllowedToProceed: function() {
+      jQuery('#report-step-forward-btn').removeClass('disabled');
+      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
+
+      if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden')) {
+        jQuery('#report-step-forward-btn').addClass('disabled');
+      }
+    },
 
     unit3ViewSequence: function() {
       jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
     },
 
     unit3checkAnswer: function(ev) {
+      var view = this;
+
       var num = jQuery(ev.target).data('answer');
       // ignoring whitespace and cap'd letters
       if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
@@ -2097,10 +2108,7 @@
         jQuery('.unit3-correct'+num).addClass('hidden')
       }
 
-      // NOT GOING TO BOTHER WITH THIS FOR NOW. MAYBE TODO?
-      // if (!jQuery('.unit3-correct1').hasClass('hidden') && !jQuery('.unit3-correct2').hasClass('hidden')) {
-      //   allowProceed
-      // }
+      view.unit3CheckForAllowedToProceed();
     }
   });
 

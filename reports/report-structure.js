@@ -67,6 +67,8 @@ Skeletor.Mobile.report = {
           <li>5. How many stop codons will be present on the RNA produced when the pmo operon is transcribed?</li>
         </ul>
         <textarea placeholder="Enter your text here"></textarea>
+        <br />
+        <br />
         <ul>Use the figure below to respond to the following questions. Type your answers in the text box using full sentences.
           <li>1. Which letter best marks the area within the DNA sequence where RNA polymerase would bind to ensure transcription of pmoA, pmoB, and pmoC as a unit?</li>
           <li>2. Which letter best marks the area within the DNA sequence that serves as the initiation site for transcription?</li>
@@ -97,6 +99,7 @@ Skeletor.Mobile.report = {
         <br />
         Describe the differences/non-alignments found in the BLAST comparison:
         <textarea placeholder="Enter your text here"></textarea>
+        <br />
         <br />
         If the nucleotides in the gene were changed as indicated in the mistake sequence, what type of mutation would this be?
         <textarea placeholder="Enter your text here"></textarea>
@@ -174,6 +177,67 @@ Skeletor.Mobile.report = {
         <button class="unit3-check-answer" data-answer="2" style="display:inline;">Check your answer</button>
         <span class="unit3-correct2 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
         <span class="unit3-answer2 hidden">MAATTIGGAA AAEAP</span>`
+    },
+    {
+      "number": 9,
+      "kind": "write",
+      "name": "Step 6: Protein Product Analysis",
+      "thumbnail": "",
+      "html": `
+        <h2>Step 6: Protein Product Analysis</h2>
+        <p>How would the protein product of this DNA sequence differ from the PmoC that would be made if the gene did not have a mutation? Make a prediction as to the functionality of this altered protein compared to PmoC.</p>
+        <textarea placeholder="Enter your text here"></textarea>`
+    },
+    {
+      "number": 10,
+      "kind": "write",
+      "name": "Step 7: Analysis of the Cloning Vector",
+      "thumbnail": "/reports/imgs/cloning.jpg",
+      "html": `
+        <h2>Step 7: Analysis of the Cloning Vector</h2>
+        <p>Billionaire Niño-Soto will now have enough information from your report to understand the basic mechanisms of DNA replication, transcription, and translation.  Now you are ready to explain the cloning process proposed by Dr. Sutherland that will create the plasmid that allows E. coli to express these genes.  You have prepared the diagram below to illustrate this process.  Your goal is to explain why each labeled section is important.</p>
+        Diagrammatic depiction of the cloning scheme:
+        <img src="/reports/imgs/cloning.jpg"></img>
+        <p>Describe the function of each labeled section, including how it is important in Dr. Sutherland’s cloning experiment.</p>
+        <textarea placeholder="Enter your text here"></textarea>`
+    },
+    {
+      "number": 11,
+      "kind": "write",
+      "name": "Step 8: Review of the Cloning Vector",
+      "thumbnail": "/reports/imgs/cloning.jpg",
+      "html": `
+        <h2>Step 8: Review of the Cloning Vector</h2>
+        <ul>Use the diagram below to respond to the following questions.  Type your answers into the text box below using full sentences.
+          <li>1. During which step is DNA ligase used?<li>
+          <li>2. During which step would a restriction endonuclease be used?<li>
+          <li>3. During which step is the ampicillin resistance gene important?<li>
+          <li>4. During which step does the transformation of a bacterial cell occur?<li>
+          <li>5. What must be added to the growth media to ensure expression of the pmoCAB operon?<li>
+        </ul>
+        <img src="/reports/imgs/cloning.jpg"></img>
+        <textarea placeholder="Enter your text here"></textarea>`
+    },
+    {
+      "number": 12,
+      "kind": "write",
+      "name": "Step 9: Mechanisms of Genetic Exchange",
+      "thumbnail": "",
+      "html": `
+        <h2>Step 9: Mechanisms of Genetic Exchange</h2>
+        <p>Genetic exchange can occur naturally between bacteria by three different mechanisms. Once in the cow, each of these mechanisms could result in the transfer of pCK1::mmo from the recombinant <i>E. coli</i> to a bacterium resident in the cow rumen.<p>
+        Explain how each mechanism would occur.
+        <textarea placeholder="Enter your text here"></textarea>`
+    },
+    {
+      "number": 13,
+      "kind": "write",
+      "name": "Step 10: Judgment of Research Proposal",
+      "thumbnail": "",
+      "html": `
+        <h2>Step 10: Judgment of Research Proposal</h2>
+        Based on your review, would you recommend that the NSF funds this project?  Provide a summary of your review findings below to support your reasoning.
+        <textarea placeholder="Enter your text here"></textarea>`
     },
   ]
 }
