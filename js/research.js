@@ -745,6 +745,26 @@
     }
   };
 
+  app.getReportCompletionPercent = function(lesson, groupColour) {
+    var report = Skeletor.Model.awake.reports.findWhere({"lesson": lesson, "group_colour": groupColour});
+
+    var totalParts = 0;
+    var completedParts = 0;
+
+    _.each(report.get('parts'), function(part) {
+      if (part.kind === "write") {
+        totalParts++;
+
+        if (part.entries && part.entries.length > 0) {
+          completedParts++;
+        }
+      }
+    });
+
+    var percent = (completedParts / totalParts) * 100;
+    return Math.round(percent);
+  };
+
   app.getNewTeamColour = function() {
     var usedColours = [];
     Skeletor.Model.awake.groups.each(function(group) {
