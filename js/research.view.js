@@ -142,12 +142,6 @@
         }
       } else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
-        if (app.groupingView === null) {
-          app.groupingView = new app.View.GroupingView({
-            el: '#grouping-screen',
-            collection: Skeletor.Model.awake.groups
-          });
-        }
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
@@ -157,6 +151,12 @@
           jQuery('#home-nav-btn').removeClass('hidden');
           jQuery().toastmessage('showWarningToast', "Not much to see here!");
         } else if (app.reviewSection === "review3") {
+          if (app.groupingView === null) {
+            app.groupingView = new app.View.GroupingView({
+              el: '#grouping-screen',
+              collection: Skeletor.Model.awake.groups
+            });
+          }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
