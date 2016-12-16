@@ -751,17 +751,24 @@
     var totalParts = 0;
     var completedParts = 0;
 
-    _.each(report.get('parts'), function(part) {
-      if (part.kind === "write") {
-        totalParts++;
+    // in the event the report hasn't been created yet
+    if (report && report.get('parts')) {
+      _.each(report.get('parts'), function(part) {
+        if (part.kind === "write") {
+          totalParts++;
 
-        if (part.entries && part.entries.length > 0) {
-          completedParts++;
+          if (part.entries && part.entries.length > 0) {
+            completedParts++;
+          }
         }
-      }
-    });
+      });
+    }
 
-    var percent = (completedParts / totalParts) * 100;
+    var percent = 0;
+    // in the event the report hasn't been created yet
+    if (totalParts > 0) {
+      percent = (completedParts / totalParts) * 100;
+    }
     return Math.round(percent);
   };
 

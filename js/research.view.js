@@ -429,13 +429,35 @@
       jQuery('#review-progress-container').html('');
       var el = '';
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-        el += '<button class="group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+'</button>'
+        el += '<div>';
+        el += '<button class="group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+'</button>';
+        el += '<div class="teacher-report-progress-bar-container group-progress-bar-container"><span id="teacher-report-'+group.get('colour')+'-progress-bar" class="group-progress-bar"/><span class="group-progress-percent"></span><span class="percent">%</span></div>';
       });
       jQuery('#review-progress-container').append(el);
 
-      // TODO: add progress bars
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
+        var myPercent = app.getReportCompletionPercent("review3", group.get('colour'));
+        var myBar = new ProgressBar.Line('#teacher-report-'+group.get('colour')+'-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexDarkPurple,
+            trailColor: app.hexLightGrey,
+            strokeWidth: 8,
+            svgStyle: app.progressBarStyleHome,
+            text: {
+              value: myPercent,
+              style: app.progressBarTextStyle
+            }
+          });
+        myBar.animate(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+      });
     }
   });
+
+
+
+
 
   /***********************************************************
    ***********************************************************
@@ -1337,7 +1359,7 @@
     chooseField: function(ev) {
       var view = this;
 
-      var model = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')})
+      var model = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
 
       if (model.get('users').length < 4) {
         var usersArr = model.get('users');
@@ -2120,9 +2142,10 @@
       var num = jQuery(ev.target).data('answer');
       // ignoring whitespace and cap'd letters
       if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
-        jQuery('.unit3-correct'+num).removeClass('hidden')
+        jQuery('.unit3-correct'+num).removeClass('hidden');
       } else {
-        jQuery('.unit3-correct'+num).addClass('hidden')
+        jQuery('.unit3-correct'+num).addClass('hidden');
+        jQuery().toastmessage('showErrorToast', "Sorry, that is incorrect. Please check each character in your response carefully and try again.");
       }
 
       view.unit3CheckForAllowedToProceed();
