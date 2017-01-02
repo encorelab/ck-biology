@@ -641,37 +641,76 @@ textarea {
 
 
 /** ATTACH TERMS SCREEN **/
+#attach-terms-screen .inner-wrapper {
+    width: 100%;
+    max-width: 1500px;
+}
+
 #attach-terms-pdf-container {
     margin-top: 100px;
+    margin-bottom: 25px;
 }
 
 #attach-terms-pdf-content {
-    width: 497px;
+    /* width: 497px; */
+    width: 55%;
+    /* margin-right: 5%; */
     height: 500px;
+    border: 1px solid black;
 }
 
 #attach-terms-explanation-pane {
     margin-top: 100px;
     float: right;
-    width: 497px;
+    /* width: 497px; */
+    /* width: 650px; */
+    width: 40%;
     height: 500px;
     border: 1px solid black;
     padding: 15px;
     overflow-y: scroll;
 }
 
+#attach-terms-terms-container .btn-group {
+    margin-right: 25px;
+}
+
+#attach-terms-selected-container .terms-container div {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #7F8C8D;
+}
+
 
 /** EXPLAIN TERMS SCREEN **/
+#explain-terms-img-container {
+    display: inline-block;
+    margin-right: 5%;
+    max-width: 40%;
+}
+
 #explain-terms-img-container img {
-    width: 300px;
-    height: 400px;
+    /* width: 300px; */
+    height: 500px;
+    border: 1px solid #7F8C8D;
+}
+
+#explain-terms-terms-container {
+    /* display: inline-block; */
+    float: right;
+    max-width: 55%;
+    padding-top: 25px;
 }
 
 #explain-terms-screen .explain-term-uncomplete-btn {
     background-color: #F1C40F;
+    margin-right: 15%;
+    margin-bottom: 50px;
 }
 #explain-terms-screen .explain-term-complete-btn {
     background-color: #34495E;
+    margin-right: 15%;
+    margin-bottom: 50px;
 }
 
 
@@ -680,26 +719,33 @@ textarea {
     width: 47%;
     float: left;
 }
+
 #explain-details-content-container {
     width: 47%;
     float: right;
 }
 
 /* copied from smartboard.css */
-#explain-details-screen .title, #explain-details-content-title, #attach-terms-explanation-pane .title {
+#explain-details-screen .title,
+#explain-details-content-title,
+#attach-terms-explanation-pane .title {
   font-size: 2em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
-#explain-details-screen .author, #attach-terms-explanation-pane .author,
-#explain-details-screen .vetting-author, #attach-terms-explanation-pane .vetting-author,
-#explain-details-screen .comments-author, #attach-terms-explanation-pane .comments-author {
+#explain-details-screen .author,
+#attach-terms-explanation-pane .author,
+#explain-details-screen .vetting-author,
+#attach-terms-explanation-pane .vetting-author,
+#explain-details-screen .comments-author,
+#attach-terms-explanation-pane .comments-author {
   display: block;
   font-weight: 700;
   font-size: 1.1em;
   margin: 5px 0 0;
 }
-#explain-details-screen .relationship, #attach-terms-explanation-pane .relationship {
+#explain-details-screen .relationship,
+#attach-terms-explanation-pane .relationship {
   display: block;
   font-style: italic;
   margin: 0px 20px 20px 0px;
@@ -709,27 +755,33 @@ textarea {
   font-weight: 700;
   border: 1px solid #34495e;;
 }
-#explain-details-screen .relationship > div, #attach-terms-explanation-pane .relationship > div {
+#explain-details-screen .relationship > div,
+#attach-terms-explanation-pane .relationship > div {
   margin-bottom: 5px;
 }
-#explain-details-screen .author, #attach-terms-explanation-pane .author {
+#explain-details-screen .author,
+#attach-terms-explanation-pane .author {
   color: #8e44ad; /* MD WISTERIA */
 }
-#explain-details-screen .body, #attach-terms-explanation-pane .body {
+#explain-details-screen .body,
+#attach-terms-explanation-pane .body {
   display: block;
   margin-bottom: 10px;
   color: #7F8C8D; /* MD ASBESTOS */
   /*height: 250px;*/
 }
-#explain-details-screen .vetting-author, #attach-terms-explanation-pane .vetting-author {
+#explain-details-screen .vetting-author,
+#attach-terms-explanation-pane .vetting-author {
   color: #1abc9c; /* MD TURQUOISE */
 }
-#explain-details-screen .vetting-content, #attach-terms-explanation-pane .vetting-content {
+#explain-details-screen .vetting-content,
+#attach-terms-explanation-pane .vetting-content {
   display: block;
   margin-bottom: 15px;
   color: #7F8C8D; /* MD ASBESTOS */
 }
-#explain-details-screen .media-container. #attach-terms-explanation-pane .media-container {
+#explain-details-screen .media-container,
+#attach-terms-explanation-pane .media-container {
   /* display: block; */
   display: flex;
   flex-wrap: wrap;
@@ -738,7 +790,8 @@ textarea {
   overflow: hidden;
   margin-top: 20px;
 }
-#explain-details-screen .media, #attach-terms-explanation-pane .media {
+#explain-details-screen .media,
+#attach-terms-explanation-pane .media {
   display: inline-block;
   height: 100%;
   padding: 0 5px;
@@ -746,16 +799,22 @@ textarea {
   max-width: 180px;
   margin-top: 0;
 }
-#explain-details-screen .media img, #attach-terms-explanation-pane .media img {
-  padding-bottom: 15px;
+#explain-details-screen .media img,
+#attach-terms-explanation-pane .media img {
+  padding-bottom: 25px;
 }
-#explain-details-screen .comments-author, #attach-terms-explanation-pane .comments-author {
+#explain-details-screen .comments-author,
+#attach-terms-explanation-pane .comments-author {
   color: #E74C3C; /* MD ALIZARIN */
 }
-#explain-details-screen .comments-content, #attach-terms-explanation-pane .comments-content {
+#explain-details-screen .comments-content,
+#attach-terms-explanation-pane .comments-content {
   display: block;
   margin-bottom: 5px;
   color: #7F8C8D; /* MD ASBESTOS */
+}
+#explain-details-screen .explanation {
+    margin-bottom: 20px;
 }
 
 
@@ -763,9 +822,29 @@ textarea {
 
 
 /****** GROUP NEGOTIATE SCREEN ********/
+#group-negotiate-terms-screen select {
+    margin-bottom: 50px;
+    display: block;
+}
+#group-negotiate-terms-img-container {
+    display: inline-block;
+    margin-right: 5%;
+    max-width: 40%;
+}
 #group-negotiate-terms-img-container img {
-    width: 300px;
-    height: 400px;
+    /* width: 300px; */
+    height: 500px;
+    border: 1px solid #7F8C8D;
+}
+#group-negotiate-terms-terms-container {
+    /* display: inline-block; */
+    float: right;
+    max-width: 55%;
+    padding-top: 25px;
+}
+#group-negotiate-term-btn {
+    margin-right: 15%;
+    margin-bottom: 50px;
 }
 
 #group-negotiate-terms-screen .fa-plus {
@@ -792,16 +871,20 @@ textarea {
     padding: 15px;
 }
 
-#confirm-add-term-modal, #confirm-remove-term-modal {
+#confirm-add-term-modal,
+#confirm-remove-term-modal {
     margin-top: 100px;
 }
-#confirm-add-term-modal .modal-content, #confirm-remove-term-modal .modal-content {
+#confirm-add-term-modal .modal-content,
+#confirm-remove-term-modal .modal-content {
     padding: 12px 20px;
 }
-#confirm-add-term-modal .modal-header, #confirm-remove-term-modal .modal-header {
+#confirm-add-term-modal .modal-header,
+#confirm-remove-term-modal .modal-header {
     padding: 5px;
 }
-#confirm-add-term-modal button, #confirm-remove-term-modal button {
+#confirm-add-term-modal button,
+#confirm-remove-term-modal button {
     background-color: #34495E;
     margin-left: 10px;
     font-size: 12px;
