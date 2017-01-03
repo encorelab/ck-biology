@@ -31,12 +31,13 @@ body {
 button {
   display: inline-block;
   border: none;
-  padding: 4px 10px;
-  background-color: #c31fa4;
+  /* background-color: #c31fa4;  is this pink from ck-brainstorm?? */
   color: #fff;
   /* font-weight: bold; */
-  padding: 10px;
-  border-radius: 1em;
+  /* padding: 4px 10px; */
+  padding: 10px 15px !important; /* ck-biology button padding?? */
+  /* border-radius: 1em; */
+  border-radius: 7px; /* ck-biology border-radius */
   font-size: 20px;
   -webkit-transition: opacity 1s ease 0;
   -moz-transition: opacity 1s ease 0;
