@@ -110,6 +110,10 @@ textarea {
     padding: 0;
 }
 
+.btn-circular.fa.fa-check.pull-right {
+    margin-right: 0.5em;
+}
+
 /* this should be changed, depending on the final colour of the button (used in the new-notes sections), NOT SURE WE STILL USE THIS */
 .selected {
     background: #F1C40F !important;
@@ -627,10 +631,16 @@ textarea {
     margin-bottom: 40px;
 }
 
+#choose-article-screen h2 {
+    margin-bottom: 50px;
+    /* font-size: 1.5em = 21px current */
+}
+
 .article-column-container {
     float: left;
+    width: 25%;
     padding-bottom: 20px;
-    margin-right: 40px;
+    /* margin-right: 40px; */
 }
 
 #choose-article-container img {
@@ -698,7 +708,7 @@ textarea {
 #explain-terms-terms-container {
     /* display: inline-block; */
     float: right;
-    max-width: 55%;
+    max-width: 60%;
     padding-top: 25px;
 }
 
@@ -839,10 +849,10 @@ textarea {
 #group-negotiate-terms-terms-container {
     /* display: inline-block; */
     float: right;
-    max-width: 55%;
+    max-width: 60%;
     padding-top: 25px;
 }
-#group-negotiate-term-btn {
+.group-negotiate-term-btn {
     margin-right: 15%;
     margin-bottom: 50px;
 }
@@ -851,8 +861,8 @@ textarea {
     height: 50px;
     width: 50px;
     background-color: #34495E;
-    margin-top: 75px;
-    margin-right: -10px;
+    /* margin-top: 75px; */
+    /* margin-right: -10px; */
 }
 
 #group-negotiate-details-screen .fa-minus {
@@ -911,7 +921,7 @@ textarea {
 #report-screen button {
     font-size: 11px;
     padding: 6px;
-    border-radius: 6px;
+    border-radius: 6px; /* MEO - why is this one 6px??? */
     background: #34495E;
 }
 #report-screen .modal {
@@ -920,7 +930,8 @@ textarea {
 }
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
-#report-step-forward-btn, #report-step-back-btn {
+#report-step-forward-btn,
+#report-step-back-btn {
     margin-bottom: 20px;
     position: absolute;
     bottom: 0;
@@ -1020,7 +1031,7 @@ ul {
     vertical-align: middle;
 }
 .modal-content {
-    border-radius: 10px;
+    border-radius: 7px;
     padding: 5px 20px;
     border: none;
 }
@@ -1248,7 +1259,7 @@ input:disabled {
 
 /* Blue and green version - Renato */
 
-.active>a {
+.active > a {
     background-image: none !important;
     background-color: transparent !important;
     height: 34px;
@@ -1259,7 +1270,7 @@ input:disabled {
     -webkit-box-shadow: none !important;
     color: #a7e0f7  !important;
 }
-.top-navigation>.active>a {
+.top-navigation > .active > a {
     background-image: none !important;
     background-color: #0a475f  !important;
     height: 34px;
@@ -1268,11 +1279,11 @@ input:disabled {
     padding-top: 7px !important;
     margin: 1px 7px !important;
 }
-.top-navigation>.active>a:hover {
+.top-navigation > .active > a:hover {
     background-color: #07384c !important;
 }
 
-.top-nav-btn>a{
+.top-nav-btn > a{
     color: #fff !important;
 }
 .container {

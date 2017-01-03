@@ -190,7 +190,7 @@ button:hover {
   -moz-transition: height 1s ease 0;
   transition: height 1s ease 0;
   /*max-height: 95%;*/
-  border-radius: 10px;
+  border-radius: 7px;
   font-size: 11px;
 }
 .content.balloon .conflict-indicator {
