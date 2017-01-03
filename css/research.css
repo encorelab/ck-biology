@@ -927,6 +927,7 @@ textarea {
 }
 #report-screen li {
     margin-left: 40px;
+    margin-top: 5px;
 }
 #report-screen button {
     font-size: 11px;
@@ -968,8 +969,18 @@ textarea {
     width: 75%;
     margin: 0 auto;
     display: block;
-    margin-bottom: 0;
+    margin-bottom: 20px;
     height: 640px;
+}
+
+#report-content-container img {
+    margin-bottom: 25px;
+}
+#report-content-container textarea {
+    margin-bottom: 20px;
+}
+#report-content-container ul {
+    margin-bottom: 15px;
 }
 
 
