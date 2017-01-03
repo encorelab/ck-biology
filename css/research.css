@@ -113,6 +113,9 @@ textarea {
 .btn-circular.fa.fa-check.pull-right {
     margin-right: 0.5em;
 }
+.btn-circular.fa.fa-chevron-left.pull-left {
+    margin-left: 0.5em;
+}
 
 /* this should be changed, depending on the final colour of the button (used in the new-notes sections), NOT SURE WE STILL USE THIS */
 .selected {
@@ -940,7 +943,8 @@ textarea {
 #report-step-forward-btn,
 #report-step-back-btn {
     margin-bottom: 20px;
-    position: absolute;
+    /* position: absolute; */
+    position: fixed;
     bottom: 0;
     width: 75px;
     height: 75px;
@@ -950,11 +954,22 @@ textarea {
     padding: 0 !important;
     font-size: 3em !important;
 }
+#report-screen .fa-chevron-left:before {
+    margin-left: -0.2em;
+}
 #report-step-forward-btn {
     right: 0;
 }
 #report-step-back-btn {
     left: 0;
+}
+
+#report-screen #attach-terms-pdf-content {
+    width: 75%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 0;
+    height: 640px;
 }
 
 
