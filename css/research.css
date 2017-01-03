@@ -885,7 +885,7 @@ textarea {
 
 #group-negotiate-details-terms-container .term-details {
     width: 48%;
-    height: 150px;
+    /* height: 150px; some are longer than this?? */
     background: #ECF0F1;
     margin-bottom: 20px;
     padding: 15px;
@@ -983,7 +983,23 @@ textarea {
     margin-bottom: 15px;
 }
 
-
+#report-screen .unit3-view-sequence-btn {
+    font-size: 14px;
+    margin-left: 15px;
+}
+#report-screen .modal-header .close {
+    font-size: 16px;
+    margin-top: -15px;
+    color: #ffffff;
+}
+#report-screen .unit3-check-answer {
+    font-size: 14px;
+}
+.unit3-correct1,
+.unit3-correct2,
+.unit3-correct3 {
+    margin-left: 20px;
+}
 
 
 
@@ -1065,7 +1081,7 @@ ul {
 }
 .modal-content {
     border-radius: 7px;
-    padding: 5px 20px;
+    padding: 5px 20px 20px;
     border: none;
 }
 .modal-header {
