@@ -68,7 +68,6 @@ Skeletor.Mobile.report = {
         </ul>
         <textarea placeholder="Enter your text here"></textarea>
         <br />
-        <br />
         <ul>Use the figure below to respond to the following questions. Type your answers in the text box using full sentences.
           <li>1. Which letter best marks the area within the DNA sequence where RNA polymerase would bind to ensure transcription of pmoA, pmoB, and pmoC as a unit?</li>
           <li>2. Which letter best marks the area within the DNA sequence that serves as the initiation site for transcription?</li>
@@ -96,12 +95,9 @@ Skeletor.Mobile.report = {
           <li>2. Next, find the correct sequence for the pmoCAB operon from <a href="http://www.ncbi.nlm.nih.gov/nuccore/14456718" target="_blank">http://www.ncbi.nlm.nih.gov/nuccore/14456718</a>. Copy this sequence and paste it into the Subject Sequence box on the global alignment form.</li>
           <li>3. Run the BLAST comparison (click the "Align" button).  On the BLAST results page, select "formatting options" and choose the alignment view “Pairwise with dots for identities" then click "Reformat."</li>
         </ul>
-        <br />
-        Describe the differences/non-alignments found in the BLAST comparison: 1593
+        <p>Describe the differences/non-alignments found in the BLAST comparison: 1593</p>
         <textarea placeholder="Enter your text here"></textarea>
-        <br />
-        <br />
-        If the nucleotides in the gene were changed as indicated in the mistake sequence, what type of mutation would this be?
+        <p>If the nucleotides in the gene were changed as indicated in the mistake sequence, what type of mutation would this be?</p>
         <textarea placeholder="Enter your text here"></textarea>
         <div id="view-sequence-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
           <div class="modal-dialog">
@@ -166,20 +162,18 @@ Skeletor.Mobile.report = {
       "html": `
         <h2>Part 5: Transcription and Translation of Mutation</h2>
         <p>The DNA sequence shown on the previous page is the sense (+) strand of the double stranded DNA that makes up the pmoC gene, encoding PmoC. What would be the first 60 bases of the template (−) strand of this gene?</p>
-        <br><i>Hint: Recall that the first nucleotide of pmoC1 begins at site 1557.</i></br>
-        <br>Please note that for each of the questions below, capitalizations or added spaces will not affect the correctness of your response</br>
+        <p><i>Hint: Recall that the first nucleotide of pmoC1 begins at site 1557.</i></p>
+        <p>Please note that for each of the questions below, capitalizations or added spaces will not affect the correctness of your response</p>
         <textarea class="unit3-entry1" placeholder="Enter your text here"></textarea>
         <button class="unit3-check-answer" data-answer="1" style="display:inline;">Check your answer</button>
         <span class="unit3-correct1 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
         <span class="unit3-answer1 hidden">TACCGTCGTTGTTGGTAACCACCACGTCGACGCCGCATTCGCGGCGACGACCTGTTCTTC</span>
-        <br /><br />
-        What would the mRNA sequence be when the "mistake" template (−) strand DNA is transcribed? (Give the first 60 bases).
+        <p>What would the mRNA sequence be when the "mistake" template (−) strand DNA is transcribed? (Give the first 60 bases).</p>
         <textarea class="unit3-entry2" placeholder="Enter your text here"></textarea>
         <button class="unit3-check-answer" data-answer="2" style="display:inline;">Check your answer</button>
         <span class="unit3-correct2 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
         <span class="unit3-answer2 hidden">AUGGCAGCAACAACCAUUGGUGGUGCAGCUGCGGCGUAAGCGCCGCUGCUGGACAAGAAG</span>
-        <br /><br />
-        What would the amino acid sequence be when this mRNA is translated? (Give the first 15 amino acids using their 3-letter abbreviations).
+        <p>What would the amino acid sequence be when this mRNA is translated? (Give the first 15 amino acids using their 3-letter abbreviations).</p>
         <textarea class="unit3-entry3" placeholder="Enter your text here"></textarea>
         <button class="unit3-check-answer" data-answer="3" style="display:inline;">Check your answer</button>
         <span class="unit3-correct3 hidden"><span class="fa fa-check" style="background:#2ECC71; color:white; border-radius:50%; padding:2px;" /> Correct!</span>
@@ -195,12 +189,12 @@ Skeletor.Mobile.report = {
         <p>In this example, the error in the DNA sequence was a typo, but in the 'real world’ it could have been an actual mutation. Let’s think about it as if it was a mutation.</p>
         <p>How would the protein product of this DNA sequence differ from the PmoC that would be made if the gene did not have a mutation? Make a prediction as to the functionality of this altered protein compared to PmoC.</p>
         <p>
-          <b>DNA sense (+) strand with mutation:</b>
-          <br>ATGGCAGCAACAACCATTGGTGGTGCAGCTGCGGCGTAAGCGCCGCTGCTGGACAAGAAG</br>
+          <b>DNA sense (+) strand with mutation:</b><br>
+          ATGGCAGCAACAACCATTGGTGGTGCAGCTGCGGCGTAAGCGCCGCTGCTGGACAAGAAG
         </p>
         <p>
-          <b>DNA sense (+) strand without mutation:</b>
-          <br>ATGGCAGCAACAACCATTGGTGGTGCAGCTGCGGCGGAAGCGCCGCTGCTGGACAAGAAG</br>
+          <b>DNA sense (+) strand without mutation:</b><br>
+          ATGGCAGCAACAACCATTGGTGGTGCAGCTGCGGCGGAAGCGCCGCTGCTGGACAAGAAG
         </p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
@@ -211,10 +205,10 @@ Skeletor.Mobile.report = {
       "thumbnail": "/reports/imgs/cloning.jpg",
       "html": `
         <h2>Part 7: Analysis of the Cloning Vector</h2>
-        <p>Billionaire Niño-Soto will now have enough information from your report to understand the basic mechanisms of DNA replication, transcription, and translation.  Now you are ready to explain the cloning process proposed by Dr. Sutherland that will create the plasmid that allows E. coli to express these genes.  You have prepared the diagram below to illustrate this process.  Your goal is to explain why each labeled section is important.</p>
-        Diagrammatic depiction of the cloning scheme:
+        <p>Billionaire Niño-Soto will now have enough information from your report to understand the basic mechanisms of DNA replication, transcription, and translation.  Now you are ready to explain the cloning process proposed by Dr. Sutherland that will create the plasmid that allows E. coli to express these genes.  You have prepared the diagram below to illustrate this process. Your goal is to explain why each labeled section is important.</p>
+        <p>Diagrammatic depiction of the cloning scheme:</p>
         <img src="/reports/imgs/cloning.jpg"></img>
-        Describe the function of each labeled section, including how it is important in Dr. Sutherland’s cloning experiment.
+        <p>Describe the function of each labeled section, including how it is important in Dr. Sutherland’s cloning experiment.</p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
     {
@@ -224,12 +218,12 @@ Skeletor.Mobile.report = {
       "thumbnail": "/reports/imgs/cloning.jpg",
       "html": `
         <h2>Part 8: Review of the Cloning Vector</h2>
-        <ul>Use the diagram below to respond to the following questions.  Type your answers into the text box below using full sentences.
-          <li>1. During which step is DNA ligase used?<li>
-          <li>2. During which step would a restriction endonuclease be used?<li>
-          <li>3. During which step is the ampicillin resistance gene important?<li>
-          <li>4. During which step does the transformation of a bacterial cell occur?<li>
-          <li>5. What must be added to the growth media to ensure expression of the pmoCAB operon?<li>
+        <ul>Use the diagram below to respond to the following questions. Type your answers into the text box below using full sentences.
+          <li>1. During which step is DNA ligase used?</li>
+          <li>2. During which step would a restriction endonuclease be used?</li>
+          <li>3. During which step is the ampicillin resistance gene important?</li>
+          <li>4. During which step does the transformation of a bacterial cell occur?</li>
+          <li>5. What must be added to the growth media to ensure expression of the pmoCAB operon?</li>
         </ul>
         <img src="/reports/imgs/cloning.jpg"></img>
         <textarea placeholder="Enter your text here"></textarea>`
@@ -242,7 +236,7 @@ Skeletor.Mobile.report = {
       "html": `
         <h2>Part 9: Mechanisms of Genetic Exchange</h2>
         <p>Genetic exchange can occur naturally between bacteria by three different mechanisms. Once in the cow, each of these mechanisms could result in the transfer of pCK1::mmo from the recombinant <i>E. coli</i> to a bacterium resident in the cow rumen.<p>
-        Explain how each mechanism would occur.
+        <p>Explain how each mechanism would occur.</p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
     {
@@ -252,7 +246,7 @@ Skeletor.Mobile.report = {
       "thumbnail": "",
       "html": `
         <h2>Part 10: Judgment of Research Proposal</h2>
-        Based on your review, would you recommend that the NSF funds this project?  Provide a summary of your review findings below to support your reasoning.
+        <p>Based on your review, would you recommend that the NSF funds this project?  Provide a summary of your review findings below to support your reasoning.</p>
         <textarea placeholder="Enter your text here"></textarea>`
     },
   ]

@@ -994,6 +994,7 @@ textarea {
 }
 #report-screen .unit3-check-answer {
     font-size: 14px;
+    margin-bottom: 20px;
 }
 .unit3-correct1,
 .unit3-correct2,
