@@ -699,7 +699,7 @@ textarea {
 #explain-terms-img-container {
     display: inline-block;
     margin-right: 5%;
-    max-width: 40%;
+    width: 35%;
 }
 
 #explain-terms-img-container img {
@@ -711,7 +711,7 @@ textarea {
 #explain-terms-terms-container {
     /* display: inline-block; */
     float: right;
-    max-width: 60%;
+    width: 60%;
     padding-top: 25px;
 }
 
