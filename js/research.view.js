@@ -145,11 +145,6 @@
       // TEACHER
       else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
-        jQuery('#knowledge-base-nav-btn').addClass('hidden');
-        jQuery('#grouping-nav-btn').removeClass('hidden');
-        jQuery('#grouping-nav-btn').addClass('active');
-        jQuery('#grouping-screen').removeClass('hidden');
-        app.groupingView.render();
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
@@ -165,7 +160,15 @@
           jQuery('#grouping-screen').removeClass('hidden');
           app.groupingView.render();
         } else if (app.reviewSection === "review4") {
-          // START HERE
+          // if the final report doesn't exist, create it
+          if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
+            report = new Model.Report();
+            report.set('group_colour', 'class');
+            report.set('lesson', 'review4');
+            report.set('parts', app.report.parts);
+            report.save();
+            Skeletor.Model.awake.reports.add(report);
+          }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
@@ -797,10 +800,11 @@
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
-          reportEl += '<h2>' + part.name + '</h2>';
+          reportEl += '<p><h2>' + part.name + '</h2>';
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
+          reportEl += '</p>'
 
           _.each(part.entries, function(entry) {
             reportEl += '<p>' + entry + '</p>';
@@ -814,7 +818,57 @@
 
 
 
+  /***********************************************************
+   ***********************************************************
+   *************** TEACHER FINAL REPORT VIEW *****************
+   ***********************************************************
+   ***********************************************************/
 
+  app.View.TeacherFinalReportView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing TeacherFinalReportView...');
+
+      view.model.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click img' : 'openImgModal'
+    },
+
+    openImgModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      jQuery('#teacher-final-report-modal .photo-content').attr('src', url);
+      jQuery('#teacher-final-report-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering TeacherFinalReportView...");
+
+      jQuery('#teacher-final-report-container').html('');
+      var reportEl = '';
+      _.each(view.model.get('parts'), function(part) {
+        // only add text chunks for things the students have written (not intro stuff)
+        if (part.kind === 'write') {
+          reportEl += '<p><h2>' + part.name + '</h2>';
+          if (part.thumbnail.length > 0) {
+            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
+          }
+          reportEl += '</p>'
+
+          _.each(part.entries, function(entry) {
+            reportEl += '<p>' + entry + '</p>';
+          })
+        }
+      });
+
+      jQuery('#teacher-final-report-container').append(reportEl);
+    }
+  });
 
 
 

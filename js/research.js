@@ -334,6 +334,7 @@
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           app.groupingView.render();
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
+          jQuery('#progress-nav-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#grouping-nav-btn').removeClass('hidden');
@@ -349,6 +350,16 @@
               });
             }
             app.reviewProgressView.render();
+          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review4") {
+            jQuery('#teacher-final-report-screen').removeClass('hidden');
+            var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
+            if (app.teacherFinalReportView === null) {
+              app.teacherFinalReportView = new app.View.TeacherFinalReportView({
+                el: '#teacher-final-report-screen',
+                model: report
+              });
+            }
+            app.teacherFinalReportView.render();
           } else {
             jQuery('#homework-progress-screen').removeClass('hidden');
             app.homeworkProgressView.render();

@@ -1,4 +1,4 @@
-// move this to the DB when finalized, in collection called eg reportStructure, then modify research.view ~115
+// move this to the DB when finalized, then fetch it onLoad and set app.report to it (it's used in view 115 and 167)
 
 Skeletor.Mobile.report = {
   "parts": [

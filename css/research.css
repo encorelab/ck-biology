@@ -459,14 +459,16 @@ textarea {
 
 /*****************************************************/
 /*****************************************************/
-/************** TEACHER REPORT SCREEN ****************/
+/************** TEACHER REPORT SCREENS ***************/
 /*****************************************************/
 /*****************************************************/
 
-#teacher-report-screen h2 {
+#teacher-report-screen h2,
+#teacher-final-report-screen h2 {
     display: inline;
 }
-#teacher-report-screen .thumb {
+#teacher-report-screen .thumb,
+#teacher-final-report-screen .thumb {
     display: inline;
     margin-left: 20px;
     height: 25px;
@@ -1308,7 +1310,8 @@ input:disabled {
     #group-negotiate-terms-screen .inner-wrapper,
     #group-negotiate-details-screen .inner-wrapper,
     #report-screen .inner-wrapper,
-    #teacher-report-screen .inner-wrapper {
+    #teacher-report-screen .inner-wrapper,
+    #teacher-final-report-screen .inner-wrapper {
         margin-top: 100px;
         margin-left: calc((100% - 1120px)/2);
     }
