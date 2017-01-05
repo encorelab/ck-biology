@@ -47,6 +47,7 @@
   // teacher views
   app.homeworkProgressView = null;
   app.groupingView = null;
+  app.groupingJigsawView = null;
   app.reviewProgressView = null;
   app.teacherReportView = null;
   app.teacherFinalReportView = null;
@@ -330,9 +331,12 @@
           app.hideAllContainers();
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
-          jQuery('#grouping-screen').removeClass('hidden');
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+            jQuery('#grouping-screen').removeClass('hidden');
+          } else {
+            jQuery('#grouping-jigsaw-screen').removeClass('hidden');
+          }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          app.groupingView.render();
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
           jQuery('#progress-nav-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
@@ -416,13 +420,6 @@
           collection: Skeletor.Mobile.users
         });
       }
-
-      // if (app.groupingView === null) {
-      //   app.groupingView = new app.View.GroupingView({
-      //     el: '#grouping-screen',
-      //     collection: Skeletor.Model.awake.groups
-      //   });
-      // }
     }
 
     app.homeView.render();

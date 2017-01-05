@@ -315,12 +315,13 @@ textarea {
 
 /*****************************************************/
 /*****************************************************/
-/****************** GROUPING SCREEN ******************/
+/***************** GROUPING SCREENS ******************/
 /*****************************************************/
 /*****************************************************/
 
 
-#grouping-screen .inner-wrapper {
+#grouping-screen .inner-wrapper,
+#grouping-jigsaw-screen .inner-wrapper {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -331,43 +332,50 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
-#grouping-screen h1 {
-    /* display: inline; ?? */
+#grouping-screen h1,
+#grouping-jigsaw-screen h1 {
     display: inline-block;
     font-weight: 500;
 }
-#grouping-screen h2 {
+#grouping-screen h2,
+#grouping-jigsaw-screen h2 {
     margin-top: 0px;
     font-weight: 500;
 }
-#grouping-screen .fa-plus-square {
+#grouping-screen .fa-plus-square,
+#grouping-jigsaw-screen .fa-plus-square {
     padding: 2px 4px !important;
     font-size: 30px;
     border-radius: 7px;
     margin-left: 15px;
 }
-#grouping-screen .fa-plus-square:hover {
+#grouping-screen .fa-plus-square:hover,
+#grouping-jigsaw-screen .fa-plus-square:hover {
     background-color: #ddd;
 }
-#grouping-screen .fa-minus-square {
+#grouping-screen .fa-minus-square,
+#grouping-jigsaw-screen .fa-minus-square {
     padding: 2px 4px !important;
     font-size: 20px;
     border-radius: 7px;
     margin-left: 93%;
     margin-top: -15%;               /* NB: this doesn't really do much - bit of a hack */
 }
-#grouping-screen .fa-minus-square:hover {
+#grouping-screen .fa-minus-square:hover,
+#grouping-jigsaw-screen .fa-minus-square:hover {
     background-color: #ddd;
 }
 
-#grouping-screen #students-container {
+#grouping-screen .students-container,
+#grouping-jigsaw-screen .students-container {
     /* width: 100%; */
     border: 1px solid #333;
     margin: 20px;
     padding: 20px;
     min-height: 97px;
 }
-#grouping-screen #groups-container {
+#grouping-screen .groups-container,
+#grouping-jigsaw-screen .groups-container {
     width: 100%;
     margin: 20px;
     display: flex;
@@ -375,14 +383,16 @@ textarea {
     justify-content: center;
 }
 
-#grouping-screen .student-grouping-button {
+#grouping-screen .student-grouping-button,
+#grouping-jigsaw-screen .student-grouping-button {
     background-color: #3498DB;
     color: white;
     font-size: 20px;
     margin: 5px;
 }
 
-#grouping-screen .group-container {
+#grouping-screen .group-container,
+#grouping-jigsaw-screen .group-container {
     min-height: 85px;
     width: 220px;
     border: 1px solid #333;
@@ -391,14 +401,17 @@ textarea {
     display: inline-block;
 }
 
-#grouping-screen .assign-btn {
+#grouping-screen .assign-btn,
+#grouping-jigsaw-screen .assign-btn {
     margin-right: 20px;
     font-size: 16px;
 }
-#grouping-screen .assign-btn:last-of-type {
+#grouping-screen .assign-btn:last-of-type,
+#grouping-jigsaw-screen .assign-btn:last-of-type {
     margin-right: 0;
 }
-#grouping-screen .assign-btn:hover {
+#grouping-screen .assign-btn:hover,
+#grouping-jigsaw-screen .assign-btn:hover {
     background-color: #ddd;
 }
 
