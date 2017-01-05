@@ -605,13 +605,18 @@ textarea {
 /* TODO: THIS NEEDS A LOT OF WORK ACROSS VARIOUS DEVICES */
 #definition-photo-modal .photo-content,
 #vetting-photo-modal .photo-content,
-#teacher-report-modal .photo-content {
+#teacher-report-modal .photo-content,
+#teacher-final-report-modal .photo-content {
     max-width: 100%;
 }
 #definition-photo-modal .download-photo-btn,
 #vetting-photo-modal .download-photo-btn {
     background: white;
     border-radius: 4px;
+}
+#teacher-report-modal .close,
+#teacher-final-report-modal .close {
+    margin-top: -20px;
 }
 
 /** relationship screen only **/
