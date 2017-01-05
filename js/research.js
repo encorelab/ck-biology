@@ -49,6 +49,7 @@
   app.groupingView = null;
   app.reviewProgressView = null;
   app.teacherReportView = null;
+  app.teacherFinalReportView = null;
   // student views
   app.definitionView = null;
   app.relationshipView = null;
@@ -323,7 +324,7 @@
         } else if (jQuery(this).hasClass('goto-knowledge-base-btn')) {
           app.hideAllContainers();
           jQuery('#knowledge-base-nav-btn').addClass('active');
-          Skeletor.Smartboard.wall.render();                            // NB: experimental. Heavy load?
+          Skeletor.Smartboard.wall.render();
           jQuery('#wall').removeClass('hidden');
         } else if (jQuery(this).hasClass('goto-grouping-btn')) {
           app.hideAllContainers();
@@ -402,6 +403,13 @@
         app.homeworkProgressView = new app.View.HomeworkProgressView({
           el: '#homework-progress-screen',
           collection: Skeletor.Mobile.users
+        });
+      }
+
+      if (app.groupingView === null) {
+        app.groupingView = new app.View.GroupingView({
+          el: '#grouping-screen',
+          collection: Skeletor.Model.awake.groups
         });
       }
     }

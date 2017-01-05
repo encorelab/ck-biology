@@ -1,6 +1,6 @@
+// move this to the DB when finalized, in collection called eg reportStructure, then modify research.view ~115
+
 Skeletor.Mobile.report = {
-  "group_colour": "red",
-  "lesson": "review3",
   "parts": [
     {
       "number": 1,

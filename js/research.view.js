@@ -145,6 +145,11 @@
       // TEACHER
       else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
+        jQuery('#knowledge-base-nav-btn').addClass('hidden');
+        jQuery('#grouping-nav-btn').removeClass('hidden');
+        jQuery('#grouping-nav-btn').addClass('active');
+        jQuery('#grouping-screen').removeClass('hidden');
+        app.groupingView.render();
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
@@ -154,12 +159,13 @@
           jQuery('#home-nav-btn').removeClass('hidden');
           jQuery().toastmessage('showWarningToast', "Not much to see here!");
         } else if (app.reviewSection === "review3") {
-          if (app.groupingView === null) {
-            app.groupingView = new app.View.GroupingView({
-              el: '#grouping-screen',
-              collection: Skeletor.Model.awake.groups
-            });
-          }
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#grouping-nav-btn').removeClass('hidden');
+          jQuery('#grouping-nav-btn').addClass('active');
+          jQuery('#grouping-screen').removeClass('hidden');
+          app.groupingView.render();
+        } else if (app.reviewSection === "review4") {
+          // START HERE
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
@@ -398,41 +404,23 @@
 
       console.log('Initializing GroupingView...');
 
-      // check if there is an 'absent' group, if not, create ie
-      if (view.collection.where({"kind": "absent"}).length === 0) {
+      // check if there is an 'absent' group, if not, create for both review lessons (VERY SLOPPY, TODO)
+      if (view.collection.where({"kind": "absent", "lesson": "review3"}).length === 0) {
         var group = new Model.Group();
-        group.set('lesson', app.reviewSection);
+        group.set('lesson', 'review3');
         group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
         group.set('kind', "absent");
         group.save();
         view.collection.add(group);
       }
-
-      // check how many groups there are for this reviewSection, add a group container for each
-      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        var groupEl = ''
-        if (group.get('kind') === "absent") {
-          groupEl = '<div class="group-container" style="background-color: #ECF0F1;" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn invisible" data-group="'+group.get('_id')+'"></button><h2>ABSENT</h2></div>'
-        } else {
-          groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
-        }
-        jQuery('#groups-container').append(groupEl);
-      });
-
-      // generate all of the student buttons, and place them in groups as necessary
-      Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
-          studentBtn.text(user.get('username'));
-
-          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
-          if (myGroup) {
-            jQuery('.group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
-          } else {
-            jQuery('#students-container').append(studentBtn);
-          }
-        }
-      });
+      if (view.collection.where({"kind": "absent", "lesson": "review4"}).length === 0) {
+        var group = new Model.Group();
+        group.set('lesson', 'review4');
+        group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
+        group.set('kind', "absent");
+        group.save();
+        view.collection.add(group);
+      }
     },
 
     events: {
@@ -655,6 +643,35 @@
     render: function () {
       var view = this;
       console.log('Rendering GroupingView...');
+
+      jQuery('#groups-container').html('');
+      jQuery('#students-container').html('');
+
+      // check how many groups there are for this reviewSection, add a group container for each
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        var groupEl = ''
+        if (group.get('kind') === "absent") {
+          groupEl = '<div class="group-container" style="background-color: #ECF0F1;" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn invisible" data-group="'+group.get('_id')+'"></button><h2>ABSENT</h2></div>'
+        } else {
+          groupEl = '<div class="group-container" style="background-color: '+app.getColourForColour(group.get('colour'))+';" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour').toUpperCase()+' TEAM</h2></div>';
+        }
+        jQuery('#groups-container').append(groupEl);
+      });
+
+      // generate all of the student buttons, and place them in groups as necessary
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+          studentBtn.text(user.get('username'));
+
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          if (myGroup) {
+            jQuery('.group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
+          } else {
+            jQuery('#students-container').append(studentBtn);
+          }
+        }
+      });
     }
   });
 
