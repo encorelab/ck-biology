@@ -417,12 +417,12 @@
         });
       }
 
-      if (app.groupingView === null) {
-        app.groupingView = new app.View.GroupingView({
-          el: '#grouping-screen',
-          collection: Skeletor.Model.awake.groups
-        });
-      }
+      // if (app.groupingView === null) {
+      //   app.groupingView = new app.View.GroupingView({
+      //     el: '#grouping-screen',
+      //     collection: Skeletor.Model.awake.groups
+      //   });
+      // }
     }
 
     app.homeView.render();
@@ -868,15 +868,6 @@
       percent = (completedParts / totalParts) * 100;
     }
     return Math.round(percent);
-  };
-
-  app.getNewTeamColour = function() {
-    var usedColours = [];
-    Skeletor.Model.awake.groups.each(function(group) {
-      usedColours.push(group.get('colour'));
-    });
-
-    return _.first(_.difference(app.teamColourName, usedColours));
   };
 
   app.getColourForColour = function(colour) {
