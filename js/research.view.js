@@ -1613,6 +1613,40 @@
     submitTerms: function() {
       var view = this;
 
+      // doing this here now, as opposed to each click/unclick - my very soul is ashamed of this code
+      var termsToAddArr = [];
+      jQuery('.terms-container').each(function(index, el) {
+        jQuery(el).children().each(function(index, child) {
+          termsToAddArr.push(jQuery(child).text());
+        });
+      });
+
+      var termsArr = view.model.get('user_associated_terms');
+      _.each(termsToAddArr, function(name) {
+        var addFlag = true;
+        _.each(termsArr, function(term) {
+          // if it already exists in the array
+          if (term.name === name && term.author === app.username) {
+            addFlag = false;
+          }
+        });
+        if (addFlag === true) {
+          // add term
+          var d = new Date();
+          var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
+          var termObj = {};
+          termObj.name = name;
+          termObj.author = app.username;
+          termObj.explanation = '';
+          termObj.complete = false;
+          termObj.date = dateStr;
+          termObj.removed = false;
+          termsArr.push(termObj);
+        }
+      });
+      view.model.set('user_associated_terms', termsArr);
+      view.model.save();
+
       if (app.explainTermsView === null) {
         app.explainTermsView = new app.View.ExplainTermsView({
           el: '#explain-terms-screen',
@@ -1699,7 +1733,7 @@
           nonSelectedText: lesson.get('title'),
           onChange: function(option, checked, select) {
             view.renderTerms(lesson.get('number'), jQuery('#attach-terms-dropdown-'+lesson.get('number')).val());
-            view.updateModel(option, checked);
+            //view.updateModel(option, checked);
           }
         });
 
