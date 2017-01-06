@@ -2043,7 +2043,7 @@
         var el = '';
         if (term.complete === true) {
           // maybe add a colour to the term.complete == true (marking as complete)
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'">'+term.name+'</button>';
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2ECC71">'+term.name+'</button>';
         } else if (agreementLevel === 4) {
           el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#0B3982">'+term.name+'</button>';
         } else if (agreementLevel === 3) {
