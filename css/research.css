@@ -729,6 +729,8 @@ textarea {
 #attach-terms-screen .inner-wrapper {
     width: 100%;
     max-width: 1500px;
+    display: block;
+    margin: 0 auto;
 }
 
 #attach-terms-pdf-container {
