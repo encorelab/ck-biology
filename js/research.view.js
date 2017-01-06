@@ -2045,13 +2045,13 @@
           // maybe add a colour to the term.complete == true (marking as complete)
           el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2ECC71">'+term.name+'</button>';
         } else if (agreementLevel === 4) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#0B3982">'+term.name+'</button>';
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#13496c">'+term.name+'</button>';
         } else if (agreementLevel === 3) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2980B9">'+term.name+'</button>';
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#1f74ad">'+term.name+'</button>';
         } else if (agreementLevel === 2) {
           el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#3498DB">'+term.name+'</button>';
         } else if (agreementLevel === 1) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#BACFF2">'+term.name+'</button>';
+          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#67b2e4">'+term.name+'</button>';
         } else {
           console.error('Cannot determine agreementLevel');
         }
