@@ -1622,6 +1622,29 @@
       });
 
       var termsArr = view.model.get('user_associated_terms');
+      var indecesToRemove = [];
+
+      // remove terms
+      _.each(termsArr, function(term, index) {
+        if (term.author === app.username) {
+          var deleteFlag = true;
+          _.each(termsToAddArr, function(name) {
+            if (term.name === name) {
+              deleteFlag = false;
+            }
+          });
+          if (deleteFlag === true) {
+            indecesToRemove.push(index);
+          }
+        }
+      });
+
+      for (var i = indecesToRemove.length - 1; i >= 0; i--) {
+        termsArr.splice(indecesToRemove[i], 1);
+      }
+
+
+      // add terms
       _.each(termsToAddArr, function(name) {
         var addFlag = true;
         _.each(termsArr, function(term) {
@@ -1667,33 +1690,33 @@
       }
     },
 
-    updateModel: function(option, checked) {
-      var view = this;
+    // updateModel: function(option, checked) {
+    //   var view = this;
 
-      var termsArr = view.model.get('user_associated_terms');
-      if (checked) {
-        // add term
-        var d = new Date();
-        var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
-        var termObj = {};
-        termObj.name = option.val();
-        termObj.author = app.username;
-        termObj.explanation = '';
-        termObj.complete = false;
-        termObj.date = dateStr;
-        termObj.removed = false;
-        termsArr.push(termObj);
-      } else {
-        // remove term
-        _.each(termsArr, function(termObj, index) {
-          if (termObj.name === option.val()) {
-            termsArr.splice(index, 1);
-          }
-        });
-      }
-      view.model.set('user_associated_terms', termsArr);
-      view.model.save();
-    },
+    //   var termsArr = view.model.get('user_associated_terms');
+    //   if (checked) {
+    //     // add term
+    //     var d = new Date();
+    //     var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
+    //     var termObj = {};
+    //     termObj.name = option.val();
+    //     termObj.author = app.username;
+    //     termObj.explanation = '';
+    //     termObj.complete = false;
+    //     termObj.date = dateStr;
+    //     termObj.removed = false;
+    //     termsArr.push(termObj);
+    //   } else {
+    //     // remove term
+    //     _.each(termsArr, function(termObj, index) {
+    //       if (termObj.name === option.val()) {
+    //         termsArr.splice(index, 1);
+    //       }
+    //     });
+    //   }
+    //   view.model.set('user_associated_terms', termsArr);
+    //   view.model.save();
+    // },
 
     renderTerms: function(containerNum, values) {
       var container = jQuery('[data-term-container="'+containerNum+'"]');
