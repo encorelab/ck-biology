@@ -74,7 +74,6 @@
             jQuery('#choose-article-screen').removeClass('hidden');
             app.chooseArticleView.render();
           } else {
-            jQuery('#attach-terms-screen').removeClass('hidden');
             var article = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
             article.wake(app.config.wakeful.url);
             app.attachTermsView = new app.View.AttachTermsView({
@@ -82,6 +81,7 @@
               model: article
             });
             app.attachTermsView.render();
+            jQuery('#attach-terms-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
           if (app.getMyField(app.username)) {
@@ -1545,17 +1545,17 @@
     chooseField: function(ev) {
       var view = this;
 
-      var model = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
+      var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
+      article.wake(app.config.wakeful.url);
 
-      if (model.get('users').length < 4) {
-        var usersArr = model.get('users');
+      if (article.get('users').length < 4) {
+        var usersArr = article.get('users');
         usersArr.push(app.username);
-        model.set('users', usersArr);
-        model.save();
+        article.set('users', usersArr);
+        article.save();
 
         app.hideAllContainers();
-        var article = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
-        article.wake(app.config.wakeful.url);
+
         app.attachTermsView = new app.View.AttachTermsView({
           el: '#attach-terms-screen',
           model: article
