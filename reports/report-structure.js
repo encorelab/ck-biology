@@ -19,7 +19,7 @@ Skeletor.Mobile.report = {
       "thumbnail": "",
       "html": `
         <h2>Research Proposal</h2>
-        <object id="attach-terms-pdf-content" type="application/pdf" data="reports/pdfs/bovine_methane_proposal.pdf?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>`
+        <object id="attach-terms-pdf-content" type="application/pdf" data="reports/pdfs/bovine_methane_proposal.pdf?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>`
     },
     {
       "number": 3,
@@ -186,7 +186,7 @@ Skeletor.Mobile.report = {
       "thumbnail": "",
       "html": `
         <h2>Part 6: Protein Product Analysis</h2>
-        <p>In this example, the error in the DNA sequence was a typo, but in the 'real world’ it could have been an actual mutation. Let’s think about it as if it was a mutation.</p>
+        <p>In this example, the error in the DNA sequence was a typo, but in the 'real world' it could have been an actual mutation. Let’s think about it as if it was a mutation.</p>
         <p>How would the protein product of this DNA sequence differ from the PmoC that would be made if the gene did not have a mutation? Make a prediction as to the functionality of this altered protein compared to PmoC.</p>
         <p>
           <b>DNA sense (+) strand with mutation:</b><br>

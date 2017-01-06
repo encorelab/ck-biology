@@ -819,7 +819,7 @@
       var el = '';
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
         el += '<div class="review-progress-group-container">';
-        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour')+' team</button>';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour').toUpperCase()+' TEAM</button>';
         el += '<div class="review-progress-progress-bar-container">';
         el += '<span id="review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
         el += '<span class="review-progress-group-progress-percent"></span>';
@@ -1674,7 +1674,7 @@
 
       jQuery('#attach-terms-explanation-pane').html('');
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#attach-terms-pdf-container').html(objEl);
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
@@ -2215,6 +2215,7 @@
       // if we're not at the end of the report
       if (app.currentReportPage < view.model.get('parts').length) {
         app.currentReportPage++;
+        $('html,body').scrollTop(0);
         view.render();
       } else {
         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
@@ -2229,6 +2230,7 @@
       view.updateReport();
 
       app.currentReportPage--;
+      $('html,body').scrollTop(0);
       view.render();
     },
 
