@@ -341,6 +341,7 @@ textarea {
 #grouping-jigsaw-screen h2 {
     margin-top: 0px;
     font-weight: 500;
+    color: #34495e;
 }
 #grouping-screen .fa-plus-square,
 #grouping-jigsaw-screen .fa-plus-square {
@@ -369,7 +370,7 @@ textarea {
 #grouping-screen .students-container,
 #grouping-jigsaw-screen .students-container {
     /* width: 100%; */
-    border: 1px solid #333;
+    border: 1px solid #34495e;
     margin: 20px;
     padding: 20px;
     min-height: 97px;
@@ -395,7 +396,7 @@ textarea {
 #grouping-jigsaw-screen .group-container {
     min-height: 85px;
     width: 220px;
-    border: 1px solid #333;
+    border: 1px solid #34495e;
     margin: 20px;
     padding-bottom: 20px;
     display: inline-block;
@@ -439,6 +440,9 @@ textarea {
     /* width: 150px; */
     width: 100%;
     padding: 20px !important;
+    color: #34495e;
+    border-radius: 0;
+    border: 1px solid #34495e;
 }
 .review-progress-progress-bar-container {
     margin-top: 25px;
@@ -476,12 +480,23 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-#teacher-report-screen .report-title {
-    margin-bottom: 40px;
+#teacher-report-container {
+    width: 100%;
+    max-width: 775px;
+    display: block;
+    margin: 0 auto;
 }
+
+#teacher-report-screen h1 {
+    font-weight: 500;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
 #teacher-report-screen h2,
 #teacher-final-report-screen h2 {
-    display: inline;
+    display: inline-block;
+    margin-bottom: 5px;
 }
 #teacher-report-screen .thumb,
 #teacher-final-report-screen .thumb {
@@ -490,7 +505,14 @@ textarea {
     height: 25px;
 }
 
-
+#close-teacher-report-view-btn {
+    margin-left: 13%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#close-teacher-report-view-btn:hover{
+    background-color: #ddd;
+}
 
 
 
@@ -745,7 +767,7 @@ textarea {
     width: 100%;
     /* margin-right: 5%; */
     height: 350px;
-    border: 1px solid #333;
+    border: 1px solid #34495e;
 }
 
 #attach-terms-explanation-pane {
@@ -756,7 +778,7 @@ textarea {
     /* width: 650px; */
     width: 25%;
     height: 350px;
-    border: 1px solid #333;
+    border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
