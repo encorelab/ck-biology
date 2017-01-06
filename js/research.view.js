@@ -75,9 +75,11 @@
             app.chooseArticleView.render();
           } else {
             jQuery('#attach-terms-screen').removeClass('hidden');
+            var article = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+            article.wake(app.config.wakeful.url);
             app.attachTermsView = new app.View.AttachTermsView({
               el: '#attach-terms-screen',
-              model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
+              model: article
             });
             app.attachTermsView.render();
           }
@@ -1547,9 +1549,11 @@
         model.save();
 
         app.hideAllContainers();
+        var article = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+        article.wake(app.config.wakeful.url);
         app.attachTermsView = new app.View.AttachTermsView({
           el: '#attach-terms-screen',
-          model: Skeletor.Model.awake.articles.findWhere({"field": model.get('field')})
+          model: article
         });
         app.attachTermsView.render();
         jQuery('#attach-terms-screen').removeClass('hidden');
