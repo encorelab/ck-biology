@@ -484,7 +484,6 @@
     // only available in review4
     assignByJigsaw: function() {
       var view = this;
-      //var studentsToGroup = [];
 
       // hard remove all groups. This seems to help the async issue of members going into multiple groups
       _.each(view.collection.where({"lesson": "review4"}), function(group) {
@@ -498,16 +497,14 @@
         if (user.get('user_role') !== "teacher") {
           // update the UI
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-          // create the array for the shuffle
-          //studentsToGroup.push(user.get('username'));
         }
       });
 
-      // get groups from lesson 3 - note that we're not grouping students, counting the absent group as a group
+      // get groups from lesson 3 - note that we're grouping students counting the absent group as a group
       var prevGroupsArr = view.collection.where({"lesson": "review3"});
 
       // go over each review 4 group
-      // shift one student out of each prevGroupsArr and add to group
+      // choose the first student out of each prevGroupsArr and add to group
       _.each(view.collection.where({"kind": "present", "lesson": "review4"}), function(newGroup, index) {
         _.each(prevGroupsArr, function(prevGroup) {
           var members = prevGroup.get('members');

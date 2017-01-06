@@ -13,5 +13,6 @@ mongoimport -d ck-biology-encore -c relationships --jsonArray scaffolding/encore
 mongo ck-biology-encore --eval "db.articles.remove()"
 mongoimport -d ck-biology-encore -c articles --jsonArray scaffolding/encore-articles.json
 
-mongo ck-biology-encore --eval "db.lessons.remove()"
-mongoimport -d ck-biology-encore -c lessons --jsonArray scaffolding/lessons-unit1.json
+mongo ck-biology-encore --eval "db.groups.remove()"
+
+mongo ck-biology-encore --eval "db.reports.remove()"
