@@ -734,36 +734,53 @@ textarea {
 #attach-terms-pdf-container {
     margin-top: 100px;
     margin-bottom: 25px;
+    float: left;
+    width: 50%;
 }
 
 #attach-terms-pdf-content {
     /* width: 497px; */
-    width: 55%;
+    width: 100%;
     /* margin-right: 5%; */
-    height: 500px;
+    height: 350px;
     border: 1px solid #333;
 }
 
 #attach-terms-explanation-pane {
     margin-top: 100px;
-    float: right;
+    margin-left: 2.5%;
+    float: left;
     /* width: 497px; */
     /* width: 650px; */
-    width: 40%;
-    height: 500px;
+    width: 25%;
+    height: 350px;
     border: 1px solid #333;
     padding: 15px;
     overflow-y: scroll;
 }
 
-#attach-terms-terms-container .btn-group {
-    margin-right: 25px;
+#attach-terms-selected-container {
+    margin-top: 100px;
+    margin-left: 2.5%;
+    float: left;
+    width: 20%;
+    height: 350px;
+    line-height: 2.2em;
+    overflow-y: scroll;
 }
 
 #attach-terms-selected-container .terms-container div {
     font-size: 1.1em;
     font-weight: bold;
     color: #7F8C8D;
+}
+
+#attach-terms-terms-container {
+    clear: both;
+}
+
+#attach-terms-terms-container .btn-group {
+    margin-right: 25px;
 }
 
 
@@ -789,12 +806,12 @@ textarea {
 
 #explain-terms-screen .explain-term-uncomplete-btn {
     background-color: #F1C40F;
-    margin-right: 15%;
+    margin-right: 5%;
     margin-bottom: 50px;
 }
 #explain-terms-screen .explain-term-complete-btn {
     background-color: #34495E;
-    margin-right: 15%;
+    margin-right: 5%;
     margin-bottom: 50px;
 }
 
