@@ -476,6 +476,9 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
+#teacher-report-screen .report-title {
+    margin-bottom: 40px;
+}
 #teacher-report-screen h2,
 #teacher-final-report-screen h2 {
     display: inline;
