@@ -789,12 +789,12 @@ textarea {
 
 #explain-terms-screen .explain-term-uncomplete-btn {
     background-color: #F1C40F;
-    margin-right: 15%;
+    margin-right: 5%;
     margin-bottom: 50px;
 }
 #explain-terms-screen .explain-term-complete-btn {
     background-color: #34495E;
-    margin-right: 15%;
+    margin-right: 5%;
     margin-bottom: 50px;
 }
 
