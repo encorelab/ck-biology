@@ -115,6 +115,7 @@
               report.set('group_colour', myGroup.get('colour'));
               report.set('lesson', 'review3');
               report.set('parts', app.report.parts);      // TODO
+              report.set('pdf', app.report.pdf);
               report.save();
               Skeletor.Model.awake.reports.add(report);
             }
@@ -147,6 +148,7 @@
             //   report.set('group_colour', myGroup.get('colour'));
             //   report.set('lesson', 'review3');
             //   report.set('parts', app.report.parts);      // TODO
+            //   report.set('pdf', app.report.pdf);
             //   report.save();
             //   Skeletor.Model.awake.reports.add(report);
             // }
@@ -212,6 +214,7 @@
             report.set('group_colour', 'class');
             report.set('lesson', 'review4');
             report.set('parts', app.report.parts);
+            report.set('pdf', app.report.pdf);
             report.save();
             Skeletor.Model.awake.reports.add(report);
           }
@@ -2205,12 +2208,22 @@
 
     events: {
       // general functionality
+      'click #pdf-modal-btn'           : 'openPdfModal',
       'click #report-step-forward-btn' : 'stepForward',
       'click #report-step-back-btn'    : 'stepBack',
       'keyup textarea'                 : 'checkForAllowedToProceed',
       // unique unit-specific functionality
       'click .unit3-view-sequence-btn' : 'unit3ViewSequence',
       'click .unit3-check-answer'      : 'unit3checkAnswer'
+    },
+
+    openPdfModal: function() {
+      var view = this;
+
+      var objEl = '<object id="report-pdf-content" type="application/pdf" data="'+view.model.get('pdf')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>';
+      jQuery('#pdf-modal .modal-body').html(objEl);
+
+      jQuery('#pdf-modal').modal({keyboard: true, backdrop: true});
     },
 
     stepForward: function() {

@@ -1031,6 +1031,15 @@ textarea {
     font-size: 10px;
 }
 
+#pdf-modal-btn {
+    float: right;
+    font-size: 2.8em;
+    margin-top: 7px;
+}
+#report-pdf-content {
+    width: 100%;
+}
+
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn,
 #report-step-back-btn {
