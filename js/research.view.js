@@ -2391,6 +2391,8 @@
       var view = this;
       console.log("Rendering ReportView...");
 
+      jQuery('.report-progress-bar-container .icon').attr('src', 'img/'+app.getMyGroup(app.username, "review3").get('colour')+'-team.png');
+
       jQuery('#report-content-container').html('');
       // create the html
       jQuery('#report-content-container').append(view.model.getPart(app.currentReportPage).html);
