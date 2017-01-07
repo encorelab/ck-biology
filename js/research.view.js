@@ -1738,6 +1738,13 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
+      if (app.getMyField()) {
+        var el = '<h1>Your article on '+app.getMyField()+'</h1>';
+        jQuery('#attach-terms-title-container').html(el);
+      } else {
+        jQuery().toastmessage('showErrorToast', "Collision error. Please return to home screen and re-choose this field of research.");
+      }
+
       jQuery('#attach-terms-explanation-pane').html('');
 
       var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'

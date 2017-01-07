@@ -755,8 +755,11 @@ textarea {
     margin: 0 auto;
 }
 
-#attach-terms-pdf-container {
+#attach-terms-title-container {
     margin-top: 100px;
+}
+
+#attach-terms-pdf-container {
     margin-bottom: 25px;
     float: left;
     width: 50%;
@@ -771,7 +774,6 @@ textarea {
 }
 
 #attach-terms-explanation-pane {
-    margin-top: 100px;
     margin-left: 2.5%;
     float: left;
     /* width: 497px; */
@@ -784,7 +786,6 @@ textarea {
 }
 
 #attach-terms-selected-container {
-    margin-top: 100px;
     margin-left: 2.5%;
     float: left;
     width: 20%;
