@@ -101,7 +101,7 @@
             jQuery('#home-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
-          if (app.getMyGroup(app.username, "review3")) {
+          if (app.getMyGroup(app.username, "review3").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
@@ -134,7 +134,7 @@
             jQuery('#home-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review4") {
-          if (app.getMyGroup(app.username, "review4")) {
+          if (app.getMyGroup(app.username, "review4").get('kind') === "present") {
             // jQuery('#knowledge-base-nav-btn').addClass('hidden');
             // jQuery('#contribution-nav-btn').addClass('hidden');
             // jQuery('#report-screen').removeClass('hidden');
@@ -481,11 +481,19 @@
 
       // generate the groups containers
       _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        var teamName = '';
+        if (app.reviewSection === "review3") {
+          teamName = group.get('colour').toUpperCase() + ' TEAM';
+        } else if (app.reviewSection === "review4") {
+          teamName = 'TEAM ' + group.get('colour');
+        } else {
+          console.error('Cannot assign name - unknown review section');
+        }
         var groupEl = ''
         if (group.get('kind') === "absent") {
           groupEl = '<div class="group-container" style="background-color: #BDC3C7;" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn invisible" data-group="'+group.get('_id')+'"></button><h2>ABSENT</h2></div>'
         } else {
-          groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+group.get('colour')+' TEAM</h2></div>';
+          groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+teamName+'</h2></div>';
         }
         jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
       });
@@ -494,15 +502,17 @@
       Skeletor.Mobile.users.each(function(user) {
         if (user.get('user_role') !== "teacher") {
           // student button border colour *always* determined by review3 (since review4 isn't coloured)
-          var studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review3").get('colour')+'">');
-          studentBtn.text(user.get('username'));
-
-          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection)
+          var studentBtn = '';
+          var myGroup = app.getMyGroup(user.get('username'), app.reviewSection);
           if (myGroup) {
+            // student button border colour *always* determined by review3 (since review4 isn't coloured)
+            studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review3").get('colour')+'">');
             jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
           } else {
+            studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
           }
+          studentBtn.text(user.get('username'));
         }
       });
     },
@@ -788,6 +798,7 @@
 
       // update the UI
       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+      jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', 'none');
       jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button').removeClass('selected');
     },
 

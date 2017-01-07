@@ -833,7 +833,7 @@
     if (myGroup.length === 1) {
       return _.first(myGroup);
     } else if (myGroup.length > 1) {
-      jQuery().toastmessage('showErrorToast', "Bed news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
+      jQuery().toastmessage('showErrorToast', "Bad news bears. A user has been assigned to more than one group! Try refreshing first or removing groups to fix this problem. Contact Colin if the issue persists");
       return null;
     } else {
       return null;
