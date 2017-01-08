@@ -62,6 +62,7 @@
   app.groupNegotiateTermsView = null;
   app.groupNegotiateDetailsView = null;
   app.reportView = null;
+  app.finalReportView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);

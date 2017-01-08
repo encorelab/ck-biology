@@ -135,9 +135,9 @@
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review4") {
           if (app.getMyGroup(app.username, "review4").get('kind') === "present") {
-            // jQuery('#knowledge-base-nav-btn').addClass('hidden');
-            // jQuery('#contribution-nav-btn').addClass('hidden');
-            // jQuery('#report-screen').removeClass('hidden');
+            jQuery('#knowledge-base-nav-btn').addClass('hidden');
+            jQuery('#contribution-nav-btn').addClass('hidden');
+            jQuery('#final-report-screen').removeClass('hidden');
             // var myGroup = app.getMyGroup(app.username, "review3");
             // var report = null;
             // if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
@@ -152,15 +152,16 @@
             //   report.save();
             //   Skeletor.Model.awake.reports.add(report);
             // }
-            // report.wake(app.config.wakeful.url);
-            // if (app.reportView === null) {
-            //   app.reportView = new app.View.ReportView({
-            //     el: '#report-screen',
-            //     model: report
-            //   });
-            // }
 
-            // app.reportView.render();
+            if (app.finalReportView === null) {
+              app.finalReportView = new app.View.FinalReportView({
+                el: '#final-report-screen',
+                model: Skeletor.Model.awake.reports.findWhere({'group_colour':'class'})
+              });
+            }
+
+            // DO NOT RENDER
+            // app.finalReportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
             jQuery('.top-nav-btn').addClass('hidden');
@@ -210,11 +211,17 @@
         } else if (app.reviewSection === "review4") {
           // if the final report doesn't exist, create it
           if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
+            var parts = app.report.parts;
+            _.each(parts, function(part) {
+              part.complete = false;
+              part.assigned = false;
+            });
             report = new Model.Report();
             report.set('group_colour', 'class');
             report.set('lesson', 'review4');
-            report.set('parts', app.report.parts);
+            report.set('parts', parts);
             report.set('pdf', app.report.pdf);
+            report.wake(app.config.wakeful.url);
             report.save();
             Skeletor.Model.awake.reports.add(report);
           }
@@ -2446,6 +2453,140 @@
       view.unit3CheckForAllowedToProceed();
     }
   });
+
+
+
+  /***********************************************************
+   ***********************************************************
+   ******************* FINAL REPORT VIEW *********************
+   ***********************************************************
+   ***********************************************************/
+
+
+  app.View.FinalReportView = Backbone.View.extend({
+    initialize: function() {
+      console.log('Initializing FinalReportView...');
+
+      var teams = Skeletor.Model.awake.groups.where({"lesson": "review3", "kind": "present"});
+      var teamNames = '';
+      _.each(teams, function(team) {
+        var name = team.get('colour');
+        name = name[0].toUpperCase() + name.slice(1);
+        teamNames += name;
+        teamNames += ' Team, ';
+      });
+      teamNames = teamNames.slice(0,-2);
+
+      var el = '<h2>Introduction</h2><p>So far ';
+      el += teams.length;
+      el += ' different research teams (the ';
+      el += teamNames;
+      el += `) have been working on reviewing Dr. Sutherland's grant proposal to the Niño-Soto Foundation (NSF). Today, you will be working in new groups containing at least one representative from each of the other teams. Your task is to discuss several of the items contained in your team's report, with the aim of arriving at the best possible response to deliver to billionaire Niño-Soto.</p>
+        <p>Other members of your research team will be discussing different items contained in your team's report. The outcome of these negotiations will be a whole-class report containing the best versions of each answerto submit to the NSF. Each of your answers will be indexed to the content you have learnedand contributed to the knowledge base in CK Biology throughout the Molecular Genetics unit.`;
+
+      jQuery('#final-report-content-container').html(el);
+    },
+
+    events: {
+      'click #report-step-forward-btn' : 'stepForward',
+      'keyup textarea'                 : 'checkForAllowedToProceed'
+    },
+
+    stepForward: function() {
+      var view = this;
+
+      // view.updateReport();
+
+      // // if we're not at the end of the report
+      // if (app.currentReportPage < view.model.get('parts').length) {
+      //   app.currentReportPage++;
+      //   $('html,body').scrollTop(0);
+      //   view.render();
+      // } else {
+      //   jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
+      //   jQuery('#report-screen').addClass('hidden');
+      //   jQuery('#home-screen').removeClass('hidden');
+      // }
+    },
+
+    checkForAllowedToProceed: function() {
+      var view = this;
+
+      // jQuery('#report-step-forward-btn').removeClass('disabled');
+      // jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
+
+      // // TODO: revert me
+      // jQuery('#report-content-container textarea').each(function(index, el) {
+      //   if (jQuery(el).val() === "") {
+      //     jQuery('#report-step-forward-btn').addClass('disabled');
+      //   }
+      // });
+
+      // // for the unit 3 check answer screen
+      // if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
+      //   view.unit3CheckForAllowedToProceed();
+      // }
+    },
+
+    updateReport: function() {
+      var view = this;
+      // var inputs = [];
+      // jQuery('#report-content-container textarea').each(function(index, el) {
+      //   // should the entries should be keyed to something? Use objects instead? Depends on output
+      //   inputs.push(jQuery(el).val());
+      // });
+      // view.model.setEntries(app.currentReportPage, inputs);
+      // view.model.save();
+    },
+
+    checkForNextAvailablePart: function() {
+      var view = this;
+
+      var nextPart = {};
+      var parts = view.model.get('parts');
+
+      // first, check if there is a part assigned to this group that is uncompleted
+      nextPart = _.where(parts, {"complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
+
+      // if no, then get first unassigned part
+      if (nextPart.length === 0) {
+        nextPart = _.findWhere(parts, {"assigned": false});
+        // set it to assigned
+        nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
+        view.model.set('parts', parts);
+        view.model.save();
+      }
+
+      return nextPart;
+    },
+
+    render: function() {
+      var view = this;
+      console.log("Rendering FinalReportView...");
+
+      var part = view.checkForNextAvailablePart();
+
+      // jQuery('#report-content-container').html('');
+      // // create the html
+      // jQuery('#report-content-container').append(view.model.getPart(app.currentReportPage).html);
+      // // add the text entries
+      // jQuery('#report-content-container textarea').each(function(index, el) {
+      //   if (view.model.getPart(app.currentReportPage).entries) {
+      //     jQuery(el).val(view.model.getPart(app.currentReportPage).entries[index]);
+      //   }
+      // });
+
+      // view.checkForAllowedToProceed();
+
+      // if (app.currentReportPage === 1) {
+      //   jQuery('#report-step-back-btn').addClass('disabled');
+      // } else {
+      //   jQuery('#report-step-back-btn').removeClass('disabled');
+      //   jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
+      // }
+    }
+  });
+
 
   this.Skeletor = Skeletor;
 }).call(this);

@@ -1389,6 +1389,7 @@ input:disabled {
     #group-negotiate-terms-screen .inner-wrapper,
     #group-negotiate-details-screen .inner-wrapper,
     #report-screen .inner-wrapper,
+    #final-report-screen .inner-wrapper,
     #teacher-report-screen .inner-wrapper,
     #teacher-final-report-screen .inner-wrapper {
         margin-top: 100px;
