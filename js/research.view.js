@@ -2561,10 +2561,12 @@
       // if no, then get first unassigned part
       if (!nextPart) {
         nextPart = _.findWhere(parts, {"kind": "write", "assigned": false});
-        // set it to assigned
-        nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
-        view.model.set('parts', parts);
-        view.model.save();
+        // set it to assigned if it exists (if doesn't exist, back to home screen in nextStep)
+        if (nextPart) {
+          nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
+          view.model.set('parts', parts);
+          view.model.save();
+        }
       }
 
       app.finalReportPart = nextPart;
@@ -2586,16 +2588,20 @@
         // the array of all of the entered text for this report and this section
         var entriesToAppend = report.get('parts')[app.finalReportPart.number - 1].entries;
         _.each(entriesToAppend, function(entry) {
+          otherReportsEl += '<p>';
           otherReportsEl += entry;
+          otherReportsEl += '</p>';
         });
 
       });
       jQuery('#final-report-content-container').append(otherReportsEl);
 
+      // UNIT 3 SPECIFIC STUFF
+      jQuery('.unit3-check-answer').addClass('hidden');
+
       view.checkForAllowedToProceed();
     }
   });
-
 
   this.Skeletor = Skeletor;
 }).call(this);
