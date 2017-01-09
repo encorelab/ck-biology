@@ -42,6 +42,7 @@
   app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
   app.currentReportPage = 1;
   app.report = null;
+  app.finalReportPart = null;
 
   app.homeView = null;
   // teacher views

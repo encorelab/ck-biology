@@ -2499,8 +2499,16 @@
       var view = this;
 
       view.updateReport();
-      view.setProceed(false);
-      view.render();
+      view.setNextAvailablePart();
+
+      if (app.finalReportPart) {
+        view.setProceed(false);
+        view.render();
+      } else {
+         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
+         jQuery('#final-report-screen').addClass('hidden');
+         jQuery('#home-screen').removeClass('hidden');
+       }
     },
 
     checkForAllowedToProceed: function() {
@@ -2534,14 +2542,14 @@
       });
       if (inputs.length > 0) {
         var partsArr = view.model.get('parts');
-        partsArr[view.getCurrentPart().number].entries = inputs;
-        partsArr[view.getCurrentPart().number].complete = true;
+        partsArr[app.finalReportPart.number-1].entries = inputs;
+        partsArr[app.finalReportPart.number-1].complete = true;
         view.model.set('parts', partsArr);
         view.model.save();
       }
     },
 
-    getNextAvailablePart: function() {
+    setNextAvailablePart: function() {
       var view = this;
 
       var nextPart = {};
@@ -2559,49 +2567,32 @@
         view.model.save();
       }
 
-      return nextPart;
-    },
-
-    getCurrentPart: function() {
-      var view = this;
-
-      var currentPart = _.findWhere(view.model.get('parts'), {"kind": "write", "complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
-
-      return currentPart;
+      app.finalReportPart = nextPart;
     },
 
     render: function() {
       var view = this;
       console.log("Rendering FinalReportView...");
 
-      // this is wrong - rethink this. Doing it this way has the *render* making logical changes (eg advancing). This likely belongs in the stepForward (in which case I think we need a global to track things, or make it part of this model)
-      var part = view.getNextAvailablePart();
+      jQuery('#final-report-content-container').html('');
+      // create the html
+      jQuery('#final-report-content-container').append(app.finalReportPart.html);
+      // remove all text areas
+      jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
 
-      if (part) {
-        jQuery('#final-report-content-container').html('');
-        // create the html
-        jQuery('#final-report-content-container').append(part.html);
-        // remove all text areas
-        jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
-
-        var otherReportsEl = '<h2>Group Report Responses:</h2>';
-        _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
-          otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
-          // the array of all of the entered text for this report and this section
-          var entriesToAppend = report.get('parts')[part.number - 1].entries;
-          _.each(entriesToAppend, function(entry) {
-            otherReportsEl += entry;
-          });
-
+      var otherReportsEl = '<h2>Group Report Responses:</h2>';
+      _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
+        otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
+        // the array of all of the entered text for this report and this section
+        var entriesToAppend = report.get('parts')[app.finalReportPart.number - 1].entries;
+        _.each(entriesToAppend, function(entry) {
+          otherReportsEl += entry;
         });
-        jQuery('#final-report-content-container').append(otherReportsEl);
 
-        view.checkForAllowedToProceed();
-      } else {
-        jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
-        jQuery('#final-report-screen').addClass('hidden');
-        jQuery('#home-screen').removeClass('hidden');
-      }
+      });
+      jQuery('#final-report-content-container').append(otherReportsEl);
+
+      view.checkForAllowedToProceed();
     }
   });
 
