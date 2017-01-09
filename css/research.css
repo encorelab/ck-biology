@@ -1065,7 +1065,8 @@ textarea {
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn,
-#report-step-back-btn {
+#report-step-back-btn,
+#final-report-step-forward-btn {
     margin-bottom: 20px;
     /* position: absolute; */
     position: fixed;
