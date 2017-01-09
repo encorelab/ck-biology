@@ -2465,6 +2465,7 @@
 
   app.View.FinalReportView = Backbone.View.extend({
     initialize: function() {
+      var view = this;
       console.log('Initializing FinalReportView...');
 
       var teams = Skeletor.Model.awake.groups.where({"lesson": "review3", "kind": "present"});
@@ -2482,14 +2483,16 @@
       el += ' different research teams (the ';
       el += teamNames;
       el += `) have been working on reviewing Dr. Sutherland's grant proposal to the Niño-Soto Foundation (NSF). Today, you will be working in new groups containing at least one representative from each of the other teams. Your task is to discuss several of the items contained in your team's report, with the aim of arriving at the best possible response to deliver to billionaire Niño-Soto.</p>
-        <p>Other members of your research team will be discussing different items contained in your team's report. The outcome of these negotiations will be a whole-class report containing the best versions of each answerto submit to the NSF. Each of your answers will be indexed to the content you have learnedand contributed to the knowledge base in CK Biology throughout the Molecular Genetics unit.`;
+        <p>Other members of your research team will be discussing different items contained in your team's report. The outcome of these negotiations will be a whole-class report containing the <b>best versions</b> of each answer to submit to the NSF. Each of your answers will be indexed to the content you have learned and contributed to the knowledge base in CK Biology throughout the Molecular Genetics unit.`;
 
       jQuery('#final-report-content-container').html(el);
+
+      view.setProceed(true);
     },
 
     events: {
-      'click #report-step-forward-btn' : 'stepForward',
-      'keyup textarea'                 : 'checkForAllowedToProceed'
+      'click #final-report-step-forward-btn' : 'stepForward',
+      'keyup textarea'                       : 'checkForAllowedToProceed'
     },
 
     stepForward: function() {
@@ -2507,25 +2510,32 @@
       //   jQuery('#report-screen').addClass('hidden');
       //   jQuery('#home-screen').removeClass('hidden');
       // }
+
+      view.setProceed(false);
+      view.render();
     },
 
     checkForAllowedToProceed: function() {
       var view = this;
 
-      // jQuery('#report-step-forward-btn').removeClass('disabled');
-      // jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
-
-      // // TODO: revert me
       // jQuery('#report-content-container textarea').each(function(index, el) {
       //   if (jQuery(el).val() === "") {
       //     jQuery('#report-step-forward-btn').addClass('disabled');
       //   }
       // });
 
-      // // for the unit 3 check answer screen
-      // if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
-      //   view.unit3CheckForAllowedToProceed();
-      // }
+
+      // maybe use app.currentPart or something?
+    },
+
+    setProceed: function(permitted) {
+      if (permitted) {
+        jQuery('#final-report-step-forward-btn').removeClass('disabled');
+        jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
+      } else {
+        jQuery('#final-report-step-forward-btn').addClass('disabled');
+
+      }
     },
 
     updateReport: function() {
@@ -2546,11 +2556,11 @@
       var parts = view.model.get('parts');
 
       // first, check if there is a part assigned to this group that is uncompleted
-      nextPart = _.where(parts, {"complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
+      nextPart = _.findWhere(parts, {"kind": "write", "complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
 
       // if no, then get first unassigned part
-      if (nextPart.length === 0) {
-        nextPart = _.findWhere(parts, {"assigned": false});
+      if (!nextPart) {
+        nextPart = _.findWhere(parts, {"kind": "write", "assigned": false});
         // set it to assigned
         nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
         view.model.set('parts', parts);
@@ -2566,24 +2576,25 @@
 
       var part = view.checkForNextAvailablePart();
 
-      // jQuery('#report-content-container').html('');
-      // // create the html
-      // jQuery('#report-content-container').append(view.model.getPart(app.currentReportPage).html);
-      // // add the text entries
-      // jQuery('#report-content-container textarea').each(function(index, el) {
-      //   if (view.model.getPart(app.currentReportPage).entries) {
-      //     jQuery(el).val(view.model.getPart(app.currentReportPage).entries[index]);
-      //   }
-      // });
+      jQuery('#final-report-content-container').html('');
+      // create the html
+      jQuery('#final-report-content-container').append(part.html);
+      // remove all text areas
+      jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
 
-      // view.checkForAllowedToProceed();
+      var otherReportsEl = '<h2>Group Report Responses:</h2>';
+      _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
+        otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
+        // the array of all of the entered text for this report and this section
+        var entriesToAppend = report.get('parts')[part.number - 1].entries;
+        _.each(entriesToAppend, function(entry) {
+          otherReportsEl += entry;
+        });
 
-      // if (app.currentReportPage === 1) {
-      //   jQuery('#report-step-back-btn').addClass('disabled');
-      // } else {
-      //   jQuery('#report-step-back-btn').removeClass('disabled');
-      //   jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
-      // }
+      });
+      jQuery('#final-report-content-container').append(otherReportsEl);
+
+      view.checkForAllowedToProceed();
     }
   });
 
