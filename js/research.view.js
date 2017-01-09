@@ -1001,15 +1001,31 @@
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
+
+          // add the part title
           reportEl += '<p><h2>' + part.name + '</h2>';
+
+          // add a thumbnail if it exists
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
           reportEl += '</p>'
 
+          // add the text entries
           _.each(part.entries, function(entry) {
             reportEl += '<p>' + entry + '</p>';
           })
+
+          // if there are tags, add them
+          if (part.tags && part.tags.length > 0) {
+            reportEl += '<p><b>Related terms from this unit:</b> ';
+            _.each(part.tags, function(tag) {
+              reportEl += tag;
+              reportEl += ', ';
+            });
+            reportEl = reportEl.slice(0,-2);
+            reportEl += '</p>';
+          }
         }
       });
 
@@ -2468,6 +2484,9 @@
       var view = this;
       console.log('Initializing FinalReportView...');
 
+      jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
+        'colour'));
+
       var teams = Skeletor.Model.awake.groups.where({"lesson": "review3", "kind": "present"});
       var teamNames = '';
       _.each(teams, function(team) {
@@ -2492,7 +2511,8 @@
 
     events: {
       'click #final-report-step-forward-btn' : 'stepForward',
-      'keyup textarea'                       : 'checkForAllowedToProceed'
+      'keyup textarea'                       : 'checkForAllowedToProceed',
+      'mouseover .multiselect-container li'  : 'showTermPopover'
     },
 
     stepForward: function() {
@@ -2537,12 +2557,22 @@
     updateReport: function() {
       var view = this;
       var inputs = [];
+      var tagsArr = [];
+
+      // text entries
       jQuery('#final-report-content-container textarea').each(function(index, el) {
         inputs.push(jQuery(el).val());
+      });
+      // tags
+      jQuery('#final-report-screen .terms-container').each(function(index, el) {
+        jQuery(el).children().each(function(index, child) {
+          tagsArr.push(jQuery(child).text());
+        });
       });
       if (inputs.length > 0) {
         var partsArr = view.model.get('parts');
         partsArr[app.finalReportPart.number-1].entries = inputs;
+        partsArr[app.finalReportPart.number-1].tags = tagsArr;
         partsArr[app.finalReportPart.number-1].complete = true;
         view.model.set('parts', partsArr);
         view.model.save();
@@ -2572,9 +2602,69 @@
       app.finalReportPart = nextPart;
     },
 
+    showTermPopover: function(ev) {
+      // if we're mousing over the right area
+      if (jQuery(ev.target).find('input').val()) {
+        jQuery('#final-report-terms-explanation-pane').html('');
+        app.buildTermView('#final-report-terms-explanation-pane', jQuery(ev.target).find('input').val());
+      }
+    },
+
+    renderTerms: function(containerNum, values) {
+      var container = jQuery('[data-term-container="'+containerNum+'"]');
+      jQuery(container).html('');
+      _.each(values, function(value) {
+        jQuery(container).append('<div>'+value+'</div>');
+      });
+    },
+
+    renderDropdowns: function() {
+      var view = this;
+
+      jQuery('#final-report-terms-explanation-pane').html('');
+      jQuery('#final-report-terms-terms-container').html('');
+      jQuery('#final-report-terms-selected-container').html('');
+
+      jQuery('#final-report-terms-terms-container').append("<h2>Tag any terms or concepts that you learned throughout the unit that are relevant to answering this question</h2>");
+      // set up the dropdown types by eaching over the lessons
+      _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
+        var el = '<select id="final-report-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
+        jQuery('#final-report-terms-terms-container').append(el);
+        jQuery('#final-report-terms-dropdown-'+lesson.get('number')).multiselect({
+          nonSelectedText: lesson.get('title'),
+          onChange: function(option, checked, select) {
+            view.renderTerms(lesson.get('number'), jQuery('#final-report-terms-dropdown-'+lesson.get('number')).val());
+          }
+        });
+
+        // set up the containers that this terms will be shown in
+        jQuery('#final-report-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
+      });
+
+      // each over the terms and add to dropdown based on term.get('lesson')
+      Skeletor.Model.awake.terms.comparator = function(model) {
+        return model.get('name').toLowerCase();
+      };
+      Skeletor.Model.awake.terms.sort();
+      // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
+      Skeletor.Model.awake.terms.each(function(term) {
+        var name = term.get('name');
+        // add the option to the dropdown
+        jQuery('#final-report-terms-dropdown-'+term.get('lesson')).append(new Option(name, name));
+      });
+
+      // needs a rebuild to show all the terms
+      jQuery('.lesson-dropdown').each(function() {
+        jQuery(this).multiselect('rebuild');
+      });
+    },
+
     render: function() {
       var view = this;
       console.log("Rendering FinalReportView...");
+
+      jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
+        'colour'));
 
       jQuery('#final-report-content-container').html('');
       // create the html
@@ -2592,12 +2682,13 @@
           otherReportsEl += entry;
           otherReportsEl += '</p>';
         });
-
       });
       jQuery('#final-report-content-container').append(otherReportsEl);
 
       // UNIT 3 SPECIFIC STUFF
       jQuery('.unit3-check-answer').addClass('hidden');
+
+      view.renderDropdowns();
 
       view.checkForAllowedToProceed();
     }
