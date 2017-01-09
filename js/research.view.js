@@ -2498,19 +2498,7 @@
     stepForward: function() {
       var view = this;
 
-      // view.updateReport();
-
-      // // if we're not at the end of the report
-      // if (app.currentReportPage < view.model.get('parts').length) {
-      //   app.currentReportPage++;
-      //   $('html,body').scrollTop(0);
-      //   view.render();
-      // } else {
-      //   jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
-      //   jQuery('#report-screen').addClass('hidden');
-      //   jQuery('#home-screen').removeClass('hidden');
-      // }
-
+      view.updateReport();
       view.setProceed(false);
       view.render();
     },
@@ -2518,14 +2506,14 @@
     checkForAllowedToProceed: function() {
       var view = this;
 
-      // jQuery('#report-content-container textarea').each(function(index, el) {
-      //   if (jQuery(el).val() === "") {
-      //     jQuery('#report-step-forward-btn').addClass('disabled');
-      //   }
-      // });
+      jQuery('#final-report-step-forward-btn').removeClass('disabled');
+      jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
 
-
-      // maybe use app.currentPart or something?
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          view.setProceed(false);
+        }
+      });
     },
 
     setProceed: function(permitted) {
@@ -2540,16 +2528,20 @@
 
     updateReport: function() {
       var view = this;
-      // var inputs = [];
-      // jQuery('#report-content-container textarea').each(function(index, el) {
-      //   // should the entries should be keyed to something? Use objects instead? Depends on output
-      //   inputs.push(jQuery(el).val());
-      // });
-      // view.model.setEntries(app.currentReportPage, inputs);
-      // view.model.save();
+      var inputs = [];
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        inputs.push(jQuery(el).val());
+      });
+      if (inputs.length > 0) {
+        var partsArr = view.model.get('parts');
+        partsArr[view.getCurrentPart().number].entries = inputs;
+        partsArr[view.getCurrentPart().number].complete = true;
+        view.model.set('parts', partsArr);
+        view.model.save();
+      }
     },
 
-    checkForNextAvailablePart: function() {
+    getNextAvailablePart: function() {
       var view = this;
 
       var nextPart = {};
@@ -2570,31 +2562,46 @@
       return nextPart;
     },
 
+    getCurrentPart: function() {
+      var view = this;
+
+      var currentPart = _.findWhere(view.model.get('parts'), {"kind": "write", "complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
+
+      return currentPart;
+    },
+
     render: function() {
       var view = this;
       console.log("Rendering FinalReportView...");
 
-      var part = view.checkForNextAvailablePart();
+      // this is wrong - rethink this. Doing it this way has the *render* making logical changes (eg advancing). This likely belongs in the stepForward (in which case I think we need a global to track things, or make it part of this model)
+      var part = view.getNextAvailablePart();
 
-      jQuery('#final-report-content-container').html('');
-      // create the html
-      jQuery('#final-report-content-container').append(part.html);
-      // remove all text areas
-      jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
+      if (part) {
+        jQuery('#final-report-content-container').html('');
+        // create the html
+        jQuery('#final-report-content-container').append(part.html);
+        // remove all text areas
+        jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
 
-      var otherReportsEl = '<h2>Group Report Responses:</h2>';
-      _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
-        otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
-        // the array of all of the entered text for this report and this section
-        var entriesToAppend = report.get('parts')[part.number - 1].entries;
-        _.each(entriesToAppend, function(entry) {
-          otherReportsEl += entry;
+        var otherReportsEl = '<h2>Group Report Responses:</h2>';
+        _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
+          otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
+          // the array of all of the entered text for this report and this section
+          var entriesToAppend = report.get('parts')[part.number - 1].entries;
+          _.each(entriesToAppend, function(entry) {
+            otherReportsEl += entry;
+          });
+
         });
+        jQuery('#final-report-content-container').append(otherReportsEl);
 
-      });
-      jQuery('#final-report-content-container').append(otherReportsEl);
-
-      view.checkForAllowedToProceed();
+        view.checkForAllowedToProceed();
+      } else {
+        jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
+        jQuery('#final-report-screen').addClass('hidden');
+        jQuery('#home-screen').removeClass('hidden');
+      }
     }
   });
 
