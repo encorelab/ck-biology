@@ -855,24 +855,29 @@ textarea {
 /* copied from smartboard.css */
 #explain-details-screen .title,
 #explain-details-content-title,
-#attach-terms-explanation-pane .title {
+#attach-terms-explanation-pane .title,
+#final-report-terms-explanation-pane .title, {
   font-size: 2em;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 #explain-details-screen .author,
 #attach-terms-explanation-pane .author,
+#final-report-terms-explanation-pane .author,
 #explain-details-screen .vetting-author,
 #attach-terms-explanation-pane .vetting-author,
+#final-report-terms-explanation-pane .vetting-author,
 #explain-details-screen .comments-author,
-#attach-terms-explanation-pane .comments-author {
+#attach-terms-explanation-pane .comments-author,
+#final-report-terms-explanation-pane .comments-author {
   display: block;
   font-weight: 700;
   font-size: 1.1em;
   margin: 5px 0 0;
 }
 #explain-details-screen .relationship,
-#attach-terms-explanation-pane .relationship {
+#attach-terms-explanation-pane .relationship,
+#final-report-terms-explanation-pane .relationship {
   display: block;
   font-style: italic;
   margin: 0px 20px 20px 0px;
@@ -883,33 +888,38 @@ textarea {
   border: 1px solid #34495e;;
 }
 #explain-details-screen .relationship > div,
-#attach-terms-explanation-pane .relationship > div {
+#attach-terms-explanation-pane .relationship > div,
+#final-report-terms-explanation-pane .relationship > div {
   margin-bottom: 5px;
 }
 #explain-details-screen .author,
-#attach-terms-explanation-pane .author {
+#attach-terms-explanation-pane .author,
+#final-report-terms-explanation-pane .author {
   color: #8e44ad; /* MD WISTERIA */
 }
 #explain-details-screen .body,
-#attach-terms-explanation-pane .body {
+#attach-terms-explanation-pane .body,
+#final-report-terms-explanation-pane .body {
   display: block;
   margin-bottom: 10px;
   color: #7F8C8D; /* MD ASBESTOS */
   /*height: 250px;*/
 }
 #explain-details-screen .vetting-author,
-#attach-terms-explanation-pane .vetting-author {
+#attach-terms-explanation-pane .vetting-author,
+#final-report-terms-explanation-pane .vetting-author {
   color: #1abc9c; /* MD TURQUOISE */
 }
 #explain-details-screen .vetting-content,
-#attach-terms-explanation-pane .vetting-content {
+#attach-terms-explanation-pane .vetting-content,
+#final-report-terms-explanation-pane .vetting-content {
   display: block;
   margin-bottom: 15px;
   color: #7F8C8D; /* MD ASBESTOS */
 }
 #explain-details-screen .media-container,
-#attach-terms-explanation-pane .media-container {
-  /* display: block; */
+#attach-terms-explanation-pane .media-container,
+#final-report-terms-explanation-pane .media-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -918,7 +928,8 @@ textarea {
   margin-top: 20px;
 }
 #explain-details-screen .media,
-#attach-terms-explanation-pane .media {
+#attach-terms-explanation-pane .media,
+#final-report-terms-explanation-pane .media {
   display: inline-block;
   height: 100%;
   padding: 0 5px;
@@ -927,15 +938,18 @@ textarea {
   margin-top: 0;
 }
 #explain-details-screen .media img,
-#attach-terms-explanation-pane .media img {
+#attach-terms-explanation-pane .media img,
+#final-report-terms-explanation-pane .media img {
   padding-bottom: 25px;
 }
 #explain-details-screen .comments-author,
-#attach-terms-explanation-pane .comments-author {
+#attach-terms-explanation-pane .comments-author,
+#final-report-terms-explanation-pane .comments-author {
   color: #E74C3C; /* MD ALIZARIN */
 }
 #explain-details-screen .comments-content,
-#attach-terms-explanation-pane .comments-content {
+#attach-terms-explanation-pane .comments-content,
+#final-report-terms-explanation-pane .comments-content {
   display: block;
   margin-bottom: 5px;
   color: #7F8C8D; /* MD ASBESTOS */
@@ -1132,6 +1146,19 @@ textarea {
 .unit3-correct3 {
     margin-left: 20px;
 }
+
+
+/* FINAL REPORT */
+#final-report-terms-explanation-pane {
+    margin-left: 2.5%;
+    float: right;
+    width: 25%;
+    height: 350px;
+    border: 1px solid #34495e;
+    padding: 15px;
+    overflow-y: scroll;
+}
+
 
 
 

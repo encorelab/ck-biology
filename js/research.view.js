@@ -1783,7 +1783,7 @@
     // },
 
     renderTerms: function(containerNum, values) {
-      var container = jQuery('[data-term-container="'+containerNum+'"]');
+      var container = jQuery('#attach-terms-screen [data-term-container="'+containerNum+'"]');
       jQuery(container).html('');
       _.each(values, function(value) {
         jQuery(container).append('<div>'+value+'</div>');
@@ -1849,7 +1849,7 @@
           // add the option to the dropdown, set to selected
           jQuery('#attach-terms-dropdown-'+term.get('lesson')).append(new Option(name, name, true, true));
           // add to the respective terms container
-          var container = jQuery('[data-term-container="'+term.get('lesson')+'"]');
+          var container = jQuery('#attach-terms-screen [data-term-container="'+term.get('lesson')+'"]');
           jQuery(container).append('<div>'+name+'</div>');
           // user should be able to submit immediately
           jQuery('.submit-attached-terms-btn').removeClass('disabled');
@@ -2506,6 +2506,9 @@
 
       jQuery('#final-report-content-container').html(el);
 
+      // hide this for the intro screen
+      jQuery('#final-report-terms-explanation-pane').addClass('hidden');
+
       view.setProceed(true);
     },
 
@@ -2525,9 +2528,13 @@
         view.setProceed(false);
         view.render();
       } else {
-         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
-         jQuery('#final-report-screen').addClass('hidden');
-         jQuery('#home-screen').removeClass('hidden');
+         jQuery('#final-report-my-team').html('');
+         jQuery('#final-report-content-container').html('');
+         jQuery('#final-report-terms-terms-container').html('');
+         jQuery('#final-report-terms-explanation-pane').addClass('hidden');
+         jQuery('#final-report-terms-selected-container').html('');
+
+         jQuery('#final-report-content-container').html('<h1>Thank you for completing you submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
        }
     },
 
@@ -2625,6 +2632,8 @@
       jQuery('#final-report-terms-terms-container').html('');
       jQuery('#final-report-terms-selected-container').html('');
 
+      jQuery('#final-report-terms-explanation-pane').removeClass('hidden');
+
       jQuery('#final-report-terms-terms-container').append("<h2>Tag any terms or concepts that you learned throughout the unit that are relevant to answering this question</h2>");
       // set up the dropdown types by eaching over the lessons
       _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
@@ -2646,7 +2655,7 @@
         return model.get('name').toLowerCase();
       };
       Skeletor.Model.awake.terms.sort();
-      // add terms to dropdowns, selected if they are already in the model, plus add terms to view container
+      // add terms to dropdowns
       Skeletor.Model.awake.terms.each(function(term) {
         var name = term.get('name');
         // add the option to the dropdown
