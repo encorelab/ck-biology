@@ -494,12 +494,14 @@ textarea {
 }
 
 #teacher-report-screen h2,
-#teacher-final-report-screen h2 {
+#teacher-final-report-screen h2,
+#final-report-display-screen h2 {
     display: inline-block;
     margin-bottom: 5px;
 }
 #teacher-report-screen .thumb,
-#teacher-final-report-screen .thumb {
+#teacher-final-report-screen .thumb,
+#final-report-display-screen .thumb {
     display: inline;
     margin-left: 20px;
     height: 25px;
@@ -644,7 +646,8 @@ textarea {
 #definition-photo-modal .photo-content,
 #vetting-photo-modal .photo-content,
 #teacher-report-modal .photo-content,
-#teacher-final-report-modal .photo-content {
+#teacher-final-report-modal .photo-content,
+#final-report-display-modal .photo-content {
     max-width: 100%;
 }
 #definition-photo-modal .download-photo-btn,
@@ -653,7 +656,8 @@ textarea {
     border-radius: 4px;
 }
 #teacher-report-modal .close,
-#teacher-final-report-modal .close {
+#teacher-final-report-modal .close,
+#final-report-display-modal .close, {
     margin-top: -20px;
 }
 
@@ -1418,6 +1422,7 @@ input:disabled {
     #group-negotiate-details-screen .inner-wrapper,
     #report-screen .inner-wrapper,
     #final-report-screen .inner-wrapper,
+    #final-report-display-screen .inner-wrapper,
     #teacher-report-screen .inner-wrapper,
     #teacher-final-report-screen .inner-wrapper {
         margin-top: 100px;

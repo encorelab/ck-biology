@@ -64,6 +64,7 @@
   app.groupNegotiateDetailsView = null;
   app.reportView = null;
   app.finalReportView = null;
+  app.finalReportDisplayView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -310,6 +311,8 @@
         jQuery('.top-nav-btn').removeClass('hidden');
         jQuery('.top-nav-btn').removeClass('active');     // unmark all nav items
         jQuery('#grouping-nav-btn').addClass('hidden');
+        jQuery('#group-contribution-nav-btn').addClass('hidden');
+        jQuery('#final-report-nav-btn').addClass('hidden');
         // if the user is sitting on the confirm screen and hits home
         if (jQuery('#tasks-completed-confirmation').dialog('isOpen') === true) {
           jQuery('#tasks-completed-confirmation').dialog('close');
@@ -339,6 +342,31 @@
             jQuery('#grouping-jigsaw-screen').removeClass('hidden');
           }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+        } else if (jQuery(this).hasClass('goto-group-contribution-btn')) {
+          app.hideAllContainers();
+          jQuery('#group-contribution-nav-btn').removeClass('hidden');
+          jQuery('#final-report-nav-btn').removeClass('hidden');
+          jQuery('#group-contribution-nav-btn').addClass('active');
+          jQuery('#final-report-screen').removeClass('hidden');
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#contribution-nav-btn').addClass('hidden');
+        } else if (jQuery(this).hasClass('goto-final-report-btn')) {
+          app.hideAllContainers();
+          jQuery('#group-contribution-nav-btn').removeClass('hidden');
+          jQuery('#final-report-nav-btn').removeClass('hidden');
+          jQuery('#final-report-nav-btn').addClass('active');
+          jQuery('#final-report-display-screen').removeClass('hidden');
+          jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#contribution-nav-btn').addClass('hidden');
+          // this is analogous to "group_colour":"class"
+          var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
+          if (app.finalReportDisplayView === null) {
+            app.finalReportDisplayView = new app.View.FinalReportDisplayView({
+              el: '#final-report-display-screen',
+              model: report
+            });
+          }
+          app.finalReportDisplayView.render();
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
           jQuery('#progress-nav-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {

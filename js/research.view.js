@@ -63,6 +63,8 @@
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#grouping-nav-btn').addClass('hidden');
+      jQuery('#group-contribution-nav-btn').addClass('hidden');
+      jQuery('#final-report-nav-btn').addClass('hidden');
       // STUDENT
       if (app.teacherFlag === false) {
         jQuery('#contribution-nav-btn').addClass('active');
@@ -138,20 +140,9 @@
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#final-report-screen').removeClass('hidden');
-            // var myGroup = app.getMyGroup(app.username, "review3");
-            // var report = null;
-            // if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
-            //   report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
-            // } else {
-            //   // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-            //   report = new Model.Report();
-            //   report.set('group_colour', myGroup.get('colour'));
-            //   report.set('lesson', 'review3');
-            //   report.set('parts', app.report.parts);      // TODO
-            //   report.set('pdf', app.report.pdf);
-            //   report.save();
-            //   Skeletor.Model.awake.reports.add(report);
-            // }
+            jQuery('#group-contribution-nav-btn').removeClass('hidden');
+            jQuery('#final-report-nav-btn').removeClass('hidden');
+            jQuery('#group-contribution-nav-btn').addClass('active');
 
             if (app.finalReportView === null) {
               app.finalReportView = new app.View.FinalReportView({
@@ -159,8 +150,7 @@
                 model: Skeletor.Model.awake.reports.findWhere({'group_colour':'class'})
               });
             }
-
-            // DO NOT RENDER
+            // DO NOT RENDER!!
             // app.finalReportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
@@ -2700,6 +2690,77 @@
       view.renderDropdowns();
 
       view.checkForAllowedToProceed();
+    }
+  });
+
+
+
+
+  /***********************************************************
+   ***********************************************************
+   *************** FINAL REPORT DISPLAY VIEW *****************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.FinalReportDisplayView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing FinalReportDisplayView...');
+
+      view.model.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click img' : 'openImgModal'
+    },
+
+    openImgModal: function(ev) {
+      var view = this;
+      var url = jQuery(ev.target).attr('src');
+      jQuery('#final-report-display-modal .photo-content').attr('src', url);
+      jQuery('#final-report-display-modal').modal({keyboard: true, backdrop: true});
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering FinalReportDisplayView...");
+
+      jQuery('#final-report-display-container').html('');
+      var reportEl = '';
+      _.each(view.model.get('parts'), function(part) {
+        // only add text chunks for things the students have written (not intro stuff)
+        if (part.kind === 'write') {
+
+          // add the part title
+          reportEl += '<p><h2>' + part.name + '</h2>';
+
+          // add a thumbnail if it exists
+          if (part.thumbnail.length > 0) {
+            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
+          }
+          reportEl += '</p>'
+
+          // add the text entries
+          _.each(part.entries, function(entry) {
+            reportEl += '<p>' + entry + '</p>';
+          })
+
+          // if there are tags, add them
+          if (part.tags && part.tags.length > 0) {
+            reportEl += '<p><b>Related terms from this unit:</b> ';
+            _.each(part.tags, function(tag) {
+              reportEl += tag;
+              reportEl += ', ';
+            });
+            reportEl = reportEl.slice(0,-2);
+            reportEl += '</p>';
+          }
+        }
+      });
+
+      jQuery('#final-report-display-container').append(reportEl);
     }
   });
 
