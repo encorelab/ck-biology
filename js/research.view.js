@@ -989,7 +989,7 @@
       console.log("Rendering TeacherFinalReportView...");
 
       jQuery('#teacher-final-report-container').html('');
-      var reportEl = '';
+      var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
@@ -2738,7 +2738,7 @@
       console.log("Rendering FinalReportDisplayView...");
 
       jQuery('#final-report-display-container').html('');
-      var reportEl = '';
+      var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
