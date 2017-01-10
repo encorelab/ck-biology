@@ -42,10 +42,7 @@
         bv.$el.zIndex(term.get('z-index'));
       });
 
-      // NB: Meagan, if terms do not yet have a position,
-      // uncomment wall.assignRandomPosition below to create them
-      // (then recomment when done)
-      // testing this again... careful!
+      // PROD: disable me for no drag
       if (term.hasPos()) {
          bv.pos = term.getPos();
       } else {
@@ -56,6 +53,7 @@
         bv.$el.zIndex(term.get('z-index'));
       }
 
+      // PROD: disable me for no drag
       wall.makeBalloonDraggable(term, bv);
       // trying this out to get rid of the issue where closed terms jump in front opened terms
       // bv.$el.click(function() {
