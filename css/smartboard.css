@@ -28,6 +28,7 @@ body {
   /* height: 740px; */
 }
 
+/*** TODO: this should prolly be deleted before next project - affects too many elements ***/
 button {
   display: inline-block;
   border: none;
