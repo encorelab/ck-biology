@@ -1076,6 +1076,10 @@ textarea {
     font-size: 10px;
 }
 
+#report-screen .modal-header {
+    height: 42px;
+}
+
 #pdf-modal-btn {
     float: right;
     font-size: 2.8em;
@@ -1083,6 +1087,7 @@ textarea {
 }
 #report-pdf-content {
     width: 100%;
+    height: 350px;
 }
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
