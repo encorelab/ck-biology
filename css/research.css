@@ -7,7 +7,8 @@ body {
 
 h1 {
     font-size: 3em;
-    font-weight: 700;
+    /* font-weight: 700; */
+    font-weight: 500;
     margin: 25px 0 20px;
     /* color: #444; */
     /* text-align: center; */
@@ -390,6 +391,9 @@ textarea {
     color: white;
     font-size: 20px;
     margin: 5px;
+}
+#grouping-jigsaw-screen .student-grouping-button {
+    padding-top: 4px !important;
 }
 
 #grouping-screen .group-container,
@@ -1204,6 +1208,9 @@ textarea {
     font-weight: 500;
 }
 
+#final-report-display-screen .modal-header .close {
+    margin-top: -10px;
+}
 
 
 /********** GLOBAL **********/
