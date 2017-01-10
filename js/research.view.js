@@ -144,10 +144,12 @@
             jQuery('#final-report-nav-btn').removeClass('hidden');
             jQuery('#group-contribution-nav-btn').addClass('active');
 
+            var report = Skeletor.Model.awake.reports.findWhere({'group_colour':'class'});
+            report.wake(app.config.wakeful.url);
             if (app.finalReportView === null) {
               app.finalReportView = new app.View.FinalReportView({
                 el: '#final-report-screen',
-                model: Skeletor.Model.awake.reports.findWhere({'group_colour':'class'})
+                model: report
               });
             }
             // DO NOT RENDER!!
@@ -2505,7 +2507,9 @@
     events: {
       'click #final-report-step-forward-btn' : 'stepForward',
       'keyup textarea'                       : 'checkForAllowedToProceed',
-      'mouseover .multiselect-container li'  : 'showTermPopover'
+      'mouseover .multiselect-container li'  : 'showTermPopover',
+      // unique unit-specific functionality
+      'click .unit3-view-sequence-btn'       : 'unit3ViewSequence',
     },
 
     stepForward: function() {
@@ -2523,6 +2527,7 @@
          jQuery('#final-report-terms-terms-container').html('');
          jQuery('#final-report-terms-explanation-pane').addClass('hidden');
          jQuery('#final-report-terms-selected-container').html('');
+         //jQuery('#final-report-step-forward-btn').addClass('hidden');
 
          jQuery('#final-report-content-container').html('<h1>Thank you for completing you submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
        }
@@ -2605,6 +2610,11 @@
         jQuery('#final-report-terms-explanation-pane').html('');
         app.buildTermView('#final-report-terms-explanation-pane', jQuery(ev.target).find('input').val());
       }
+    },
+
+    // UNIT 3 SPECIFIC
+    unit3ViewSequence: function() {
+      jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
     },
 
     renderTerms: function(containerNum, values) {

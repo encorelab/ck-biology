@@ -20,7 +20,7 @@ Skeletor.Mobile.report = {
       "thumbnail": "",
       "html": `
         <h2>Research Proposal</h2>
-        <object id="attach-terms-pdf-content" type="application/pdf" data="reports/pdfs/bovine_methane_proposal.pdf?#zoom=80&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>`
+        <object id="attach-terms-pdf-content" type="application/pdf" data="reports/pdfs/bovine_methane_proposal.pdf?#zoom=90&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>`
     },
     {
       "number": 3,
@@ -39,7 +39,7 @@ Skeletor.Mobile.report = {
       "thumbnail": "reports/imgs/pmo_genes.png",
       "html": `
         <h2>Part 1: Representation of the <i>pmoCAB</i> Operon</h2>
-        <p>Which diagram would you choose as the most useful and accurate depiction of the arrangement of the genes in the chromosome of <i>M. capsulatus</i>? In the text box below, indicate the letter of your chosen diagram and give reasons to support your choice.</p>
+        <p>Which diagram would you choose as the most useful and accurate depiction of the arrangement of the genes in the pmoCAB operon of <i>M. capsulatus</i>? In the text box below, indicate the letter of your chosen diagram and give reasons to support your choice.</p>
         <img src="reports/imgs/pmo_genes.png"></img>
         <textarea placeholder="Enter your text here"></textarea>`
     },
@@ -96,7 +96,7 @@ Skeletor.Mobile.report = {
           <li>2. Next, find the correct sequence for the pmoCAB operon from <a href="http://www.ncbi.nlm.nih.gov/nuccore/14456718" target="_blank">http://www.ncbi.nlm.nih.gov/nuccore/14456718</a>. Copy this sequence and paste it into the Subject Sequence box on the global alignment form.</li>
           <li>3. Run the BLAST comparison (click the "Align" button).  On the BLAST results page, select "formatting options" and choose the alignment view “Pairwise with dots for identities" then click "Reformat."</li>
         </ul>
-        <p>Describe the differences/non-alignments found in the BLAST comparison: 1593</p>
+        <p>Describe the differences/non-alignments found in the BLAST comparison:</p>
         <textarea placeholder="Enter your text here"></textarea>
         <p>If the nucleotides in the gene were changed as indicated in the mistake sequence, what type of mutation would this be?</p>
         <textarea placeholder="Enter your text here"></textarea>
