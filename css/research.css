@@ -7,7 +7,8 @@ body {
 
 h1 {
     font-size: 3em;
-    font-weight: 700;
+    /* font-weight: 700; */
+    font-weight: 500;
     margin: 25px 0 20px;
     /* color: #444; */
     /* text-align: center; */
@@ -390,6 +391,9 @@ textarea {
     color: white;
     font-size: 20px;
     margin: 5px;
+}
+#grouping-jigsaw-screen .student-grouping-button {
+    padding-top: 4px !important;
 }
 
 #grouping-screen .group-container,
@@ -1058,8 +1062,9 @@ textarea {
     width: 100%;
 }
 #report-screen li {
-    margin-left: 40px;
-    margin-top: 5px;
+/*     margin-left: 40px;
+    margin-top: 5px; */
+    margin: 8px;
 }
 #report-screen button {
     font-size: 11px;
@@ -1072,6 +1077,10 @@ textarea {
     font-size: 10px;
 }
 
+#report-screen .modal-header {
+    height: 42px;
+}
+
 #pdf-modal-btn {
     float: right;
     font-size: 2.8em;
@@ -1079,6 +1088,7 @@ textarea {
 }
 #report-pdf-content {
     width: 100%;
+    height: 350px;
 }
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
@@ -1115,14 +1125,22 @@ textarea {
     height: 640px;
 }
 
-#report-content-container img {
+#report-content-container img,
+#final-report-content-container img {
     margin-bottom: 25px;
 }
-#report-content-container textarea {
+#report-content-container textarea,
+#final-report-content-container textarea {
     margin-bottom: 20px;
 }
-#report-content-container ul {
+#report-content-container ul,
+#final-report-content-container ul {
     margin-bottom: 15px;
+}
+#report-content-container li,
+#final-report-content-container li {
+    /* line-height: 2em; */
+    margin: 8px;
 }
 
 #view-sequence-modal ul {
@@ -1132,9 +1150,15 @@ textarea {
     font-size: 1.1em;
 }
 
-#report-screen .unit3-view-sequence-btn {
+#report-screen .unit3-view-sequence-btn,
+#final-report-screen .unit3-view-sequence-btn {
     font-size: 14px;
     margin-left: 15px;
+    background-color: #34495E;
+}
+#report-screen .unit3-view-sequence-btn:hover,
+#final-report-screen .unit3-view-sequence-btn:hover {
+    background-color: #517394;
 }
 #report-screen .modal-header .close {
     font-size: 16px;
@@ -1152,18 +1176,49 @@ textarea {
 }
 
 
-/* FINAL REPORT */
+/*** FINAL REPORT ***/
+#final-report-terms-terms-container {
+    width: 55%;
+    float: left;
+}
+#final-report-terms-terms-container h2 {
+    line-height: 1.3em;
+}
+#final-report-terms-terms-container .btn-group {
+    margin-right: 25px;
+}
+
 #final-report-terms-explanation-pane {
-    margin-left: 2.5%;
-    float: right;
+    margin: 25px 0 25px 2.5%;
+    float: left;
     width: 25%;
     height: 350px;
     border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
+#final-report-terms-selected-container {
+    margin: 25px 0 25px 2.5%;
+    float: left;
+    width: 15%;
+    height: 350px;
+    line-height: 2.2em;
+    overflow-y: scroll;
+}
+#final-report-terms-selected-container .terms-container div {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #7F8C8D;
+}
+#final-report-screen h1 {
+    font-weight: 500;
+}
 
-
+#final-report-display-screen .modal-header .close,
+#teacher-final-report-screen .modal-header .close {
+    margin-top: -10px;
+    padding: 0 !important;
+}
 
 
 /********** GLOBAL **********/
