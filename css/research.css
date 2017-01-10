@@ -1208,8 +1208,10 @@ textarea {
     font-weight: 500;
 }
 
-#final-report-display-screen .modal-header .close {
+#final-report-display-screen .modal-header .close,
+#teacher-final-report-screen .modal-header .close {
     margin-top: -10px;
+    padding: 0 !important;
 }
 
 
