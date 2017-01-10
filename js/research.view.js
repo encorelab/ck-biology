@@ -2669,7 +2669,7 @@
       // create the html
       jQuery('#final-report-content-container').append(app.finalReportPart.html);
       // remove all text areas
-      jQuery('#final-report-content-container textarea').before("Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below");
+      jQuery('#final-report-content-container textarea').before("<p>Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below</p>");
 
       var otherReportsEl = '<h2>Group Report Responses:</h2>';
       _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {

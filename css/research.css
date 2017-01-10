@@ -1115,14 +1115,21 @@ textarea {
     height: 640px;
 }
 
-#report-content-container img {
+#report-content-container img,
+#final-report-content-container img {
     margin-bottom: 25px;
 }
-#report-content-container textarea {
+#report-content-container textarea,
+#final-report-content-container textarea {
     margin-bottom: 20px;
 }
-#report-content-container ul {
+#report-content-container ul,
+#final-report-content-container ul {
     margin-bottom: 15px;
+}
+#report-content-container li,
+#final-report-content-container li {
+    line-height: 2em;
 }
 
 #view-sequence-modal ul {
@@ -1132,9 +1139,15 @@ textarea {
     font-size: 1.1em;
 }
 
-#report-screen .unit3-view-sequence-btn {
+#report-screen .unit3-view-sequence-btn,
+#final-report-screen .unit3-view-sequence-btn {
     font-size: 14px;
     margin-left: 15px;
+    background-color: #34495E;
+}
+#report-screen .unit3-view-sequence-btn:hover,
+#final-report-screen .unit3-view-sequence-btn:hover {
+    background-color: #517394;
 }
 #report-screen .modal-header .close {
     font-size: 16px;
@@ -1152,17 +1165,40 @@ textarea {
 }
 
 
-/* FINAL REPORT */
+/*** FINAL REPORT ***/
+#final-report-terms-terms-container {
+    width: 55%;
+    float: left;
+}
+#final-report-terms-terms-container h2 {
+    line-height: 1.3em;
+}
+#final-report-terms-terms-container .btn-group {
+    margin-right: 25px;
+}
+
 #final-report-terms-explanation-pane {
-    margin-left: 2.5%;
-    float: right;
+    margin: 25px 0 25px 2.5%;
+    float: left;
     width: 25%;
     height: 350px;
     border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
-
+#final-report-terms-selected-container {
+    margin: 25px 0 25px 2.5%;
+    float: left;
+    width: 15%;
+    height: 350px;
+    line-height: 2.2em;
+    overflow-y: scroll;
+}
+#final-report-terms-selected-container .terms-container div {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #7F8C8D;
+}
 
 
 
