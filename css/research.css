@@ -1220,7 +1220,7 @@ textarea {
     text-align: center;
     margin-top: 3em;
 }
-#final-report-content-container p {
+#final-report-content-container h1 + p {
     text-align: center;
     font-size: 1.5em;
     margin: 2em;
