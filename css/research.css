@@ -1177,6 +1177,11 @@ textarea {
 
 
 /*** FINAL REPORT ***/
+#final-report-my-team {
+    display: inline-block;
+    border-bottom: 1px dotted #ccc;
+    font-size: 2em;
+}
 #final-report-terms-terms-container {
     width: 55%;
     float: left;
