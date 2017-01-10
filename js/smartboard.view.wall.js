@@ -42,21 +42,19 @@
         bv.$el.zIndex(term.get('z-index'));
       });
 
-      // NB: Meagan, if terms do not yet have a position,
-      // uncomment wall.assignRandomPosition below to create them
-      // (then recomment when done)
-      // testing this again... careful!
-      if (term.hasPos()) {
-         bv.pos = term.getPos();
-      } else {
-        wall.assignRandomPositionToBalloon(term, bv);
-      }
+      // PROD: disable me for no drag
+      // if (term.hasPos()) {
+      //    bv.pos = term.getPos();
+      // } else {
+      //   wall.assignRandomPositionToBalloon(term, bv);
+      // }
 
       if (term.has('z-index')) {
         bv.$el.zIndex(term.get('z-index'));
       }
 
-      wall.makeBalloonDraggable(term, bv);
+      // PROD: disable me for no drag
+      // wall.makeBalloonDraggable(term, bv);
       // trying this out to get rid of the issue where closed terms jump in front opened terms
       // bv.$el.click(function() {
       //   wall.moveBalloonToTop(term, bv);
