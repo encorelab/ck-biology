@@ -2529,7 +2529,7 @@
          jQuery('#final-report-terms-selected-container').html('');
          //jQuery('#final-report-step-forward-btn').addClass('hidden');
 
-         jQuery('#final-report-content-container').html('<h1>Thank you for completing you submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
+         jQuery('#final-report-content-container').html('<h1>Thank you for completing your submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
        }
     },
 
