@@ -1062,8 +1062,9 @@ textarea {
     width: 100%;
 }
 #report-screen li {
-    margin-left: 40px;
-    margin-top: 5px;
+/*     margin-left: 40px;
+    margin-top: 5px; */
+    margin: 8px;
 }
 #report-screen button {
     font-size: 11px;
