@@ -1232,6 +1232,11 @@ textarea {
     padding: 0 !important;
 }
 
+#final-report-display-container,
+#teacher-final-report-container {
+    margin-bottom: 100px;
+}
+
 
 /********** GLOBAL **********/
 
