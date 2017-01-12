@@ -386,7 +386,7 @@ textarea {
 #grouping-screen .groups-container,
 #grouping-jigsaw-screen .groups-container {
     width: 100%;
-    margin: 20px;
+    margin: 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -399,6 +399,9 @@ textarea {
     font-size: 20px;
     margin: 5px;
     padding-top: 4px !important;
+}
+#grouping-screen .students-container .student-grouping-button {
+    padding-top: 9px !important;
 }
 
 #grouping-screen .group-container,
