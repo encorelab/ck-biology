@@ -63,7 +63,8 @@ textarea {
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%); */
     padding: 0 20px;
-    min-width: 960px;
+    /* min-width: 960px; */
+    min-width: 850px;
 }
 .inner-inner-wrapper {
     width: 100%;
@@ -827,6 +828,10 @@ textarea {
 
 
 /** EXPLAIN TERMS SCREEN **/
+#explain-terms-screen .inner-wrapper {
+    margin-top: 100px;
+}
+
 #explain-terms-img-container {
     display: inline-block;
     margin-right: 5%;
@@ -834,8 +839,8 @@ textarea {
 }
 
 #explain-terms-img-container img {
-    /* width: 300px; */
-    height: 500px;
+    width: 100%;
+    height: auto;
     border: 1px solid #7F8C8D;
 }
 
@@ -980,6 +985,10 @@ textarea {
 
 
 /****** GROUP NEGOTIATE SCREEN ********/
+#group-negotiate-terms-screen .inner-wrapper {
+    margin-top: 100px;
+}
+
 #group-negotiate-terms-screen select {
     margin-bottom: 50px;
     display: block;
@@ -987,17 +996,17 @@ textarea {
 #group-negotiate-terms-img-container {
     display: inline-block;
     margin-right: 5%;
-    max-width: 40%;
+    width: 35%;
 }
 #group-negotiate-terms-img-container img {
-    /* width: 300px; */
-    height: 500px;
+    width: 100%;
+    height: auto;
     border: 1px solid #7F8C8D;
 }
 #group-negotiate-terms-terms-container {
     /* display: inline-block; */
     float: right;
-    max-width: 60%;
+    width: 60%;
     padding-top: 25px;
 }
 .group-negotiate-term-btn {
@@ -1543,7 +1552,12 @@ input:disabled {
 
 
 
-
+/** hacks for ck-biology **/
+@media all and (max-width: 930px) {
+    .home-progress-container {
+        margin-left: 0px;
+    }
+}
 
 
 
