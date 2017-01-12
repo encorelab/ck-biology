@@ -344,6 +344,12 @@ textarea {
     font-weight: 500;
     color: #34495e;
 }
+#grouping-screen .btn,
+#grouping-jigsaw-screen .btn,
+#grouping-screen .fa,
+#grouping-jigsaw-screen .fa {
+    background: #777777;                 /* this needed to be darker for smartboard screens */
+}
 #grouping-screen .fa-plus-square,
 #grouping-jigsaw-screen .fa-plus-square {
     padding: 2px 4px !important;
@@ -398,7 +404,7 @@ textarea {
 
 #grouping-screen .group-container,
 #grouping-jigsaw-screen .group-container {
-    min-height: 85px;
+    min-height: 360px;
     width: 220px;
     border: 1px solid #34495e;
     margin: 20px;
@@ -502,6 +508,9 @@ textarea {
 #final-report-display-screen h2 {
     display: inline-block;
     margin-bottom: 5px;
+}
+#close-teacher-report-view-btn {
+    background: #777777;                 /* this needed to be darker for smartboard screens */
 }
 #teacher-report-screen .thumb,
 #teacher-final-report-screen .thumb,
