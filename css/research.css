@@ -1044,6 +1044,7 @@ textarea {
     background: #ECF0F1;
     margin-bottom: 20px;
     padding: 15px;
+    min-height: 70px;
 }
 
 #confirm-add-term-modal,
