@@ -797,35 +797,57 @@ textarea {
     float: left;
     /* width: 497px; */
     /* width: 650px; */
-    width: 25%;
-    height: 350px;
+    width: 20%;
+    height: auto;
+    min-height: 350px;
     border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
 
 #attach-terms-selected-container {
-    margin-left: 2.5%;
-    float: left;
-    width: 20%;
-    height: 350px;
+    clear: left;
+    /* margin-left: 2.5%; */
+    /* float: left; */
+    width: 50%;
+    /* height: 350px; */
     line-height: 2.2em;
     overflow-y: scroll;
+    position: absolute;
+    top: 550px;
+    left: 50px;
 }
 
 #attach-terms-selected-container .terms-container div {
     font-size: 1.1em;
     font-weight: bold;
     color: #7F8C8D;
+    display: inline-block;
+    margin-right: 25px;
 }
 
 #attach-terms-terms-container {
-    clear: both;
+    margin-left: 2.5%;
+    float: left;
+    width: 25%;
 }
 
 #attach-terms-terms-container .btn-group {
     margin-right: 25px;
+    width: 100%;
 }
+
+#attach-terms-terms-container .btn-group button {
+    width: 100%;
+    height: auto;
+}
+#attach-terms-terms-container span {
+    white-space: normal;
+}
+
+/* .lesson-dropdown label:hover #attach-terms-explanation-pane {
+    z-index: 9999;
+} */
 
 
 /** EXPLAIN TERMS SCREEN **/
