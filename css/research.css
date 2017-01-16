@@ -785,18 +785,14 @@ textarea {
 }
 
 #attach-terms-pdf-content {
-    /* width: 497px; */
     width: 100%;
-    /* margin-right: 5%; */
-    height: 350px;
+    height: 600px;
     border: 1px solid #34495e;
 }
 
 #attach-terms-explanation-pane {
     margin-left: 2.5%;
     float: left;
-    /* width: 497px; */
-    /* width: 650px; */
     width: 20%;
     height: auto;
     min-height: 350px;
@@ -809,13 +805,13 @@ textarea {
     clear: left;
     /* margin-left: 2.5%; */
     /* float: left; */
-    width: 50%;
+    width: 170px;
     /* height: 350px; */
     line-height: 2.2em;
     overflow-y: scroll;
     position: absolute;
     top: 550px;
-    left: 50px;
+    right: 120px;
 }
 
 #attach-terms-selected-container .terms-container div {
@@ -823,7 +819,7 @@ textarea {
     font-weight: bold;
     color: #7F8C8D;
     display: inline-block;
-    margin-right: 25px;
+    margin-right: 50px;
 }
 
 #attach-terms-terms-container {
@@ -843,6 +839,12 @@ textarea {
 }
 #attach-terms-terms-container span {
     white-space: normal;
+}
+
+.submit-attached-terms-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
 /* .lesson-dropdown label:hover #attach-terms-explanation-pane {
