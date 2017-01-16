@@ -2349,6 +2349,7 @@
       var view = this;
 
       view.updateReport();
+      view.submitBackups();
 
       // if we're not at the end of the report
       if (app.currentReportPage < view.model.get('parts').length) {
@@ -2400,6 +2401,21 @@
       });
       view.model.setEntries(app.currentReportPage, inputs);
       view.model.save();
+    },
+
+    submitBackups: function() {
+      var contentArr = [];
+      jQuery('#report-content-container textarea').each(function(index, el) {
+        contentArr.push(jQuery(el).val())
+      });
+      if (contentArr.length > 0) {
+        var sub = new Model.Submission();
+        sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
+        sub.set('lesson', 'review3');
+        sub.set('user', app.username);
+        sub.set('content', contentArr);
+        sub.save();
+      }
     },
 
     render: function() {
@@ -2516,6 +2532,7 @@
       var view = this;
 
       view.updateReport();
+      view.submitBackups();
       view.setNextAvailablePart();
 
       if (app.finalReportPart) {
@@ -2578,6 +2595,21 @@
         partsArr[app.finalReportPart.number-1].complete = true;
         view.model.set('parts', partsArr);
         view.model.save();
+      }
+    },
+
+    submitBackups: function() {
+      var contentArr = [];
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        contentArr.push(jQuery(el).val())
+      });
+      if (contentArr.length > 0) {
+        var sub = new Model.Submission();
+        sub.set('group_colour', app.getMyGroup(app.username, "review4").get('colour'));
+        sub.set('lesson', 'review4');
+        sub.set('user', app.username);
+        sub.set('content', contentArr);
+        sub.save();
       }
     },
 
