@@ -2412,6 +2412,7 @@
         var sub = new Model.Submission();
         sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
         sub.set('lesson', 'review3');
+        sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);
         sub.set('content', contentArr);
         sub.save();
@@ -2607,6 +2608,7 @@
         var sub = new Model.Submission();
         sub.set('group_colour', app.getMyGroup(app.username, "review4").get('colour'));
         sub.set('lesson', 'review4');
+        sub.set('part_number', app.finalReportPart.number);
         sub.set('user', app.username);
         sub.set('content', contentArr);
         sub.save();
