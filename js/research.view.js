@@ -1907,10 +1907,12 @@
       var view = this;
       console.log("Rendering ExplainTermsView...");
 
-      jQuery('#explain-terms-img-container').html('');
+      jQuery('#explain-terms-pdf-container').html('');
       jQuery('#explain-terms-terms-container').html('');
 
-      jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+      //jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
+      var objEl = '<object id="explain-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=82&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      jQuery('#explain-terms-pdf-container').html(objEl);
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
       _.each(myTermsArr, function(term, index) {

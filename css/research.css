@@ -857,22 +857,21 @@ textarea {
     margin-top: 100px;
 }
 
-#explain-terms-img-container {
-    display: inline-block;
-    margin-right: 5%;
-    width: 35%;
+#explain-terms-pdf-container {
+    margin-bottom: 25px;
+    float: left;
+    width: 65%;
 }
 
-#explain-terms-img-container img {
+#explain-terms-pdf-content {
     width: 100%;
-    height: auto;
-    border: 1px solid #7F8C8D;
+    height: 650px;
+    border: 1px solid #34495e;
 }
 
 #explain-terms-terms-container {
-    /* display: inline-block; */
     float: right;
-    width: 60%;
+    width: 30%;
     padding-top: 25px;
 }
 
@@ -885,6 +884,12 @@ textarea {
     background-color: #34495E;
     margin-right: 5%;
     margin-bottom: 50px;
+}
+
+#explain-terms-screen .submit-annotated-article-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
 }
 
 
