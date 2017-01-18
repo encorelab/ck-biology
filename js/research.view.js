@@ -113,6 +113,7 @@
               report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
             } else {
               // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
+              // TODO for unit 4 - create report when group is created, but don't delete when group is deleted
               report = new Model.Report();
               report.set('group_colour', myGroup.get('colour'));
               report.set('lesson', 'review3');
