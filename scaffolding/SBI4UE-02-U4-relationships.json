@@ -1,0 +1,6821 @@
+[
+{
+"from": "adipose tissue",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "blood",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "bone",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cardiac muscle",
+"link": "is a type of",
+"to": "muscle tissue",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cartilage",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "collagenous fiber",
+"link": "contains",
+"to": "collagen",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "collagenous fiber",
+"link": "is a type of",
+"to": "connective tissue fiber",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "connective tissue",
+"link": "is a type of",
+"to": "tissue",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "connective tissue",
+"link": "contains",
+"to": "connective tissue fiber",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "dense irregular connective tissue",
+"link": "is a type of",
+"to": "fibrous connective tissue",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "dense regular connective tissue",
+"link": "is a type of",
+"to": "fibrous connective tissue",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "elastic fiber",
+"link": "is a type of",
+"to": "connective tissue fiber",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "elastic fiber",
+"link": "contains",
+"to": "elastin",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine gland",
+"link": "contains",
+"to": "glandular epithelium",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine system",
+"link": "contains",
+"to": "endocrine gland",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epithelial tissue",
+"link": "contains",
+"to": "basement membrane",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epithelial tissue",
+"link": "is a type of",
+"to": "tissue",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "exocrine gland",
+"link": "contains",
+"to": "glandular epithelium",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "fibrous connective tissue",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "functional anatomy",
+"link": "contains",
+"to": "anatomy",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "functional anatomy",
+"link": "contains",
+"to": "physiology",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "functional anatomy",
+"link": "contains",
+"to": "organ system",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "functional anatomy",
+"link": "is controlled by",
+"to": "homeostasis",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glandular epithelium",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homeostasis",
+"link": "contains",
+"to": "homeostatic control system",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homeostatic control system",
+"link": "contains",
+"to": "control center",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homeostatic control system",
+"link": "contains",
+"to": "receptor",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homeostatic control system",
+"link": "contains",
+"to": "effector",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ligament",
+"link": "is a type of",
+"to": "dense regular connective tissue",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "loose connective tissue",
+"link": "is a type of",
+"to": "connective tissue",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "loose connective tissue",
+"link": "contains",
+"to": "fibroblast",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "loose connective tissue",
+"link": "contains",
+"to": "macrophage",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "muscle tissue",
+"link": "is a type of",
+"to": "tissue",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "negative feedback",
+"link": "is a type of",
+"to": "homeostatic control system",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "negative feedback",
+"link": "is a type of",
+"to": "feedback loop",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous system",
+"link": "contains",
+"to": "nervous tissue",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous tissue",
+"link": "contains",
+"to": "neurons",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous tissue",
+"link": "contains",
+"to": "glia",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous tissue",
+"link": "is a type of",
+"to": "tissue",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "organ",
+"link": "contains",
+"to": "tissue",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "organ system",
+"link": "contains",
+"to": "organ",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "organ system",
+"link": "is controlled by",
+"to": "endocrine system",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "organ system",
+"link": "is controlled by",
+"to": "nervous system",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "positive feedback",
+"link": "is a type of",
+"to": "homeostatic control system",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "positive feedback",
+"link": "is a type of",
+"to": "feedback loop",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pseudostratified columnar",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reticular fiber",
+"link": "contains",
+"to": "collagen",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reticular fiber",
+"link": "is a type of",
+"to": "connective tissue fiber",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "simple columnar",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "simple cuboidal",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "simple squamous",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "smooth muscle",
+"link": "is a type of",
+"to": "muscle tissue",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stratified cuboidal",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stratified squamous",
+"link": "is a type of",
+"to": "epithelial tissue",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "striated (skeletal) muscle",
+"link": "is a type of",
+"to": "muscle tissue",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tendon",
+"link": "is a type of",
+"to": "dense regular connective tissue",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "tissue",
+"link": "contains",
+"to": "specialized cell",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "acclimatization",
+"link": "is a type of",
+"to": "thermoregulation",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "basal metabolic rate (BMR)",
+"link": "is a type of",
+"to": "metabolic rate",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "behavioural response",
+"link": "is a type of",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "bioenergetics",
+"link": "contains",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "circulatory adaptation",
+"link": "is a type of",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "counter-current heat exchange",
+"link": "is a type of",
+"to": "circulatory adaptation",
+"lesson": 2,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ectotherm",
+"link": "is a type of",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ectotherm",
+"link": "contains",
+"to": "standard metabolic rate (SMR)",
+"lesson": 2,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endotherm",
+"link": "is a type of",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endotherm",
+"link": "contains",
+"to": "basal metabolic rate (BMR)",
+"lesson": 2,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "estivation",
+"link": "is a type of",
+"to": "behavioural response",
+"lesson": 2,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "evaporative loss",
+"link": "is a type of",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "fever",
+"link": "is a type of",
+"to": "thermoregulation",
+"lesson": 2,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hibernation",
+"link": "is a type of",
+"to": "behavioural response",
+"lesson": 2,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homeotherm",
+"link": "is a type of",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insulation",
+"link": "is a type of",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kleptothermy",
+"link": "is a type of",
+"to": "behavioural response",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic heat production",
+"link": "is a type of",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "poikilotherm",
+"link": "is a type of",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "regulator",
+"link": "is controlled by",
+"to": "homeostasis",
+"lesson": 2,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "standard metabolic rate (SMR)",
+"link": "is a type of",
+"to": "metabolic rate",
+"lesson": 2,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "contains",
+"to": "bioenergetic strategy",
+"lesson": 2,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "maintains",
+"to": "normal body temperature",
+"lesson": 2,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "is a type of",
+"to": "homeostasis",
+"lesson": 2,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "prevents",
+"to": "hyperthermia",
+"lesson": 2,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "prevents",
+"to": "hypothermia",
+"lesson": 2,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "is controlled by",
+"to": "hypothalamus",
+"lesson": 2,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thermoregulation",
+"link": "is controlled by",
+"to": "adaptation",
+"lesson": 2,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "torpor",
+"link": "is a type of",
+"to": "behavioural response",
+"lesson": 2,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vasoconstriction",
+"link": "is a type of",
+"to": "circulatory adaptation",
+"lesson": 2,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vasodilation",
+"link": "is a type of",
+"to": "circulatory adaptation",
+"lesson": 2,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "active immunity",
+"link": "is a type of",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adaptive immune system",
+"link": "contains",
+"to": "specific defense mechanism",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "agglutination",
+"link": "is a type of",
+"to": "antigen disposal mechanism",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "agglutination",
+"link": "enhances",
+"to": "phagocytosis",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "AIDS",
+"link": "is a type of",
+"to": "immunodeficiency disease",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "allergy",
+"link": "is caused by",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anaphylactic shock",
+"link": "is caused by",
+"to": "allergy",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antibody",
+"link": "is a type of",
+"to": "immunoglobulin",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen",
+"link": "contains",
+"to": "antigen fragment",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen fragment",
+"link": "binds to",
+"to": "MHC glycoprotein",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen neutralization",
+"link": "is a type of",
+"to": "antigen disposal mechanism",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen neutralization",
+"link": "enhances",
+"to": "phagocytosis",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen precipitation",
+"link": "is a type of",
+"to": "antigen disposal mechanism",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen precipitation",
+"link": "enhances",
+"to": "phagocytosis",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen presenting cell",
+"link": "contains",
+"to": "antigen",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen presenting cell",
+"link": "contains",
+"to": "class II MHC molecule",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen-antibody complex",
+"link": "contains",
+"to": "epitope",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen-antibody complex",
+"link": "contains",
+"to": "antibody",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antigen-antibody complex",
+"link": "performs",
+"to": "antigen disposal mechanism",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "antimicrobial protein",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "artificial immunity",
+"link": "is a type of",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autoimmune disease",
+"link": "affects",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "contains",
+"to": "class II MHC molecule",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "is a type of",
+"to": "antigen presenting cell",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "produces",
+"to": "memory B cell",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "produces",
+"to": "plasma cell",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "binds to",
+"to": "helper T cell",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "B cell",
+"link": "is a type of",
+"to": "lymphocyte",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "basophil",
+"link": "is a type of",
+"to": "leukocyte",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cell-mediated response",
+"link": "is a type of",
+"to": "specific defense mechanism",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cell-mediated response",
+"link": "contains",
+"to": "cytotoxic T cell",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chemokine",
+"link": "attracts",
+"to": "phagocytic cell",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "class I MHC molecule",
+"link": "is a type of",
+"to": "MHC glycoprotein",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "class I MHC molecule",
+"link": "binds to",
+"to": "cytotoxic T cell",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "class II MHC molecule",
+"link": "binds to",
+"to": "helper T cell",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "class II MHC molecule",
+"link": "is a type of",
+"to": "MHC glycoprotein",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "complement fixation",
+"link": "is a type of",
+"to": "antigen disposal mechanism",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "complement protein",
+"link": "is a type of",
+"to": "antimicrobial protein",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cytotoxic T cell",
+"link": "contains",
+"to": "CD8 protein",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cytotoxic T cell",
+"link": "is a type of",
+"to": "T cell",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cytotoxic T cell",
+"link": "contains",
+"to": "perforin",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "eosinophil",
+"link": "is a type of",
+"to": "leukocyte",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epitope",
+"link": "binds to",
+"to": "B cell",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "free antigen",
+"link": "is a type of",
+"to": "antigen",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "free antigen",
+"link": "contains",
+"to": "epitope",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "stimulates",
+"to": "B cell",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "stimulates",
+"to": "cytotoxic T cell",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "is a type of",
+"to": "T cell",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "contains",
+"to": "CD4 protein",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "contains",
+"to": "cytokine",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "helper T cell",
+"link": "stimulates",
+"to": "memory helper T cell",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "histamine",
+"link": "produces",
+"to": "basophil",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "histamine",
+"link": "produces",
+"to": "mast cell",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "humoral response",
+"link": "is a type of",
+"to": "specific defense mechanism",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "humoral response",
+"link": "contains",
+"to": "B cell",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "immunodeficiency disease",
+"link": "affects",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "infected cell (non-APC)",
+"link": "contains",
+"to": "class I MHC molecule",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "infected cell (non-APC)",
+"link": "contains",
+"to": "antigen",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inflammatory response",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inflammatory response",
+"link": "contains",
+"to": "histamine",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "innate immune system",
+"link": "contains",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "interferon",
+"link": "is a type of",
+"to": "antimicrobial protein",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "leukocyte",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "leukocyte",
+"link": "is a type of",
+"to": "phagocytic cell",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "leukocyte",
+"link": "produces",
+"to": "pyrogen",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lupus",
+"link": "is a type of",
+"to": "autoimmune disease",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lymphocyte",
+"link": "contains",
+"to": "antigen receptor",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lysozyme",
+"link": "is a type of",
+"to": "antimicrobial protein",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "macrophage",
+"link": "is a type of",
+"to": "antigen presenting cell",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "membrane antibody",
+"link": "is a type of",
+"to": "antibody",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "membrane antibody",
+"link": "is a type of",
+"to": "antigen receptor",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "memory B cell",
+"link": "is a type of",
+"to": "B cell",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "memory helper T cell",
+"link": "stimulates",
+"to": "memory B cell",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "monocyte",
+"link": "is a type of",
+"to": "leukocyte",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mucous membrane",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "multiple sclerosis",
+"link": "is a type of",
+"to": "autoimmune disease",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "natural killer cell",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neutrophil",
+"link": "is a type of",
+"to": "leukocyte",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nonspecific defense mechanism",
+"link": "is a type of",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "passive immunity",
+"link": "is a type of",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "phagocytic cell",
+"link": "performs",
+"to": "phagocytosis",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "plasma cell",
+"link": "produces",
+"to": "antibody",
+"lesson": 3,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "primary immune response",
+"link": "is a type of",
+"to": "specific defense mechanism",
+"lesson": 3,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "rheumatoid arthritis",
+"link": "is a type of",
+"to": "autoimmune disease",
+"lesson": 3,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "SCID",
+"link": "is a type of",
+"to": "immunodeficiency disease",
+"lesson": 3,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "secondary immune response",
+"link": "is a type of",
+"to": "specific defense mechanism",
+"lesson": 3,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "secreted antibody",
+"link": "is a type of",
+"to": "antibody",
+"lesson": 3,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "septic shock",
+"link": "is a type of",
+"to": "inflammatory response",
+"lesson": 3,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "skin",
+"link": "is a type of",
+"to": "surface barrier",
+"lesson": 3,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "specific defense mechanism",
+"link": "is a type of",
+"to": "immunity",
+"lesson": 3,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "surface barrier",
+"link": "is a type of",
+"to": "nonspecific defense mechanism",
+"lesson": 3,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "T cell",
+"link": "is a type of",
+"to": "lymphocyte",
+"lesson": 3,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "T cell",
+"link": "contains",
+"to": "T cell receptor",
+"lesson": 3,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "T cell receptor",
+"link": "is a type of",
+"to": "antigen receptor",
+"lesson": 3,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vaccination",
+"link": "is a type of",
+"to": "artificial immunity",
+"lesson": 3,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "afferent arteriole",
+"link": "contains",
+"to": "capillaries",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ammonia",
+"link": "is a type of",
+"to": "nitrogenous waste",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ANF",
+"link": "inhibits",
+"to": "RAAS",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Bowman's capsule",
+"link": "contains",
+"to": "podocyte",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Bowman's capsule",
+"link": "contains",
+"to": "lumen",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "capillaries",
+"link": "contains",
+"to": "blood",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "collecting duct",
+"link": "is connected to",
+"to": "renal pelvis",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cortical nephron",
+"link": "is a type of",
+"to": "nephron",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "countercurrent exchange",
+"link": "occurs in",
+"to": "nephron",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "distal tubule",
+"link": "is connected to",
+"to": "collecting duct",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "efferent arteriole",
+"link": "contains",
+"to": "capillaries",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "euryhaline",
+"link": "is a type of",
+"to": "osmoregulator",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "euryhaline",
+"link": "is a type of",
+"to": "osmoconformer",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excretory system",
+"link": "contains",
+"to": "excretory organ",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "filtration",
+"link": "produces",
+"to": "filtrate",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "filtration",
+"link": "occurs in",
+"to": "Bowman's capsule",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "filtration",
+"link": "occurs in",
+"to": "glomerulus",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glomerulus",
+"link": "contains",
+"to": "capillaries",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hyperosmotic",
+"link": "is a type of",
+"to": "solutions",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hypoosmotic",
+"link": "is a type of",
+"to": "solutions",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "isoosmotic",
+"link": "is a type of",
+"to": "solutions",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "juxtamedullary nephron",
+"link": "is a type of",
+"to": "nephron",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kidney",
+"link": "is a type of",
+"to": "excretory organ",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kidney",
+"link": "contains",
+"to": "renal medulla",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kidney",
+"link": "contains",
+"to": "renal cortex",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kidney",
+"link": "contains",
+"to": "nephron",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "loop of Henle",
+"link": "contains",
+"to": "descending limb",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "loop of Henle",
+"link": "contains",
+"to": "ascending limb",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "lumen",
+"link": "contains",
+"to": "filtrate",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "malphigian tube",
+"link": "is a type of",
+"to": "excretory organ",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic waste disposal",
+"link": "is controlled by",
+"to": "osmoregulation",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic waste disposal",
+"link": "is controlled by",
+"to": "ADH",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic waste disposal",
+"link": "is controlled by",
+"to": "RAAS",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic waste disposal",
+"link": "contains",
+"to": "nitrogenous waste",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabolic waste disposal",
+"link": "is controlled by",
+"to": "excretory system",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metanephridia",
+"link": "is a type of",
+"to": "excretory system",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "Bowman's capsule",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "glomerulus",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "loop of Henle",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "proximal tubule",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "distal tubule",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nephron",
+"link": "contains",
+"to": "collecting duct",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmolarity",
+"link": "is a property of",
+"to": "solutions",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmoregulation",
+"link": "is controlled by",
+"to": "osmosis",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmoregulation",
+"link": "is a type of",
+"to": "homeostasis",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmoregulator",
+"link": "is controlled by",
+"to": "osmoregulation",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmosis",
+"link": "contains",
+"to": "selectively-permeable membrane",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "osmosis",
+"link": "is controlled by",
+"to": "osmolarity",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peritubular capillaries",
+"link": "contains",
+"to": "capillaries",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "protonephridia",
+"link": "is a type of",
+"to": "excretory system",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "proximal tubule",
+"link": "is connected to",
+"to": "loop of Henle",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RAAS",
+"link": "occurs in",
+"to": "JGA",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RAAS",
+"link": "contains",
+"to": "renin",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RAAS",
+"link": "contains",
+"to": "angiotensinogen",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RAAS",
+"link": "contains",
+"to": "angiotensin II",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "RAAS",
+"link": "contains",
+"to": "aldosterone",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reabsorption",
+"link": "occurs in",
+"to": "collecting duct",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reabsorption",
+"link": "occurs in",
+"to": "distal tubule",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reabsorption",
+"link": "occurs in",
+"to": "proximal tubule",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reabsorption",
+"link": "occurs in",
+"to": "loop of Henle",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "renal medulla",
+"link": "contains",
+"to": "inner medulla",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "renal medulla",
+"link": "contains",
+"to": "outer medulla",
+"lesson": 4,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "renal pelvis",
+"link": "is connected to",
+"to": "ureter",
+"lesson": 4,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "secretion",
+"link": "occurs in",
+"to": "distal tubule",
+"lesson": 4,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "secretion",
+"link": "occurs in",
+"to": "proximal tubule",
+"lesson": 4,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stenohaline",
+"link": "is a type of",
+"to": "osmoregulator",
+"lesson": 4,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stenohaline",
+"link": "is a type of",
+"to": "osmoconformer",
+"lesson": 4,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "transport epithelium",
+"link": "is a type of",
+"to": "selectively-permeable membrane",
+"lesson": 4,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "urea",
+"link": "is a type of",
+"to": "nitrogenous waste",
+"lesson": 4,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ureter",
+"link": "is connected to",
+"to": "urinary bladder",
+"lesson": 4,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uric acid",
+"link": "is a type of",
+"to": "nitrogenous waste",
+"lesson": 4,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "urinary bladder",
+"link": "is connected to",
+"to": "urethra",
+"lesson": 4,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "urinary bladder",
+"link": "contains",
+"to": "urine",
+"lesson": 4,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "urine",
+"link": "contains",
+"to": "nitrogenous waste",
+"lesson": 4,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vasa recta",
+"link": "contains",
+"to": "capillaries",
+"lesson": 4,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ADH",
+"link": "is a type of",
+"to": "neurohormone",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "amine hormone",
+"link": "is a class of",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autocrine signaling",
+"link": "s a type of",
+"to": "intercellular communication",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autocrine signaling",
+"link": "is controlled by",
+"to": "local regulator",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "calcitonin",
+"link": "lowers",
+"to": "blood calcium level",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "calcitonin",
+"link": "is produced by",
+"to": "thyroid gland",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "calcitrol",
+"link": "is a type of",
+"to": "vitamin D",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "calcium regulation",
+"link": "is controlled by",
+"to": "calcitonin",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "calcium regulation",
+"link": "is controlled by",
+"to": "PTH",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cell surface receptor",
+"link": "is a type of",
+"to": "receptor",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cell surface receptor",
+"link": "stimulates",
+"to": "signal transduction",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cortisol",
+"link": "is a type of",
+"to": "steroid hormone",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "diabetes mellitus",
+"link": "disrupts",
+"to": "insulin signaling",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ecdysteroid",
+"link": "is a type of",
+"to": "steroid hormone",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine gland",
+"link": "secretes",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine signaling",
+"link": "is controlled by",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine signaling",
+"link": "is controlled by",
+"to": "endocrine system",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine signaling",
+"link": "is a type of",
+"to": "intercellular communication",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endocrine system",
+"link": "contains",
+"to": "endocrine gland",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epinephrine",
+"link": "is a type of",
+"to": "amine hormone",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glucagon",
+"link": "is a type of",
+"to": "polypeptide hormone",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glucagon",
+"link": "raises",
+"to": "blood glucose level",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glucagon",
+"link": "is produced by",
+"to": "alpha cells",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "growth factor",
+"link": "is a type of",
+"to": "local regulator",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hormone",
+"link": "binds to",
+"to": "receptor",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hormone cascade pathway",
+"link": "is a type of",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hormone-receptor complex",
+"link": "contains",
+"to": "hydrophobic (lipid soluble) hormone",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hormone-receptor complex",
+"link": "contains",
+"to": "intracellular receptor",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hormone-receptor complex",
+"link": "regulates",
+"to": "gene expression",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hydrophilic (water soluble) hormone",
+"link": "is a type of",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hydrophilic (water soluble) hormone",
+"link": "binds to",
+"to": "cell surface receptor",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hydrophobic (lipid soluble) hormone",
+"link": "is a type of",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hydrophobic (lipid soluble) hormone",
+"link": "binds to",
+"to": "intracellular receptor",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insulin",
+"link": "is produced by",
+"to": "beta cells",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insulin",
+"link": "lowers",
+"to": "blood glucose level",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insulin",
+"link": "is a type of",
+"to": "polypeptide hormone",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "insulin signaling",
+"link": "contains",
+"to": "insulin",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "intercellular communication",
+"link": "contains",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "intracellular receptor",
+"link": "is a type of",
+"to": "receptor",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "negative feedback",
+"link": "is a type of",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuroendocrine signaling",
+"link": "is a type of",
+"to": "intercellular communication",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuroendocrine signaling",
+"link": "contains",
+"to": "neurohormone",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuroendocrine signaling",
+"link": "contains",
+"to": "neurosecretory cell",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreas",
+"link": "is a type of",
+"to": "endocrine gland",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreas",
+"link": "contains",
+"to": "pancreatic islet",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreatic islet",
+"link": "contains",
+"to": "PP cells",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreatic islet",
+"link": "contains",
+"to": "beta cells",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreatic islet",
+"link": "contains",
+"to": "alpha cells",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pancreatic islet",
+"link": "contains",
+"to": "delta cells",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "paracrine signaling",
+"link": "is a type of",
+"to": "intercellular communication",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "paracrine signaling",
+"link": "is controlled by",
+"to": "local regulator",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "parathyroid gland",
+"link": "is a type of",
+"to": "endocrine gland",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polypeptide hormone",
+"link": "is a type of",
+"to": "hydrophilic (water soluble) hormone",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "polypeptide hormone",
+"link": "is a class of",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "positive feedback",
+"link": "is a type of",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prostaglandin",
+"link": "is a type of",
+"to": "local regulator",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PTH",
+"link": "stimulates",
+"to": "calcitrol",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PTH",
+"link": "raises",
+"to": "blood calcium level",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "PTH",
+"link": "is produced by",
+"to": "parathyroid gland",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "simple endocrine pathway",
+"link": "is a type of",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "simple neuroendocrine pathway",
+"link": "is a type of",
+"to": "control pathway",
+"lesson": 5,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "somatostatin",
+"link": "is a type of",
+"to": "polypeptide hormone",
+"lesson": 5,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "somatostatin",
+"link": "is produced by",
+"to": "delta cells",
+"lesson": 5,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "somatostatin",
+"link": "inhibits",
+"to": "insulin",
+"lesson": 5,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "somatostatin",
+"link": "inhibits",
+"to": "glucagon",
+"lesson": 5,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "steroid hormone",
+"link": "is a class of",
+"to": "hormone",
+"lesson": 5,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synaptic signaling",
+"link": "is a type of",
+"to": "intercellular communication",
+"lesson": 5,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synaptic signaling",
+"link": "contains",
+"to": "neurotransmitter",
+"lesson": 5,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "target cell",
+"link": "contains",
+"to": "receptor",
+"lesson": 5,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thyroid gland",
+"link": "is a type of",
+"to": "endocrine gland",
+"lesson": 5,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thyroxin",
+"link": "is a type of",
+"to": "amine hormone",
+"lesson": 5,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "type 1 diabetes",
+"link": "is a type of",
+"to": "diabetes mellitus",
+"lesson": 5,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "type 2 diabetes",
+"link": "is a type of",
+"to": "diabetes mellitus",
+"lesson": 5,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ADH",
+"link": "is a type of",
+"to": "posterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "is a target organ for",
+"to": "ACTH",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "androgen",
+"link": "stimulates",
+"to": "primary sex characteristics",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "androgen",
+"link": "stimulates",
+"to": "secondary sex characteristics",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "androgen",
+"link": "stimulates",
+"to": "spermatogenesis",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "androgen",
+"link": "is produced by",
+"to": "Leydig cells",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary gland",
+"link": "secretes",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary hormone",
+"link": "is regulated by",
+"to": "hypothalamic releasing hormone",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary hormone",
+"link": "is regulated by",
+"to": "hypothalamic inhibiting hormone",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Bartholin's gland",
+"link": "is connected to",
+"to": "vestibule",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "bulbourethral gland",
+"link": "is connected to",
+"to": "urethra",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cervix",
+"link": "is connected to",
+"to": "vagina",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "clitoris",
+"link": "is connected to",
+"to": "vestibule",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "corpus luteum",
+"link": "secretes",
+"to": "progesterone",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "corpus luteum",
+"link": "secretes",
+"to": "estrogen",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ejaculatory duct",
+"link": "is connected to",
+"to": "urethra",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epididymis",
+"link": "is connected to",
+"to": "vas deferens",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "follicle",
+"link": "secretes",
+"to": "estrogen",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "follicle",
+"link": "contains",
+"to": "ovum",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "follicular phase",
+"link": "contains",
+"to": "follicle",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is a type of",
+"to": "gonadotropin",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is regulated by",
+"to": "GnRH",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "GH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "GnRH",
+"link": "is a type of",
+"to": "hypothalamic releasing hormone",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gonad",
+"link": "is a target organ for",
+"to": "gonadotropin",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPG axis",
+"link": "contains",
+"to": "hypothalamus",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPG axis",
+"link": "contains",
+"to": "pituitary gland",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPG axis",
+"link": "contains",
+"to": "gonad",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hypothalamic inhibiting hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hypothalamic releasing hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "kidney",
+"link": "is a target organ for",
+"to": "ADH",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "labia majora",
+"link": "is connected to",
+"to": "labia minora",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "labia minora",
+"link": "is connected to",
+"to": "vestibule",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "LH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "LH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "LH",
+"link": "is regulated by",
+"to": "GnRH",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "luteal phase",
+"link": "contains",
+"to": "corpus luteum",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mammary gland",
+"link": "is a target organ for",
+"to": "oxytocin",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mammary gland",
+"link": "is a target organ for",
+"to": "prolactin",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "melanocytes",
+"link": "is a target organ for",
+"to": "MSH",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "menopause",
+"link": "inhibits",
+"to": "menstrual cycle",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "menopause",
+"link": "inhibits",
+"to": "ovarian cycle",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "menstrual cycle",
+"link": "contains",
+"to": "menstrual flow",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "menstrual cycle",
+"link": "contains",
+"to": "proliferative phase",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "menstrual cycle",
+"link": "contains",
+"to": "secretory phase",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "MSH",
+"link": "is a type of",
+"to": "non-tropic hormone",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "MSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neurohormone",
+"link": "is a type of",
+"to": "posterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "oogenesis",
+"link": "is controlled by",
+"to": "ovarian cycle",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovarian cycle",
+"link": "contains",
+"to": "follicular phase",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovarian cycle",
+"link": "contains",
+"to": "ovulation",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovarian cycle",
+"link": "contains",
+"to": "luteal phase",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovary",
+"link": "is a type of",
+"to": "gonad",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovary",
+"link": "is regulated by",
+"to": "ovarian cycle",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovary",
+"link": "contains",
+"to": "follicle",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovary",
+"link": "is connected to",
+"to": "oviduct",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "oviduct",
+"link": "is connected to",
+"to": "uterus",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ovulation",
+"link": "contains",
+"to": "ovum",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "oxytocin",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "penis",
+"link": "contains",
+"to": "urethra",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "penis",
+"link": "contains",
+"to": "glans penis",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "penis",
+"link": "contains",
+"to": "erectile tissue",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pineal gland",
+"link": "secretes",
+"to": "melatonin",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pituitary gland",
+"link": "contains",
+"to": "anterior pituitary gland",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pituitary gland",
+"link": "contains",
+"to": "posterior pituitary gland",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "posterior pituitary gland",
+"link": "secretes",
+"to": "posterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "posterior pituitary hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prolactin",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prolactin",
+"link": "is a type of",
+"to": "non-tropic hormone",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prostate gland",
+"link": "is connected to",
+"to": "urethra",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "scrotum",
+"link": "contains",
+"to": "testes",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "semen",
+"link": "contains",
+"to": "sperm",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "seminal vesicle",
+"link": "is connected to",
+"to": "vas deferens",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "seminiferous tubules",
+"link": "is connected to",
+"to": "epididymis",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "seminiferous tubules",
+"link": "contains",
+"to": "sertoli cells",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "sperm",
+"link": "is produced by",
+"to": "seminiferous tubules",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "spermatogenesis",
+"link": "contains",
+"to": "sperm",
+"lesson": 6,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "testes",
+"link": "contains",
+"to": "Leydig cells",
+"lesson": 6,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "testes",
+"link": "is a type of",
+"to": "gonad",
+"lesson": 6,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "testes",
+"link": "contains",
+"to": "seminiferous tubules",
+"lesson": 6,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "thyroid",
+"link": "is a target organ for",
+"to": "TSH",
+"lesson": 6,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "TSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 6,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "TSH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 6,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "urinary bladder",
+"link": "is connected to",
+"to": "urethra",
+"lesson": 6,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uterine muscles",
+"link": "is a target organ for",
+"to": "oxytocin",
+"lesson": 6,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uterus",
+"link": "is a target organ for",
+"to": "estrogen",
+"lesson": 6,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uterus",
+"link": "contains",
+"to": "endometrium",
+"lesson": 6,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uterus",
+"link": "is connected to",
+"to": "cervix",
+"lesson": 6,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vagina",
+"link": "is connected to",
+"to": "vestibule",
+"lesson": 6,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "vas deferens",
+"link": "is connected to",
+"to": "ejaculatory duct",
+"lesson": 6,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "acetylcholine",
+"link": "stimulates",
+"to": "epinephrine",
+"lesson": 7,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "acetylcholine",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 7,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is suppressed by",
+"to": "corticosteroid",
+"lesson": 7,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 7,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is regulated by",
+"to": "CDH",
+"lesson": 7,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is regulated by",
+"to": "ADH",
+"lesson": 7,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ACTH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ADH",
+"link": "is a type of",
+"to": "hypothalamic releasing hormone",
+"lesson": 7,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "is regulated by",
+"to": "endocrine system",
+"lesson": 7,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "contains",
+"to": "zona reticularis",
+"lesson": 7,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "contains",
+"to": "zona fasciculata",
+"lesson": 7,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "contains",
+"to": "zona glomerulosa",
+"lesson": 7,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "secretes",
+"to": "corticosteroid",
+"lesson": 7,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal cortex",
+"link": "is a target organ for",
+"to": "ACTH",
+"lesson": 7,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal gland",
+"link": "contains",
+"to": "adrenal capsule",
+"lesson": 7,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal gland",
+"link": "contains",
+"to": "adrenal cortex",
+"lesson": 7,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal gland",
+"link": "contains",
+"to": "adrenal medulla",
+"lesson": 7,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal medulla",
+"link": "is regulated by",
+"to": "neuroendocrine signaling",
+"lesson": 7,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "adrenal medulla",
+"link": "secretes",
+"to": "catecholamine",
+"lesson": 7,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "aldosterone",
+"link": "is a type of",
+"to": "mineralocorticoid",
+"lesson": 7,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "androgen",
+"link": "is produced by",
+"to": "zona reticularis",
+"lesson": 7,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary gland",
+"link": "secretes",
+"to": "ACTH",
+"lesson": 7,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary gland",
+"link": "secretes",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary hormone",
+"link": "is regulated by",
+"to": "hypothalamic inhibiting hormone",
+"lesson": 7,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anterior pituitary hormone",
+"link": "is regulated by",
+"to": "hypothalamic releasing hormone",
+"lesson": 7,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "CDH",
+"link": "is a type of",
+"to": "hypothalamic releasing hormone",
+"lesson": 7,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cortisol",
+"link": "is a type of",
+"to": "glucocorticoid",
+"lesson": 7,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epinephrine",
+"link": "is a type of",
+"to": "catecholamine",
+"lesson": 7,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "FSH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 7,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "GH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glucocorticoid",
+"link": "is produced by",
+"to": "zona fasciculata",
+"lesson": 7,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "glucocorticoid",
+"link": "is a type of",
+"to": "corticosteroid",
+"lesson": 7,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPA axis",
+"link": "contains",
+"to": "hypothalamus",
+"lesson": 7,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPA axis",
+"link": "contains",
+"to": "pituitary gland",
+"lesson": 7,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "HPA axis",
+"link": "contains",
+"to": "adrenal cortex",
+"lesson": 7,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hypothalamic inhibiting hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 7,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hypothalamic releasing hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 7,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "LH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "LH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 7,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "long-term stress response",
+"link": "contains",
+"to": "corticosteroid",
+"lesson": 7,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mineralocorticoid",
+"link": "is produced by",
+"to": "zona glomerulosa",
+"lesson": 7,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mineralocorticoid",
+"link": "is a type of",
+"to": "corticosteroid",
+"lesson": 7,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "MSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "MSH",
+"link": "is a type of",
+"to": "non-tropic hormone",
+"lesson": 7,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neurohormone",
+"link": "is a type of",
+"to": "posterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "norepinephrine",
+"link": "is a type of",
+"to": "catecholamine",
+"lesson": 7,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pituitary gland",
+"link": "contains",
+"to": "anterior pituitary gland",
+"lesson": 7,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "pituitary gland",
+"link": "contains",
+"to": "posterior pituitary gland",
+"lesson": 7,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "posterior pituitary gland",
+"link": "secretes",
+"to": "posterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "posterior pituitary hormone",
+"link": "is produced by",
+"to": "hypothalamus",
+"lesson": 7,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prolactin",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "prolactin",
+"link": "is a type of",
+"to": "non-tropic hormone",
+"lesson": 7,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "short-term stress response",
+"link": "contains",
+"to": "epinephrine",
+"lesson": 7,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "short-term stress response",
+"link": "contains",
+"to": "norepinephrine",
+"lesson": 7,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "TSH",
+"link": "is a type of",
+"to": "anterior pituitary hormone",
+"lesson": 7,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "TSH",
+"link": "is a type of",
+"to": "tropic hormone",
+"lesson": 7,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "acetylcholine",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "is a type of",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "is a type of",
+"to": "positive feedback",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "contains",
+"to": "depolarization phase",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "is a type of",
+"to": "nerve impulse",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "contains",
+"to": "repolarization phase",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "action potential",
+"link": "contains",
+"to": "refractory period",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "allocortex",
+"link": "contains",
+"to": "olfactory cortex",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "allocortex",
+"link": "contains",
+"to": "hippocampus",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "anaxonic neuron",
+"link": "is a type of",
+"to": "neuron",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "astrocyte",
+"link": "is a type of",
+"to": "glia",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autonomic nervous system",
+"link": "contains",
+"to": "parasympathetic division",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "autonomic nervous system",
+"link": "contains",
+"to": "sympathetic division",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "axon",
+"link": "contains",
+"to": "growth cone",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "basal nuclei",
+"link": "contains",
+"to": "nuclei",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "biogenic amine neurotransmitter",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "bipolar neuron",
+"link": "is a type of",
+"to": "neuron",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "blood-brain barrier",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "nuclei",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "forebrain",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "brainstem",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "midbrain",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brain",
+"link": "contains",
+"to": "hindbrain",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brainstem",
+"link": "contains",
+"to": "midbrain",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brainstem",
+"link": "contains",
+"to": "pons",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brainstem",
+"link": "contains",
+"to": "medulla oblongata",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "brainstem",
+"link": "contains",
+"to": "reticular formation",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "central nervous system",
+"link": "contains",
+"to": "grey matter",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "central nervous system",
+"link": "contains",
+"to": "white matter",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "central nervous system",
+"link": "contains",
+"to": "spinal cord",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "central nervous system",
+"link": "contains",
+"to": "brain",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "central nervous system",
+"link": "contains",
+"to": "interneuron",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral cortex",
+"link": "contains",
+"to": "neocortex",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral cortex",
+"link": "contains",
+"to": "allocortex",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral hemisphere",
+"link": "contains",
+"to": "frontal lobe",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral hemisphere",
+"link": "contains",
+"to": "parietal lobe",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral hemisphere",
+"link": "contains",
+"to": "occipital lobe",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral hemisphere",
+"link": "contains",
+"to": "temporal lobe",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebral hemisphere",
+"link": "contains",
+"to": "insular cortex",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebrum",
+"link": "contains",
+"to": "basal nuclei",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebrum",
+"link": "contains",
+"to": "cerebral cortex",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebrum",
+"link": "contains",
+"to": "cerebral hemisphere",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cerebrum",
+"link": "contains",
+"to": "corpus callosum",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "chemical synapse",
+"link": "is a type of",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "depolarization",
+"link": "is a type of",
+"to": "graded potential",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "depolarization phase",
+"link": "contains",
+"to": "depolarization",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "dopamine",
+"link": "is a type of",
+"to": "biogenic amine neurotransmitter",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "electrical synapse",
+"link": "is a type of",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "endorphins",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "epithalamus",
+"link": "contains",
+"to": "pineal gland",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excitable cell",
+"link": "contains",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excitable cell",
+"link": "contains",
+"to": "gated ion channel",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excitatory neurotransmitter",
+"link": "is a type of",
+"to": "ionotropic neurotransmitter",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excitatory synapse",
+"link": "is a type of",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "excitatory synapse",
+"link": "contains",
+"to": "EPSP",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "forebrain",
+"link": "contains",
+"to": "cerebrum",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "forebrain",
+"link": "contains",
+"to": "hypothalamus",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "forebrain",
+"link": "contains",
+"to": "epithalamus",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "forebrain",
+"link": "contains",
+"to": "thalamus",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "GABA",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "gated ion channel",
+"link": "is a type of",
+"to": "ion channel",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Goldman-Hodgkin-Katz equation",
+"link": "contains",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "graded potential",
+"link": "is a type of",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hindbrain",
+"link": "contains",
+"to": "cerebellum",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hindbrain",
+"link": "contains",
+"to": "medulla oblongata",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hindbrain",
+"link": "contains",
+"to": "pons",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "homunculus",
+"link": "is a representation of",
+"to": "cerebral cortex",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "hyperpolarization",
+"link": "is a type of",
+"to": "graded potential",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inhibitory neurotransmitter",
+"link": "is a type of",
+"to": "ionotropic neurotransmitter",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inhibitory synapse",
+"link": "is a type of",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "inhibitory synapse",
+"link": "contains",
+"to": "IPSP",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "integration",
+"link": "occurs in",
+"to": "central nervous system",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "interneuron",
+"link": "is a type of",
+"to": "multipolar neuron",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ionotropic neurotransmitter",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ligand-gated ion channel",
+"link": "is a type of",
+"to": "gated ion channel",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ligand-gated potassium channel",
+"link": "is a type of",
+"to": "ligand-gated ion channel",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ligand-gated sodium channel",
+"link": "is a type of",
+"to": "ligand-gated ion channel",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "long-term potentiation",
+"link": "occurs in",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "metabotropic neurotransmitter",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "modulator",
+"link": "is a type of",
+"to": "metabotropic neurotransmitter",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "motor (efferent) division",
+"link": "contains",
+"to": "motor neuron",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "motor (efferent) division",
+"link": "contains",
+"to": "autonomic nervous system",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "motor (efferent) division",
+"link": "contains",
+"to": "somatic nervous system",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "motor neuron",
+"link": "is a type of",
+"to": "multipolar neuron",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "multipolar neuron",
+"link": "is a type of",
+"to": "neuron",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "myelin",
+"link": "is produced by",
+"to": "Schwann cell",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "myelin",
+"link": "is produced by",
+"to": "oligodendrocyte",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "myelin sheath",
+"link": "contains",
+"to": "myelin",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neocortex",
+"link": "contains",
+"to": "primary motor cortex",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neocortex",
+"link": "contains",
+"to": "primary visual cortex",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Nernst equation",
+"link": "contains",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous system",
+"link": "contains",
+"to": "neuron",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous system",
+"link": "contains",
+"to": "central nervous system",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "nervous system",
+"link": "contains",
+"to": "peripheral nervous system",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "is a type of",
+"to": "excitable cell",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "synaptic terminal",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "cell body",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "dendrite",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "axon",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "axon hillock",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "myelin sheath",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neuron",
+"link": "contains",
+"to": "node of Ranvier",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neurotransmitter",
+"link": "is a type of",
+"to": "chemical signal",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neurotransmitter",
+"link": "is released by",
+"to": "presynaptic cell",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "neurotransmitter",
+"link": "is transmitted to",
+"to": "postsynaptic cell",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "norepinephrine",
+"link": "is a type of",
+"to": "biogenic amine neurotransmitter",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "oligodendrocyte",
+"link": "is a type of",
+"to": "glia",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peripheral nervous system",
+"link": "contains",
+"to": "ganglia",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peripheral nervous system",
+"link": "contains",
+"to": "spinal nerves",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peripheral nervous system",
+"link": "contains",
+"to": "cranial nerves",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peripheral nervous system",
+"link": "contains",
+"to": "motor (efferent) division",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "peripheral nervous system",
+"link": "contains",
+"to": "sensory (afferent) division",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "psychoactive drug",
+"link": "affects",
+"to": "brain reward pathway",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "psychoactive drug",
+"link": "mimics",
+"to": "dopamine",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "psychoactive drug",
+"link": "mimics",
+"to": "serotonin",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "radial glia",
+"link": "is a type of",
+"to": "glia",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reflex",
+"link": "contains",
+"to": "excitable cell",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "resting potential",
+"link": "is a type of",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "saltatory conduction",
+"link": "occurs in",
+"to": "node of Ranvier",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "Schwann cell",
+"link": "is a type of",
+"to": "glia",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "sensory (afferent) division",
+"link": "contains",
+"to": "sensory neuron",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "sensory neuron",
+"link": "is a type of",
+"to": "unipolar neuron",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "serotonin",
+"link": "is a type of",
+"to": "biogenic amine neurotransmitter",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "spatial summation",
+"link": "occurs in",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "stretch-gated ion channel",
+"link": "is a type of",
+"to": "gated ion channel",
+"lesson": 8,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "substance P",
+"link": "is a type of",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synapse",
+"link": "contains",
+"to": "presynaptic cell",
+"lesson": 8,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synapse",
+"link": "contains",
+"to": "postsynaptic cell",
+"lesson": 8,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synaptic terminal",
+"link": "contains",
+"to": "synaptic vesicle",
+"lesson": 8,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "synaptic vesicle",
+"link": "contains",
+"to": "neurotransmitter",
+"lesson": 8,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "temporal lobe",
+"link": "contains",
+"to": "amygdala",
+"lesson": 8,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "temporal summation",
+"link": "occurs in",
+"to": "synapse",
+"lesson": 8,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "threshold potential",
+"link": "is a type of",
+"to": "membrane potential",
+"lesson": 8,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "ungated ion channel",
+"link": "is a type of",
+"to": "ion channel",
+"lesson": 8,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "unipolar neuron",
+"link": "is a type of",
+"to": "neuron",
+"lesson": 8,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "voltage-gated ion channel",
+"link": "is a type of",
+"to": "gated ion channel",
+"lesson": 8,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "voltage-gated potassium channel",
+"link": "is a type of",
+"to": "voltage-gated ion channel",
+"lesson": 8,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "voltage-gated sodium channel",
+"link": "is a type of",
+"to": "voltage-gated ion channel",
+"lesson": 8,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+]
