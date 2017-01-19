@@ -10,6 +10,8 @@
 
   Smartboard.View.Wall = Smartboard.View.Base.extend({
     initialize: function () {
+      console.log("Initializing Smartboard View...");
+
       var wall = this;
 
       _.bindAll(this);
