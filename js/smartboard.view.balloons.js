@@ -230,7 +230,7 @@
           return term.get('name') === model.get('name') && term.get('assigned_to') !== "";
         });
         if (modelArr.length > 1) {
-          console.err("Database validation issue: repeated terms with assigned assigned_to. Look into " + modelArr[0].get('name'));
+          console.error("Database validation issue: repeated terms with assigned assigned_to. Look into " + modelArr[0].get('name'));
         }
         return modelArr[0];
       } else {
