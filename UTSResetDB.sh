@@ -39,4 +39,4 @@ mongoimport -d ck-biology-SBI4UE-02-U4 -c relationships --jsonArray scaffolding/
 
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.reports.remove()"
 
-echo "Disabled..."
+# echo "Disabled..."
