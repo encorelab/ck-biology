@@ -208,8 +208,8 @@ textarea {
     font-size: 15px;
     margin-left: 20px;
     line-height: 1.42857143;
-    vertical-align: sub;
-    min-width: 30%;
+    vertical-align: middle !important;
+    width: 30%;
 }
 .home-progress-container {
     margin-left: 50px;
