@@ -179,7 +179,8 @@ button:hover {
 
 .content.balloon {
   position: absolute;
-  width: 120px;
+  max-width: 125px;
+  min-width: 100px;
   min-height: 30px;
   /*height: 60px;*/
   display: inline-block;
