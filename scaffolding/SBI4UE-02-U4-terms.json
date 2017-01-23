@@ -1,5939 +1,6479 @@
 {
 "name": "adipose tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anatomy",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "basement membrane",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "blood",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "bone",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cardiac muscle",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cartilage",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "collagen",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "collagenous fiber",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "connective tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "connective tissue fiber",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "control center",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "dense irregular connective tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "dense regular connective tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "effector",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "elastic fiber",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "elastin",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine gland",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine system",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epithelial tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "exocrine gland",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "feedback loop",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "fibroblast",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "fibrous connective tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "functional anatomy",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glandular epithelium",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glia",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homeostasis",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homeostatic control system",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ligament",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "loose connective tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "macrophage",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "muscle tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "negative feedback",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nervous system",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nervous tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurons",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "organ",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "organ system",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "physiology",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "positive feedback",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pseudostratified columnar",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "receptor",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "reticular fiber",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "simple columnar",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "simple cuboidal",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "simple squamous",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "smooth muscle",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "specialized cell",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "stratified cuboidal",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "stratified squamous",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "striated (skeletal) muscle",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "tendon",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "tissue",
-"lesson": " 1",
+"lesson": 1,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "acclimatization",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adaptation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "basal metabolic rate (BMR)",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "behavioural response",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "bioenergetic strategy",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "bioenergetics",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "circulatory adaptation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "conformer",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "counter-current heat exchange",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ectotherm",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endotherm",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "estivation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "evaporative loss",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "fever",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hibernation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homeostasis",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homeotherm",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hyperthermia",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamus",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothermia",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "insulation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "kleptothermy",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "metabolic heat production",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "metabolic rate",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "normal body temperature",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "poikilotherm",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "regulator",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "standard metabolic rate (SMR)",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "thermoregulation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "torpor",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vasoconstriction",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vasodilation",
-"lesson": " 2",
+"lesson": 2,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "active immunity",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adaptive immune system",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "agglutination",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "AIDS",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "allergy",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anaphylactic shock",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antibody",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen disposal mechanism",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen fragment",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen neutralization",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen precipitation",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen presenting cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen receptor",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antigen-antibody complex",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "antimicrobial protein",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "artificial immunity",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "autoimmune disease",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "B cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "basophil",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "CD4 protein",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "CD8 protein",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cell-mediated response",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "chemokine",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "class I MHC molecule",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "class II MHC molecule",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "complement fixation",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "complement protein",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cytokine",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cytotoxic T cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "eosinophil",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epitope",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "free antigen",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "helper T cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "histamine",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "humoral response",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "immunity",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "immunodeficiency disease",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "immunoglobulin",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "infected cell (non-APC)",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "inflammatory response",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "innate immune system",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "interferon",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "leukocyte",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "lupus",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "lymphocyte",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "lysozyme",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "macrophage",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "mast cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "membrane antibody",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "memory B cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "memory helper T cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "MHC glycoprotein",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "monocyte",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "mucous membrane",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "multiple sclerosis",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "natural killer cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neutrophil",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nonspecific defense mechanism",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "passive immunity",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "perforin",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "phagocytic cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "phagocytosis",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "plasma cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "primary immune response",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pyrogen",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "rheumatoid arthritis",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "SCID",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "secondary immune response",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "secreted antibody",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "septic shock",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "skin",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "specific defense mechanism",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "surface barrier",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "T cell",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "T cell receptor",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vaccination",
-"lesson": " 3",
+"lesson": 3,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ADH",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "afferent arteriole",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "aldosterone",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ammonia",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ANF",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "angiotensinogen",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "angiotensin II",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ascending limb",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "blood",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Bowman's capsule",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "capillaries",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "collecting duct",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cortical nephron",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "countercurrent exchange",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "descending limb",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "distal tubule",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "efferent arteriole",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "euryhaline",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "excretory organ",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "excretory system",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "filtrate",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "filtration",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glomerulus",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homeostasis",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hyperosmotic",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypoosmotic",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "inner medulla",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "isoosmotic",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "JGA",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "juxtamedullary nephron",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "kidney",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "loop of Henle",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "lumen",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "malphigian tube",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "metabolic waste disposal",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "metanephridia",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nephron",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nitrogenous waste",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "osmoconformer",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "osmolarity",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "osmoregulation",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "osmoregulator",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "osmosis",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "outer medulla",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "peritubular capillaries",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "podocyte",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "protonephridia",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "proximal tubule",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "RAAS",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "reabsorption",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "renal cortex",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "renal medulla",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "renal pelvis",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "renin",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "secretion",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "selectively-permeable membrane",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "solutions",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "stenohaline",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "transport epithelium",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urea",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ureter",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urethra",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "uric acid",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urinary bladder",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urine",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vasa recta",
-"lesson": " 4",
+"lesson": 4,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ADH",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "alpha cells",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "amine hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "autocrine signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "beta cells",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "blood calcium level",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "blood glucose level",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "calcitonin",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "calcitrol",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "calcium regulation",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cell surface receptor",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "control pathway",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cortisol",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "delta cells",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "diabetes mellitus",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ecdysteroid",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine gland",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine system",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epinephrine",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "gene expression",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glucagon",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "growth factor",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hormone cascade pathway",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hormone-receptor complex",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hydrophilic (water soluble) hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hydrophobic (lipid soluble) hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "insulin",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "insulin signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "intercellular communication",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "intracellular receptor",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "local regulator",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "negative feedback",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neuroendocrine signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurohormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurosecretory cell",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurotransmitter",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pancreas",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pancreatic islet",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "paracrine signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "parathyroid gland",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "polypeptide hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "positive feedback",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "PP cells",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "prostaglandin",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "PTH",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "receptor",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "signal transduction",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "simple endocrine pathway",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "simple neuroendocrine pathway",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "somatostatin",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "steroid hormone",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "synaptic signaling",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "target cell",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "thyroid gland",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "thyroxin",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "type 1 diabetes",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "type 2 diabetes",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vitamin D",
-"lesson": " 5",
+"lesson": 5,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ACTH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ADH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adrenal cortex",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "androgen",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anterior pituitary gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anterior pituitary hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Bartholin's gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "bulbourethral gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cervix",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "clitoris",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "corpus luteum",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ejaculatory duct",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endometrium",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epididymis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "erectile tissue",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "estrogen",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "follicle",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "follicular phase",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "FSH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "GH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glans penis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "GnRH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "gonad",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "gonadotropin",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "HPG axis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamic inhibiting hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamic releasing hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamus",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "kidney",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "labia majora",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "labia minora",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Leydig cells",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "LH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "luteal phase",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "mammary gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "melanocytes",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "melatonin",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "menopause",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "menstrual cycle",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "menstrual flow",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "MSH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurohormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "non-tropic hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "oogenesis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ovarian cycle",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ovary",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "oviduct",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ovulation",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ovum",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "oxytocin",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "penis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pineal gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pituitary gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "posterior pituitary gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "posterior pituitary hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "primary sex characteristics",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "progesterone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "prolactin",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "proliferative phase",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "prostate gland",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "scrotum",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "secondary sex characteristics",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "secretory phase",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "semen",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "seminal vesicle",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "seminiferous tubules",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "sertoli cells",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "sperm",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "spermatogenesis",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "testes",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "thyroid",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "tropic hormone",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "TSH",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urethra",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "urinary bladder",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "uterine muscles",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "uterus",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vagina",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vas deferens",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "vestibule",
-"lesson": " 6",
+"lesson": 6,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "acetylcholine",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ACTH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ADH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adrenal capsule",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adrenal cortex",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adrenal gland",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "adrenal medulla",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "aldosterone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "androgen",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anterior pituitary gland",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anterior pituitary hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "catecholamine",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "CDH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "corticosteroid",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cortisol",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endocrine system",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epinephrine",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "FSH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "GH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glucocorticoid",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "HPA axis",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamic inhibiting hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamic releasing hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamus",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "LH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "long-term stress response",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "mineralocorticoid",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "MSH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neuroendocrine signaling",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurohormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurotransmitter",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "non-tropic hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "norepinephrine",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pituitary gland",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "posterior pituitary gland",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "posterior pituitary hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "prolactin",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "short-term stress response",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "tropic hormone",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "TSH",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "zona fasciculata",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "zona glomerulosa",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "zona reticularis",
-"lesson": " 7",
+"lesson": 7,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "acetylcholine",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "action potential",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "allocortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "amygdala",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "anaxonic neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "astrocyte",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "autonomic nervous system",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "axon",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "axon hillock",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "basal nuclei",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "biogenic amine neurotransmitter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "bipolar neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "blood-brain barrier",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "brain",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "brain reward pathway",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "brainstem",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cell body",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "central nervous system",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cerebellum",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cerebral cortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cerebral hemisphere",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cerebrum",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "chemical signal",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "chemical synapse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "corpus callosum",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "cranial nerves",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "dendrite",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "depolarization",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "depolarization phase",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "dopamine",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "electrical synapse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "endorphins",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "epithalamus",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "EPSP",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "excitable cell",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "excitatory neurotransmitter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "excitatory synapse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "forebrain",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "frontal lobe",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "GABA",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ganglia",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "gated ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "glia",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Goldman-Hodgkin-Katz equation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "graded potential",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "grey matter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "growth cone",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hindbrain",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hippocampus",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "homunculus",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hyperpolarization",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "hypothalamus",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "inhibitory neurotransmitter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "inhibitory synapse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "insular cortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "integration",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "interneuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ionotropic neurotransmitter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "IPSP",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ligand-gated ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ligand-gated potassium channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ligand-gated sodium channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "long-term potentiation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "medulla oblongata",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "membrane potential",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "metabotropic neurotransmitter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "midbrain",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "modulator",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "motor (efferent) division",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "motor neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "multipolar neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "myelin",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "myelin sheath",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neocortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Nernst equation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nerve impulse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nervous system",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "neurotransmitter",
-"lesson": " 8",
-"assigned_to": "deanna",
+"lesson": 8,
+"assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "node of Ranvier",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "norepinephrine",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "nuclei",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "occipital lobe",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "olfactory cortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "oligodendrocyte",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "parasympathetic division",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "parietal lobe",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "peripheral nervous system",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pineal gland",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "pons",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "positive feedback",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "postsynaptic cell",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "presynaptic cell",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "primary motor cortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "primary visual cortex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "psychoactive drug",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "radial glia",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "reflex",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "refractory period",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "repolarization phase",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "resting potential",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "reticular formation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "saltatory conduction",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "Schwann cell",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "sensory (afferent) division",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "sensory neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "serotonin",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "somatic nervous system",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "spatial summation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "spinal cord",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "spinal nerves",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "stretch-gated ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "substance P",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "sympathetic division",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "roksana",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "synapse",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "selina",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "synaptic terminal",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "sam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "synaptic vesicle",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "alex",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "temporal lobe",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jason",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "temporal summation",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "jamie",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "thalamus",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "frank",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "threshold potential",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "oliver",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "ungated ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "greg",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "unipolar neuron",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "deanna",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "voltage-gated ion channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "adam",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "voltage-gated potassium channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "amanda",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "voltage-gated sodium channel",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "hannah",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
 }
 {
 "name": "white matter",
-"lesson": " 8",
+"lesson": 8,
 "assigned_to": "kanav",
 "locked": "",
 "media": [],
 "vettings": [],
+"complete": true,
 "vetted_by": [],
 "comments": [],
 "created_at": "2015-03-25T19:08:00.000Z"
