@@ -43,7 +43,10 @@
       });
       Object.defineProperty(balloon, 'width', {
         get: function() {
-          return balloon.$el.outerWidth(); // TODO: cache
+          // HACK
+          // since we want variable width with min-width and max-width, and jquery's width() and outerWidth() don't like that...
+          return 115
+          //return balloon.$el.outerWidth(); // TODO: cache
         },
         set: function(w) {
           return balloon.$el.css('width', w + 'px');
