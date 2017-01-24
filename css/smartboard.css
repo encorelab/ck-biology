@@ -225,7 +225,7 @@ button:hover {
 
 .content.balloon.opened {
   width: 600px;
-  min-height: 600px;
+  min-width: 600px;
   /*height: 525px;*/
   max-height: 500px;
   background-color: white;
