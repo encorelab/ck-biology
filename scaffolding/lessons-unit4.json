@@ -94,13 +94,5 @@
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z",
         "kind": "review3"
-    },
-    {
-        "title": "Review 4",
-        "number": 12,
-        "enabled": false,
-        "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z",
-        "kind": "review4"
     }
 ]

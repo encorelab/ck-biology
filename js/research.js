@@ -897,6 +897,61 @@
     return Math.round(percent);
   };
 
+  app.getUnitScores = function(username) {
+    // The “Immunology” score would be derived from Lesson 3
+    // The “Nephrology” score would be derived from Lesson 4
+    // The “Endocrinology” score would be derived from Lessons 5-7 (average)
+    // The “Neurology” score would be derived from Lesson 8
+
+    //Score = [% progress] + [(# "complete and correct" vets received on own terms) – (# "not complete and correct" vets on own terms)]
+    var scoreObj = [
+      {
+        "specialization": "Immunology",
+        "lessons": [3]
+      },
+      {
+        "specialization": "Nephrology",
+        "lessons": [4]
+      },
+      {
+        "specialization": "Endocrinology",
+        "lessons": [5]
+      },
+      {
+        "specialization": "Neurology",
+        "lessons": [6]
+      }
+    ];
+    //"lessons": [5,6,7]
+    //"lessons": [8]
+    // START HERE - do multiple lessons, think about how to normalize varying num vets (lesson), think about other factors to add to score?
+
+    _.each(scoreObj, function(specObj) {
+      var percent = app.getMyContributionPercent(username, specObj.lessons[0], true) / 10;
+      var terms = Skeletor.Model.awake.terms.where({"lesson":specObj.lessons[0],"assigned_to":username})
+      var numCorrectTerms = 0;
+      var numIncorrectTerms = 0;
+
+      _.each(terms, function(t) {
+        var vets = t.get('vettings');
+        var corrFlag = true;
+        _.each(vets, function(v) {
+          if (v.correct !== true) {
+            corrFlag = false;
+          }
+        });
+        if (corrFlag === true) {
+          numCorrectTerms++;
+        } else {
+          numIncorrectTerms++;
+        }
+      });
+
+      var score = percent + numCorrectTerms - numIncorrectTerms;
+      console.log(specObj.specialization+' score is: '+score+' ('+percent+'+'+numCorrectTerms+'-'+numIncorrectTerms+')');
+    });
+  };
+
   app.getColourForColour = function(colour) {
     return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };
