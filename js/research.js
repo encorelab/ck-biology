@@ -897,6 +897,12 @@
     return Math.round(percent);
   };
 
+  app.printUnitScores = function() {
+    app.users.each(function(user) {
+      app.getUnitScores(user.get('username'));
+    });
+  };
+
   app.getUnitScores = function(username) {
     // The “Immunology” score would be derived from Lesson 3
     // The “Nephrology” score would be derived from Lesson 4
@@ -907,31 +913,40 @@
     var scoreObj = [
       {
         "specialization": "Immunology",
-        "lessons": [3]
+        "lessons": [1]
       },
       {
         "specialization": "Nephrology",
-        "lessons": [4]
+        "lessons": [2]
       },
       {
         "specialization": "Endocrinology",
-        "lessons": [5]
+        "lessons": [3]
       },
       {
         "specialization": "Neurology",
-        "lessons": [6]
+        "lessons": [4, 5]
       }
     ];
-    //"lessons": [5,6,7]
-    //"lessons": [8]
-    // START HERE - do multiple lessons, think about how to normalize varying num vets (lesson), think about other factors to add to score?
+
+    console.log(username);
 
     _.each(scoreObj, function(specObj) {
-      var percent = app.getMyContributionPercent(username, specObj.lessons[0], true) / 10;
-      var terms = Skeletor.Model.awake.terms.where({"lesson":specObj.lessons[0],"assigned_to":username})
+      // calc the percent
+      var percent = 0;
+      _.each(specObj.lessons, function(lessonNum) {
+        percent += (app.getMyContributionPercent(username, lessonNum, true) / 10);
+      });
+      // get the avg of the lessons
+      percent = percent / specObj.lessons.length;
+
+      // calc the vets
+      var terms = [];
+      _.each(specObj.lessons, function(lessonNum) {
+        terms = terms.concat(Skeletor.Model.awake.terms.where({"lesson":lessonNum,"assigned_to":username, "complete": true}));
+      });
       var numCorrectTerms = 0;
       var numIncorrectTerms = 0;
-
       _.each(terms, function(t) {
         var vets = t.get('vettings');
         var corrFlag = true;
@@ -946,9 +961,17 @@
           numIncorrectTerms++;
         }
       });
+      // TODO: clean this up when we finalize how to calc score
+      // get the % for the vets
+      //var percentCorrentTerms = numCorrectTerms / terms.length * 10;
+      //var percentIncorrentTerms = numIncorrectTerms / terms.length * 10;
+      var vetScore = 0;
+      if (terms.length > 0) {
+        var vetScore = numCorrectTerms / terms.length * 10;
+      }
 
-      var score = percent + numCorrectTerms - numIncorrectTerms;
-      console.log(specObj.specialization+' score is: '+score+' ('+percent+'+'+numCorrectTerms+'-'+numIncorrectTerms+')');
+      var score = percent + vetScore;
+      console.log(specObj.specialization+' score is: '+score+' ('+percent+'+'+vetScore+')');
     });
   };
 
