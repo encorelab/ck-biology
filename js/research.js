@@ -897,6 +897,25 @@
     return Math.round(percent);
   };
 
+  app.getRecommendedSpecialization = function(username) {
+    var specObj = app.getUnitScores(username);
+
+    // update the specObj to remove any full specializations
+    _.each(specObj, function(spec, index) {
+      var article = Skeletor.Model.awake.articles.findWhere({"field": spec.specialization});
+      if (article.get('users').length > 3) {
+        specObj[index] = {};
+      }
+    });
+
+    // find the top score (tie goes to last in array)
+    var spec = _.max(specObj, function(spec) {
+      return spec.score
+    });
+
+    return spec.specialization
+  };
+
   app.printUnitScores = function() {
     app.users.each(function(user) {
       app.getUnitScores(user.get('username'));
@@ -931,7 +950,7 @@
 
     console.log(username);
 
-    _.each(scoreObj, function(specObj) {
+    _.each(scoreObj, function(specObj, index) {
       // calc the percent
       var percent = 0;
       _.each(specObj.lessons, function(lessonNum) {
@@ -972,7 +991,11 @@
 
       var score = percent + vetScore;
       console.log(specObj.specialization+' score is: '+score+' ('+percent+'+'+vetScore+')');
+
+      scoreObj[index].score = score;
     });
+
+    return scoreObj;
   };
 
   app.getColourForColour = function(colour) {
