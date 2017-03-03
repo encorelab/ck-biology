@@ -308,6 +308,21 @@
                 <div id="choose-specialization-description"></div>
             </div>
         </div>
+
+        <div id="confirm-specialization-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- <h3 class="modal-header">
+                        Confirmation
+                    </h3> -->
+                    <div>You have chosen to specialize in:</div>
+                    <div class="specialization-choice-container"></div>
+                    <div>Are you sure? (You may not switch again once you're chosen "yes")</div>
+                    <button id="choose-specialization-yes-btn">Yes, I'm sure</button>
+                    <button id="choose-specialization-no-btn">No, I changed my mind</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -371,7 +386,7 @@
     <div id="explain-details-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-            <h3 class="title">Explain how this term applies within the context of the article</h3>
+            <h3 class="title">Explain how this term applies within the context of this case study</h3>
                 <div id="explain-details-term-container">
                     <!-- filled by research.view.js -->
                 </div>
