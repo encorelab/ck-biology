@@ -1035,11 +1035,11 @@
 
 
 
-  /*****************************************************************************************************
-   *****************************************************************************************************
-   ************************************ STUDENT RELATED VIEWS ******************************************
-   *****************************************************************************************************
-   *****************************************************************************************************/
+  /***********************************************************************************************
+   ***********************************************************************************************
+   ************************************ STUDENT RELATED VIEWS ************************************
+   ***********************************************************************************************
+   ***********************************************************************************************/
 
 
 
@@ -1576,11 +1576,11 @@
 
 
 
-/*****************************************************************************************************
- *****************************************************************************************************
- ************************************* STUDENT REVIEW VIEWS ******************************************
- *****************************************************************************************************
- *****************************************************************************************************/
+/***********************************************************************************************
+ ***********************************************************************************************
+ ************************************* STUDENT REVIEW VIEWS ************************************
+ ***********************************************************************************************
+ ***********************************************************************************************/
 
 
   /***********************************************************
@@ -1596,11 +1596,41 @@
     },
 
     events: {
-      'click #choose-article-container img' : 'chooseField'
+      'click #choose-article-container img'     : 'showDescription',
+      'click #choose-specialization-btn'        : 'confirmChoice',
+      'click #choose-specialization-yes-btn'    : 'chooseField',
+      'click #choose-specialization-no-btn'     : 'closeModal',
+    },
+
+    showDescription: function(ev) {
+      jQuery('#choose-specialization-description').html('');
+      var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
+      var descEl = jQuery('<div>');
+      descEl.text(article.get('description'));
+      var buttonEl = jQuery('<button>');
+      buttonEl.attr('id', 'choose-specialization-btn');
+      buttonEl.text('Select this specialization');
+      buttonEl.data('field', jQuery(ev.target).data('field'));
+      jQuery('#choose-specialization-description').append(descEl);
+      jQuery('#choose-specialization-description').append(buttonEl);
+    },
+
+    confirmChoice: function(ev) {
+      console.log(jQuery(ev.target).data('field'));
+
+      jQuery('.specialization-choice-container').text(jQuery(ev.target).data('field'));
+      jQuery('#choose-specialization-yes-btn').data('field', jQuery(ev.target).data('field'))
+      jQuery('#confirm-specialization-modal').modal({keyboard: false, backdrop: 'static'});
+    },
+
+    closeModal: function() {
+      jQuery('#confirm-specialization-modal').modal('hide');
     },
 
     chooseField: function(ev) {
       var view = this;
+
+      jQuery('#confirm-specialization-modal').modal('hide');
 
       var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
       article.wake(app.config.wakeful.url);
@@ -1627,6 +1657,11 @@
     render: function () {
       var view = this;
       console.log("Rendering ChooseArticleView...");
+
+      jQuery('#choose-specialization-description').html('');
+
+      // create the recommended spec content
+      jQuery('#recommended-specialization').text(app.getRecommendedSpecialization(app.username));
 
       view.collection.comparator = function(model) {
         return model.get('field');
@@ -1991,7 +2026,7 @@
       // render the user gen'd content
       jQuery('#explain-details-content-container').html('');
       var term = app.checkForRepeatTerm(Skeletor.Model.awake.terms.findWhere({"name": view.options.term}));
-      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in '+view.model.get('author')+'</h3>';
+      var titleEl = '<h3 class="title"><b>'+term.get('name')+'</b> in this case study</h3>';
       jQuery('#explain-details-content-container').append(titleEl);
       var entryEl = '<textarea id="explain-details-content-entry"></textarea>';
       jQuery('#explain-details-content-container').append(entryEl);

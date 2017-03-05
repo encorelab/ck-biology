@@ -897,6 +897,107 @@
     return Math.round(percent);
   };
 
+  app.getRecommendedSpecialization = function(username) {
+    var specObj = app.getUnitScores(username);
+
+    // update the specObj to remove any full specializations
+    _.each(specObj, function(spec, index) {
+      var article = Skeletor.Model.awake.articles.findWhere({"field": spec.specialization});
+      if (article.get('users').length > 3) {
+        specObj[index] = {};
+      }
+    });
+
+    // find the top score (tie goes to last in array)
+    var spec = _.max(specObj, function(spec) {
+      return spec.score
+    });
+
+    return spec.specialization
+  };
+
+  app.printUnitScores = function() {
+    app.users.each(function(user) {
+      app.getUnitScores(user.get('username'));
+    });
+  };
+
+  app.getUnitScores = function(username) {
+    // The “Immunology” score would be derived from Lesson 3
+    // The “Nephrology” score would be derived from Lesson 4
+    // The “Endocrinology” score would be derived from Lessons 5-7 (average)
+    // The “Neurology” score would be derived from Lesson 8
+
+    //Score = [% progress] + [(# "complete and correct" vets received on own terms) – (# "not complete and correct" vets on own terms)]
+    var scoreObj = [
+      {
+        "specialization": "Immunology",
+        "lessons": [1]
+      },
+      {
+        "specialization": "Nephrology",
+        "lessons": [2]
+      },
+      {
+        "specialization": "Endocrinology",
+        "lessons": [3]
+      },
+      {
+        "specialization": "Neurology",
+        "lessons": [4, 5]
+      }
+    ];
+
+    console.log(username);
+
+    _.each(scoreObj, function(specObj, index) {
+      // calc the percent
+      var percent = 0;
+      _.each(specObj.lessons, function(lessonNum) {
+        percent += (app.getMyContributionPercent(username, lessonNum, true) / 10);
+      });
+      // get the avg of the lessons
+      percent = percent / specObj.lessons.length;
+
+      // calc the vets
+      var terms = [];
+      _.each(specObj.lessons, function(lessonNum) {
+        terms = terms.concat(Skeletor.Model.awake.terms.where({"lesson":lessonNum,"assigned_to":username, "complete": true}));
+      });
+      var numCorrectTerms = 0;
+      var numIncorrectTerms = 0;
+      _.each(terms, function(t) {
+        var vets = t.get('vettings');
+        var corrFlag = true;
+        _.each(vets, function(v) {
+          if (v.correct !== true) {
+            corrFlag = false;
+          }
+        });
+        if (corrFlag === true) {
+          numCorrectTerms++;
+        } else {
+          numIncorrectTerms++;
+        }
+      });
+      // TODO: clean this up when we finalize how to calc score
+      // get the % for the vets
+      //var percentCorrentTerms = numCorrectTerms / terms.length * 10;
+      //var percentIncorrentTerms = numIncorrectTerms / terms.length * 10;
+      var vetScore = 0;
+      if (terms.length > 0) {
+        var vetScore = numCorrectTerms / terms.length * 10;
+      }
+
+      var score = percent + vetScore;
+      console.log(specObj.specialization+' score is: '+score+' ('+percent+'+'+vetScore+')');
+
+      scoreObj[index].score = score;
+    });
+
+    return scoreObj;
+  };
+
   app.getColourForColour = function(colour) {
     return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };

@@ -295,9 +295,31 @@
     <div id="choose-article-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-                <h2>Choose a field of research:</h2>
+                <h2>Welcome</h2>
+                <div>Welcome to the Unit 4 review! Over the next few classes, you will be working with a team of peers as a medical practitioner tasked with reviewing and diagnosing several patient cases. Below, you are asked to select an area of specialization. There is a maximum of four students per area of specialization (available on a first come first serve basis). Once you have chosen your specialization, you will be asked to stick with it for the remainder of the review - so please choose carefully!</div>
+                <br />
+                <div>Base on the knowledge you contributed in CK Biology, the specialization that is recommended for you is:</div>
+                <div id="recommended-specialization"></div>
+                <div>(though you are welcome to choose any specialization you wish)</div>
+                <h2>Areas of Specialization</h2>
                 <div id="choose-article-container">
                     <!-- filled by research.view.js -->
+                </div>
+                <div id="choose-specialization-description"></div>
+            </div>
+        </div>
+
+        <div id="confirm-specialization-modal" class="modal" tabindex="-1" role="dialog" aria-labelledby="login-picker" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- <h3 class="modal-header">
+                        Confirmation
+                    </h3> -->
+                    <div>You have chosen to specialize in:</div>
+                    <div class="specialization-choice-container"></div>
+                    <div>Are you sure? (You may not switch again once you're chosen "yes")</div>
+                    <button id="choose-specialization-yes-btn">Yes, I'm sure</button>
+                    <button id="choose-specialization-no-btn">No, I changed my mind</button>
                 </div>
             </div>
         </div>
@@ -364,7 +386,7 @@
     <div id="explain-details-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-            <h3 class="title">Explain how this term applies within the context of the article</h3>
+            <h3 class="title">Explain how this term applies within the context of this case study</h3>
                 <div id="explain-details-term-container">
                     <!-- filled by research.view.js -->
                 </div>

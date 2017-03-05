@@ -54,7 +54,7 @@
         "kind": "homework"
     },
     {
-        "title": "Lesson 7: Endocrine System I – HPA Axis & Stress",
+        "title": "Lesson 7: Endocrine System III – HPA Axis & Stress",
         "number": 7,
         "vetting_tasks": 3,
         "enabled": false,
@@ -94,13 +94,5 @@
         "created_at": "2015-03-25T19:08:00.000Z",
         "modified_at": "2015-03-25T19:09:00.000Z",
         "kind": "review3"
-    },
-    {
-        "title": "Review 4",
-        "number": 12,
-        "enabled": false,
-        "created_at": "2015-03-25T19:08:00.000Z",
-        "modified_at": "2015-03-25T19:09:00.000Z",
-        "kind": "review4"
     }
 ]
