@@ -311,6 +311,7 @@
           jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
           jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
         }
+        // START HERE
 
         // if student
         if (app.teacherFlag === false) {
