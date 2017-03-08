@@ -306,13 +306,6 @@
         // if student, show both progress bars for all homework lessons
         // if teacher, show only community progress bar for all homework lessons
 
-        // if review, make invisible (mostly to make the css easier)
-        if (lesson.get('kind') !== "homework") {
-          jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
-          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
-        }
-        // START HERE
-
         // if student
         if (app.teacherFlag === false) {
           var myPercent = '';
@@ -351,8 +344,42 @@
             }
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
-      });
 
+        // if review, overwrite it
+        if (lesson.get('kind') !== "homework") {
+          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+
+          var completeFlag = true;
+          // review1
+          if (lesson.get('kind') === "review1") {
+            var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+            if (myArticle) {
+              var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
+              _.each(myTermsArr, function(term) {
+                if (term.complete === false) {
+                  completeFlag = false;
+                }
+              });
+            } else {
+              completeFlag = false;
+            }
+          } else if (lesson.get('kind') === "review2") {
+            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+          } else if (lesson.get('kind') === "review3") {
+            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+          } else {
+            console.error('Unkown lesson');
+          }
+
+          // sorry Megs, I know this is getting nasty as hell
+          if (completeFlag) {
+            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span style="margin-left:115px">Completed</span>');
+          } else {
+            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+          }
+        }
+
+      });
     }
   });
 
@@ -1937,6 +1964,7 @@
       jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
       jQuery('#explain-terms-screen').addClass('hidden');
       jQuery('#home-screen').removeClass('hidden');
+      app.homeView.render();
     },
 
     render: function() {
