@@ -541,17 +541,17 @@
       console.log('Initializing GroupingView...');
 
       // check if there is an 'absent' group, if not, create for both review lessons (VERY SLOPPY, TODO)
-      if (view.collection.where({"kind": "absent", "lesson": "review3"}).length === 0) {
+      if (view.collection.where({"kind": "absent", "lesson": "review2"}).length === 0) {
         var group = new Model.Group();
-        group.set('lesson', 'review3');
+        group.set('lesson', 'review2');
         group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
         group.set('kind', "absent");
         group.save();
         view.collection.add(group);
       }
-      if (view.collection.where({"kind": "absent", "lesson": "review4"}).length === 0) {
+      if (view.collection.where({"kind": "absent", "lesson": "review3"}).length === 0) {
         var group = new Model.Group();
-        group.set('lesson', 'review4');
+        group.set('lesson', 'review3');
         group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
         group.set('kind', "absent");
         group.save();
@@ -1719,6 +1719,12 @@
         usersArr.push(app.username);
         article.set('users', usersArr);
         article.save();
+
+        var group = Skeletor.Model.awake.groups.findWhere({"field": jQuery(ev.target).data('field')});
+        var newMembersArr = group.get('members');
+        newMembersArr.push(app.username);
+        group.set('members', newMembersArr);
+        group.save();
 
         app.hideAllContainers();
 

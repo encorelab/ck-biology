@@ -10,9 +10,10 @@
 # mongo ck-biology-encore --eval "db.relationships.remove()"
 # mongoimport -d ck-biology-encore -c relationships --jsonArray scaffolding/encore-relationships.json
 
-mongo ck-biology-encore --eval "db.articles.remove()"
-mongoimport -d ck-biology-encore -c articles --jsonArray scaffolding/encore-articles.json
+mongo ck-biology-encore-U4 --eval "db.articles.remove()"
+mongoimport -d ck-biology-encore-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
 
-mongo ck-biology-encore --eval "db.groups.remove()"
+mongo ck-biology-encore-U4 --eval "db.groups.remove()"
+mongoimport -d ck-biology-encore-U4 -c groups --jsonArray scaffolding/groups-unit4.json
 
-mongo ck-biology-encore --eval "db.reports.remove()"
+# mongo ck-biology-encore --eval "db.reports.remove()"
