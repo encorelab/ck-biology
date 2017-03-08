@@ -485,6 +485,13 @@ textarea {
     display: inline-block;
 }
 
+.review-completed {
+    color: #2ECC71;
+}
+.review-in-progress {
+    color: #F1C40F;
+}
+
 
 /*****************************************************/
 /*****************************************************/

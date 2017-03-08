@@ -782,7 +782,7 @@
 
   app.getMyField = function(username) {
     var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
-      return _.contains(article.get('users'), app.username)
+      return _.contains(article.get('users'), username)
     });
 
     if (_.first(myArticle)) {

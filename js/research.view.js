@@ -185,7 +185,11 @@
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
-          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+          jQuery('#progress-nav-btn').removeClass('hidden');
+          jQuery('#progress-nav-btn').addClass('active');
+          jQuery('#homework-progress-screen').removeClass('hidden');
+          app.homeworkProgressView.render();
+
         } else if (app.reviewSection === "review2") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
@@ -328,6 +332,44 @@
               }
             });
           myBar.animate(app.getMyContributionPercent(app.username, lesson.get('number')) / 100);
+
+          // if review, overwrite it
+          if (lesson.get('kind') !== "homework") {
+            jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+
+            var completeFlag = true;
+            // review1
+            if (lesson.get('kind') === "review1") {
+              var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+              if (myArticle) {
+                var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
+                _.each(myTermsArr, function(term) {
+                  if (term.complete === false) {
+                    completeFlag = false;
+                  }
+                });
+              } else {
+                completeFlag = false;
+              }
+            } else if (lesson.get('kind') === "review2") {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+            } else if (lesson.get('kind') === "review3") {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+            } else {
+              console.error('Unknown lesson');
+            }
+
+            // sorry Megs, I know this is getting nasty as hell
+            if (completeFlag) {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span style="margin-left:115px" class="review-completed">Completed</span>');
+            } else {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+            }
+          }
+        } else {
+          if (lesson.get('kind') !== "homework") {
+            jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+          }
         }
 
         // for students and teachers
@@ -345,39 +387,7 @@
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
 
-        // if review, overwrite it
-        if (lesson.get('kind') !== "homework") {
-          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
 
-          var completeFlag = true;
-          // review1
-          if (lesson.get('kind') === "review1") {
-            var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
-            if (myArticle) {
-              var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
-              _.each(myTermsArr, function(term) {
-                if (term.complete === false) {
-                  completeFlag = false;
-                }
-              });
-            } else {
-              completeFlag = false;
-            }
-          } else if (lesson.get('kind') === "review2") {
-            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
-          } else if (lesson.get('kind') === "review3") {
-            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
-          } else {
-            console.error('Unkown lesson');
-          }
-
-          // sorry Megs, I know this is getting nasty as hell
-          if (completeFlag) {
-            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span style="margin-left:115px">Completed</span>');
-          } else {
-            jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
-          }
-        }
 
       });
     }
@@ -400,79 +410,120 @@
       var view = this;
       console.log("Rendering HomeworkProgressView...");
 
-      // sort collection by most complete to least complete
-      var userArray = [];
-      view.collection.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
-          userArray.push(user);
-        }
-      });
-
-      function compare(a,b) {
-        if (a.get('complete_percent') > b.get('complete_percent'))
-          return -1;
-        if (a.get('complete_percent') < b.get('complete_percent'))
-          return 1;
-        return 0;
-      }
-      userArray.sort(compare);
-
-      // create the html for the buttons and progress bars
-      var teacherEl = '';
-      _.each(userArray, function(user, index) {
-        var name = user.get('username');
-
+      if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review1") {
+        // create the html for the buttons and progress bars
         var el = '';
-        if (index%2 === 0) {
-          el += '<div class="homework-progress-row-container">';
-          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="homework-progress-bar-container">';
-          el += '<span id="'+name+'-progress-bar"></span>';
-          el += '</span>';
-        } else {
-          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="homework-progress-bar-container">';
-          el += '<span id="'+name+'-progress-bar"></span>';
-          el += '</span>';
-          el += '</div>';
-        }
 
-        teacherEl += el;
-      });
-      // odd number of students, but including maria in the collection
-      if (view.collection.length%2 === 0) {
-        teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
-        teacherEl += '<span class="homework-progress-bar-container">';
-        teacherEl += '</span>';
-        teacherEl += '</div>';
-      }
-      jQuery('#homework-progress-container').html(teacherEl);
-
-      view.collection.each(function(user) {
-        if (user.get('user_role') !== 'teacher') {
-          var myPercent = '';
-          if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
-            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
-          } else {
-            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== 'teacher') {
+            var name = user.get('username');
+            el += '<div class="review-progress-row-container">';
+            el += '<span class="review-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</div>';
           }
+        });
+        jQuery('#homework-progress-container').html(el);
 
-          var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
-            {
-              easing: 'easeInOut',
-              color: app.hexDarkPurple,
-              trailColor: app.hexLightGrey,
-              strokeWidth: 8,
-              svgStyle: app.progressBarStyleHome,
-              text: {
-                value: myPercent,
-                style: app.progressBarTextStyle
+        view.collection.each(function(user) {
+          var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(user.get('username'))});
+          var completeCount = 0;
+          if (myArticle) {
+            var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": user.get('username')});
+            _.each(myTermsArr, function(term) {
+              if (term.complete === true) {
+                completeCount++;
               }
             });
-          myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+            if (completeCount === myTermsArr.length && completeCount > 0) {
+              jQuery('#'+user.get('username')+'-progress-bar').html('<span class="review-completed">Completed ('+completeCount+' terms)</span>');
+            } else {
+              jQuery('#'+user.get('username')+'-progress-bar').html('<span class="review-in-progress">In Progress ('+completeCount+' terms)</span>');
+            }
+          } else {
+            jQuery('#'+user.get('username')+'-progress-bar').html('<span>In Progress (0 terms)</span>');
+            jQuery('#'+user.get('username')+'-progress-bar').addClass('invisible');
+          }
+        });
+
+
+      } else {
+        // sort collection by most complete to least complete
+        var userArray = [];
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== "teacher") {
+            user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
+            userArray.push(user);
+          }
+        });
+
+        function compare(a,b) {
+          if (a.get('complete_percent') > b.get('complete_percent'))
+            return -1;
+          if (a.get('complete_percent') < b.get('complete_percent'))
+            return 1;
+          return 0;
         }
-      });
+        userArray.sort(compare);
+
+        // create the html for the buttons and progress bars
+        var teacherEl = '';
+        _.each(userArray, function(user, index) {
+          var name = user.get('username');
+
+          var el = '';
+          if (index%2 === 0) {
+            el += '<div class="homework-progress-row-container">';
+            el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="homework-progress-bar-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+          } else {
+            el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="homework-progress-bar-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+            el += '</div>';
+          }
+
+          teacherEl += el;
+        });
+        // odd number of students, but including maria in the collection
+        if (view.collection.length%2 === 0) {
+          teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+          teacherEl += '<span class="homework-progress-bar-container">';
+          teacherEl += '</span>';
+          teacherEl += '</div>';
+        }
+        jQuery('#homework-progress-container').html(teacherEl);
+
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== 'teacher') {
+            var myPercent = '';
+            if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
+              myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
+            } else {
+              myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+            }
+
+            var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
+              {
+                easing: 'easeInOut',
+                color: app.hexDarkPurple,
+                trailColor: app.hexLightGrey,
+                strokeWidth: 8,
+                svgStyle: app.progressBarStyleHome,
+                text: {
+                  value: myPercent,
+                  style: app.progressBarTextStyle
+                }
+              });
+            myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+          }
+        });
+      }
+
+
     }
   });
 
@@ -1858,8 +1909,8 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
-      if (app.getMyField()) {
-        var el = '<h1>Your article on '+app.getMyField()+'</h1>';
+      if (app.getMyField(app.username)) {
+        var el = '<h1>Your article on '+app.getMyField(app.username)+'</h1>';
         jQuery('#attach-terms-title-container').html(el);
       } else {
         jQuery().toastmessage('showErrorToast', "Collision error. Please return to home screen and re-choose this field of research.");
