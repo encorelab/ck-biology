@@ -15,6 +15,6 @@
         "url": "///pikachu.coati.encorelab.org/"
     },
     "login_picker": true,
-    "runs":["encore", "SBI4UE-01-U1", "SBI4UE-02-U1"],
+    "runs":["encore", "encore-U4", "SBI4UE-01-U1", "SBI4UE-02-U1"],
     "project_name": "CK Biology 2016"
 }
