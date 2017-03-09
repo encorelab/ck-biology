@@ -912,10 +912,10 @@
 
     // find the top score (tie goes to last in array)
     var spec = _.max(specObj, function(spec) {
-      return spec.score
+      return spec.score;
     });
 
-    return spec.specialization
+    return spec;
   };
 
   app.printUnitScores = function() {
@@ -934,19 +934,23 @@
     var scoreObj = [
       {
         "specialization": "Immunology",
-        "lessons": [1]
+        "lessons": [1],
+        "colour": "red"
       },
       {
         "specialization": "Nephrology",
-        "lessons": [2]
+        "lessons": [2],
+        "colour": "yellow"
       },
       {
         "specialization": "Endocrinology",
-        "lessons": [3]
+        "lessons": [3],
+        "colour": "green"
       },
       {
         "specialization": "Neurology",
-        "lessons": [4, 5]
+        "lessons": [4, 5],
+        "colour": "purple"
       }
     ];
 

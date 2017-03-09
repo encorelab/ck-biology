@@ -606,13 +606,14 @@
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             }
             jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
-            studentBtn.text(user.get('username'));
           } else {
-            var recoSpec = app.getRecommendedSpecialization(user.get('username')).slice(0,4);
             studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
-            studentBtn.text(user.get('username') + ' ('+recoSpec+')');
+            var recoSpecColour = app.getRecommendedSpecialization(user.get('username')).colour;
+            var style = "2px solid "+recoSpecColour;
+            jQuery(studentBtn).css("border", style);
           }
+          studentBtn.text(user.get('username'));
         }
       });
     },
@@ -1772,7 +1773,8 @@
       jQuery('#choose-specialization-description').html('');
 
       // create the recommended spec content
-      jQuery('#recommended-specialization').text(app.getRecommendedSpecialization(app.username));
+      var specObj = app.getRecommendedSpecialization(app.username);
+      jQuery('#recommended-specialization').text(specObj.specialization);
 
       view.collection.comparator = function(model) {
         return model.get('field');
