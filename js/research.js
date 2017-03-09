@@ -336,11 +336,13 @@
           app.hideAllContainers();
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
-          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review2") {
             jQuery('#grouping-screen').removeClass('hidden');
-          } else {
-            jQuery('#grouping-jigsaw-screen').removeClass('hidden');
+            jQuery('#progress-nav-btn').addClass('hidden');
           }
+          //  else {
+          //   jQuery('#grouping-jigsaw-screen').removeClass('hidden');
+          // }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
         } else if (jQuery(this).hasClass('goto-group-contribution-btn')) {
           app.hideAllContainers();
@@ -371,7 +373,7 @@
           jQuery('#progress-nav-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
-            jQuery('#grouping-nav-btn').removeClass('hidden');
+            //jQuery('#grouping-nav-btn').removeClass('hidden');
           }
           app.hideAllContainers();
           jQuery('#homework-progress-btn').addClass('active');

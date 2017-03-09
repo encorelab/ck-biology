@@ -599,18 +599,20 @@
           var studentBtn = '';
           var myGroup = app.getMyGroup(user.get('username'), app.reviewSection);
           if (myGroup) {
-            // student button border colour *always* determined by review3 (since review4 isn't coloured)
+            // student button border colour *always* determined by review2
             if (app.getMyGroup(user.get('username'), "review2")) {
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
             } else {
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             }
             jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
+            studentBtn.text(user.get('username'));
           } else {
+            var recoSpec = app.getRecommendedSpecialization(user.get('username')).slice(0,4);
             studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+            studentBtn.text(user.get('username') + ' ('+recoSpec+')');
           }
-          studentBtn.text(user.get('username'));
         }
       });
     },
