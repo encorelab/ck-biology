@@ -1,5 +1,3 @@
-// move this to the DB when finalized, then fetch it onLoad and set app.report to it (it's used in view 115 and 167)
-
 Skeletor.Mobile.report = {
   "pdf": "reports/pdfs/bovine_methane_proposal.pdf",
   "parts": [
