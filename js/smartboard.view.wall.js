@@ -56,7 +56,7 @@
       }
 
       // PROD: disable me for no drag
-      wall.makeBalloonDraggable(term, bv);
+      //wall.makeBalloonDraggable(term, bv);
       // trying this out to get rid of the issue where closed terms jump in front opened terms
       // bv.$el.click(function() {
       //   wall.moveBalloonToTop(term, bv);
