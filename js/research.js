@@ -41,7 +41,7 @@
   app.teamColourRGB = ["rgba(231,76,60,0.7)", "rgba(46,204,113,0.7)", "rgba(155,89,182,0.7)", "rgba(241,196,15, 0.7)", "rgba(243,156,18,0.7)"];
   app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
   app.currentReportPage = 1;
-  app.report = null;
+  //app.report = null;
   app.finalReportPart = null;
 
   app.homeView = null;
@@ -1002,6 +1002,21 @@
     });
 
     return scoreObj;
+  };
+
+  app.recreateReports = function(lesson) {
+    // delete all reports for this lesson
+    _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
+    // create all reports for this lesson
+    _.each(app.certificationReports, function(report) {
+      var r = new Model.Report();
+      r.set('lesson', lesson);
+      r.set('group_colour', report.colour);
+      r.set('field', report.field);
+      r.set('parts', report.parts);
+      r.save();
+      Skeletor.Model.awake.reports.add(r);
+    });
   };
 
   app.getColourForColour = function(colour) {

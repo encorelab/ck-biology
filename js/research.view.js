@@ -91,20 +91,19 @@
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
             var myGroup = app.getMyGroup(app.username, "review2");
-            // var report = null;
-            // if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"})) {
-            //   report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"});
-            // } else {
-            //   // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-            //   // TODO for unit 4 - create report when group is created, but don't delete when group is deleted
-            //   report = new Model.Report();
-            //   report.set('group_colour', myGroup.get('colour'));
-            //   report.set('lesson', 'review2');
-            //   report.set('parts', app.report.parts);      // TODO
-            //   report.set('pdf', app.report.pdf);
-            //   report.save();
-            //   Skeletor.Model.awake.reports.add(report);
-            // }
+            var report = null;
+            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"})) {
+              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"});
+            } else {
+              // create all reports on load (and set flag for reset reports)
+              report = new Model.Report();
+              report.set('group_colour', 'red');
+              report.set('lesson', 'review2');
+              report.set('parts', app.report.parts);      // TODO
+              report.set('pdf', app.report.pdf);
+              report.save();
+              Skeletor.Model.awake.reports.add(report);
+            }
             // report.wake(app.config.wakeful.url);
             // if (app.reportView === null) {
             //   app.reportView = new app.View.ReportView({
