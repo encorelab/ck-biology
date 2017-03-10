@@ -95,24 +95,16 @@
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"})) {
               report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"});
             } else {
-              // create all reports on load (and set flag for reset reports)
-              report = new Model.Report();
-              report.set('group_colour', 'red');
-              report.set('lesson', 'review2');
-              report.set('parts', app.report.parts);      // TODO
-              report.set('pdf', app.report.pdf);
-              report.save();
-              Skeletor.Model.awake.reports.add(report);
+              console.error('Report does not exist - try app.recreateReports');
             }
-            // report.wake(app.config.wakeful.url);
-            // if (app.reportView === null) {
-            //   app.reportView = new app.View.ReportView({
-            //     el: '#report-screen',
-            //     model: report
-            //   });
-            // }
-
-            // app.reportView.render();
+            report.wake(app.config.wakeful.url);
+            if (app.reportView === null) {
+              app.reportView = new app.View.ReportView({
+                el: '#report-screen',
+                model: report
+              });
+            }
+            app.reportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
             jQuery('.top-nav-btn').addClass('hidden');
@@ -380,8 +372,15 @@
               } else {
                 completeFlag = false;
               }
+            // review2
             } else if (lesson.get('kind') === "review2") {
-              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+              if (app.getMyGroup(app.username, lesson.get('kind'))) {
+                if (app.getReportCompletionPercent(lesson.get('kind'), app.getMyGroup(app.username, lesson.get('kind')).get('colour')) !== 100) {
+                  completeFlag = false;
+                }
+              } else {
+                completeFlag = false;
+              }
             } else if (lesson.get('kind') === "review3") {
               jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
             } else {
@@ -2495,22 +2494,36 @@
 
     events: {
       // general functionality
-      'click #pdf-modal-btn'           : 'openPdfModal',
+      //'click #pdf-modal-btn'           : 'openPdfModal',
       'click #report-step-forward-btn' : 'stepForward',
       'click #report-step-back-btn'    : 'stepBack',
       'keyup textarea'                 : 'checkForAllowedToProceed',
+      'keyup textarea'                 : 'checkForAutoSave',
       // unique unit-specific functionality
-      'click .unit3-view-sequence-btn' : 'unit3ViewSequence',
-      'click .unit3-check-answer'      : 'unit3checkAnswer'
+      // 'click .unit3-view-sequence-btn' : 'unit3ViewSequence',
+      // 'click .unit3-check-answer'      : 'unit3checkAnswer'
     },
 
-    openPdfModal: function() {
+    // openPdfModal: function() {
+    //   var view = this;
+
+    //   var objEl = '<object id="report-pdf-content" type="application/pdf" data="'+view.model.get('pdf')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>';
+    //   jQuery('#pdf-modal .modal-body').html(objEl);
+
+    //   jQuery('#pdf-modal').modal({keyboard: true, backdrop: true});
+    // },
+
+    checkForAutoSave: function() {
       var view = this;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
 
-      var objEl = '<object id="report-pdf-content" type="application/pdf" data="'+view.model.get('pdf')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>';
-      jQuery('#pdf-modal .modal-body').html(objEl);
-
-      jQuery('#pdf-modal').modal({keyboard: true, backdrop: true});
+      app.keyCount++;
+      if (app.keyCount > 20) {
+        console.log('Autosaved...');
+        view.updateReport();
+        app.keyCount = 0;
+      }
     },
 
     stepForward: function() {
@@ -2555,9 +2568,9 @@
       });
 
       // for the unit 3 check answer screen
-      if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
-        view.unit3CheckForAllowedToProceed();
-      }
+      // if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
+      //   view.unit3CheckForAllowedToProceed();
+      // }
     },
 
     updateReport: function() {
@@ -2578,8 +2591,8 @@
       });
       if (contentArr.length > 0) {
         var sub = new Model.Submission();
-        sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
-        sub.set('lesson', 'review3');
+        sub.set('group_colour', app.getMyGroup(app.username, "review2").get('colour'));
+        sub.set('lesson', 'review2');
         sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);
         sub.set('content', contentArr);
@@ -2591,7 +2604,7 @@
       var view = this;
       console.log("Rendering ReportView...");
 
-      jQuery('.report-progress-bar-container .icon').attr('src', 'img/'+app.getMyGroup(app.username, "review3").get('colour')+'-team.png');
+      jQuery('.report-progress-bar-container .icon').attr('src', 'img/'+app.getMyGroup(app.username, "review2").get('colour')+'-team.png');
 
       jQuery('#report-content-container').html('');
       // create the html
@@ -2618,33 +2631,33 @@
 
 
     // UNIT SPECIFIC FUNCTIONALITY
-    unit3CheckForAllowedToProceed: function() {
-      jQuery('#report-step-forward-btn').removeClass('disabled');
-      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
+    // unit3CheckForAllowedToProceed: function() {
+    //   jQuery('#report-step-forward-btn').removeClass('disabled');
+    //   jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
 
-      if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden') || jQuery('.unit3-correct3').hasClass('hidden')) {
-        jQuery('#report-step-forward-btn').addClass('disabled');
-      }
-    },
+    //   if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden') || jQuery('.unit3-correct3').hasClass('hidden')) {
+    //     jQuery('#report-step-forward-btn').addClass('disabled');
+    //   }
+    // },
 
-    unit3ViewSequence: function() {
-      jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
-    },
+    // unit3ViewSequence: function() {
+    //   jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
+    // },
 
-    unit3checkAnswer: function(ev) {
-      var view = this;
+    // unit3checkAnswer: function(ev) {
+    //   var view = this;
 
-      var num = jQuery(ev.target).data('answer');
-      // ignoring whitespace and cap'd letters
-      if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
-        jQuery('.unit3-correct'+num).removeClass('hidden');
-      } else {
-        jQuery('.unit3-correct'+num).addClass('hidden');
-        jQuery().toastmessage('showErrorToast', "Sorry, that is incorrect. Please check each character in your response carefully and try again.");
-      }
+    //   var num = jQuery(ev.target).data('answer');
+    //   // ignoring whitespace and cap'd letters
+    //   if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
+    //     jQuery('.unit3-correct'+num).removeClass('hidden');
+    //   } else {
+    //     jQuery('.unit3-correct'+num).addClass('hidden');
+    //     jQuery().toastmessage('showErrorToast', "Sorry, that is incorrect. Please check each character in your response carefully and try again.");
+    //   }
 
-      view.unit3CheckForAllowedToProceed();
-    }
+    //   view.unit3CheckForAllowedToProceed();
+    // }
   });
 
 

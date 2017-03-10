@@ -26,11 +26,11 @@ Skeletor.Mobile.certificationReports = [
       "number": 3,
       "kind": "write",
       "name": "",
-      "thumbnail": "reports/imgs/immunology_question2.png",
+      "thumbnail": "reports/imgs/immunology_question2.jpg",
       "question": `Use the diagram below to explain the role of helper T cells in mobilizing both the humoral and cell-mediated branches of the immune response`,
       "html": `
         <p>Use the diagram below to explain the role of helper T cells in mobilizing both the humoral and cell-mediated branches of the immune response:</p>
-        <img src="reports/imgs/immunology_question2.png"></img>
+        <img src="reports/imgs/immunology_question2.jpg"></img>
         <textarea placeholder="Enter your text here"></textarea>`
     },
     {
