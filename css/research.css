@@ -1348,8 +1348,28 @@ textarea {
 #choose-specialization-yes-btn {
     margin-right: 20px;
 }
-
-
+#attach-terms-explanation-pane {
+    height: 300px;
+}
+#attach-terms-selected-container {
+    margin-bottom: 20px;
+}
+#explain-terms-screen .explain-term-uncomplete-btn,
+#explain-terms-screen .explain-term-complete-btn {
+    margin-bottom: 20px;
+}
+.review-completed {
+    width: 18%;
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+}
+.review-completed .fa-check {
+    margin: 0 5px;
+    font-size: 1.5em;
+    vertical-align: bottom;
+    background-color: #fff;
+}
 
 
 

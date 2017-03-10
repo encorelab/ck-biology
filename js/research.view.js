@@ -389,7 +389,7 @@
 
             // sorry Megs, I know this is getting nasty as hell
             if (completeFlag) {
-              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span style="margin-left:115px" class="review-completed">Completed</span>');
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span class="review-completed">Completed <i class="fa fa-check" aria-hidden="true"></i></span>');
             } else {
               jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
             }
