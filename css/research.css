@@ -1295,7 +1295,71 @@ textarea {
 }
 
 
-/********** GLOBAL **********/
+/*****************************************************/
+/*****************************************************/
+/****************** UNIT 4 SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+#choose-article-screen.unit-4 .inner-wrapper {
+    text-align: left;
+}
+#recommended-specialization,
+.specialization-choice-container {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    border: 1px solid #aaa;
+    padding: 5px 20px;
+    margin: 15px auto;
+    color: #34495e;
+    width: 225px;
+    text-align: center;
+    font-weight: 600;
+}
+#choose-article-container h3 {
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+#choose-article-screen.unit-4 h2 {
+    margin-bottom: 20px;
+}
+.unit-4 .article-column-container {
+    text-align: center;
+}
+#choose-specialization-description {
+    clear: both;
+    background-color: #F2F2F2;
+    padding: 20px;
+}
+.unit-4 button {
+    font-size: 1.1em;
+    background-color: #3498db;
+    margin-top: 15px;
+}
+.unit-4 button:hover {
+    background-color: #2980b9;
+}
+#confirm-specialization-modal .modal-content {
+    padding: 20px 50px;
+    border-radius: 0;
+}
+#confirm-specialization-modal .center-buttons {
+    text-align: center;
+}
+#choose-specialization-yes-btn {
+    margin-right: 20px;
+}
+
+
+
+
+
+
+
+/*****************************************************/
+/*****************************************************/
+/****************** GLOBAL STYLES ********************/
+/*****************************************************/
+/*****************************************************/
 
 body, html {
     height: calc(100% - 50px);
