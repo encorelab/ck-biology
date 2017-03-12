@@ -1968,7 +1968,7 @@
 
       jQuery('#attach-terms-explanation-pane').html('');
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=82&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=79&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#attach-terms-pdf-container').html(objEl);
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
