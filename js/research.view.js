@@ -208,6 +208,7 @@
             });
           }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#progress-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-screen').removeClass('hidden');
@@ -983,9 +984,9 @@
 
       jQuery('#review-progress-container').html('');
       var el = '';
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+      _.each(view.collection.where({"lesson": "review2", "kind": "present"}), function(group) {
         el += '<div class="review-progress-group-container">';
-        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour').toUpperCase()+' TEAM</button>';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('name')+'</button>';
         el += '<div class="review-progress-progress-bar-container">';
         el += '<span id="review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
         el += '<span class="review-progress-group-progress-percent"></span>';
@@ -995,9 +996,9 @@
       });
       jQuery('#review-progress-container').append(el);
 
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+      _.each(view.collection.where({"lesson": "review2", "kind": "present"}), function(group) {
         //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
-        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
+        var myPercent = app.getReportCompletionPercent("review2", group.get('colour')) + '%';
         var myBar = new ProgressBar.Line('#review-progress-'+group.get('colour')+'-progress-bar',
           {
             easing: 'easeInOut',
@@ -1010,7 +1011,7 @@
               style: app.progressBarTextStyle
             }
           });
-        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+        myBar.set(app.getReportCompletionPercent("review2", group.get('colour')) / 100);
       });
     }
   });
@@ -1054,16 +1055,16 @@
       console.log("Rendering TeacherReportView...");
 
       jQuery('#teacher-report-container').html('');
-      var reportEl = '<h1>' + view.model.get('group_colour').charAt(0).toUpperCase() + view.model.get('group_colour').slice(1) + ' Team Research Proposal Report</h1>';
+      var reportEl = '<h1>' + view.model.get('field') + ' Certification</h1>';
       reportEl += '<div>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
-          reportEl += '<p><h2>' + part.name + '</h2>';
+          reportEl += '<p><b>' + part.question;
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
-          reportEl += '</p>'
+          reportEl += '</b></p>'
 
           _.each(part.entries, function(entry) {
             reportEl += '<p>' + entry + '</p>';
