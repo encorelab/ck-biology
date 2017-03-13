@@ -591,8 +591,8 @@
           if (group.get('kind') === "present") {
             teamName = group.get('field').toUpperCase();
           }
-        } else if (app.reviewSection === "review4") {
-          teamName = 'TEAM ' + group.get('colour');
+        } else if (app.reviewSection === "review3") {
+          teamName = 'CLINIC ' + group.get('colour');
         } else {
           console.error('Cannot assign name - unknown review section');
         }
@@ -608,9 +608,9 @@
       // generate all of the student buttons, and place them in groups as necessary
       Skeletor.Mobile.users.each(function(user) {
         if (user.get('user_role') !== "teacher") {
-          // student button border colour *always* determined by review2
           var studentBtn = '';
           var myGroup = app.getMyGroup(user.get('username'), app.reviewSection);
+          // if they have a group for this section
           if (myGroup) {
             // student button border colour *always* determined by review2
             if (app.getMyGroup(user.get('username'), "review2")) {
@@ -619,12 +619,20 @@
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             }
             jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
+
+          // currently ungrouped
           } else {
-            studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
-            jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
-            var recoSpecColour = app.getRecommendedSpecialization(user.get('username')).colour;
-            var style = "2px solid "+recoSpecColour;
-            jQuery(studentBtn).css("border", style);
+            // smaller border for reco colour. Should only be used in r2. also done in ungroupStudent
+            if (app.reviewSection === "review2") {
+              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+              jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+              var recoSpecColour = app.getRecommendedSpecialization(user.get('username')).colour;
+              var style = "2px solid "+recoSpecColour;
+              jQuery(studentBtn).css("border", style);
+            } else {
+              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
+              jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+            }
           }
           studentBtn.text(user.get('username'));
         }
@@ -643,7 +651,7 @@
       'click .assign-by-jigsaw-btn'     : 'assignByJigsaw'
     },
 
-    // only available in review4
+    // only available in review3
     assignByJigsaw: function() {
       var view = this;
 
@@ -662,12 +670,12 @@
         }
       });
 
-      // get groups from lesson 3 - note that we're grouping students counting the absent group as a group
-      var prevGroupsArr = view.collection.where({"lesson": "review3"});
+      // get groups from lesson 2 - note that we're grouping students counting the absent group as a group
+      var prevGroupsArr = view.collection.where({"kind": "present", "lesson": "review2"});
 
-      // go over each review 4 group
+      // go over each review 3 group
       // choose the first student out of each prevGroupsArr and add to group
-      _.each(view.collection.where({"kind": "present", "lesson": "review4"}), function(newGroup, index) {
+      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(newGroup, index) {
         _.each(prevGroupsArr, function(prevGroup) {
           var members = prevGroup.get('members');
           if (members.length > index) {
@@ -782,53 +790,39 @@
 
     addGroup: function() {
       var view = this;
-// START HERE
-      // if (app.reviewSection === "review2") {
-      //   jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
-      // } else {
-      //   //proxy for checking if we have hit max num of groups
-      //   var newGroupName = '';
-      //   if (app.reviewSection === "review3") {
-      //     var usedColours = [];
-      //     _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-      //       usedColours.push(group.get('colour'));
-      //     });
-      //     newGroupName = _.first(_.difference(app.teamColourName, usedColours));
-      //   } else if (app.reviewSection === "review4") {
-      //     var usedNumbers = [];
-      //     _.each(view.collection.where({"lesson": "review4", "kind": "present"}), function(group) {
-      //       usedNumbers.push(group.get('colour'));
-      //     });
-      //     newGroupName = _.first(_.difference(["1", "2", "3", "4", "5"], usedNumbers));
-      //   } else {
-      //     console.error("Unknown review section for grouping (addGroup)");
-      //   }
 
-      //   var newGroupText = '';
-      //   if (newGroupName) {
-      //     // create a new group
-      //     var group = new Model.Group();
-      //     group.set('lesson', app.reviewSection);
-      //     group.set('colour', newGroupName);
-      //     if (app.reviewSection === "review3") {
-      //       newGroupText = newGroupName.toUpperCase() + ' TEAM';
-      //     } else if (app.reviewSection === "review4") {
-      //       newGroupText = 'TEAM ' + newGroupName;
-      //     } else {
-      //       console.error("Unknown review section for grouping (addGroup)");
-      //     }
-      //     group.set('kind', 'present');
-      //     group.save();
-      //     view.collection.add(group);
+      // since this is now only used for review 3, we can take out most of the checks...
 
-      //     // update UI
-      //     var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+newGroupText+'</h2></div>';
-      //     jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
+      if (app.reviewSection === "review2") {
+        jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
+      } else {
+        // proxy for checking if we have hit max num of groups.
+        // So gross, but basically colour key is used for group number
+        var newGroupName = '';
+        var usedNumbers = [];
+        _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+          usedNumbers.push(group.get('colour'));
+        });
+        newGroupName = _.first(_.difference(["1", "2", "3", "4", "5"], usedNumbers));
 
-      //   } else {
-      //     jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
-      //   }
-      // }
+        var newGroupText = '';
+        if (newGroupName) {
+          // create a new group
+          var group = new Model.Group();
+          group.set('lesson', app.reviewSection);
+          group.set('colour', newGroupName);
+          group.set('kind', 'present');
+          group.save();
+          view.collection.add(group);
+
+          // update UI
+          var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>CLINIC '+newGroupName+'</h2></div>';
+          jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
+
+        } else {
+          jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
+        }
+      }
     },
 
     removeGroup: function(ev) {
@@ -921,7 +915,9 @@
       // update the UI
       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
       if (app.reviewSection === "review2") {
-        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', 'none');
+        var recoSpecColour = app.getRecommendedSpecialization(name).colour;
+        var style = "2px solid "+recoSpecColour;
+        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', style);
       }
       jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button').removeClass('selected');
     },
