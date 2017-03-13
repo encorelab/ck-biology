@@ -214,36 +214,6 @@
           jQuery('#grouping-screen').removeClass('hidden');
 
         } else if (app.reviewSection === "review3") {
-          jQuery('.top-nav-btn').addClass('hidden');
-          jQuery('#home-nav-btn').removeClass('hidden');
-          jQuery().toastmessage('showWarningToast', "Not much to see here!");
-          // if (app.groupingView === null) {
-          //   app.groupingView = new app.View.GroupingView({
-          //     el: '#grouping-screen',
-          //     collection: Skeletor.Model.awake.groups
-          //   });
-          // }
-          // jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          // jQuery('#grouping-nav-btn').removeClass('hidden');
-          // jQuery('#grouping-nav-btn').addClass('active');
-          // jQuery('#grouping-screen').removeClass('hidden');
-        } else if (app.reviewSection === "review4") {
-          // if the final report doesn't exist, create it
-          if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
-            var parts = app.report.parts;
-            _.each(parts, function(part) {
-              part.complete = false;
-              part.assigned = false;
-            });
-            report = new Model.Report();
-            report.set('group_colour', 'class');
-            report.set('lesson', 'review4');
-            report.set('parts', parts);
-            report.set('pdf', app.report.pdf);
-            report.wake(app.config.wakeful.url);
-            report.save();
-            Skeletor.Model.awake.reports.add(report);
-          }
           if (app.groupingJigsawView === null) {
             app.groupingJigsawView = new app.View.GroupingView({
               el: '#grouping-jigsaw-screen',
@@ -254,6 +224,33 @@
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-jigsaw-screen').removeClass('hidden');
+        } else if (app.reviewSection === "review4") {
+          // if the final report doesn't exist, create it
+          // if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
+          //   var parts = app.report.parts;
+          //   _.each(parts, function(part) {
+          //     part.complete = false;
+          //     part.assigned = false;
+          //   });
+          //   report = new Model.Report();
+          //   report.set('group_colour', 'class');
+          //   report.set('lesson', 'review4');
+          //   report.set('parts', parts);
+          //   report.set('pdf', app.report.pdf);
+          //   report.wake(app.config.wakeful.url);
+          //   report.save();
+          //   Skeletor.Model.awake.reports.add(report);
+          // }
+          // if (app.groupingJigsawView === null) {
+          //   app.groupingJigsawView = new app.View.GroupingView({
+          //     el: '#grouping-jigsaw-screen',
+          //     collection: Skeletor.Model.awake.groups
+          //   });
+          // }
+          // jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          // jQuery('#grouping-nav-btn').removeClass('hidden');
+          // jQuery('#grouping-nav-btn').addClass('active');
+          // jQuery('#grouping-jigsaw-screen').removeClass('hidden');
         } else {
           jQuery('#knowledge-base-nav-btn').addClass('active');
           jQuery('#wall').removeClass('hidden');
@@ -641,7 +638,7 @@
       'click .group-container'          : 'groupSelected',
       'click .students-container'       : 'ungroupSelected',
       'click .reset-students-btn'       : 'resetAll',
-      'click .assign-randomly-btn'      : 'groupRandomly',
+      //'click .assign-randomly-btn'      : 'groupRandomly',
       //'click .assign-by-progress-btn'   : 'assignByProgress',
       'click .assign-by-jigsaw-btn'     : 'assignByJigsaw'
     },
@@ -651,7 +648,7 @@
       var view = this;
 
       // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": "review4"}), function(group) {
+      _.each(view.collection.where({"lesson": "review3"}), function(group) {
         // update the user model
         group.set('members', []);
         group.save();
@@ -735,36 +732,36 @@
     //   });
     // },
 
-    groupRandomly: function() {
-      var view = this;
-      var studentsToGroup = [];
+    // groupRandomly: function() {
+    //   var view = this;
+    //   var studentsToGroup = [];
 
-      // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        // update the user model
-        group.set('members', []);
-        group.save();
-      });
+    //   // hard remove all groups. This seems to help the async issue of members going into multiple groups
+    //   _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+    //     // update the user model
+    //     group.set('members', []);
+    //     group.save();
+    //   });
 
-      // ungroup all students in UI and set up for the readd
-      Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          // update the UI
-          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-          // create the array for the shuffle
-          studentsToGroup.push(user.get('username'));
-        }
-      });
+    //   // ungroup all students in UI and set up for the readd
+    //   Skeletor.Mobile.users.each(function(user) {
+    //     if (user.get('user_role') !== "teacher") {
+    //       // update the UI
+    //       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+    //       // create the array for the shuffle
+    //       studentsToGroup.push(user.get('username'));
+    //     }
+    //   });
 
-      // remove the absent group from the possible target groups
-      var presentGroupArr = view.collection.where({"kind": "present", "lesson": app.reviewSection});
+    //   // remove the absent group from the possible target groups
+    //   var presentGroupArr = view.collection.where({"kind": "present", "lesson": app.reviewSection});
 
-      // group students randomly into non-absent group containers
-      _.each(_.shuffle(studentsToGroup), function(studentName, index) {
-        // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
-        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
-      });
-    },
+    //   // group students randomly into non-absent group containers
+    //   _.each(_.shuffle(studentsToGroup), function(studentName, index) {
+    //     // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
+    //     view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
+    //   });
+    // },
 
     resetAll: function() {
       var view = this;
@@ -785,54 +782,52 @@
 
     addGroup: function() {
       var view = this;
-
-      if (app.reviewSection === "review2") {
-        jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
-      }
-
-      // this got nasty because of no mockups for Review 4 - apparently Alisa wanted something very different than I had assumed. Hence the groupNumber nonsense below
-
-      // proxy for checking if we have hit max num of groups
-      // var newGroupName = '';
-      // if (app.reviewSection === "review3") {
-      //   var usedColours = [];
-      //   _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-      //     usedColours.push(group.get('colour'));
-      //   });
-      //   newGroupName = _.first(_.difference(app.teamColourName, usedColours));
-      // } else if (app.reviewSection === "review4") {
-      //   var usedNumbers = [];
-      //   _.each(view.collection.where({"lesson": "review4", "kind": "present"}), function(group) {
-      //     usedNumbers.push(group.get('colour'));
-      //   });
-      //   newGroupName = _.first(_.difference(["1", "2", "3", "4", "5"], usedNumbers));
+// START HERE
+      // if (app.reviewSection === "review2") {
+      //   jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
       // } else {
-      //   console.error("Unknown review section for grouping (addGroup)");
-      // }
-
-      // var newGroupText = '';
-      // if (newGroupName) {
-      //   // create a new group
-      //   var group = new Model.Group();
-      //   group.set('lesson', app.reviewSection);
-      //   group.set('colour', newGroupName);
+      //   //proxy for checking if we have hit max num of groups
+      //   var newGroupName = '';
       //   if (app.reviewSection === "review3") {
-      //     newGroupText = newGroupName.toUpperCase() + ' TEAM';
+      //     var usedColours = [];
+      //     _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+      //       usedColours.push(group.get('colour'));
+      //     });
+      //     newGroupName = _.first(_.difference(app.teamColourName, usedColours));
       //   } else if (app.reviewSection === "review4") {
-      //     newGroupText = 'TEAM ' + newGroupName;
+      //     var usedNumbers = [];
+      //     _.each(view.collection.where({"lesson": "review4", "kind": "present"}), function(group) {
+      //       usedNumbers.push(group.get('colour'));
+      //     });
+      //     newGroupName = _.first(_.difference(["1", "2", "3", "4", "5"], usedNumbers));
       //   } else {
       //     console.error("Unknown review section for grouping (addGroup)");
       //   }
-      //   group.set('kind', 'present');
-      //   group.save();
-      //   view.collection.add(group);
 
-      //   // update UI
-      //   var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+newGroupText+'</h2></div>';
-      //   jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
+      //   var newGroupText = '';
+      //   if (newGroupName) {
+      //     // create a new group
+      //     var group = new Model.Group();
+      //     group.set('lesson', app.reviewSection);
+      //     group.set('colour', newGroupName);
+      //     if (app.reviewSection === "review3") {
+      //       newGroupText = newGroupName.toUpperCase() + ' TEAM';
+      //     } else if (app.reviewSection === "review4") {
+      //       newGroupText = 'TEAM ' + newGroupName;
+      //     } else {
+      //       console.error("Unknown review section for grouping (addGroup)");
+      //     }
+      //     group.set('kind', 'present');
+      //     group.save();
+      //     view.collection.add(group);
 
-      // } else {
-      //   jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
+      //     // update UI
+      //     var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+newGroupText+'</h2></div>';
+      //     jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
+
+      //   } else {
+      //     jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
+      //   }
       // }
     },
 
@@ -841,19 +836,19 @@
 
       if (app.reviewSection === "review2") {
         jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
+      } else {
+        // move the students back to their container
+        var group = view.collection.get(jQuery(ev.target).data('group'));
+        _.each(group.get('members'), function(member) {
+          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+        });
+
+        // update collection
+        group.destroy();
+
+        // update UI
+        jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+jQuery(ev.target).data('group')+'"]').remove();
       }
-
-      // // move the students back to their container
-      // var group = view.collection.get(jQuery(ev.target).data('group'));
-      // _.each(group.get('members'), function(member) {
-      //   jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-      // });
-
-      // // update collection
-      // group.destroy();
-
-      // // update UI
-      // jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+jQuery(ev.target).data('group')+'"]').remove();
     },
 
     selectStudent: function(ev) {
