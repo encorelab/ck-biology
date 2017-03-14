@@ -655,23 +655,37 @@
     assignByJigsaw: function() {
       var view = this;
 
-      // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": "review3"}), function(group) {
-        // update the user model
-        group.set('members', []);
-        group.save();
-      });
-
       // ungroup all students in UI and set up for the readd
       Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
+        var userGroup = app.getMyGroup(user.get('username'), "review3");
+        if (userGroup && userGroup.get('kind') === "present" && user.get('user_role') !== "teacher") {
           // update the UI
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
         }
       });
 
+      // hard remove all users from non-absent groups. This seems to help the async issue of members going into multiple groups
+      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
       // get groups from lesson 2 - note that we're grouping students counting the absent group as a group
       var prevGroupsArr = view.collection.where({"kind": "present", "lesson": "review2"});
+      // var prevGroupsArr = [];
+      // prevGroupsArr = _.clone(view.collection.where({"kind": "present", "lesson": "review2"}));
+      // // remove students that have been placed in absent for review3
+      // _.each(prevGroupsArr, function(group) {
+      //   var toRemove = []
+      //   _.each(group.get('members'), function(member) {
+      //     var memberGroup = app.getMyGroup(member, "review3");
+      //     if (memberGroup && memberGroup.get('kind') === "absent") {
+      //       toRemove.push(member);
+      //     }
+      //   });
+      //   group.set('members', _.difference(group.get('members'), toRemove));
+      // });
 
       // go over each review 3 group
       // choose the first student out of each prevGroupsArr and add to group
@@ -679,6 +693,10 @@
         _.each(prevGroupsArr, function(prevGroup) {
           var members = prevGroup.get('members');
           if (members.length > index) {
+            var myGroup = app.getMyGroup(members[index], "review3");
+            if (myGroup && myGroup.get('kind') === "absent") {
+              members.splice(index, 1);
+            }
             view.groupStudent(members[index], newGroup.get('_id'));
           }
         });
