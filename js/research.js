@@ -59,6 +59,7 @@
   app.explainTermsView = null;
   app.explainDetailsView = null;
   app.reportView = null;
+  app.finalReportView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -338,16 +339,6 @@
             console.error('Unknown lesson for grouping...');
           }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
-
-
-        } else if (jQuery(this).hasClass('goto-group-contribution-btn')) {
-          app.hideAllContainers();
-          jQuery('#group-contribution-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').removeClass('hidden');
-          jQuery('#group-contribution-nav-btn').addClass('active');
-          jQuery('#final-report-screen').removeClass('hidden');
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          jQuery('#contribution-nav-btn').addClass('hidden');
 
 
         } else if (jQuery(this).hasClass('goto-final-report-btn')) {
@@ -1008,24 +999,33 @@
     // delete all reports for this lesson
     _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
     // create all reports for this lesson
-    _.each(app.certificationReports, function(report) {
-      var r = new Model.Report();
-      r.set('lesson', lesson);
-      r.set('group_colour', report.colour);
-      r.set('field', report.field);
-      r.set('parts', report.parts);
-      r.save();
-      Skeletor.Model.awake.reports.add(r);
-    });
+    if (lesson === "review2") {
+      _.each(app.certificationReports, function(report) {
+        var r = new Model.Report();
+        r.set('lesson', lesson);
+        r.set('group_colour', report.colour);
+        r.set('field', report.field);
+        r.set('parts', report.parts);
+        r.save();
+        Skeletor.Model.awake.reports.add(r);
+      });
+    } else if (lesson === "review3") {
+      // we're just going to create 3 clinic reports, instead of bothering with create/destroy
+      for (var i = 1; i < 5; i++) {
+        var r = new Model.Report();
+        r.set('lesson', lesson);
+        r.set('group_colour', String(i));
+        r.set('name', 'Clinic '+i);
+        r.set('parts', Skeletor.Mobile.clinicReport.parts);
+        r.save();
+        Skeletor.Model.awake.reports.add(r);
+      }
+    }
   };
 
   app.getColourForColour = function(colour) {
     return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };
-
-  // app.parseExtension = function(url) {
-  //   return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
-  // };
 
 
   //*************** LOGIN FUNCTIONS ***************//

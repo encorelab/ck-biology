@@ -32,22 +32,22 @@ Skeletor.Mobile.clinicReport = {
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="endocrinologist">Endocrinologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with Grave's disease?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="nephrologist">Nephrologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with Glomerulonephritis?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="neurologist">Neurologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with NPSLE?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         `
     },
     {
@@ -77,22 +77,22 @@ Skeletor.Mobile.clinicReport = {
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="endocrinologist">Endocrinologist:  If this patient has Grave's disease, what would you expect to see in the results of the blood thyroid function test?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="nephrologist">Nephrologist:  If this patient has glomerulonephritis, what would you expect to see in the results of the urinalysis and urine microscopy?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="neurologist">Neurologist:  If this patient has NPSLE, what might you see in the results of the EEG?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         `
     },
     {
@@ -117,22 +117,22 @@ Skeletor.Mobile.clinicReport = {
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="endocrinologist">Endocrinologist:  Based on the results of the blood thyroid function test, what is your diagnosis for this patient?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="nephrologist">Nephrologist:  Based on the results of the urinalysis and urine microscopy, what is your diagnosis for this patient?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p class="neurologist">Neurologist:  Based on the results of the EEG, is it possible that this patient may have NPSLE?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         `
     },
     {
@@ -155,13 +155,13 @@ Skeletor.Mobile.clinicReport = {
         <img src="/reports/imgs/final_report_question4.jpg"></img>
         <p>Explain how/why a patient with SLE may also be experiencing Grave's disease.  In your answer, explain the connection between the functions of the immune system and the thyroid.</p>
         <textarea placeholder="Enter your text here"></textarea>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p>Explain how/why a patient with SLE may also be experiencing glomerulonephritis.  In your answer, explain the connection between the functions of the immune system and the kidneys.</p>
         <textarea placeholder="Enter your text here"></textarea>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
         <p>Explain how/why a patient with SLE may also be experiencing NPSLE.  In your answer, explain the connection between the functions of the immune system and the nervous system.</p>
         <textarea placeholder="Enter your text here"></textarea>
-        <button class="clinic-save-btn">save respnse</button>
+        <button class="clinic-save-btn">save response</button>
       `
     },
     {

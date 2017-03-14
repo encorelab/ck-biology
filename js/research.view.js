@@ -63,7 +63,6 @@
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#grouping-nav-btn').addClass('hidden');
-      jQuery('#group-contribution-nav-btn').addClass('hidden');
       jQuery('#final-report-nav-btn').addClass('hidden');
       // STUDENT
       if (app.teacherFlag === false) {
@@ -111,15 +110,17 @@
             jQuery('#home-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
-          if (app.getMyGroup(app.username, "review3").get('kind') === "present") {
+          if (app.getMyGroup(app.username, "review3") && app.getMyGroup(app.username, "review3").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#final-report-screen').removeClass('hidden');
-            jQuery('#group-contribution-nav-btn').removeClass('hidden');
-            jQuery('#final-report-nav-btn').removeClass('hidden');
-            jQuery('#group-contribution-nav-btn').addClass('active');
-
-            var report = Skeletor.Model.awake.reports.findWhere({'group_colour':'class'});
+            var myGroup = app.getMyGroup(app.username, "review3");
+            var report = null;
+            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
+              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            } else {
+              console.error('Report does not exist - try app.recreateReports');
+            }
             report.wake(app.config.wakeful.url);
             if (app.finalReportView === null) {
               app.finalReportView = new app.View.FinalReportView({
@@ -127,8 +128,7 @@
                 model: report
               });
             }
-            // DO NOT RENDER!!
-            // app.finalReportView.render();
+            app.finalReportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
             jQuery('.top-nav-btn').addClass('hidden');
@@ -183,33 +183,6 @@
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-jigsaw-screen').removeClass('hidden');
-        } else if (app.reviewSection === "review4") {
-          // if the final report doesn't exist, create it
-          // if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
-          //   var parts = app.report.parts;
-          //   _.each(parts, function(part) {
-          //     part.complete = false;
-          //     part.assigned = false;
-          //   });
-          //   report = new Model.Report();
-          //   report.set('group_colour', 'class');
-          //   report.set('lesson', 'review4');
-          //   report.set('parts', parts);
-          //   report.set('pdf', app.report.pdf);
-          //   report.wake(app.config.wakeful.url);
-          //   report.save();
-          //   Skeletor.Model.awake.reports.add(report);
-          // }
-          // if (app.groupingJigsawView === null) {
-          //   app.groupingJigsawView = new app.View.GroupingView({
-          //     el: '#grouping-jigsaw-screen',
-          //     collection: Skeletor.Model.awake.groups
-          //   });
-          // }
-          // jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          // jQuery('#grouping-nav-btn').removeClass('hidden');
-          // jQuery('#grouping-nav-btn').addClass('active');
-          // jQuery('#grouping-jigsaw-screen').removeClass('hidden');
         } else {
           jQuery('#knowledge-base-nav-btn').addClass('active');
           jQuery('#wall').removeClass('hidden');
@@ -2106,9 +2079,10 @@
    ***********************************************************
    ***********************************************************/
 
-
   app.View.ReportView = Backbone.View.extend({
     initialize: function() {
+      var view = this;
+
       console.log('Initializing ReportView...');
 
       app.reportBar = new ProgressBar.Line('#report-my-progress-bar',
@@ -2124,8 +2098,7 @@
     events: {
       'click #report-step-forward-btn' : 'stepForward',
       'click #report-step-back-btn'    : 'stepBack',
-      'keyup textarea'                 : 'checkForAllowedToProceed',
-      'keyup textarea'                 : 'checkForAutoSave'
+      'keyup textarea'                 : 'checkForAllowedToProceed'
     },
 
     checkForAutoSave: function() {
@@ -2139,6 +2112,21 @@
         view.updateReport();
         app.keyCount = 0;
       }
+    },
+
+    checkForAllowedToProceed: function() {
+      var view = this;
+
+      view.checkForAutoSave();
+
+      jQuery('#report-step-forward-btn').removeClass('disabled');
+      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
+
+      jQuery('#report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          jQuery('#report-step-forward-btn').addClass('disabled');
+        }
+      });
     },
 
     stepForward: function() {
@@ -2169,19 +2157,6 @@
       view.render();
     },
 
-    checkForAllowedToProceed: function() {
-      var view = this;
-
-      jQuery('#report-step-forward-btn').removeClass('disabled');
-      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
-
-      jQuery('#report-content-container textarea').each(function(index, el) {
-        if (jQuery(el).val() === "") {
-          jQuery('#report-step-forward-btn').addClass('disabled');
-        }
-      });
-    },
-
     updateReport: function() {
       var view = this;
       var inputs = [];
@@ -2194,6 +2169,8 @@
     },
 
     submitBackups: function() {
+      var view = this;
+
       var contentArr = [];
       jQuery('#report-content-container textarea').each(function(index, el) {
         contentArr.push(jQuery(el).val())
@@ -2201,7 +2178,7 @@
       if (contentArr.length > 0) {
         var sub = new Model.Submission();
         sub.set('group_colour', app.getMyGroup(app.username, "review2").get('colour'));
-        sub.set('lesson', 'review2');
+        sub.set('lesson', view.model.get('lesson'));
         sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);
         sub.set('content', contentArr);
@@ -2234,339 +2211,155 @@
         jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
       }
 
-      jQuery('#report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
       app.reportBar.animate(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')) / 100);
+      jQuery('#report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
     }
   });
 
 
 
-  // /***********************************************************
-  //  ***********************************************************
-  //  ******************* FINAL REPORT VIEW *********************
-  //  ***********************************************************
-  //  ***********************************************************/
+  /***********************************************************
+   ***********************************************************
+   ******************* FINAL REPORT VIEW *********************
+   ***********************************************************
+   ***********************************************************/
 
+  app.View.FinalReportView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
 
-  // app.View.FinalReportView = Backbone.View.extend({
-  //   initialize: function() {
-  //     var view = this;
-  //     console.log('Initializing FinalReportView...');
+      console.log('Initializing ReportView...');
 
-  //     jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
-  //       'colour'));
+      app.finalReportBar = new ProgressBar.Line('#final-report-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexDarkPurple,
+          trailColor: app.hexLightGrey,
+          strokeWidth: 3,
+          svgStyle: app.progressBarStyleTask
+        });
+    },
 
-  //     var teams = Skeletor.Model.awake.groups.where({"lesson": "review3", "kind": "present"});
-  //     var teamNames = '';
-  //     _.each(teams, function(team) {
-  //       var name = team.get('colour');
-  //       name = name[0].toUpperCase() + name.slice(1);
-  //       teamNames += name;
-  //       teamNames += ' Team, ';
-  //     });
-  //     teamNames = teamNames.slice(0,-2);
+    events: {
+      'click #final-report-step-forward-btn' : 'stepForward',
+      'click #final-report-step-back-btn'    : 'stepBack',
+      'keyup textarea'                       : 'checkForAllowedToProceed'
+    },
 
-  //     var el = '<h2>Introduction</h2><p>So far ';
-  //     el += teams.length;
-  //     el += ' different research teams (the ';
-  //     el += teamNames;
-  //     el += `) have been working on reviewing Dr. Sutherland's grant proposal to the Niño-Soto Foundation (NSF). Today, you will be working in new groups containing at least one representative from each of the other teams. Your task is to discuss several of the items contained in your team's report, with the aim of arriving at the best possible response to deliver to billionaire Niño-Soto.</p>
-  //       <p>Other members of your research team will be discussing different items contained in your team's report. The outcome of these negotiations will be a whole-class report containing the <b>best versions</b> of each answer to submit to the NSF. Each of your answers will be indexed to the content you have learned and contributed to the knowledge base in CK Biology throughout the Molecular Genetics unit.`;
+    checkForAutoSave: function() {
+      var view = this;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
 
-  //     jQuery('#final-report-content-container').html(el);
+      app.keyCount++;
+      if (app.keyCount > 20) {
+        console.log('Autosaved...');
+        view.updateReport();
+        app.keyCount = 0;
+      }
+    },
 
-  //     // hide this for the intro screen
-  //     jQuery('#final-report-terms-explanation-pane').addClass('hidden');
+    checkForAllowedToProceed: function() {
+      var view = this;
 
-  //     view.setProceed(true);
-  //   },
+      view.checkForAutoSave();
 
-  //   events: {
-  //     'click #final-report-step-forward-btn' : 'stepForward',
-  //     'keyup textarea'                       : 'checkForAllowedToProceed',
-  //     'mouseover .multiselect-container li'  : 'showTermPopover',
-  //     // unique unit-specific functionality
-  //     'click .unit3-view-sequence-btn'       : 'unit3ViewSequence',
-  //   },
+      jQuery('#final-report-step-forward-btn').removeClass('disabled');
+      jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
 
-  //   stepForward: function() {
-  //     var view = this;
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          jQuery('#final-report-step-forward-btn').addClass('disabled');
+        }
+      });
+    },
 
-  //     view.updateReport();
-  //     view.submitBackups();
-  //     view.setNextAvailablePart();
+    stepForward: function() {
+      var view = this;
 
-  //     if (app.finalReportPart) {
-  //       view.setProceed(false);
-  //       view.render();
-  //     } else {
-  //        jQuery('#final-report-my-team').html('');
-  //        jQuery('#final-report-content-container').html('');
-  //        jQuery('#final-report-terms-terms-container').html('');
-  //        jQuery('#final-report-terms-explanation-pane').addClass('hidden');
-  //        jQuery('#final-report-terms-selected-container').html('');
-  //        //jQuery('#final-report-step-forward-btn').addClass('hidden');
+      view.updateReport();
+      view.submitBackups();
 
-  //        jQuery('#final-report-content-container').html('<h1>Thank you for completing your submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
-  //      }
-  //   },
+      // if we're not at the end of the report
+      if (app.currentReportPage < view.model.get('parts').length) {
+        app.currentReportPage++;
+        $('html,body').scrollTop(0);
+        view.render();
+      } else {
+        jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
+        jQuery('#final-report-screen').addClass('hidden');
+        jQuery('#home-screen').removeClass('hidden');
+      }
+    },
 
-  //   checkForAllowedToProceed: function() {
-  //     var view = this;
+    stepBack: function() {
+      var view = this;
 
-  //     jQuery('#final-report-step-forward-btn').removeClass('disabled');
-  //     jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
+      view.updateReport();
 
-  //     jQuery('#final-report-content-container textarea').each(function(index, el) {
-  //       if (jQuery(el).val() === "") {
-  //         view.setProceed(false);
-  //       }
-  //     });
-  //   },
+      app.currentReportPage--;
+      $('html,body').scrollTop(0);
+      view.render();
+    },
 
-  //   setProceed: function(permitted) {
-  //     if (permitted) {
-  //       jQuery('#final-report-step-forward-btn').removeClass('disabled');
-  //       jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
-  //     } else {
-  //       jQuery('#final-report-step-forward-btn').addClass('disabled');
+    updateReport: function() {
+      var view = this;
+      var inputs = [];
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        // should the entries should be keyed to something? Use objects instead? Depends on output
+        inputs.push(jQuery(el).val());
+      });
+      view.model.setEntries(app.currentReportPage, inputs);
+      view.model.save();
+    },
 
-  //     }
-  //   },
+    submitBackups: function() {
+      var view = this;
 
-  //   updateReport: function() {
-  //     var view = this;
-  //     var inputs = [];
-  //     var tagsArr = [];
+      var contentArr = [];
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        contentArr.push(jQuery(el).val())
+      });
+      if (contentArr.length > 0) {
+        var sub = new Model.Submission();
+        sub.set('group_colour', app.getMyGroup(app.username, "review2").get('colour'));
+        sub.set('lesson', view.model.get('lesson'));
+        sub.set('part_number', app.currentReportPage);
+        sub.set('user', app.username);
+        sub.set('content', contentArr);
+        sub.save();
+      }
+    },
 
-  //     // text entries
-  //     jQuery('#final-report-content-container textarea').each(function(index, el) {
-  //       inputs.push(jQuery(el).val());
-  //     });
-  //     // tags
-  //     jQuery('#final-report-screen .terms-container').each(function(index, el) {
-  //       jQuery(el).children().each(function(index, child) {
-  //         tagsArr.push(jQuery(child).text());
-  //       });
-  //     });
-  //     if (inputs.length > 0) {
-  //       var partsArr = view.model.get('parts');
-  //       partsArr[app.finalReportPart.number-1].entries = inputs;
-  //       partsArr[app.finalReportPart.number-1].tags = tagsArr;
-  //       partsArr[app.finalReportPart.number-1].complete = true;
-  //       view.model.set('parts', partsArr);
-  //       view.model.save();
-  //     }
-  //   },
+    render: function() {
+      var view = this;
+      console.log("Rendering FinalReportView...");
 
-  //   submitBackups: function() {
-  //     var contentArr = [];
-  //     jQuery('#final-report-content-container textarea').each(function(index, el) {
-  //       contentArr.push(jQuery(el).val())
-  //     });
-  //     if (contentArr.length > 0) {
-  //       var sub = new Model.Submission();
-  //       sub.set('group_colour', app.getMyGroup(app.username, "review4").get('colour'));
-  //       sub.set('lesson', 'review4');
-  //       sub.set('part_number', app.finalReportPart.number);
-  //       sub.set('user', app.username);
-  //       sub.set('content', contentArr);
-  //       sub.save();
-  //     }
-  //   },
+      jQuery('.report-progress-bar-container .icon').attr('src', 'reports/imgs/clinic'+view.model.get('group_colour')+'.png');
 
-  //   setNextAvailablePart: function() {
-  //     var view = this;
+      jQuery('#final-report-content-container').html('');
+      // create the html
+      jQuery('#final-report-content-container').append(view.model.getPart(app.currentReportPage).html);
+      // add the text entries
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        if (view.model.getPart(app.currentReportPage).entries) {
+          jQuery(el).val(view.model.getPart(app.currentReportPage).entries[index]);
+        }
+      });
 
-  //     var nextPart = {};
-  //     var parts = view.model.get('parts');
+      view.checkForAllowedToProceed();
 
-  //     // first, check if there is a part assigned to this group that is uncompleted
-  //     nextPart = _.findWhere(parts, {"kind": "write", "complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
+      if (app.currentReportPage === 1) {
+        jQuery('#final-report-step-back-btn').addClass('disabled');
+      } else {
+        jQuery('#final-report-step-back-btn').removeClass('disabled');
+        jQuery('#final-report-step-back-btn').css({'background': app.hexLightBlack});
+      }
 
-  //     // if no, then get first unassigned part
-  //     if (!nextPart) {
-  //       nextPart = _.findWhere(parts, {"kind": "write", "assigned": false});
-  //       // set it to assigned if it exists (if doesn't exist, back to home screen in nextStep)
-  //       if (nextPart) {
-  //         nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
-  //         view.model.set('parts', parts);
-  //         view.model.save();
-  //       }
-  //     }
-
-  //     app.finalReportPart = nextPart;
-  //   },
-
-  //   showTermPopover: function(ev) {
-  //     // if we're mousing over the right area
-  //     if (jQuery(ev.target).find('input').val()) {
-  //       jQuery('#final-report-terms-explanation-pane').html('');
-  //       app.buildTermView('#final-report-terms-explanation-pane', jQuery(ev.target).find('input').val());
-  //     }
-  //   },
-
-  //   // UNIT 3 SPECIFIC
-  //   unit3ViewSequence: function() {
-  //     jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
-  //   },
-
-  //   renderTerms: function(containerNum, values) {
-  //     var container = jQuery('[data-term-container="'+containerNum+'"]');
-  //     jQuery(container).html('');
-  //     _.each(values, function(value) {
-  //       jQuery(container).append('<div>'+value+'</div>');
-  //     });
-  //   },
-
-  //   renderDropdowns: function() {
-  //     var view = this;
-
-  //     jQuery('#final-report-terms-explanation-pane').html('');
-  //     jQuery('#final-report-terms-terms-container').html('');
-  //     jQuery('#final-report-terms-selected-container').html('');
-
-  //     jQuery('#final-report-terms-explanation-pane').removeClass('hidden');
-
-  //     jQuery('#final-report-terms-terms-container').append("<h2>Tag any terms or concepts that you learned throughout the unit that are relevant to answering this question</h2>");
-  //     // set up the dropdown types by eaching over the lessons
-  //     _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
-  //       var el = '<select id="final-report-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
-  //       jQuery('#final-report-terms-terms-container').append(el);
-  //       jQuery('#final-report-terms-dropdown-'+lesson.get('number')).multiselect({
-  //         nonSelectedText: lesson.get('title'),
-  //         onChange: function(option, checked, select) {
-  //           view.renderTerms(lesson.get('number'), jQuery('#final-report-terms-dropdown-'+lesson.get('number')).val());
-  //         }
-  //       });
-
-  //       // set up the containers that this terms will be shown in
-  //       jQuery('#final-report-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
-  //     });
-
-  //     // each over the terms and add to dropdown based on term.get('lesson')
-  //     Skeletor.Model.awake.terms.comparator = function(model) {
-  //       return model.get('name').toLowerCase();
-  //     };
-  //     Skeletor.Model.awake.terms.sort();
-  //     // add terms to dropdowns
-  //     Skeletor.Model.awake.terms.each(function(term) {
-  //       var name = term.get('name');
-  //       // add the option to the dropdown
-  //       jQuery('#final-report-terms-dropdown-'+term.get('lesson')).append(new Option(name, name));
-  //     });
-
-  //     // needs a rebuild to show all the terms
-  //     jQuery('.lesson-dropdown').each(function() {
-  //       jQuery(this).multiselect('rebuild');
-  //     });
-  //   },
-
-  //   render: function() {
-  //     var view = this;
-  //     console.log("Rendering FinalReportView...");
-
-  //     jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
-  //       'colour'));
-
-  //     jQuery('#final-report-content-container').html('');
-  //     // create the html
-  //     jQuery('#final-report-content-container').append(app.finalReportPart.html);
-  //     // remove all text areas
-  //     jQuery('#final-report-content-container textarea').before("<p>Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below</p>");
-
-  //     var otherReportsEl = '<h2>Group Report Responses:</h2>';
-  //     _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
-  //       otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
-  //       // the array of all of the entered text for this report and this section
-  //       var entriesToAppend = report.get('parts')[app.finalReportPart.number - 1].entries;
-  //       _.each(entriesToAppend, function(entry) {
-  //         otherReportsEl += '<p>';
-  //         otherReportsEl += entry;
-  //         otherReportsEl += '</p>';
-  //       });
-  //     });
-  //     jQuery('#final-report-content-container').append(otherReportsEl);
-
-  //     // UNIT 3 SPECIFIC STUFF
-  //     jQuery('.unit3-check-answer').addClass('hidden');
-
-  //     view.renderDropdowns();
-
-  //     view.checkForAllowedToProceed();
-  //   }
-  // });
-
-
-
-
-  // /***********************************************************
-  //  ***********************************************************
-  //  *************** FINAL REPORT DISPLAY VIEW *****************
-  //  ***********************************************************
-  //  ***********************************************************/
-
-  // app.View.FinalReportDisplayView = Backbone.View.extend({
-  //   initialize: function() {
-  //     var view = this;
-  //     console.log('Initializing FinalReportDisplayView...');
-
-  //     view.model.on('change', function () {
-  //       view.render();
-  //     });
-  //   },
-
-  //   events: {
-  //     'click img' : 'openImgModal'
-  //   },
-
-  //   openImgModal: function(ev) {
-  //     var view = this;
-  //     var url = jQuery(ev.target).attr('src');
-  //     jQuery('#final-report-display-modal .photo-content').attr('src', url);
-  //     jQuery('#final-report-display-modal').modal({keyboard: true, backdrop: true});
-  //   },
-
-  //   render: function () {
-  //     var view = this;
-  //     console.log("Rendering FinalReportDisplayView...");
-
-  //     jQuery('#final-report-display-container').html('');
-  //     var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
-  //     _.each(view.model.get('parts'), function(part) {
-  //       // only add text chunks for things the students have written (not intro stuff)
-  //       if (part.kind === 'write') {
-
-  //         // add the part title
-  //         reportEl += '<p><h2>' + part.name + '</h2>';
-
-  //         // add a thumbnail if it exists
-  //         if (part.thumbnail.length > 0) {
-  //           reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
-  //         }
-  //         reportEl += '</p>'
-
-  //         // add the text entries
-  //         _.each(part.entries, function(entry) {
-  //           reportEl += '<p>' + entry + '</p>';
-  //         })
-
-  //         // if there are tags, add them
-  //         if (part.tags && part.tags.length > 0) {
-  //           reportEl += '<p><b>Related terms from this unit:</b> ';
-  //           _.each(part.tags, function(tag) {
-  //             reportEl += tag;
-  //             reportEl += ', ';
-  //           });
-  //           reportEl = reportEl.slice(0,-2);
-  //           reportEl += '</p>';
-  //         }
-  //       }
-  //     });
-
-  //     jQuery('#final-report-display-container').append(reportEl);
-  //   }
-  // });
+      app.finalReportBar.animate(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')) / 100);
+      jQuery('#final-report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
+    }
+  });
 
   this.Skeletor = Skeletor;
 }).call(this);

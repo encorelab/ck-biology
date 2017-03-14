@@ -66,7 +66,7 @@
     <script type="text/javascript" src="js/smartboard.view.balloons.js"></script>
 
     <script type="text/javascript" src="reports/certification-reports.js"></script>
-    <!-- <script type="text/javascript" src="reports/report-structure.js"></script> -->
+    <script type="text/javascript" src="reports/clinic-report.js"></script>
 </head>
 
 <body>
@@ -87,8 +87,7 @@
                     <li id="home-nav-btn" class="goto-home-btn top-nav-btn hidden"><a href="#">Home</a></li>
                     <li id="contribution-nav-btn" class="goto-contribution-btn top-nav-btn hidden"><a href="#">My Contribution</a></li>
                     <li id="knowledge-base-nav-btn" class="goto-knowledge-base-btn top-nav-btn hidden"><a href="#">Knowledge Base</a></li>
-                    <li id="group-contribution-nav-btn" class="goto-group-contribution-btn top-nav-btn hidden"><a href="#">Group Contribution</a></li>
-                    <li id="final-report-nav-btn" class="goto-final-report-btn top-nav-btn hidden"><a href="#">Final Report</a></li>
+                    <li id="final-report-nav-btn" class="goto-final-report-btn top-nav-btn hidden"><a href="#">Clinic Report</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li id="report-bug-btn" class="active"><a class="fa fa-bug fa-2x"></a></li>
@@ -498,27 +497,7 @@
             <button id="report-step-forward-btn" class="btn-circular fa fa-check fa-3x pull-right"></button>
             <button id="report-step-back-btn" class="btn-circular fa fa-chevron-left fa-3x pull-left"></button>
         </div>
-
-<!--         <div id="pdf-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </div>
-
-
-
 
     <!-- ********************************************************* -->
     <!-- ********************* FINAL REPORT ********************** -->
@@ -527,57 +506,17 @@
     <div id="final-report-screen" class="container-fluid user-screen">
         <div class="row">
             <div class="inner-wrapper col-xs-12">
-                <div id="final-report-my-team"></div>
+                <div class="report-progress-bar-container progress-bar-container"><img src="" class="icon" alt="user icon"><span id="final-report-my-progress-bar" class="my-progress-bar"/><span class="my-progress-percent"></span><span class="percent">%</span><!-- <span id="pdf-modal-btn" class="fa fa-file-text-o" aria-hidden="true"></span> --></div>
 
                 <div id="final-report-content-container">
-                    <!-- filled by research.view.js -->
-                </div>
-                <div id="final-report-terms-terms-container">
-                    <!-- filled by research.view.js -->
-                </div>
-                <div id="final-report-terms-explanation-pane">
-                    <!-- filled by research.view.js -->
-                </div>
-                <div id="final-report-terms-selected-container">
                     <!-- filled by research.view.js -->
                 </div>
             </div>
 
             <button id="final-report-step-forward-btn" class="btn-circular fa fa-check fa-3x pull-right"></button>
+            <button id="final-report-step-back-btn" class="btn-circular fa fa-chevron-left fa-3x pull-left"></button>
         </div>
     </div>
-
-
-    <!-- ********************************************************* -->
-    <!-- ***************** FINAL REPORT DISPLAY ****************** -->
-    <!-- ********************************************************* -->
-
-    <div id="final-report-display-screen" class="container-fluid user-screen">
-        <div class="row">
-            <div class="inner-wrapper col-xs-12">
-                <div id="final-report-display-container">
-                    <!-- filled by research.view.js -->
-                </div>
-            </div>
-        </div>
-        <div id="final-report-display-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">
-            <div class="table">
-                <div class="table-cell">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                            </div>
-                            <div class="modal-body">
-                                <img class="photo-content" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
 
     <!-- Modals -->

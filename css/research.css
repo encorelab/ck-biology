@@ -1115,43 +1115,29 @@ textarea {
 /*****************************************************/
 
 
-#report-screen img {
+#report-screen img,
+#final-report-screen img {
     width: 100%;
 }
-#report-screen li {
+#report-screen li,
+#final-report-screen li {
 /*     margin-left: 40px;
     margin-top: 5px; */
     margin: 8px;
 }
-#report-screen button {
+#report-screen button,
+#final-report-screen button {
     font-size: 11px;
     padding: 6px;
     border-radius: 6px; /* why is this one 6px??? */
     background: #34495E;
 }
-#report-screen .modal {
-    margin-top: 20px;
-    font-size: 10px;
-}
-
-#report-screen .modal-header {
-    height: 42px;
-}
-
-#pdf-modal-btn {
-    float: right;
-    font-size: 2.8em;
-    margin-top: 7px;
-}
-#report-pdf-content {
-    width: 100%;
-    height: 350px;
-}
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn,
 #report-step-back-btn,
-#final-report-step-forward-btn {
+#final-report-step-forward-btn,
+#final-report-step-back-btn {
     margin-bottom: 20px;
     /* position: absolute; */
     position: fixed;
@@ -1164,13 +1150,16 @@ textarea {
     padding: 0 !important;
     font-size: 3em !important;
 }
-#report-screen .fa-chevron-left:before {
+#report-screen .fa-chevron-left:before,
+#final-report-screen .fa-chevron-left:before {
     margin-left: -0.2em;
 }
-#report-step-forward-btn {
+#report-step-forward-btn,
+#final-report-step-forward-btn {
     right: 0;
 }
-#report-step-back-btn {
+#report-step-back-btn,
+#final-report-step-back-btn {
     left: 0;
 }
 
@@ -1199,42 +1188,14 @@ textarea {
     /* line-height: 2em; */
     margin: 8px;
 }
-
-#view-sequence-modal ul {
-    text-align: right;
-    padding-right: 50px;
-    font-family: monospace;
-    font-size: 1.1em;
-}
-
-#report-screen .unit3-view-sequence-btn,
-#final-report-screen .unit3-view-sequence-btn {
-    font-size: 14px;
-    margin-left: 15px;
-    background-color: #34495E;
-}
-#report-screen .unit3-view-sequence-btn:hover,
-#final-report-screen .unit3-view-sequence-btn:hover {
-    background-color: #517394;
-}
-#report-screen .modal-header .close {
-    font-size: 16px;
-    margin-top: -15px;
-    color: #ffffff;
-}
-#report-screen .unit3-check-answer {
-    font-size: 14px;
-    margin-bottom: 20px;
-}
-.unit3-correct1,
-.unit3-correct2,
-.unit3-correct3 {
-    margin-left: 20px;
+#final-report-screen .conference-btn {
+    width: 25px;
+    margin-bottom: 5px;
 }
 
 
-/*** FINAL REPORT ***/
-#final-report-my-team {
+/*/*** FINAL REPORT ***/
+/*#final-report-my-team {
     display: inline-block;
     border-bottom: 1px dotted #ccc;
     font-size: 2em;
@@ -1281,7 +1242,7 @@ textarea {
     text-align: center;
     font-size: 1.5em;
     margin: 2em;
-}
+}*/
 
 #final-report-display-screen .modal-header .close,
 #teacher-final-report-screen .modal-header .close {
@@ -1369,6 +1330,20 @@ textarea {
     font-size: 1.5em;
     vertical-align: bottom;
     background-color: #fff;
+}
+
+
+.immunologist {
+    color: red;
+}
+.nephrologist {
+    color: yellow;
+}
+.endocrinologist {
+    color: green;
+}
+.neurologiost {
+    color: purple;
 }
 
 
