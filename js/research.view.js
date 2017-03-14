@@ -111,41 +111,7 @@
             jQuery('#home-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
-          // if (app.getMyGroup(app.username, "review3").get('kind') === "present") {
-          //   jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          //   jQuery('#contribution-nav-btn').addClass('hidden');
-          //   jQuery('#report-screen').removeClass('hidden');
-          //   var myGroup = app.getMyGroup(app.username, "review3");
-          //   var report = null;
-          //   if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
-          //     report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
-          //   } else {
-          //     // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-          //     // TODO for unit 4 - create report when group is created, but don't delete when group is deleted
-          //     report = new Model.Report();
-          //     report.set('group_colour', myGroup.get('colour'));
-          //     report.set('lesson', 'review3');
-          //     report.set('parts', app.report.parts);      // TODO
-          //     report.set('pdf', app.report.pdf);
-          //     report.save();
-          //     Skeletor.Model.awake.reports.add(report);
-          //   }
-          //   report.wake(app.config.wakeful.url);
-          //   if (app.reportView === null) {
-          //     app.reportView = new app.View.ReportView({
-          //       el: '#report-screen',
-          //       model: report
-          //     });
-          //   }
-
-          //   app.reportView.render();
-          // } else {
-          //   jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
-          //   jQuery('.top-nav-btn').addClass('hidden');
-          //   jQuery('#home-screen').removeClass('hidden');
-          // }
-        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review4") {
-          if (app.getMyGroup(app.username, "review4").get('kind') === "present") {
+          if (app.getMyGroup(app.username, "review3").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#final-report-screen').removeClass('hidden');
