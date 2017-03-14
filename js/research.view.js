@@ -312,7 +312,13 @@
                 completeFlag = false;
               }
             } else if (lesson.get('kind') === "review3") {
-              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+              if (app.getMyGroup(app.username, lesson.get('kind'))) {
+                if (app.getReportCompletionPercent(lesson.get('kind'), app.getMyGroup(app.username, lesson.get('kind')).get('colour')) !== 100) {
+                  completeFlag = false;
+                }
+              } else {
+                completeFlag = false;
+              }
             } else {
               console.error('Unknown lesson');
             }
@@ -2144,6 +2150,7 @@
         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
         jQuery('#report-screen').addClass('hidden');
         jQuery('#home-screen').removeClass('hidden');
+        app.homeView.render();
       }
     },
 
@@ -2243,7 +2250,14 @@
     events: {
       'click #final-report-step-forward-btn' : 'stepForward',
       'click #final-report-step-back-btn'    : 'stepBack',
-      'keyup textarea'                       : 'checkForAllowedToProceed'
+      'keyup textarea'                       : 'checkForAllowedToProceed',
+      'click .clinic-save-btn'               : 'saveSection'
+    },
+
+    saveSection: function() {
+      var view = this;
+      view.updateReport();
+      jQuery().toastmessage('showSuccessToast', "Your response has been saved");
     },
 
     checkForAutoSave: function() {
@@ -2289,6 +2303,7 @@
         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
         jQuery('#final-report-screen').addClass('hidden');
         jQuery('#home-screen').removeClass('hidden');
+        app.homeView.render();
       }
     },
 
@@ -2322,7 +2337,7 @@
       });
       if (contentArr.length > 0) {
         var sub = new Model.Submission();
-        sub.set('group_colour', app.getMyGroup(app.username, "review2").get('colour'));
+        sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
         sub.set('lesson', view.model.get('lesson'));
         sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);

@@ -1191,6 +1191,10 @@ textarea {
 #final-report-screen .conference-btn {
     width: 25px;
     margin-bottom: 5px;
+    margin-right: 7px;
+}
+#final-report-screen .clinic-save-btn {
+    float: right;
 }
 
 
@@ -1337,12 +1341,12 @@ textarea {
     color: red;
 }
 .nephrologist {
-    color: yellow;
+    color: #dbd700;
 }
 .endocrinologist {
     color: green;
 }
-.neurologiost {
+.neurologist {
     color: purple;
 }
 
