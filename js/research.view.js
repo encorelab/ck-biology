@@ -2251,11 +2251,27 @@
       'click #final-report-step-forward-btn' : 'stepForward',
       'click #final-report-step-back-btn'    : 'stepBack',
       'keyup textarea'                       : 'checkForAllowedToProceed',
-      'click .clinic-save-btn'               : 'saveSection'
+      'click .clinic-save-btn'               : 'saveSection',
+      'click .conference-btn'                : 'callConference',
+    },
+
+    // START HERE - how is this going to be sent to everyone?
+    callConference: function(ev) {
+      var view = this;
+
+      var specialty = jQuery(ev.target).data('specialty');
+      var toastText = view.model.get('name')+' has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
+      jQuery().toastmessage('showToast', {
+        text     : toastText,
+        position : 'top-right',
+        sticky   : true,
+        type     : 'warning'
+      });
     },
 
     saveSection: function() {
       var view = this;
+
       view.updateReport();
       jQuery().toastmessage('showSuccessToast', "Your response has been saved");
     },

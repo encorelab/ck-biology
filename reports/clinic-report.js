@@ -30,25 +30,25 @@ Skeletor.Mobile.clinicReport = {
         <h2>Question 1</h2>
         <p class="immunologist">Immunologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with systemic lupus erythematosus?</p>
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="immunologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="endocrinologist">Endocrinologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with Grave's disease?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="endocrinologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="nephrologist">Nephrologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with Glomerulonephritis?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="nephrologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="neurologist">Neurologist:  Based on your reading from Review Part 1, which of the patient's symptoms (if any) are consistent with NPSLE?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="neurologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
@@ -79,25 +79,25 @@ Skeletor.Mobile.clinicReport = {
         </ul>
         <p class="immunologist">Immunologist:  If this patient has systemic lupus erythematosus, what would you expect to see in the results of the blood ANA test?</p>
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="immunologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="endocrinologist">Endocrinologist:  If this patient has Grave's disease, what would you expect to see in the results of the blood thyroid function test?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="endocrinologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="nephrologist">Nephrologist:  If this patient has glomerulonephritis, what would you expect to see in the results of the urinalysis and urine microscopy?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="nephrologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="neurologist">Neurologist:  If this patient has NPSLE, what might you see in the results of the EEG?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="neurologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
@@ -124,24 +124,24 @@ Skeletor.Mobile.clinicReport = {
         <p class="immunologist">Immunologist:  Based on the results of the blood ANA test, what is your diagnosis for this patient?</p>
         <textarea class="immunologist" placeholder="Enter your text here"></textarea>
         <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
-        <span class="conference-text">call a conference</span>
+        <span class="conference-text" data-specialty="immunologist">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="endocrinologist">Endocrinologist:  Based on the results of the blood thyroid function test, what is your diagnosis for this patient?</p>
         <textarea class="endocrinologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="endocrinologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="nephrologist">Nephrologist:  Based on the results of the urinalysis and urine microscopy, what is your diagnosis for this patient?</p>
         <textarea class="nephrologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="nephrologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
         <p class="neurologist">Neurologist:  Based on the results of the EEG, is it possible that this patient may have NPSLE?</p>
         <textarea class="neurologist" placeholder="Enter your text here"></textarea>
-        <img class="conference-btn" src="/reports/imgs/conference_icon.png"></img>
+        <img class="conference-btn" data-specialty="neurologist" src="/reports/imgs/conference_icon.png"></img>
         <span class="conference-text">call a conference</span>
         <button class="clinic-save-btn">save response</button>
         <br /><br /><br /><br />
