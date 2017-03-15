@@ -521,27 +521,27 @@ textarea {
 }
 
 #attach-terms-explanation-pane {
-    margin-left: 2.5%;
+/*     margin-left: 2.5%;
     float: left;
-    width: 20%;
+    width: 20%; */
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
 
 #attach-terms-selected-container {
-    clear: left;
-    /* margin-left: 2.5%; */
-    /* float: left; */
+/*     clear: left;
+    margin-left: 2.5%;
+    float: left;
     width: 170px;
-    /* height: 350px; */
-    line-height: 2.2em;
+    height: 350px;
     overflow-y: scroll;
     position: absolute;
     top: 550px;
-    right: 120px;
+    right: 120px; */
+    line-height: 2.5em;
 }
 
 #attach-terms-selected-container .terms-container div {
@@ -549,7 +549,7 @@ textarea {
     font-weight: bold;
     color: #7F8C8D;
     display: inline-block;
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 
 #attach-terms-terms-container {
@@ -590,7 +590,8 @@ textarea {
 #explain-terms-pdf-container {
     margin-bottom: 25px;
     float: left;
-    width: 67%;
+    /* width: 67%; */
+    width: 55%;
 }
 
 #explain-terms-pdf-content {
@@ -601,12 +602,15 @@ textarea {
 
 #explain-terms-terms-container {
     float: right;
-    width: 30%;
-    padding-top: 25px;
+    /* width: 30%; */
+    width: 40%;
+    /* padding-top: 25px; */
 }
 
 #explain-terms-screen .explain-term-uncomplete-btn {
-    background-color: #F1C40F;
+    /* background-color: #F1C40F; */
+    background-color: #ecf0f1;
+    color: #7f8c8d;
     margin-right: 5%;
     margin-bottom: 50px;
 }
@@ -628,20 +632,22 @@ textarea {
     width: 47%;
     float: left;
 }
-
 #explain-details-content-container {
     width: 47%;
     float: right;
+}
+#explain-details-content-entry {
+    min-height: 300px;
 }
 
 /* copied from smartboard.css */
 #explain-details-screen .title,
 #explain-details-content-title,
 #attach-terms-explanation-pane .title,
-#final-report-terms-explanation-pane .title, {
-  font-size: 2em;
-  margin-top: 10px;
-  margin-bottom: 20px;
+#final-report-terms-explanation-pane .title {
+  font-size: 1.7em;
+  /* margin-top: 10px; */
+  margin-bottom: 25px;
 }
 #explain-details-screen .author,
 #attach-terms-explanation-pane .author,
@@ -987,6 +993,7 @@ textarea {
 }
 
 
+
 /*****************************************************/
 /*****************************************************/
 /****************** UNIT 4 SCREENS *******************/
@@ -1040,12 +1047,24 @@ textarea {
 #choose-specialization-yes-btn {
     margin-right: 20px;
 }
+/* attach terms screen */
+.attach-terms-styling-container {
+    margin-left: 2.5%;
+    float: left;
+    width: 20%;
+}
 #attach-terms-explanation-pane {
     height: 300px;
+    width: 100%;
 }
 #attach-terms-selected-container {
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
+#attach-terms-selected-container .terms-container div {
+    width: 100%;
+    line-height: 1.2;
+}
+/* explain terms screen */
 #explain-terms-screen .explain-term-uncomplete-btn,
 #explain-terms-screen .explain-term-complete-btn {
     margin-bottom: 20px;
