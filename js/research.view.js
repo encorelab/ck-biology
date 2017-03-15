@@ -1034,8 +1034,14 @@
 
     switchToReportView: function(ev) {
       var report = Skeletor.Model.awake.reports.findWhere({"group_colour": String(jQuery(ev.target).data('colour'))});
-      // if this group has started their report TODO
-      if (report) {
+      // if this group has started their report
+      var startedFlag = false;
+      _.each(report.get('parts'), function(part) {
+        if (part.entries && part.entries.length > 0) {
+          startedFlag = true;
+        }
+      })
+      if (startedFlag) {
         if (app.teacherFinalReportView === null) {
           app.teacherFinalReportView = new app.View.TeacherFinalReportView({
             el: '#teacher-final-report-screen',
@@ -1060,7 +1066,7 @@
       var el = '';
       _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
         el += '<div class="review-progress-group-container">';
-        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'"><img src="/reports/imgs/clinic'+group.get('colour')+'.png"></img>Clinic '+group.get('colour')+'</button>';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'"><img data-colour="'+group.get('colour')+'" src="/reports/imgs/clinic'+group.get('colour')+'.png"></img>Clinic '+group.get('colour')+'</button>';
         el += '<div class="review-progress-progress-bar-container">';
         el += '<span id="final-review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
         el += '<span class="review-progress-group-progress-percent"></span>';
