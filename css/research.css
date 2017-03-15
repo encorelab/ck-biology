@@ -649,6 +649,9 @@ textarea {
   /* margin-top: 10px; */
   margin-bottom: 25px;
 }
+#attach-terms-explanation-pane .title {
+    margin-top: 0;
+}
 #explain-details-screen .author,
 #attach-terms-explanation-pane .author,
 #final-report-terms-explanation-pane .author,
