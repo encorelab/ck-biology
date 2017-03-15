@@ -434,7 +434,8 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-#review-progress-screen {
+#review-progress-screen,
+#final-review-progress-screen {
     position: absolute;
     top: 10%;
     left: 50%;
@@ -445,7 +446,8 @@ textarea {
     text-align: center;
     margin-bottom: 40px;
 }
-#review-progress-screen h1 {
+#review-progress-screen h1,
+#final-review-progress-screen h1 {
     font-weight: 500;
 }
 .review-progress-group-btn {
@@ -456,6 +458,15 @@ textarea {
     border-radius: 0;
     border: 1px solid #34495e;
 }
+
+#final-review-progress-screen .review-progress-group-btn {
+    background: white;
+}
+#final-review-progress-screen .review-progress-group-btn img {
+    width: 50px;
+    margin-right: 20px;
+}
+
 .review-progress-progress-bar-container {
     margin-top: 25px;
     padding-bottom: 30px;
@@ -465,11 +476,13 @@ textarea {
     /* margin: 20px; */
 }
 
-#review-progress-screen svg {
+#review-progress-screen svg,
+#final-review-progress-screen svg {
     width: 100% !important;
 }
 
-#review-progress-container {
+#review-progress-container,
+#final-review-progress-container {
     /* width: 100%; for some reason this pushes it outside of border-box ??*/
     margin: 20px;
     margin-top: 50px;
@@ -499,14 +512,16 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-#teacher-report-container {
+#teacher-report-container,
+#teacher-final-report-container {
     width: 100%;
     max-width: 775px;
     display: block;
     margin: 0 auto;
 }
 
-#teacher-report-screen h1 {
+#teacher-report-screen h1,
+#teacher-final-report-screen h1 {
     font-weight: 500;
     margin-bottom: 40px;
     text-align: center;
@@ -518,7 +533,8 @@ textarea {
     display: inline-block;
     margin-bottom: 5px;
 }
-#close-teacher-report-view-btn {
+#close-teacher-report-view-btn,
+#close-teacher-final-report-view-btn {
     background: #777777;                 /* this needed to be darker for smartboard screens */
 }
 #teacher-report-screen .thumb,
@@ -529,16 +545,20 @@ textarea {
     height: 25px;
 }
 
-#close-teacher-report-view-btn {
+#close-teacher-report-view-btn,
+#close-teacher-final-report-view-btn {
     margin-left: 13%;
     margin-bottom: 20px;
     margin-top: 20px;
 }
-#close-teacher-report-view-btn:hover{
+#close-teacher-report-view-btn:hover,
+#close-teacher-final-report-view-btn:hover {
     background-color: #ddd;
 }
 
-
+.clinic-answer {
+    font-weight: bold;
+}
 
 
 

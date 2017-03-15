@@ -49,6 +49,7 @@
   app.groupingJigsawView = null;
   app.reviewProgressView = null;
   app.teacherReportView = null;
+  app.finalReviewProgressView = null;
   app.teacherFinalReportView = null;
   // student views
   app.definitionView = null;
@@ -341,23 +342,23 @@
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
 
 
-        } else if (jQuery(this).hasClass('goto-final-report-btn')) {
-          app.hideAllContainers();
-          jQuery('#group-contribution-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').addClass('active');
-          jQuery('#final-report-display-screen').removeClass('hidden');
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          jQuery('#contribution-nav-btn').addClass('hidden');
-          // this is analogous to "group_colour":"class"
-          var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
-          if (app.finalReportDisplayView === null) {
-            app.finalReportDisplayView = new app.View.FinalReportDisplayView({
-              el: '#final-report-display-screen',
-              model: report
-            });
-          }
-          app.finalReportDisplayView.render();
+        // } else if (jQuery(this).hasClass('goto-final-report-btn')) {
+        //   app.hideAllContainers();
+        //   jQuery('#group-contribution-nav-btn').removeClass('hidden');
+        //   jQuery('#final-report-nav-btn').removeClass('hidden');
+        //   jQuery('#final-report-nav-btn').addClass('active');
+        //   jQuery('#final-report-display-screen').removeClass('hidden');
+        //   jQuery('#knowledge-base-nav-btn').addClass('hidden');
+        //   jQuery('#contribution-nav-btn').addClass('hidden');
+        //   // this is analogous to "group_colour":"class"
+        //   var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
+        //   if (app.finalReportDisplayView === null) {
+        //     app.finalReportDisplayView = new app.View.FinalReportDisplayView({
+        //       el: '#final-report-display-screen',
+        //       model: report
+        //     });
+        //   }
+        //   app.finalReportDisplayView.render();
 
 
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
@@ -377,16 +378,15 @@
               });
             }
             app.reviewProgressView.render();
-          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review4") {
-            jQuery('#teacher-final-report-screen').removeClass('hidden');
-            var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
-            if (app.teacherFinalReportView === null) {
-              app.teacherFinalReportView = new app.View.TeacherFinalReportView({
-                el: '#teacher-final-report-screen',
-                model: report
+          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+            jQuery('#final-review-progress-screen').removeClass('hidden');
+            if (app.finalReviewProgressView === null) {
+              app.finalReviewProgressView = new app.View.FinalReviewProgressView({
+                el: '#final-review-progress-screen',
+                collection: Skeletor.Model.awake.groups
               });
             }
-            app.teacherFinalReportView.render();
+            app.finalReviewProgressView.render();
           } else {
             jQuery('#homework-progress-screen').removeClass('hidden');
             app.homeworkProgressView.render();
@@ -1011,7 +1011,7 @@
       });
     } else if (lesson === "review3") {
       // we're just going to create 3 clinic reports, instead of bothering with create/destroy
-      for (var i = 1; i < 5; i++) {
+      for (var i = 1; i < 4; i++) {
         var r = new Model.Report();
         r.set('lesson', lesson);
         r.set('group_colour', String(i));

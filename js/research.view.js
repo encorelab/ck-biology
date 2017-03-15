@@ -1012,6 +1012,83 @@
   });
 
 
+  /***********************************************************
+   ***********************************************************
+   ************* FINAL REVIEW PROGRESS VIEW ******************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.FinalReviewProgressView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing FinalReviewProgressView...');
+
+      Skeletor.Model.awake.reports.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click .review-progress-group-btn' : 'switchToReportView'
+    },
+
+    switchToReportView: function(ev) {
+      var report = Skeletor.Model.awake.reports.findWhere({"group_colour": String(jQuery(ev.target).data('colour'))});
+      // if this group has started their report TODO
+      if (report) {
+        if (app.teacherFinalReportView === null) {
+          app.teacherFinalReportView = new app.View.TeacherFinalReportView({
+            el: '#teacher-final-report-screen',
+            model: report
+          });
+        } else {
+          app.teacherFinalReportView.model = report;
+        }
+        app.teacherFinalReportView.render();
+        jQuery('#final-review-progress-screen').addClass('hidden');
+        jQuery('#teacher-final-report-screen').removeClass('hidden');
+      } else {
+        jQuery().toastmessage('showErrorToast', "This group has not started their report yet");
+      }
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering FinalReviewProgressView...");
+
+      jQuery('#final-review-progress-container').html('');
+      var el = '';
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        el += '<div class="review-progress-group-container">';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'"><img src="/reports/imgs/clinic'+group.get('colour')+'.png"></img>Clinic '+group.get('colour')+'</button>';
+        el += '<div class="review-progress-progress-bar-container">';
+        el += '<span id="final-review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
+        el += '<span class="review-progress-group-progress-percent"></span>';
+        el += '<span class="review-progress-percent"></span>';
+        el += '</div>';
+        el += '</div>';
+      });
+      jQuery('#final-review-progress-container').append(el);
+
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
+        var myBar = new ProgressBar.Line('#final-review-progress-'+group.get('colour')+'-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexDarkPurple,
+            trailColor: app.hexLightGrey,
+            strokeWidth: 8,
+            svgStyle: app.progressBarStyleHome,
+            text: {
+              value: myPercent,
+              style: app.progressBarTextStyle
+            }
+          });
+        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+      });
+    }
+  });
+
 
   /***********************************************************
    ***********************************************************
@@ -1030,7 +1107,8 @@
     },
 
     events: {
-      'click img' : 'openImgModal'
+      'click img'                                  : 'openImgModal',
+      'click #close-teacher-final-report-view-btn' : 'switchToProgressView'
     },
 
     openImgModal: function(ev) {
@@ -1040,46 +1118,41 @@
       jQuery('#teacher-final-report-modal').modal({keyboard: true, backdrop: true});
     },
 
+    switchToProgressView: function() {
+      jQuery('#teacher-final-report-screen').addClass('hidden');
+      jQuery('#final-review-progress-screen').removeClass('hidden');
+    },
+
     render: function () {
       var view = this;
       console.log("Rendering TeacherFinalReportView...");
 
       jQuery('#teacher-final-report-container').html('');
-      var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
+      var reportEl = '<h1>' + view.model.get('name') + ' Report</h1>';
+      reportEl += '<div>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
-
-          // add the part title
-          reportEl += '<p><h2>' + part.name + '</h2>';
-
-          // add a thumbnail if it exists
+          reportEl += '<p>' + part.question + '</p>';
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
-          reportEl += '</p>'
-
-          // add the text entries
-          _.each(part.entries, function(entry) {
-            reportEl += '<p>' + entry + '</p>';
-          })
-
-          // if there are tags, add them
-          if (part.tags && part.tags.length > 0) {
-            reportEl += '<p><b>Related terms from this unit:</b> ';
-            _.each(part.tags, function(tag) {
-              reportEl += tag;
-              reportEl += ', ';
-            });
-            reportEl = reportEl.slice(0,-2);
-            reportEl += '</p>';
-          }
         }
       });
-
+      reportEl += '</div>';
       jQuery('#teacher-final-report-container').append(reportEl);
+
+      _.each(view.model.get('parts'), function(part) {
+        _.each(part.entries, function(entry, index) {
+          jQuery(jQuery('.clinic-answer')[index]).text(entry)
+        });
+      });
     }
   });
+
+
+
+
 
 
 
