@@ -844,6 +844,14 @@ textarea {
 /*****************************************************/
 
 
+#report-screen p {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+}
+#report-screen p + p {
+    margin-bottom: 10px;
+}
+
 #report-screen img,
 #final-report-screen img {
     width: 100%;
@@ -852,6 +860,7 @@ textarea {
 #final-report-screen li {
 /*     margin-left: 40px;
     margin-top: 5px; */
+    font-size: 1.2em;
     margin: 8px;
 }
 #report-screen button,
@@ -902,7 +911,16 @@ textarea {
 
 #report-content-container img,
 #final-report-content-container img {
-    margin-bottom: 25px;
+    display: block;
+    margin: 0 auto 25px;
+}
+#report-screen .img-wide {
+    display: block;
+    margin: 0 auto 25px;
+    max-width: 800px;
+}
+#report-screen .img-tall {
+    max-width: 500px;
 }
 #report-content-container textarea,
 #final-report-content-container textarea {
