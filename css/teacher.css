@@ -25,7 +25,7 @@
     display: inline-block;
     width: 120px;
     font-size: 20px;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 #homework-progress-screen .icon {
     margin-left: 50px;
@@ -36,6 +36,7 @@
     width: 100%;
     max-width: 840px;
     margin: 40px auto 0;
+    font-size: 16px;
 }
 .homework-progress-row-container {
     margin-left: 80px;
@@ -117,9 +118,10 @@
 
 #grouping-screen .students-container,
 #grouping-jigsaw-screen .students-container {
-    /* width: 100%; */
-    border: 1px solid #34495e;
-    margin: 20px;
+    width: 100%;
+    max-width: 1000px;
+    border: 1px solid #777777;
+    margin: 20px auto;
     padding: 20px;
     min-height: 97px;
 }
@@ -128,7 +130,7 @@
     width: 100%;
     margin: 20px 0;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
@@ -141,23 +143,24 @@
     padding-top: 4px !important;
 }
 #grouping-screen .students-container .student-grouping-button {
-    padding-top: 9px !important;
+    /* padding-top: 9px !important; */
 }
 
 #grouping-screen .group-container,
 #grouping-jigsaw-screen .group-container {
     min-height: 360px;
     width: 220px;
-    border: 1px solid #34495e;
-    margin: 20px;
+    border: 1px solid #777777;
+    margin: 20px 10px;
     padding-bottom: 20px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 #grouping-screen .assign-btn,
 #grouping-jigsaw-screen .assign-btn {
     margin-right: 20px;
-    font-size: 16px;
+    font-size: 20px;
+    padding-top: 8px !important;
 }
 #grouping-screen .assign-btn:last-of-type,
 #grouping-jigsaw-screen .assign-btn:last-of-type {
@@ -298,4 +301,13 @@
 
 .clinic-answer {
     font-weight: bold;
+}
+
+
+
+/* Large devices (LARGE DESKTOPS, 1200px and up) */
+@media all and (min-width: 1200px) {
+    #grouping-screen .inner-wrapper {
+        max-width: 100%;
+    }
 }
