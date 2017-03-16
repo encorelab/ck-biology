@@ -89,6 +89,7 @@
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
+            app.currentReportPage = 1;
             var myGroup = app.getMyGroup(app.username, "review2");
             var report = null;
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"})) {
@@ -114,6 +115,7 @@
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#final-report-screen').removeClass('hidden');
+            app.currentReportPage = 1;
             var myGroup = app.getMyGroup(app.username, "review3");
             var report = null;
             if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
@@ -568,7 +570,12 @@
               var style = "2px solid "+recoSpecColour;
               jQuery(studentBtn).css("border", style);
             } else {
-              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
+              if (app.getMyGroup(user.get('username'), "review2")) {
+                studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
+              } else {
+                studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid grey">');
+              }
+
               jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
             }
           }

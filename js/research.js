@@ -875,7 +875,15 @@
         if (part.kind === "write") {
           totalParts++;
 
-          if (part.entries && part.entries.length > 0) {
+          var completeFlag = true;
+          _.each(part.entries, function(entry) {
+            if (entry.length === 0) {
+              completeFlag = false;
+            }
+          });
+          // if there is an entries array and each element in that array is not an empty string
+          // autosave gets us empty strings, which is why we need this
+          if (part.entries && completeFlag) {
             completedParts++;
           }
         }
