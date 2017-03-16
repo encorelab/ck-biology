@@ -2379,6 +2379,21 @@
       var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": ev.specialty});
       conf.set('status', 'closed');
       conf.save();
+
+      //jQuery('.toast-item-close').remove()
+      // if (ev.clinic === view.model.get('group_colour')) {
+      //   console.log('Closing...');
+      //   var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": ev.specialty});
+      //   conf.set('status', 'closed');
+      //   conf.save();
+      // } else {
+      //   console.log('')
+      // }
+
+      // $("#but").click(function(ev) {
+      //    // mouse click on button
+      //    ev.stopPropagation();
+      // });
     },
 
     saveSection: function() {
@@ -2477,18 +2492,18 @@
     renderConferences: function() {
       var view = this;
 
-      console.log("Rendering conferences...")
+      console.log("Rendering conferences...");
 
       // close all toasts
-      //jQuery('.toast-container').remove();
+      jQuery('.toast-container').remove();
 
       // open the correct toasts
       _.each(Skeletor.Model.awake.conferences.where({"status": "open"}), function(conf) {
         var specialty = conf.get('specialty');
         if (jQuery('.toast-container span').hasClass(specialty)) {
-          console.log('already here')
+          console.log('Already rendered')
         } else {
-          var toastText = 'Clinic '+conf.get('num')+' has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
+          var toastText = 'Clinic <span class="'+conf.get('num')+'">'+conf.get('num')+'</span> has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
           jQuery().toastmessage('showToast', {
             text      : toastText,
             position  : 'top-right',
@@ -2497,6 +2512,13 @@
             specialty : specialty,
             close     : function () {view.closeConference(this);}
           });
+        }
+      });
+
+      // disable close on all toast that aren't opened by the group
+      _.each(jQuery('.toast-container'), function(el) {
+        if (!jQuery(el).find('span').hasClass(view.model.get('group_colour'))) {
+          jQuery(el).find('.toast-item-close').remove();
         }
       });
     },
