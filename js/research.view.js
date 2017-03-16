@@ -2324,6 +2324,10 @@
           strokeWidth: 3,
           svgStyle: app.progressBarStyleTask
         });
+
+      Skeletor.Model.awake.conferences.on('all', function () {
+        view.render();
+      });
     },
 
     events: {
@@ -2334,18 +2338,40 @@
       'click .conference-btn'                : 'callConference',
     },
 
-    // START HERE - how is this going to be sent to everyone?
     callConference: function(ev) {
       var view = this;
 
       var specialty = jQuery(ev.target).data('specialty');
-      var toastText = view.model.get('name')+' has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
-      jQuery().toastmessage('showToast', {
-        text     : toastText,
-        position : 'top-right',
-        sticky   : true,
-        type     : 'warning'
-      });
+      var parts = view.model.get('parts');
+      var confArr = parts[app.currentReportPage-1].conferences;
+      confArr.push(specialty);
+      confArr = _.uniq(confArr);
+      parts[app.currentReportPage-1].conferences = confArr;
+      view.model.set('parts', parts);
+      view.model.save();
+
+      var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": specialty});
+      if (conf) {
+        conf.set('status', 'open');
+        conf.set('num', view.model.get('group_colour'));
+        conf.wake(app.config.wakeful.url);        // should be unnecessary
+        conf.save();
+      } else {
+        var conf = new Model.Conference();
+        conf.wake(app.config.wakeful.url);
+        conf.set('specialty', specialty);
+        conf.set('status', 'open');
+        conf.set('num', view.model.get('group_colour'));
+        conf.save();
+      }
+    },
+
+    closeConference: function(ev) {
+      console.log('Closing...');
+
+      var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": ev.specialty});
+      conf.set('status', 'closed');
+      conf.save();
     },
 
     saveSection: function() {
@@ -2441,9 +2467,38 @@
       }
     },
 
+    renderConferences: function() {
+      var view = this;
+
+      console.log("Rendering conferences...")
+
+      // close all toasts
+      //jQuery('.toast-container').remove();
+
+      // open the correct toasts
+      _.each(Skeletor.Model.awake.conferences.where({"status": "open"}), function(conf) {
+        var specialty = conf.get('specialty');
+        if (jQuery('.toast-container span').hasClass(specialty)) {
+          console.log('already here')
+        } else {
+          var toastText = 'Clinic '+conf.get('num')+' has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
+          jQuery().toastmessage('showToast', {
+            text      : toastText,
+            position  : 'top-right',
+            sticky    : true,
+            type      : 'warning',
+            specialty : specialty,
+            close     : function () {view.closeConference(this);}
+          });
+        }
+      });
+    },
+
     render: function() {
       var view = this;
       console.log("Rendering FinalReportView...");
+
+      view.renderConferences();
 
       jQuery('.report-progress-bar-container .icon').attr('src', 'reports/imgs/clinic'+view.model.get('group_colour')+'.png');
 

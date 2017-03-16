@@ -939,6 +939,7 @@ textarea {
     margin: 8px;
 }
 #final-report-screen .conference-btn {
+    float: left;
     width: 25px;
     margin-bottom: 5px;
     margin-right: 7px;

@@ -27,7 +27,7 @@
   Skeletor.Model = (function() {
     function Model() {}
 
-    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons', 'groups', 'reports', 'submissions'];
+    Model.requiredCollections = ['terms', 'relationships', 'articles', 'lessons', 'groups', 'reports', 'conferences'];
 
     Model.init = function(url, db) {
       var dfrInit,
@@ -238,15 +238,15 @@
         model: Skeletor.Model.Report
       });
 
-      this.Submission = this.db.Document('submissions').extend({
+      this.Conference = this.db.Document('conferences').extend({
         defaults: {
           'created_at': new Date(),
           'modified_at': new Date()
         }
       })
 
-      this.Submissions = this.db.Collection('submissions').extend({
-        model: Skeletor.Model.Submission
+      this.Conferences = this.db.Collection('conferences').extend({
+        model: Skeletor.Model.Conference
       });
     };
 

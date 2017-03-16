@@ -3,6 +3,7 @@ Skeletor.Mobile.clinicReport = {
     {
       "number": 1,
       "kind": "write",
+      "conferences": [],
       "thumbnail": "",
       "question": `
         <h2>Question 1</h2>
@@ -57,6 +58,7 @@ Skeletor.Mobile.clinicReport = {
     {
       "number": 2,
       "kind": "write",
+      "conferences": [],
       "thumbnail": "",
       "question": `
         <h2>Question 2</h2>
@@ -106,6 +108,7 @@ Skeletor.Mobile.clinicReport = {
     {
       "number": 3,
       "kind": "write",
+      "conferences": [],
       "thumbnail": "",
       "question": `
         <h2>Question 3</h2>
