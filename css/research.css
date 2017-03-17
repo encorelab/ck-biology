@@ -846,15 +846,33 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-
-#report-screen p {
+#report-screen p,
+#final-report-screen p,
+#report-screen ul,
+#final-report-screen ul,
+#final-report-screen .conference-text {
     font-size: 1.2em;
-    margin-bottom: 25px;
 }
-#report-screen p + p {
+/* TODO testing this out */
+#report-screen p,
+#final-report-screen p {
     margin-bottom: 10px;
 }
-
+#report-screen p:last-of-type,
+#final-report-screen p:last-of-type {
+    margin-bottom: 25px;
+}
+/* MEO this is not doing what i want; refactor */
+/* #report-screen p + p,
+#final-report-screen p + p {
+    margin-bottom: 10px;
+} */
+#final-report-screen p + textarea {
+    margin-bottom: 15px;
+}
+#final-report-screen h2 {
+    font-size: 1.7em;
+}
 #report-screen img,
 #final-report-screen img {
     width: 100%;
@@ -863,8 +881,8 @@ textarea {
 #final-report-screen li {
 /*     margin-left: 40px;
     margin-top: 5px; */
-    font-size: 1.2em;
     margin: 8px;
+    font-size: 1em;
 }
 #report-screen button,
 #final-report-screen button {
@@ -872,6 +890,9 @@ textarea {
     padding: 6px;
     border-radius: 6px; /* why is this one 6px??? */
     background: #34495E;
+}
+#final-report-screen button {
+    font-size: 1em;
 }
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
@@ -917,7 +938,8 @@ textarea {
     display: block;
     margin: 0 auto 25px;
 }
-#report-screen .img-wide {
+#report-screen .img-wide,
+#final-report-content-container .img-wide {
     display: block;
     margin: 0 auto 25px;
     max-width: 800px;
@@ -929,24 +951,45 @@ textarea {
 #final-report-content-container textarea {
     margin-bottom: 20px;
 }
+#final-report-content-container textarea {
+    min-height: 130px;
+    overflow-y: scroll;
+}
 #report-content-container ul,
 #final-report-content-container ul {
     margin-bottom: 15px;
 }
 #report-content-container li,
 #final-report-content-container li {
-    /* line-height: 2em; */
+    line-height: 2em;
     margin: 8px;
+}
+#final-report-content-container li {
+    padding-left: 30px;
 }
 #final-report-screen .conference-btn {
     float: left;
-    width: 25px;
-    margin-bottom: 5px;
-    margin-right: 7px;
+    width: 35px;
+    margin-bottom: 0;
+    margin-right: 10px;
     cursor: pointer;
+    transition: opacity 0.5s ease;
+}
+#final-report-screen .conference-btn:hover,
+#final-report-screen .clinic-save-btn:hover {
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
+}
+#final-report-screen .conference-text {
+    display: inline-block;
+    padding-top: 7px;
 }
 #final-report-screen .clinic-save-btn {
     float: right;
+    transition: opacity 0.5s ease;
+}
+#final-report-screen .clinic-save-btn:last-of-type {
+    margin-bottom: 25px;
 }
 .toast-position-top-right {
     top: 70px;
@@ -1097,6 +1140,10 @@ textarea {
     text-align: left;
     font-size: 16px;
 }
+.home-progress-container .review-completed {
+    vertical-align: middle;
+    margin-top: 10px;
+}
 .review-completed .fa-check {
     margin: 0 5px;
     font-size: 1.5em;
@@ -1106,16 +1153,16 @@ textarea {
 
 
 .immunologist {
-    color: red;
+    color: #e74c3c; /* MD SUNFLOWER */
 }
 .nephrologist {
-    color: #dbd700;
+    color: #f1c40f; /* MD ALIZARIN */
 }
 .endocrinologist {
-    color: green;
+    color: #2ecc71; /* MD EMERALD */
 }
 .neurologist {
-    color: purple;
+    color: purple; /* MD AMETHYST */
 }
 
 

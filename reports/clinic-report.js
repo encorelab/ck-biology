@@ -167,7 +167,7 @@ Skeletor.Mobile.clinicReport = {
       "html": `
         <h2>Question 4</h2>
         <p>Systemic Lupus Erythematosus (SLE or "lupus") is an autoimmune disease characterized by the presence of large amounts of circulating autoantibodies (i.e. antibodies that bind to self-antigens). An increased number of antibody-producing B cells is observed in lupus patients, as well as impaired T cell activation and increased apoptosis (cell death) of cytotoxic T cells. Explain how/why a patient with SLE may also be experiencing Grave's disease. In your answer, explain the connection between the functions of the immune system and the thyroid.</p>
-        <img src="/reports/imgs/final_report_question4.jpg"></img>
+        <img class="img-wide" src="/reports/imgs/final_report_question4.jpg"></img>
         <p>Explain how/why a patient with SLE may also be experiencing Grave's disease.  In your answer, explain the connection between the functions of the immune system and the thyroid.</p>
         <textarea placeholder="Enter your text here"></textarea>
         <button class="clinic-save-btn">save response</button>
