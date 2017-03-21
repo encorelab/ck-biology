@@ -1158,9 +1158,11 @@
       reportEl += '</div>';
       jQuery('#teacher-final-report-container').append(reportEl);
 
+      var i = 0;
       _.each(view.model.get('parts'), function(part) {
-        _.each(part.entries, function(entry, index) {
-          jQuery(jQuery('.clinic-answer')[index]).text(entry)
+        _.each(part.entries, function(entry) {
+          jQuery(jQuery('.clinic-answer')[i]).text(entry);
+          i++;
         });
       });
     }
@@ -2071,7 +2073,7 @@
       jQuery('#explain-terms-terms-container').html('');
 
       //jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
-      var objEl = '<object id="explain-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=82&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      var objEl = '<object id="explain-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=67&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#explain-terms-pdf-container').html(objEl);
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
