@@ -296,12 +296,13 @@
               var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
               if (myArticle) {
                 var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
-                if (myTermsArr.length > 0) {
-                  _.each(myTermsArr, function(term) {
-                    if (term.complete === false) {
-                      completeFlag = false;
-                    }
-                  });
+                _.each(myTermsArr, function(term) {
+                  if (term.complete === false) {
+                    completeFlag = false;
+                  }
+                });
+                if (myTermsArr.length === 0) {
+                  completeFlag = false;
                 }
               } else {
                 completeFlag = false;
