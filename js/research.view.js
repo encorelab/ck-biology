@@ -294,13 +294,15 @@
             // review1
             if (lesson.get('kind') === "review1") {
               var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
-              var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
-              if (myArticle && myTermsArr.length) {
-                _.each(myTermsArr, function(term) {
-                  if (term.complete === false) {
-                    completeFlag = false;
-                  }
-                });
+              if (myArticle) {
+                var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
+                if (myTermsArr.length > 0) {
+                  _.each(myTermsArr, function(term) {
+                    if (term.complete === false) {
+                      completeFlag = false;
+                    }
+                  });
+                }
               } else {
                 completeFlag = false;
               }
