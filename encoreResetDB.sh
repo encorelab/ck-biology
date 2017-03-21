@@ -16,4 +16,6 @@ mongoimport -d ck-biology-encore-U4 -c articles --jsonArray scaffolding/encore-U
 mongo ck-biology-encore-U4 --eval "db.groups.remove()"
 mongoimport -d ck-biology-encore-U4 -c groups --jsonArray scaffolding/groups-unit4.json
 
-# mongo ck-biology-encore --eval "db.reports.remove()"
+mongo ck-biology-encore --eval "db.reports.remove()"
+
+UPDATE MEEEEE
