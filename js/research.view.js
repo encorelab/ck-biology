@@ -1803,7 +1803,7 @@
         app.attachTermsView.render();
         jQuery('#attach-terms-screen').removeClass('hidden');
       } else {
-        jQuery().toastmessage('showErrorToast', "This article has already been chosen by the maximum number of students");
+        jQuery().toastmessage('showErrorToast', "This specialization has already been chosen by the maximum number of students");
       }
     },
 

@@ -933,22 +933,22 @@
     var scoreObj = [
       {
         "specialization": "Immunology",
-        "lessons": [1],
+        "lessons": [3],
         "colour": "red"
       },
       {
         "specialization": "Nephrology",
-        "lessons": [2],
+        "lessons": [4],
         "colour": "yellow"
       },
       {
         "specialization": "Endocrinology",
-        "lessons": [3],
+        "lessons": [5, 6, 7],
         "colour": "green"
       },
       {
         "specialization": "Neurology",
-        "lessons": [4, 5],
+        "lessons": [8],
         "colour": "purple"
       }
     ];
