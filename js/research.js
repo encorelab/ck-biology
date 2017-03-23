@@ -917,6 +917,35 @@
     return spec;
   };
 
+  // this is a hack - needed for teacher grouping screen for R2 (it needs to look at if the user is part of an article, and recommend that instead). This was caused by the above function try to do things... turns out being super modular is a good idea, who knew?!
+  app.getArticleSpecOrRecommendedSpecColour = function(username) {
+    // the user should 'recommended' for a group if they were part of that article
+    var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
+      return _.contains(article.get('users'), username)
+    });
+
+    if (myArticle.length > 0) {
+      return _.first(myArticle).get('colour');
+    } else {
+      var specObj = app.getUnitScores(username);
+
+      // update the specObj to remove any full specializations
+      _.each(specObj, function(spec, index) {
+        var article = Skeletor.Model.awake.articles.findWhere({"field": spec.specialization});
+        if (article.get('users').length > 3) {
+          specObj[index] = {};
+        }
+      });
+
+      // find the top score (tie goes to last in array)
+      var spec = _.max(specObj, function(spec) {
+        return spec.score;
+      });
+
+      return spec.colour;
+    }
+  };
+
   app.printUnitScores = function() {
     app.users.each(function(user) {
       app.getUnitScores(user.get('username'));

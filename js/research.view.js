@@ -569,7 +569,7 @@
             if (app.reviewSection === "review2") {
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
               jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
-              var recoSpecColour = app.getRecommendedSpecialization(user.get('username')).colour;
+              var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(user.get('username'));
               var style = "2px solid "+recoSpecColour;
               jQuery(studentBtn).css("border", style);
             } else {
@@ -638,92 +638,6 @@
       });
     },
 
-    // assignByProgress: function() {
-    //   var view = this;
-    //   var studentsToGroup = [];
-
-    //   // hard remove all groups. This seems to help the async issue of members going into multiple groups
-    //   _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-    //     // update the user model
-    //     group.set('members', []);
-    //     group.save();
-    //   });
-
-    //   // ungroup all students in UI and create array for the readd
-    //   Skeletor.Mobile.users.each(function(user) {
-    //     if (user.get('user_role') !== "teacher") {
-    //       // update the UI
-    //       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-
-    //       var student = {};
-    //       student.name = user.get('username');
-    //       student.unit_progress = app.getMyContributionPercentForUnit(user.get('username'));
-
-    //       studentsToGroup.push(student);
-    //     }
-    //   });
-
-    //   // sort the array by progress to order students based on total % complete
-    //   function compare(a,b) {
-    //     if (a.unit_progress > b.unit_progress)
-    //       return -1;
-    //     if (a.unit_progress < b.unit_progress)
-    //       return 1;
-    //     return 0;
-    //   }
-    //   studentsToGroup.sort(compare);
-
-    //   // determine number of students per group (excluding absent)
-    //   var numGroups = view.collection.where({"lesson": app.reviewSection}).length;
-    //   var minNumStudentsPerGroup = Math.floor(studentsToGroup.length / (numGroups - 1));
-    //   var numExtraStudents = studentsToGroup.length % (numGroups - 1);
-
-    //   // populate the groups
-    //   _.each(view.collection.where({"kind":"present", "lesson": app.reviewSection}), function(group, index) {
-    //     // add the min number of students per group
-    //     for (var i = 0; i < minNumStudentsPerGroup; i++) {
-    //       var studentObj = studentsToGroup.shift();
-    //       view.groupStudent(studentObj.name, group.get('_id'));
-    //     }
-    //     // NB: ASSUMPTION - the remainder of students (see the mod above) are added to the first groups
-    //     if (index < numExtraStudents) {
-    //       var studentObj = studentsToGroup.shift();
-    //       view.groupStudent(studentObj.name, group.get('_id'));
-    //     }
-    //   });
-    // },
-
-    // groupRandomly: function() {
-    //   var view = this;
-    //   var studentsToGroup = [];
-
-    //   // hard remove all groups. This seems to help the async issue of members going into multiple groups
-    //   _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-    //     // update the user model
-    //     group.set('members', []);
-    //     group.save();
-    //   });
-
-    //   // ungroup all students in UI and set up for the readd
-    //   Skeletor.Mobile.users.each(function(user) {
-    //     if (user.get('user_role') !== "teacher") {
-    //       // update the UI
-    //       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-    //       // create the array for the shuffle
-    //       studentsToGroup.push(user.get('username'));
-    //     }
-    //   });
-
-    //   // remove the absent group from the possible target groups
-    //   var presentGroupArr = view.collection.where({"kind": "present", "lesson": app.reviewSection});
-
-    //   // group students randomly into non-absent group containers
-    //   _.each(_.shuffle(studentsToGroup), function(studentName, index) {
-    //     // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
-    //     view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
-    //   });
-    // },
-
     resetAll: function() {
       var view = this;
 
@@ -737,6 +651,11 @@
         if (user.get('user_role') !== "teacher") {
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")'))
           .detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+          if (app.reviewSection === "review2") {
+            var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(user.get('username'));
+            var style = "2px solid "+recoSpecColour;
+            jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).css('border', style);
+          }
         }
       });
     },
@@ -868,7 +787,7 @@
       // update the UI
       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
       if (app.reviewSection === "review2") {
-        var recoSpecColour = app.getRecommendedSpecialization(name).colour;
+        var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(name);
         var style = "2px solid "+recoSpecColour;
         jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', style);
       }
