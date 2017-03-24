@@ -299,8 +299,12 @@
     background-color: #ddd;
 }
 
-.clinic-answer {
+/* cheap fix cause I'm tired of changing the clinic-report */
+#teacher-final-report-container p {
     font-weight: bold;
+}
+#teacher-final-report-container .clinic-answer {
+    font-weight: normal;
 }
 
 
