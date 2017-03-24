@@ -1,0 +1,529 @@
+[
+{
+"from": "clumped dispersion",
+"link": "is a type of",
+"to": "dispersion pattern",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "cohort",
+"link": "contains",
+"to": "individuals",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "competition",
+"link": "is a type of",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "complete count",
+"link": "is a type of",
+"to": "population sampling technique",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "declining stage",
+"link": "is a stage of",
+"to": "demographic transition",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "demographic transition",
+"link": "contains",
+"to": "zero population growth",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "demography",
+"link": "is the study of",
+"to": "population",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "demography",
+"link": "contains",
+"to": "life table",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "demography",
+"link": "contains",
+"to": "survivorship curve",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "density dependent growth",
+"link": "contains",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "density dependent growth",
+"link": "is a type of",
+"to": "logistic growth model",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "density dependent growth",
+"link": "is affected by",
+"to": "population density",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "density independent growth",
+"link": "is a type of",
+"to": "logistic growth model",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "disease",
+"link": "is a type of",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "early expanding",
+"link": "is a stage of",
+"to": "demographic transition",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "exponential growth model",
+"link": "is a type of",
+"to": "population growth",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "exponential growth model",
+"link": "contains",
+"to": "intrinsic rate of increase",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "global carrying capacity",
+"link": "is a type of",
+"to": "carrying capacity",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "high stationary",
+"link": "is a stage of",
+"to": "demographic transition",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "incomplete count",
+"link": "is a type of",
+"to": "population sampling technique",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "indirect count",
+"link": "is a type of",
+"to": "population sampling technique",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "individuals",
+"link": "interacts with",
+"to": "environment",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "iteroparity",
+"link": "is a type of",
+"to": "reproductive strategy",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "K-selection",
+"link": "is affected by",
+"to": "population density",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "late expanding",
+"link": "is a stage of",
+"to": "demographic transition",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "life table",
+"link": "contains",
+"to": "cohort",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "logistic growth model",
+"link": "is a type of",
+"to": "population growth",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "logistic growth model",
+"link": "contains",
+"to": "carrying capacity",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "low stationary",
+"link": "is a stage of",
+"to": "demographic transition",
+"lesson": 1,
+"assigned_to": "jamie",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "mark recapture method",
+"link": "is a type of",
+"to": "population sampling technique",
+"lesson": 1,
+"assigned_to": "frank",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population",
+"link": "is measured with",
+"to": "population sampling technique",
+"lesson": 1,
+"assigned_to": "oliver",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population",
+"link": "interacts with",
+"to": "environment",
+"lesson": 1,
+"assigned_to": "greg",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population",
+"link": "contains",
+"to": "population density",
+"lesson": 1,
+"assigned_to": "deanna",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population",
+"link": "contains",
+"to": "dispersion pattern",
+"lesson": 1,
+"assigned_to": "adam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population",
+"link": "contains",
+"to": "individuals",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population growth",
+"link": "contains",
+"to": "per capita birth rate",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "population growth",
+"link": "contains",
+"to": "per capita death rate",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "predation",
+"link": "is a type of",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "r-selection",
+"link": "is affected by",
+"to": "population density",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "random dispersion",
+"link": "is a type of",
+"to": "dispersion pattern",
+"lesson": 1,
+"assigned_to": "sam",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reproductive rate",
+"link": "depends on",
+"to": "reproductive strategy",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reproductive table",
+"link": "contains",
+"to": "cohort",
+"lesson": 1,
+"assigned_to": "jason",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "reproductive table",
+"link": "contains",
+"to": "reproductive rate",
+"lesson": 1,
+"assigned_to": "amanda",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "semelparity",
+"link": "is a type of",
+"to": "reproductive strategy",
+"lesson": 1,
+"assigned_to": "hannah",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "territoriality",
+"link": "is a type of",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "kanav",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "toxic waste",
+"link": "is a type of",
+"to": "density dependent factor",
+"lesson": 1,
+"assigned_to": "roksana",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "uniform (spaced) dispersion",
+"link": "is a type of",
+"to": "dispersion pattern",
+"lesson": 1,
+"assigned_to": "selina",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+,
+{
+"from": "zero population growth",
+"link": "is a type of",
+"to": "population growth",
+"lesson": 1,
+"assigned_to": "alex",
+"complete": true,
+"created_at": "2015-03-25T19:08:00.000Z",
+"modified_at": "2015-03-25T19:09:00.000Z"
+}
+]
