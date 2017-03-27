@@ -933,6 +933,10 @@ textarea {
     height: 640px;
 }
 
+#final-report-content-container {
+    margin-bottom: 70px;
+}
+
 #report-content-container img,
 #final-report-content-container img {
     display: block;
