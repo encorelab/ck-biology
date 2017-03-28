@@ -41,8 +41,6 @@
   app.teamColourRGB = ["rgba(231,76,60,0.7)", "rgba(46,204,113,0.7)", "rgba(155,89,182,0.7)", "rgba(241,196,15, 0.7)", "rgba(243,156,18,0.7)"];
   app.teamColourHex = ["#E74C3C", "#2ECC71", "#9B59B6", "#F1C40F", "#F39C12"];
   app.currentReportPage = 1;
-  app.report = null;
-  app.finalReportPart = null;
 
   app.homeView = null;
   // teacher views
@@ -51,6 +49,7 @@
   app.groupingJigsawView = null;
   app.reviewProgressView = null;
   app.teacherReportView = null;
+  app.finalReviewProgressView = null;
   app.teacherFinalReportView = null;
   // student views
   app.definitionView = null;
@@ -60,11 +59,8 @@
   app.attachTermsView = null;
   app.explainTermsView = null;
   app.explainDetailsView = null;
-  app.groupNegotiateTermsView = null;
-  app.groupNegotiateDetailsView = null;
   app.reportView = null;
   app.finalReportView = null;
-  app.finalReportDisplayView = null;
 
   app.keyCount = 0;
   app.autoSaveTimer = window.setTimeout(function() { }, 10);
@@ -336,37 +332,35 @@
           app.hideAllContainers();
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
-          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review2") {
             jQuery('#grouping-screen').removeClass('hidden');
-          } else {
+          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
             jQuery('#grouping-jigsaw-screen').removeClass('hidden');
+          } else {
+            console.error('Unknown lesson for grouping...');
           }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
-        } else if (jQuery(this).hasClass('goto-group-contribution-btn')) {
-          app.hideAllContainers();
-          jQuery('#group-contribution-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').removeClass('hidden');
-          jQuery('#group-contribution-nav-btn').addClass('active');
-          jQuery('#final-report-screen').removeClass('hidden');
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          jQuery('#contribution-nav-btn').addClass('hidden');
-        } else if (jQuery(this).hasClass('goto-final-report-btn')) {
-          app.hideAllContainers();
-          jQuery('#group-contribution-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').removeClass('hidden');
-          jQuery('#final-report-nav-btn').addClass('active');
-          jQuery('#final-report-display-screen').removeClass('hidden');
-          jQuery('#knowledge-base-nav-btn').addClass('hidden');
-          jQuery('#contribution-nav-btn').addClass('hidden');
-          // this is analogous to "group_colour":"class"
-          var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
-          if (app.finalReportDisplayView === null) {
-            app.finalReportDisplayView = new app.View.FinalReportDisplayView({
-              el: '#final-report-display-screen',
-              model: report
-            });
-          }
-          app.finalReportDisplayView.render();
+
+
+        // } else if (jQuery(this).hasClass('goto-final-report-btn')) {
+        //   app.hideAllContainers();
+        //   jQuery('#group-contribution-nav-btn').removeClass('hidden');
+        //   jQuery('#final-report-nav-btn').removeClass('hidden');
+        //   jQuery('#final-report-nav-btn').addClass('active');
+        //   jQuery('#final-report-display-screen').removeClass('hidden');
+        //   jQuery('#knowledge-base-nav-btn').addClass('hidden');
+        //   jQuery('#contribution-nav-btn').addClass('hidden');
+        //   // this is analogous to "group_colour":"class"
+        //   var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
+        //   if (app.finalReportDisplayView === null) {
+        //     app.finalReportDisplayView = new app.View.FinalReportDisplayView({
+        //       el: '#final-report-display-screen',
+        //       model: report
+        //     });
+        //   }
+        //   app.finalReportDisplayView.render();
+
+
         } else if (jQuery(this).hasClass('goto-progress-btn')) {
           jQuery('#progress-nav-btn').addClass('active');
           if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') !== "homework") {
@@ -375,7 +369,7 @@
           }
           app.hideAllContainers();
           jQuery('#homework-progress-btn').addClass('active');
-          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review2") {
             jQuery('#review-progress-screen').removeClass('hidden');
             if (app.reviewProgressView === null) {
               app.reviewProgressView = new app.View.ReviewProgressView({
@@ -384,16 +378,15 @@
               });
             }
             app.reviewProgressView.render();
-          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review4") {
-            jQuery('#teacher-final-report-screen').removeClass('hidden');
-            var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review4"});
-            if (app.teacherFinalReportView === null) {
-              app.teacherFinalReportView = new app.View.TeacherFinalReportView({
-                el: '#teacher-final-report-screen',
-                model: report
+          } else if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review3") {
+            jQuery('#final-review-progress-screen').removeClass('hidden');
+            if (app.finalReviewProgressView === null) {
+              app.finalReviewProgressView = new app.View.FinalReviewProgressView({
+                el: '#final-review-progress-screen',
+                collection: Skeletor.Model.awake.groups
               });
             }
-            app.teacherFinalReportView.render();
+            app.finalReviewProgressView.render();
           } else {
             jQuery('#homework-progress-screen').removeClass('hidden');
             app.homeworkProgressView.render();
@@ -782,7 +775,7 @@
 
   app.getMyField = function(username) {
     var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
-      return _.contains(article.get('users'), app.username)
+      return _.contains(article.get('users'), username)
     });
 
     if (_.first(myArticle)) {
@@ -882,7 +875,15 @@
         if (part.kind === "write") {
           totalParts++;
 
-          if (part.entries && part.entries.length > 0) {
+          var completeFlag = true;
+          _.each(part.entries, function(entry) {
+            if (entry.length === 0) {
+              completeFlag = false;
+            }
+          });
+          // if there is an entries array and each element in that array is not an empty string
+          // autosave gets us empty strings, which is why we need this
+          if (part.entries && completeFlag) {
             completedParts++;
           }
         }
@@ -910,10 +911,39 @@
 
     // find the top score (tie goes to last in array)
     var spec = _.max(specObj, function(spec) {
-      return spec.score
+      return spec.score;
     });
 
-    return spec.specialization
+    return spec;
+  };
+
+  // this is a hack - needed for teacher grouping screen for R2 (it needs to look at if the user is part of an article, and recommend that instead). This was caused by the above function try to do things... turns out being super modular is a good idea, who knew?!
+  app.getArticleSpecOrRecommendedSpecColour = function(username) {
+    // the user should 'recommended' for a group if they were part of that article
+    var myArticle = Skeletor.Model.awake.articles.filter(function(article) {
+      return _.contains(article.get('users'), username)
+    });
+
+    if (myArticle.length > 0) {
+      return _.first(myArticle).get('colour');
+    } else {
+      var specObj = app.getUnitScores(username);
+
+      // update the specObj to remove any full specializations
+      _.each(specObj, function(spec, index) {
+        var article = Skeletor.Model.awake.articles.findWhere({"field": spec.specialization});
+        if (article.get('users').length > 3) {
+          specObj[index] = {};
+        }
+      });
+
+      // find the top score (tie goes to last in array)
+      var spec = _.max(specObj, function(spec) {
+        return spec.score;
+      });
+
+      return spec.colour;
+    }
   };
 
   app.printUnitScores = function() {
@@ -932,19 +962,23 @@
     var scoreObj = [
       {
         "specialization": "Immunology",
-        "lessons": [1]
+        "lessons": [3],
+        "colour": "red"
       },
       {
         "specialization": "Nephrology",
-        "lessons": [2]
+        "lessons": [4],
+        "colour": "yellow"
       },
       {
         "specialization": "Endocrinology",
-        "lessons": [3]
+        "lessons": [5, 6, 7],
+        "colour": "green"
       },
       {
         "specialization": "Neurology",
-        "lessons": [4, 5]
+        "lessons": [8],
+        "colour": "purple"
       }
     ];
 
@@ -998,13 +1032,37 @@
     return scoreObj;
   };
 
+  app.recreateReports = function(lesson) {
+    // delete all reports for this lesson
+    _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
+    // create all reports for this lesson
+    if (lesson === "review2") {
+      _.each(app.certificationReports, function(report) {
+        var r = new Model.Report();
+        r.set('lesson', lesson);
+        r.set('group_colour', report.colour);
+        r.set('field', report.field);
+        r.set('parts', report.parts);
+        r.save();
+        Skeletor.Model.awake.reports.add(r);
+      });
+    } else if (lesson === "review3") {
+      // we're just going to create 3 clinic reports, instead of bothering with create/destroy
+      for (var i = 1; i < 4; i++) {
+        var r = new Model.Report();
+        r.set('lesson', lesson);
+        r.set('group_colour', String(i));
+        r.set('name', 'Clinic '+i);
+        r.set('parts', Skeletor.Mobile.clinicReport.parts);
+        r.save();
+        Skeletor.Model.awake.reports.add(r);
+      }
+    }
+  };
+
   app.getColourForColour = function(colour) {
     return (app.teamColourRGB[_.indexOf(app.teamColourName, colour)]);
   };
-
-  // app.parseExtension = function(url) {
-  //   return url.substr(url.lastIndexOf('.') + 1).toLowerCase();
-  // };
 
 
   //*************** LOGIN FUNCTIONS ***************//

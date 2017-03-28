@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <link href="css/research.css" rel="stylesheet">
+    <link href="css/teacher.css" rel="stylesheet">
     <link href="css/smartboard.css" rel="stylesheet">
 
     <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
@@ -62,7 +63,8 @@
     <script type="text/javascript" src="js/smartboard.view.wall.js"></script>
     <script type="text/javascript" src="js/smartboard.view.balloons.js"></script>
 
-    <script type="text/javascript" src="reports/report-structure.js"></script>
+    <script type="text/javascript" src="reports/certification-reports.js"></script>
+    <script type="text/javascript" src="reports/clinic-report.js"></script>
 </head>
 
 <body>
@@ -143,8 +145,8 @@
                 <div class="students-container">
                     <!-- filled by research.view.js -->
                 </div>
-                <button class="assign-randomly-btn btn assign-btn">Assign Randomly</button>
-                <button class="assign-by-progress-btn btn assign-btn">Assign By Progress</button>
+                <!-- <button class="assign-randomly-btn btn assign-btn disabled">Assign Randomly</button>
+                <button class="assign-by-progress-btn btn assign-btn disabled">Assign By Progress</button> -->
                 <button class="reset-students-btn btn assign-btn">Reset</button>
                 <div class="groups-container">
                     <!-- filled by research.view.js -->
@@ -166,8 +168,8 @@
                 <div class="students-container">
                     <!-- filled by research.view.js -->
                 </div>
-                <button class="assign-randomly-btn btn assign-btn">Assign Randomly</button>
-                <button class="assign-by-progress-btn btn assign-btn">Assign By Progress</button>
+                <!-- <button class="assign-randomly-btn btn assign-btn">Assign Randomly</button>
+                <button class="assign-by-progress-btn btn assign-btn">Assign By Progress</button> -->
                 <button class="assign-by-jigsaw-btn btn assign-btn">Assign By Jigsaw</button>
                 <button class="reset-students-btn btn assign-btn">Reset</button>
                 <div class="groups-container">
@@ -224,10 +226,24 @@
         </div>
     </div>
 
+    <!-- ********************************************************* -->
+    <!-- **************** FINAL REVIEW PROGRESS ****************** -->
+    <!-- ********************************************************* -->
+
+    <div id="final-review-progress-screen" class="container-fluid user-screen">
+        <div class="row">
+            <div class="inner-wrapper col-xs-12">
+                <h1>Progress Overview</h1>
+                <div id="final-review-progress-container">
+                    <!-- filled by research.view.js -->
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- ********************************************************* -->
-    <!-- ******************* TEACHER FINAL REPORT  ********************* -->
+    <!-- **************** TEACHER FINAL REPORT  ****************** -->
     <!-- ********************************************************* -->
 
     <div id="teacher-final-report-screen" class="container-fluid user-screen">
@@ -236,6 +252,7 @@
                 <div id="teacher-final-report-container">
                     <!-- filled by research.view.js -->
                 </div>
+                <button id="close-teacher-final-report-view-btn">Close</button>
             </div>
         </div>
         <div id="teacher-final-report-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="true">

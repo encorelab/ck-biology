@@ -267,276 +267,6 @@ textarea {
 }
 
 
-
-/*****************************************************/
-/*****************************************************/
-/***************** HOMEWORK SCREEN *******************/
-/*****************************************************/
-/*****************************************************/
-
-
-#homework-progress-screen .inner-wrapper {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    text-align: center;
-    margin-bottom: 40px;
-}
-#homework-progress-screen h1 {
-    display: inline;
-    font-weight: 500;
-}
-#homework-progress-screen h2 {
-    text-align: left;
-    display: inline-block;
-    width: 120px;
-    font-size: 20px;
-    vertical-align: middle;
-}
-#homework-progress-screen .icon {
-    margin-left: 50px;
-    margin-top: -25px;
-}
-#homework-progress-container {
-    margin-top: 40px;
-}
-.homework-progress-row-container {
-    margin-left: 80px;
-    margin-bottom: 20px;
-}
-.homework-progress-bar-container {
-    margin-right: 160px;
-    margin-left: 30px;
-}
-
-
-
-/*****************************************************/
-/*****************************************************/
-/***************** GROUPING SCREENS ******************/
-/*****************************************************/
-/*****************************************************/
-
-
-#grouping-screen .inner-wrapper,
-#grouping-jigsaw-screen .inner-wrapper {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    text-align: center;
-    margin-bottom: 40px;
-}
-#grouping-screen h1,
-#grouping-jigsaw-screen h1 {
-    display: inline-block;
-    font-weight: 500;
-}
-#grouping-screen h2,
-#grouping-jigsaw-screen h2 {
-    margin-top: 0px;
-    font-weight: 500;
-    color: #34495e;
-}
-#grouping-screen .btn,
-#grouping-jigsaw-screen .btn,
-#grouping-screen .fa,
-#grouping-jigsaw-screen .fa {
-    background: #777777;                 /* this needed to be darker for smartboard screens */
-}
-#grouping-screen .fa-plus-square,
-#grouping-jigsaw-screen .fa-plus-square {
-    padding: 2px 4px !important;
-    font-size: 30px;
-    border-radius: 7px;
-    margin-left: 15px;
-}
-#grouping-screen .fa-plus-square:hover,
-#grouping-jigsaw-screen .fa-plus-square:hover {
-    background-color: #ddd;
-}
-#grouping-screen .fa-minus-square,
-#grouping-jigsaw-screen .fa-minus-square {
-    padding: 2px 4px !important;
-    font-size: 20px;
-    border-radius: 7px;
-    margin-left: 93%;
-    margin-top: -15%;               /* NB: this doesn't really do much - bit of a hack */
-}
-#grouping-screen .fa-minus-square:hover,
-#grouping-jigsaw-screen .fa-minus-square:hover {
-    background-color: #ddd;
-}
-
-#grouping-screen .students-container,
-#grouping-jigsaw-screen .students-container {
-    /* width: 100%; */
-    border: 1px solid #34495e;
-    margin: 20px;
-    padding: 20px;
-    min-height: 97px;
-}
-#grouping-screen .groups-container,
-#grouping-jigsaw-screen .groups-container {
-    width: 100%;
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-#grouping-screen .student-grouping-button,
-#grouping-jigsaw-screen .student-grouping-button {
-    background-color: #3498DB;
-    color: white;
-    font-size: 20px;
-    margin: 5px;
-    padding-top: 4px !important;
-}
-#grouping-screen .students-container .student-grouping-button {
-    padding-top: 9px !important;
-}
-
-#grouping-screen .group-container,
-#grouping-jigsaw-screen .group-container {
-    min-height: 360px;
-    width: 220px;
-    border: 1px solid #34495e;
-    margin: 20px;
-    padding-bottom: 20px;
-    display: inline-block;
-}
-
-#grouping-screen .assign-btn,
-#grouping-jigsaw-screen .assign-btn {
-    margin-right: 20px;
-    font-size: 16px;
-}
-#grouping-screen .assign-btn:last-of-type,
-#grouping-jigsaw-screen .assign-btn:last-of-type {
-    margin-right: 0;
-}
-#grouping-screen .assign-btn:hover,
-#grouping-jigsaw-screen .assign-btn:hover {
-    background-color: #ddd;
-}
-
-/*****************************************************/
-/*****************************************************/
-/************** REVIEW PROGRESS SCREEN ***************/
-/*****************************************************/
-/*****************************************************/
-
-#review-progress-screen {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateX(-50%);
-    -webkit-transform: translateX(-50%);
-    text-align: center;
-    margin-bottom: 40px;
-}
-#review-progress-screen h1 {
-    font-weight: 500;
-}
-.review-progress-group-btn {
-    /* width: 150px; */
-    width: 100%;
-    padding: 20px !important;
-    color: #34495e;
-    border-radius: 0;
-    border: 1px solid #34495e;
-}
-.review-progress-progress-bar-container {
-    margin-top: 25px;
-    padding-bottom: 30px;
-    display: inline-block;
-    /* width: 220px; */
-    /* border: 1px solid #333; */
-    /* margin: 20px; */
-}
-
-#review-progress-screen svg {
-    width: 100% !important;
-}
-
-#review-progress-container {
-    /* width: 100%; for some reason this pushes it outside of border-box ??*/
-    margin: 20px;
-    margin-top: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-.review-progress-group-container {
-    margin-top: 60px;
-    width: 220px;
-    margin: 20px 30px;
-    padding-bottom: 20px;
-    display: inline-block;
-}
-
-
-/*****************************************************/
-/*****************************************************/
-/************** TEACHER REPORT SCREENS ***************/
-/*****************************************************/
-/*****************************************************/
-
-#teacher-report-container {
-    width: 100%;
-    max-width: 775px;
-    display: block;
-    margin: 0 auto;
-}
-
-#teacher-report-screen h1 {
-    font-weight: 500;
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-#teacher-report-screen h2,
-#teacher-final-report-screen h2,
-#final-report-display-screen h2 {
-    display: inline-block;
-    margin-bottom: 5px;
-}
-#close-teacher-report-view-btn {
-    background: #777777;                 /* this needed to be darker for smartboard screens */
-}
-#teacher-report-screen .thumb,
-#teacher-final-report-screen .thumb,
-#final-report-display-screen .thumb {
-    display: inline;
-    margin-left: 20px;
-    height: 25px;
-}
-
-#close-teacher-report-view-btn {
-    margin-left: 13%;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-#close-teacher-report-view-btn:hover{
-    background-color: #ddd;
-}
-
-
-
-
-
-
-
 /*****************************************************/
 /*****************************************************/
 /***************** STUDENT SCREENS *******************/
@@ -791,27 +521,27 @@ textarea {
 }
 
 #attach-terms-explanation-pane {
-    margin-left: 2.5%;
+/*     margin-left: 2.5%;
     float: left;
-    width: 20%;
+    width: 20%; */
     height: auto;
-    min-height: 350px;
+    min-height: 300px;
     border: 1px solid #34495e;
     padding: 15px;
     overflow-y: scroll;
 }
 
 #attach-terms-selected-container {
-    clear: left;
-    /* margin-left: 2.5%; */
-    /* float: left; */
+/*     clear: left;
+    margin-left: 2.5%;
+    float: left;
     width: 170px;
-    /* height: 350px; */
-    line-height: 2.2em;
+    height: 350px;
     overflow-y: scroll;
     position: absolute;
     top: 550px;
-    right: 120px;
+    right: 120px; */
+    line-height: 2.5em;
 }
 
 #attach-terms-selected-container .terms-container div {
@@ -819,7 +549,7 @@ textarea {
     font-weight: bold;
     color: #7F8C8D;
     display: inline-block;
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 
 #attach-terms-terms-container {
@@ -860,7 +590,8 @@ textarea {
 #explain-terms-pdf-container {
     margin-bottom: 25px;
     float: left;
-    width: 65%;
+    /* width: 67%; */
+    width: 55%;
 }
 
 #explain-terms-pdf-content {
@@ -871,12 +602,15 @@ textarea {
 
 #explain-terms-terms-container {
     float: right;
-    width: 30%;
-    padding-top: 25px;
+    /* width: 30%; */
+    width: 40%;
+    /* padding-top: 25px; */
 }
 
 #explain-terms-screen .explain-term-uncomplete-btn {
-    background-color: #F1C40F;
+    /* background-color: #F1C40F; */
+    background-color: #ecf0f1;
+    color: #7f8c8d;
     margin-right: 5%;
     margin-bottom: 50px;
 }
@@ -898,20 +632,25 @@ textarea {
     width: 47%;
     float: left;
 }
-
 #explain-details-content-container {
     width: 47%;
     float: right;
+}
+#explain-details-content-entry {
+    min-height: 300px;
 }
 
 /* copied from smartboard.css */
 #explain-details-screen .title,
 #explain-details-content-title,
 #attach-terms-explanation-pane .title,
-#final-report-terms-explanation-pane .title, {
-  font-size: 2em;
-  margin-top: 10px;
-  margin-bottom: 20px;
+#final-report-terms-explanation-pane .title {
+  font-size: 1.7em;
+  /* margin-top: 10px; */
+  margin-bottom: 25px;
+}
+#attach-terms-explanation-pane .title {
+    margin-top: 0;
 }
 #explain-details-screen .author,
 #attach-terms-explanation-pane .author,
@@ -1107,44 +846,60 @@ textarea {
 /*****************************************************/
 /*****************************************************/
 
-
-#report-screen img {
+#report-screen p,
+#final-report-screen p,
+#report-screen ul,
+#final-report-screen ul,
+#final-report-screen .conference-text {
+    font-size: 1.2em;
+}
+/* TODO testing this out */
+#report-screen p,
+#final-report-screen p {
+    margin-bottom: 10px;
+}
+#report-screen p:last-of-type,
+#final-report-screen p:last-of-type {
+    margin-bottom: 25px;
+}
+/* MEO this is not doing what i want; refactor */
+/* #report-screen p + p,
+#final-report-screen p + p {
+    margin-bottom: 10px;
+} */
+#final-report-screen p + textarea {
+    margin-bottom: 15px;
+}
+#final-report-screen h2 {
+    font-size: 1.7em;
+}
+#report-screen img,
+#final-report-screen img {
     width: 100%;
 }
-#report-screen li {
+#report-screen li,
+#final-report-screen li {
 /*     margin-left: 40px;
     margin-top: 5px; */
     margin: 8px;
+    font-size: 1em;
 }
-#report-screen button {
+#report-screen button,
+#final-report-screen button {
     font-size: 11px;
     padding: 6px;
     border-radius: 6px; /* why is this one 6px??? */
     background: #34495E;
 }
-#report-screen .modal {
-    margin-top: 20px;
-    font-size: 10px;
-}
-
-#report-screen .modal-header {
-    height: 42px;
-}
-
-#pdf-modal-btn {
-    float: right;
-    font-size: 2.8em;
-    margin-top: 7px;
-}
-#report-pdf-content {
-    width: 100%;
-    height: 350px;
+#final-report-screen button {
+    font-size: 1em;
 }
 
 /* absolute positioning, bottom/right, etc are temporary? They overwrite the bootstrap pull-right etc */
 #report-step-forward-btn,
 #report-step-back-btn,
-#final-report-step-forward-btn {
+#final-report-step-forward-btn,
+#final-report-step-back-btn {
     margin-bottom: 20px;
     /* position: absolute; */
     position: fixed;
@@ -1157,13 +912,16 @@ textarea {
     padding: 0 !important;
     font-size: 3em !important;
 }
-#report-screen .fa-chevron-left:before {
+#report-screen .fa-chevron-left:before,
+#final-report-screen .fa-chevron-left:before {
     margin-left: -0.2em;
 }
-#report-step-forward-btn {
+#report-step-forward-btn,
+#final-report-step-forward-btn {
     right: 0;
 }
-#report-step-back-btn {
+#report-step-back-btn,
+#final-report-step-back-btn {
     left: 0;
 }
 
@@ -1175,13 +933,31 @@ textarea {
     height: 640px;
 }
 
+#final-report-content-container {
+    margin-bottom: 70px;
+}
+
 #report-content-container img,
 #final-report-content-container img {
-    margin-bottom: 25px;
+    display: block;
+    margin: 0 auto 25px;
+}
+#report-screen .img-wide,
+#final-report-content-container .img-wide {
+    display: block;
+    margin: 0 auto 25px;
+    max-width: 800px;
+}
+#report-screen .img-tall {
+    max-width: 500px;
 }
 #report-content-container textarea,
 #final-report-content-container textarea {
     margin-bottom: 20px;
+}
+#final-report-content-container textarea {
+    min-height: 130px;
+    overflow-y: scroll;
 }
 #report-content-container ul,
 #final-report-content-container ul {
@@ -1189,45 +965,43 @@ textarea {
 }
 #report-content-container li,
 #final-report-content-container li {
-    /* line-height: 2em; */
+    line-height: 2em;
     margin: 8px;
 }
-
-#view-sequence-modal ul {
-    text-align: right;
-    padding-right: 50px;
-    font-family: monospace;
-    font-size: 1.1em;
+#final-report-content-container li {
+    padding-left: 30px;
 }
-
-#report-screen .unit3-view-sequence-btn,
-#final-report-screen .unit3-view-sequence-btn {
-    font-size: 14px;
-    margin-left: 15px;
-    background-color: #34495E;
+#final-report-screen .conference-btn {
+    float: left;
+    width: 35px;
+    margin-bottom: 0;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
 }
-#report-screen .unit3-view-sequence-btn:hover,
-#final-report-screen .unit3-view-sequence-btn:hover {
-    background-color: #517394;
+#final-report-screen .conference-btn:hover,
+#final-report-screen .clinic-save-btn:hover {
+    opacity: 0.8;
+    transition: opacity 0.5s ease;
 }
-#report-screen .modal-header .close {
-    font-size: 16px;
-    margin-top: -15px;
-    color: #ffffff;
+#final-report-screen .conference-text {
+    display: inline-block;
+    padding-top: 7px;
 }
-#report-screen .unit3-check-answer {
-    font-size: 14px;
-    margin-bottom: 20px;
+#final-report-screen .clinic-save-btn {
+    float: right;
+    transition: opacity 0.5s ease;
 }
-.unit3-correct1,
-.unit3-correct2,
-.unit3-correct3 {
-    margin-left: 20px;
+#final-report-screen .clinic-save-btn:last-of-type {
+    margin-bottom: 25px;
+}
+.toast-position-top-right {
+    top: 70px;
 }
 
 
-/*** FINAL REPORT ***/
-#final-report-my-team {
+/*/*** FINAL REPORT ***/
+/*#final-report-my-team {
     display: inline-block;
     border-bottom: 1px dotted #ccc;
     font-size: 2em;
@@ -1274,7 +1048,7 @@ textarea {
     text-align: center;
     font-size: 1.5em;
     margin: 2em;
-}
+}*/
 
 #final-report-display-screen .modal-header .close,
 #teacher-final-report-screen .modal-header .close {
@@ -1288,7 +1062,122 @@ textarea {
 }
 
 
-/********** GLOBAL **********/
+
+/*****************************************************/
+/*****************************************************/
+/****************** UNIT 4 SCREENS *******************/
+/*****************************************************/
+/*****************************************************/
+#choose-article-screen.unit-4 .inner-wrapper {
+    text-align: left;
+}
+#recommended-specialization,
+.specialization-choice-container {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    border: 1px solid #aaa;
+    padding: 5px 20px;
+    margin: 15px auto;
+    color: #34495e;
+    width: 225px;
+    text-align: center;
+    font-weight: 600;
+}
+#choose-article-container h3 {
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+#choose-article-screen.unit-4 h2 {
+    margin-bottom: 20px;
+}
+.unit-4 .article-column-container {
+    text-align: center;
+}
+#choose-specialization-description {
+    clear: both;
+    background-color: #F2F2F2;
+    padding: 20px;
+}
+.unit-4 button {
+    font-size: 1.1em;
+    background-color: #3498db;
+    margin-top: 15px;
+}
+.unit-4 button:hover {
+    background-color: #2980b9;
+}
+#confirm-specialization-modal .modal-content {
+    padding: 20px 50px;
+    border-radius: 0;
+}
+#confirm-specialization-modal .center-buttons {
+    text-align: center;
+}
+#choose-specialization-yes-btn {
+    margin-right: 20px;
+}
+/* attach terms screen */
+.attach-terms-styling-container {
+    margin-left: 2.5%;
+    float: left;
+    width: 20%;
+}
+#attach-terms-explanation-pane {
+    height: 300px;
+    width: 100%;
+}
+#attach-terms-selected-container {
+    margin: 20px 0;
+}
+#attach-terms-selected-container .terms-container div {
+    width: 100%;
+    line-height: 1.2;
+}
+/* explain terms screen */
+#explain-terms-screen .explain-term-uncomplete-btn,
+#explain-terms-screen .explain-term-complete-btn {
+    margin-bottom: 20px;
+}
+.review-completed {
+    width: 18%;
+    display: inline-block;
+    text-align: left;
+    font-size: 16px;
+}
+.home-progress-container .review-completed {
+    vertical-align: middle;
+    margin-top: 10px;
+}
+.review-completed .fa-check {
+    margin: 0 5px;
+    font-size: 1.5em;
+    vertical-align: bottom;
+    background-color: #fff;
+}
+
+
+.immunologist {
+    color: #e74c3c; /* MD SUNFLOWER */
+}
+.nephrologist {
+    color: #f1c40f; /* MD ALIZARIN */
+}
+.endocrinologist {
+    color: #2ecc71; /* MD EMERALD */
+}
+.neurologist {
+    color: purple; /* MD AMETHYST */
+}
+
+
+
+
+
+/*****************************************************/
+/*****************************************************/
+/****************** GLOBAL STYLES ********************/
+/*****************************************************/
+/*****************************************************/
 
 body, html {
     height: calc(100% - 50px);

@@ -63,7 +63,6 @@
       jQuery('.top-nav-btn').removeClass('hidden');
       jQuery('.top-nav-btn').removeClass('active');
       jQuery('#grouping-nav-btn').addClass('hidden');
-      jQuery('#group-contribution-nav-btn').addClass('hidden');
       jQuery('#final-report-nav-btn').addClass('hidden');
       // STUDENT
       if (app.teacherFlag === false) {
@@ -86,41 +85,17 @@
             jQuery('#attach-terms-screen').removeClass('hidden');
           }
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
-          if (app.getMyField(app.username)) {
-            jQuery('#knowledge-base-nav-btn').addClass('hidden');
-            jQuery('#contribution-nav-btn').addClass('hidden');
-            jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-            if (app.groupNegotiateTermsView === null) {
-              app.groupNegotiateTermsView = new app.View.GroupNegotiateTermsView({
-                el: '#group-negotiate-terms-screen',
-                model: Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)})
-              });
-            }
-            app.groupNegotiateTermsView.render();
-          } else {
-            jQuery().toastmessage('showErrorToast', "You must select a field of research before proceeding. Please click on Review 1 to make that determination.");
-            jQuery('.top-nav-btn').addClass('hidden');
-            jQuery('#home-screen').removeClass('hidden');
-          }
-        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
-          if (app.getMyGroup(app.username, "review3").get('kind') === "present") {
+          if (app.getMyGroup(app.username, "review2") && app.getMyGroup(app.username, "review2").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#report-screen').removeClass('hidden');
-            var myGroup = app.getMyGroup(app.username, "review3");
+            app.currentReportPage = 1;
+            var myGroup = app.getMyGroup(app.username, "review2");
             var report = null;
-            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
-              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"})) {
+              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review2"});
             } else {
-              // create new report if one doesn't exist (might remove this and pre-pop the DB with reports?). Still, TODO
-              // TODO for unit 4 - create report when group is created, but don't delete when group is deleted
-              report = new Model.Report();
-              report.set('group_colour', myGroup.get('colour'));
-              report.set('lesson', 'review3');
-              report.set('parts', app.report.parts);      // TODO
-              report.set('pdf', app.report.pdf);
-              report.save();
-              Skeletor.Model.awake.reports.add(report);
+              console.error('Report does not exist - try app.recreateReports');
             }
             report.wake(app.config.wakeful.url);
             if (app.reportView === null) {
@@ -129,23 +104,25 @@
                 model: report
               });
             }
-
             app.reportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
             jQuery('.top-nav-btn').addClass('hidden');
             jQuery('#home-screen').removeClass('hidden');
           }
-        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review4") {
-          if (app.getMyGroup(app.username, "review4").get('kind') === "present") {
+        } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review3") {
+          if (app.getMyGroup(app.username, "review3") && app.getMyGroup(app.username, "review3").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
             jQuery('#contribution-nav-btn').addClass('hidden');
             jQuery('#final-report-screen').removeClass('hidden');
-            jQuery('#group-contribution-nav-btn').removeClass('hidden');
-            jQuery('#final-report-nav-btn').removeClass('hidden');
-            jQuery('#group-contribution-nav-btn').addClass('active');
-
-            var report = Skeletor.Model.awake.reports.findWhere({'group_colour':'class'});
+            app.currentReportPage = 1;
+            var myGroup = app.getMyGroup(app.username, "review3");
+            var report = null;
+            if (Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"})) {
+              report = Skeletor.Model.awake.reports.findWhere({"group_colour":myGroup.get('colour'), "lesson":"review3"});
+            } else {
+              console.error('Report does not exist - try app.recreateReports');
+            }
             report.wake(app.config.wakeful.url);
             if (app.finalReportView === null) {
               app.finalReportView = new app.View.FinalReportView({
@@ -153,8 +130,7 @@
                 model: report
               });
             }
-            // DO NOT RENDER!!
-            // app.finalReportView.render();
+            app.finalReportView.render();
           } else {
             jQuery().toastmessage('showErrorToast', "You have not been assigned to a team!");
             jQuery('.top-nav-btn').addClass('hidden');
@@ -175,22 +151,17 @@
       // TEACHER
       else {
         app.reviewSection = view.collection.findWhere({"number": app.lesson}).get('kind');
-
-        // this view is used by review3 and review4. Destroy and rebind
-        // if (app.groupingView) {
-        //   jQuery(app.groupingView.el).unbind();
-        //   app.groupingView.collection.unbind();
-        //   app.groupingView = null;
-        // }
         if (app.reviewSection === "review1") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
-          jQuery().toastmessage('showWarningToast', "Not much to see here!");
+          jQuery('#progress-nav-btn').removeClass('hidden');
+          jQuery('#progress-nav-btn').addClass('active');
+          jQuery('#homework-progress-screen').removeClass('hidden');
+          app.homeworkProgressView.render();
+
         } else if (app.reviewSection === "review2") {
           jQuery('.top-nav-btn').addClass('hidden');
           jQuery('#home-nav-btn').removeClass('hidden');
-          jQuery().toastmessage('showWarningToast', "Not much to see here!");
-        } else if (app.reviewSection === "review3") {
           if (app.groupingView === null) {
             app.groupingView = new app.View.GroupingView({
               el: '#grouping-screen',
@@ -198,26 +169,12 @@
             });
           }
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
+          jQuery('#progress-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').removeClass('hidden');
           jQuery('#grouping-nav-btn').addClass('active');
           jQuery('#grouping-screen').removeClass('hidden');
-        } else if (app.reviewSection === "review4") {
-          // if the final report doesn't exist, create it
-          if (Skeletor.Model.awake.reports.where({"lesson": "review4"}).length === 0) {
-            var parts = app.report.parts;
-            _.each(parts, function(part) {
-              part.complete = false;
-              part.assigned = false;
-            });
-            report = new Model.Report();
-            report.set('group_colour', 'class');
-            report.set('lesson', 'review4');
-            report.set('parts', parts);
-            report.set('pdf', app.report.pdf);
-            report.wake(app.config.wakeful.url);
-            report.save();
-            Skeletor.Model.awake.reports.add(report);
-          }
+
+        } else if (app.reviewSection === "review3") {
           if (app.groupingJigsawView === null) {
             app.groupingJigsawView = new app.View.GroupingView({
               el: '#grouping-jigsaw-screen',
@@ -306,12 +263,6 @@
         // if student, show both progress bars for all homework lessons
         // if teacher, show only community progress bar for all homework lessons
 
-        // if review, make invisible (mostly to make the css easier)
-        if (lesson.get('kind') !== "homework") {
-          jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
-          jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
-        }
-
         // if student
         if (app.teacherFlag === false) {
           var myPercent = '';
@@ -334,6 +285,60 @@
               }
             });
           myBar.animate(app.getMyContributionPercent(app.username, lesson.get('number')) / 100);
+
+          // if review, overwrite it
+          if (lesson.get('kind') !== "homework") {
+            jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+
+            var completeFlag = true;
+            // review1
+            if (lesson.get('kind') === "review1") {
+              var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+              if (myArticle) {
+                var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
+                _.each(myTermsArr, function(term) {
+                  if (term.complete === false) {
+                    completeFlag = false;
+                  }
+                });
+                if (myTermsArr.length === 0) {
+                  completeFlag = false;
+                }
+              } else {
+                completeFlag = false;
+              }
+            // review2
+            } else if (lesson.get('kind') === "review2") {
+              if (app.getMyGroup(app.username, lesson.get('kind'))) {
+                if (app.getReportCompletionPercent(lesson.get('kind'), app.getMyGroup(app.username, lesson.get('kind')).get('colour')) !== 100) {
+                  completeFlag = false;
+                }
+              } else {
+                completeFlag = false;
+              }
+            } else if (lesson.get('kind') === "review3") {
+              if (app.getMyGroup(app.username, lesson.get('kind'))) {
+                if (app.getReportCompletionPercent(lesson.get('kind'), app.getMyGroup(app.username, lesson.get('kind')).get('colour')) !== 100) {
+                  completeFlag = false;
+                }
+              } else {
+                completeFlag = false;
+              }
+            } else {
+              console.error('Unknown lesson');
+            }
+
+            // sorry Megs, I know this is getting nasty as hell
+            if (completeFlag) {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').html('<span class="review-completed">Completed <i class="fa fa-check" aria-hidden="true"></i></span>');
+            } else {
+              jQuery('#lesson'+lesson.get('number')+'-my-progress-bar').addClass('invisible');
+            }
+          }
+        } else {
+          if (lesson.get('kind') !== "homework") {
+            jQuery('#lesson'+lesson.get('number')+'-community-progress-bar').addClass('invisible');
+          }
         }
 
         // for students and teachers
@@ -350,8 +355,10 @@
             }
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
-      });
 
+
+
+      });
     }
   });
 
@@ -372,79 +379,120 @@
       var view = this;
       console.log("Rendering HomeworkProgressView...");
 
-      // sort collection by most complete to least complete
-      var userArray = [];
-      view.collection.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
-          userArray.push(user);
-        }
-      });
-
-      function compare(a,b) {
-        if (a.get('complete_percent') > b.get('complete_percent'))
-          return -1;
-        if (a.get('complete_percent') < b.get('complete_percent'))
-          return 1;
-        return 0;
-      }
-      userArray.sort(compare);
-
-      // create the html for the buttons and progress bars
-      var teacherEl = '';
-      _.each(userArray, function(user, index) {
-        var name = user.get('username');
-
+      if (Skeletor.Model.awake.lessons.findWhere({"number": app.lesson}).get('kind') === "review1") {
+        // create the html for the buttons and progress bars
         var el = '';
-        if (index%2 === 0) {
-          el += '<div class="homework-progress-row-container">';
-          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="homework-progress-bar-container">';
-          el += '<span id="'+name+'-progress-bar"></span>';
-          el += '</span>';
-        } else {
-          el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
-          el += '<span class="homework-progress-bar-container">';
-          el += '<span id="'+name+'-progress-bar"></span>';
-          el += '</span>';
-          el += '</div>';
-        }
 
-        teacherEl += el;
-      });
-      // odd number of students, but including maria in the collection
-      if (view.collection.length%2 === 0) {
-        teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
-        teacherEl += '<span class="homework-progress-bar-container">';
-        teacherEl += '</span>';
-        teacherEl += '</div>';
-      }
-      jQuery('#homework-progress-container').html(teacherEl);
-
-      view.collection.each(function(user) {
-        if (user.get('user_role') !== 'teacher') {
-          var myPercent = '';
-          if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
-            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
-          } else {
-            myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== 'teacher') {
+            var name = user.get('username');
+            el += '<div class="review-progress-row-container">';
+            el += '<span class="review-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</div>';
           }
+        });
+        jQuery('#homework-progress-container').html(el);
 
-          var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
-            {
-              easing: 'easeInOut',
-              color: app.hexDarkPurple,
-              trailColor: app.hexLightGrey,
-              strokeWidth: 8,
-              svgStyle: app.progressBarStyleHome,
-              text: {
-                value: myPercent,
-                style: app.progressBarTextStyle
+        view.collection.each(function(user) {
+          var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(user.get('username'))});
+          var completeCount = 0;
+          if (myArticle) {
+            var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": user.get('username')});
+            _.each(myTermsArr, function(term) {
+              if (term.complete === true) {
+                completeCount++;
               }
             });
-          myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+            if (completeCount === myTermsArr.length && completeCount > 0) {
+              jQuery('#'+user.get('username')+'-progress-bar').html('<span class="review-completed">Completed ('+completeCount+' terms)</span>');
+            } else {
+              jQuery('#'+user.get('username')+'-progress-bar').html('<span class="review-in-progress">In Progress ('+completeCount+' terms)</span>');
+            }
+          } else {
+            jQuery('#'+user.get('username')+'-progress-bar').html('<span>In Progress (0 terms)</span>');
+            jQuery('#'+user.get('username')+'-progress-bar').addClass('invisible');
+          }
+        });
+
+
+      } else {
+        // sort collection by most complete to least complete
+        var userArray = [];
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== "teacher") {
+            user.set('complete_percent', app.getMyContributionPercent(user.get('username'), app.lesson, true));
+            userArray.push(user);
+          }
+        });
+
+        function compare(a,b) {
+          if (a.get('complete_percent') > b.get('complete_percent'))
+            return -1;
+          if (a.get('complete_percent') < b.get('complete_percent'))
+            return 1;
+          return 0;
         }
-      });
+        userArray.sort(compare);
+
+        // create the html for the buttons and progress bars
+        var teacherEl = '';
+        _.each(userArray, function(user, index) {
+          var name = user.get('username');
+
+          var el = '';
+          if (index%2 === 0) {
+            el += '<div class="homework-progress-row-container">';
+            el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="homework-progress-bar-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+          } else {
+            el += '<span class="homework-progress-name-container"><h2>'+name+'</h2></span>';
+            el += '<span class="homework-progress-bar-container">';
+            el += '<span id="'+name+'-progress-bar"></span>';
+            el += '</span>';
+            el += '</div>';
+          }
+
+          teacherEl += el;
+        });
+        // odd number of students, but including maria in the collection
+        if (view.collection.length%2 === 0) {
+          teacherEl += '<span class="homework-progress-name-container"><h2></h2></span>';
+          teacherEl += '<span class="homework-progress-bar-container">';
+          teacherEl += '</span>';
+          teacherEl += '</div>';
+        }
+        jQuery('#homework-progress-container').html(teacherEl);
+
+        view.collection.each(function(user) {
+          if (user.get('user_role') !== 'teacher') {
+            var myPercent = '';
+            if (app.getMyContributionPercent(user.get('username'), app.lesson, true) > 100) {
+              myPercent = app.getMyContributionPercent(user.get('username'), app.lesson, true) + '+%';
+            } else {
+              myPercent = app.getMyContributionPercent(user.get('username'), app.lesson) + '%';
+            }
+
+            var myBar = new ProgressBar.Line('#'+user.get('username')+'-progress-bar',
+              {
+                easing: 'easeInOut',
+                color: app.hexDarkPurple,
+                trailColor: app.hexLightGrey,
+                strokeWidth: 8,
+                svgStyle: app.progressBarStyleHome,
+                text: {
+                  value: myPercent,
+                  style: app.progressBarTextStyle
+                }
+              });
+            myBar.animate(app.getMyContributionPercent(user.get('username'), app.lesson) / 100);
+          }
+        });
+      }
+
+
     }
   });
 
@@ -462,17 +510,17 @@
       console.log('Initializing GroupingView...');
 
       // check if there is an 'absent' group, if not, create for both review lessons (VERY SLOPPY, TODO)
-      if (view.collection.where({"kind": "absent", "lesson": "review3"}).length === 0) {
+      if (view.collection.where({"kind": "absent", "lesson": "review2"}).length === 0) {
         var group = new Model.Group();
-        group.set('lesson', 'review3');
+        group.set('lesson', 'review2');
         group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
         group.set('kind', "absent");
         group.save();
         view.collection.add(group);
       }
-      if (view.collection.where({"kind": "absent", "lesson": "review4"}).length === 0) {
+      if (view.collection.where({"kind": "absent", "lesson": "review3"}).length === 0) {
         var group = new Model.Group();
-        group.set('lesson', 'review4');
+        group.set('lesson', 'review3');
         group.set('colour', "grey");     // length will give us an the next colour in the team colour arrays
         group.set('kind', "absent");
         group.save();
@@ -482,10 +530,12 @@
       // generate the groups containers
       _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
         var teamName = '';
-        if (app.reviewSection === "review3") {
-          teamName = group.get('colour').toUpperCase() + ' TEAM';
-        } else if (app.reviewSection === "review4") {
-          teamName = 'TEAM ' + group.get('colour');
+        if (app.reviewSection === "review2") {
+          if (group.get('kind') === "present") {
+            teamName = group.get('field').toUpperCase();
+          }
+        } else if (app.reviewSection === "review3") {
+          teamName = 'CLINIC ' + group.get('colour');
         } else {
           console.error('Cannot assign name - unknown review section');
         }
@@ -501,20 +551,36 @@
       // generate all of the student buttons, and place them in groups as necessary
       Skeletor.Mobile.users.each(function(user) {
         if (user.get('user_role') !== "teacher") {
-          // student button border colour *always* determined by review3 (since review4 isn't coloured)
           var studentBtn = '';
           var myGroup = app.getMyGroup(user.get('username'), app.reviewSection);
+          // if they have a group for this section
           if (myGroup) {
-            // student button border colour *always* determined by review3 (since review4 isn't coloured)
-            if (app.getMyGroup(user.get('username'), "review3")) {
-              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review3").get('colour')+'">');
+            // student button border colour *always* determined by review2
+            if (app.getMyGroup(user.get('username'), "review2")) {
+              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
             } else {
               studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
             }
             jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+myGroup.get('_id')+'"]').append(studentBtn);
+
+          // currently ungrouped
           } else {
-            studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
-            jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+            // smaller border for reco colour. Should only be used in r2. also done in ungroupStudent
+            if (app.reviewSection === "review2") {
+              studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'">');
+              jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+              var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(user.get('username'));
+              var style = "2px solid "+recoSpecColour;
+              jQuery(studentBtn).css("border", style);
+            } else {
+              if (app.getMyGroup(user.get('username'), "review2")) {
+                studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid '+app.getMyGroup(user.get('username'), "review2").get('colour')+'">');
+              } else {
+                studentBtn = jQuery('<button class="btn btn-default btn-base student-grouping-button" data-student="'+user.get('username')+'" style="border: 5px solid grey">');
+              }
+
+              jQuery('#'+jQuery(view.el).attr('id')+' .students-container').append(studentBtn);
+            }
           }
           studentBtn.text(user.get('username'));
         }
@@ -528,128 +594,47 @@
       'click .group-container'          : 'groupSelected',
       'click .students-container'       : 'ungroupSelected',
       'click .reset-students-btn'       : 'resetAll',
-      'click .assign-randomly-btn'      : 'groupRandomly',
-      'click .assign-by-progress-btn'   : 'assignByProgress',
+      //'click .assign-randomly-btn'      : 'groupRandomly',
+      //'click .assign-by-progress-btn'   : 'assignByProgress',
       'click .assign-by-jigsaw-btn'     : 'assignByJigsaw'
     },
 
-    // only available in review4
+    // only available in review3
     assignByJigsaw: function() {
       var view = this;
 
-      // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": "review4"}), function(group) {
-        // update the user model
-        group.set('members', []);
-        group.save();
-      });
-
       // ungroup all students in UI and set up for the readd
       Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
+        var userGroup = app.getMyGroup(user.get('username'), "review3");
+        if (userGroup && userGroup.get('kind') === "present" && user.get('user_role') !== "teacher") {
           // update the UI
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
         }
       });
 
-      // get groups from lesson 3 - note that we're grouping students counting the absent group as a group
-      var prevGroupsArr = view.collection.where({"lesson": "review3"});
+      // hard remove all users from non-absent groups. This seems to help the async issue of members going into multiple groups
+      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
 
-      // go over each review 4 group
+      // get groups from lesson 2 - note that we're grouping students counting the absent group as a group
+      var prevGroupsArr = view.collection.where({"kind": "present", "lesson": "review2"});
+
+      // go over each review 3 group
       // choose the first student out of each prevGroupsArr and add to group
-      _.each(view.collection.where({"kind": "present", "lesson": "review4"}), function(newGroup, index) {
+      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(newGroup, index) {
         _.each(prevGroupsArr, function(prevGroup) {
           var members = prevGroup.get('members');
           if (members.length > index) {
+            var myGroup = app.getMyGroup(members[index], "review3");
+            if (myGroup && myGroup.get('kind') === "absent") {
+              members.splice(index, 1);
+            }
             view.groupStudent(members[index], newGroup.get('_id'));
           }
         });
-      });
-    },
-
-    assignByProgress: function() {
-      var view = this;
-      var studentsToGroup = [];
-
-      // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        // update the user model
-        group.set('members', []);
-        group.save();
-      });
-
-      // ungroup all students in UI and create array for the readd
-      Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          // update the UI
-          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-
-          var student = {};
-          student.name = user.get('username');
-          student.unit_progress = app.getMyContributionPercentForUnit(user.get('username'));
-
-          studentsToGroup.push(student);
-        }
-      });
-
-      // sort the array by progress to order students based on total % complete
-      function compare(a,b) {
-        if (a.unit_progress > b.unit_progress)
-          return -1;
-        if (a.unit_progress < b.unit_progress)
-          return 1;
-        return 0;
-      }
-      studentsToGroup.sort(compare);
-
-      // determine number of students per group (excluding absent)
-      var numGroups = view.collection.where({"lesson": app.reviewSection}).length;
-      var minNumStudentsPerGroup = Math.floor(studentsToGroup.length / (numGroups - 1));
-      var numExtraStudents = studentsToGroup.length % (numGroups - 1);
-
-      // populate the groups
-      _.each(view.collection.where({"kind":"present", "lesson": app.reviewSection}), function(group, index) {
-        // add the min number of students per group
-        for (var i = 0; i < minNumStudentsPerGroup; i++) {
-          var studentObj = studentsToGroup.shift();
-          view.groupStudent(studentObj.name, group.get('_id'));
-        }
-        // NB: ASSUMPTION - the remainder of students (see the mod above) are added to the first groups
-        if (index < numExtraStudents) {
-          var studentObj = studentsToGroup.shift();
-          view.groupStudent(studentObj.name, group.get('_id'));
-        }
-      });
-    },
-
-    groupRandomly: function() {
-      var view = this;
-      var studentsToGroup = [];
-
-      // hard remove all groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
-        // update the user model
-        group.set('members', []);
-        group.save();
-      });
-
-      // ungroup all students in UI and set up for the readd
-      Skeletor.Mobile.users.each(function(user) {
-        if (user.get('user_role') !== "teacher") {
-          // update the UI
-          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-          // create the array for the shuffle
-          studentsToGroup.push(user.get('username'));
-        }
-      });
-
-      // remove the absent group from the possible target groups
-      var presentGroupArr = view.collection.where({"kind": "present", "lesson": app.reviewSection});
-
-      // group students randomly into non-absent group containers
-      _.each(_.shuffle(studentsToGroup), function(studentName, index) {
-        // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
-        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
       });
     },
 
@@ -666,6 +651,11 @@
         if (user.get('user_role') !== "teacher") {
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")'))
           .detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+          if (app.reviewSection === "review2") {
+            var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(user.get('username'));
+            var style = "2px solid "+recoSpecColour;
+            jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).css('border', style);
+          }
         }
       });
     },
@@ -673,66 +663,58 @@
     addGroup: function() {
       var view = this;
 
-      // this got nasty because of no mockups for Review 4 - apparently Alisa wanted something very different than I had assumed. Hence the groupNumber nonsense below
+      // since this is now only used for review 3, we can take out most of the checks...
 
-      // proxy for checking if we have hit max num of groups
-      var newGroupName = '';
-      if (app.reviewSection === "review3") {
-        var usedColours = [];
-        _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
-          usedColours.push(group.get('colour'));
-        });
-        newGroupName = _.first(_.difference(app.teamColourName, usedColours));
-      } else if (app.reviewSection === "review4") {
+      if (app.reviewSection === "review2") {
+        jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
+      } else {
+        // proxy for checking if we have hit max num of groups.
+        // So gross, but basically colour key is used for group number
+        var newGroupName = '';
         var usedNumbers = [];
-        _.each(view.collection.where({"lesson": "review4", "kind": "present"}), function(group) {
+        _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
           usedNumbers.push(group.get('colour'));
         });
         newGroupName = _.first(_.difference(["1", "2", "3", "4", "5"], usedNumbers));
-      } else {
-        console.error("Unknown review section for grouping (addGroup)");
-      }
 
-      var newGroupText = '';
-      if (newGroupName) {
-        // create a new group
-        var group = new Model.Group();
-        group.set('lesson', app.reviewSection);
-        group.set('colour', newGroupName);
-        if (app.reviewSection === "review3") {
-          newGroupText = newGroupName.toUpperCase() + ' TEAM';
-        } else if (app.reviewSection === "review4") {
-          newGroupText = 'TEAM ' + newGroupName;
+        var newGroupText = '';
+        if (newGroupName) {
+          // create a new group
+          var group = new Model.Group();
+          group.set('lesson', app.reviewSection);
+          group.set('colour', newGroupName);
+          group.set('kind', 'present');
+          group.save();
+          view.collection.add(group);
+
+          // update UI
+          var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>CLINIC '+newGroupName+'</h2></div>';
+          jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
+
         } else {
-          console.error("Unknown review section for grouping (addGroup)");
+          jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
         }
-        group.set('kind', 'present');
-        group.save();
-        view.collection.add(group);
-
-        // update UI
-        var groupEl = '<div class="group-container" data-group="'+group.get('_id')+'"><button class="fa fa-minus-square remove-group-btn" data-group="'+group.get('_id')+'"></button><h2>'+newGroupText+'</h2></div>';
-        jQuery('#'+jQuery(view.el).attr('id')+' .groups-container').append(groupEl);
-
-      } else {
-        jQuery().toastmessage('showErrorToast', "Maximum number of groups already created");
       }
     },
 
     removeGroup: function(ev) {
       var view = this;
 
-      // move the students back to their container
-      var group = view.collection.get(jQuery(ev.target).data('group'));
-      _.each(group.get('members'), function(member) {
-        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-      });
+      if (app.reviewSection === "review2") {
+        jQuery().toastmessage('showErrorToast', "Functionality not available for Review 2");
+      } else {
+        // move the students back to their container
+        var group = view.collection.get(jQuery(ev.target).data('group'));
+        _.each(group.get('members'), function(member) {
+          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+member+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+        });
 
-      // update collection
-      group.destroy();
+        // update collection
+        group.destroy();
 
-      // update UI
-      jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+jQuery(ev.target).data('group')+'"]').remove();
+        // update UI
+        jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+jQuery(ev.target).data('group')+'"]').remove();
+      }
     },
 
     selectStudent: function(ev) {
@@ -784,8 +766,8 @@
 
       // update the UI
       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .group-container[data-group="'+targetGroup+'"]'));
-      if (app.getMyGroup(name, "review3")) {
-        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', '5px solid '+app.getMyGroup(name, "review3").get('colour'));
+      if (app.getMyGroup(name, "review2")) {
+        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', '5px solid '+app.getMyGroup(name, "review2").get('colour'));
       }
       jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button').removeClass('selected');
     },
@@ -804,8 +786,10 @@
 
       // update the UI
       jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-      if (app.reviewSection === "review3") {
-        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', 'none');
+      if (app.reviewSection === "review2") {
+        var recoSpecColour = app.getArticleSpecOrRecommendedSpecColour(name);
+        var style = "2px solid "+recoSpecColour;
+        jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', style);
       }
       jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button').removeClass('selected');
     },
@@ -863,9 +847,9 @@
 
       jQuery('#review-progress-container').html('');
       var el = '';
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+      _.each(view.collection.where({"lesson": "review2", "kind": "present"}), function(group) {
         el += '<div class="review-progress-group-container">';
-        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('colour').toUpperCase()+' TEAM</button>';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'" style="background-color: '+app.getColourForColour(group.get('colour'))+'">'+group.get('name')+'</button>';
         el += '<div class="review-progress-progress-bar-container">';
         el += '<span id="review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
         el += '<span class="review-progress-group-progress-percent"></span>';
@@ -875,9 +859,9 @@
       });
       jQuery('#review-progress-container').append(el);
 
-      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+      _.each(view.collection.where({"lesson": "review2", "kind": "present"}), function(group) {
         //var report = Skeletor.Model.awake.reports.findWhere({"lesson": "review3", "group_colour": group.get('colour')});
-        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
+        var myPercent = app.getReportCompletionPercent("review2", group.get('colour')) + '%';
         var myBar = new ProgressBar.Line('#review-progress-'+group.get('colour')+'-progress-bar',
           {
             easing: 'easeInOut',
@@ -890,7 +874,7 @@
               style: app.progressBarTextStyle
             }
           });
-        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+        myBar.set(app.getReportCompletionPercent("review2", group.get('colour')) / 100);
       });
     }
   });
@@ -934,16 +918,16 @@
       console.log("Rendering TeacherReportView...");
 
       jQuery('#teacher-report-container').html('');
-      var reportEl = '<h1>' + view.model.get('group_colour').charAt(0).toUpperCase() + view.model.get('group_colour').slice(1) + ' Team Research Proposal Report</h1>';
+      var reportEl = '<h1>' + view.model.get('field') + ' Certification</h1>';
       reportEl += '<div>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
-          reportEl += '<p><h2>' + part.name + '</h2>';
+          reportEl += '<p><b>' + part.question;
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
-          reportEl += '</p>'
+          reportEl += '</b></p>'
 
           _.each(part.entries, function(entry) {
             reportEl += '<p>' + entry + '</p>';
@@ -956,6 +940,89 @@
     }
   });
 
+
+  /***********************************************************
+   ***********************************************************
+   ************* FINAL REVIEW PROGRESS VIEW ******************
+   ***********************************************************
+   ***********************************************************/
+
+  app.View.FinalReviewProgressView = Backbone.View.extend({
+    initialize: function() {
+      var view = this;
+      console.log('Initializing FinalReviewProgressView...');
+
+      Skeletor.Model.awake.reports.on('change', function () {
+        view.render();
+      });
+    },
+
+    events: {
+      'click .review-progress-group-btn' : 'switchToReportView'
+    },
+
+    switchToReportView: function(ev) {
+      var report = Skeletor.Model.awake.reports.findWhere({"group_colour": String(jQuery(ev.target).data('colour'))});
+      // if this group has started their report
+      var startedFlag = false;
+      _.each(report.get('parts'), function(part) {
+        if (part.entries && part.entries.length > 0) {
+          startedFlag = true;
+        }
+      })
+      if (startedFlag) {
+        if (app.teacherFinalReportView === null) {
+          app.teacherFinalReportView = new app.View.TeacherFinalReportView({
+            el: '#teacher-final-report-screen',
+            model: report
+          });
+        } else {
+          app.teacherFinalReportView.model = report;
+        }
+        app.teacherFinalReportView.render();
+        jQuery('#final-review-progress-screen').addClass('hidden');
+        jQuery('#teacher-final-report-screen').removeClass('hidden');
+      } else {
+        jQuery().toastmessage('showErrorToast', "This group has not started their report yet");
+      }
+    },
+
+    render: function () {
+      var view = this;
+      console.log("Rendering FinalReviewProgressView...");
+
+      jQuery('#final-review-progress-container').html('');
+      var el = '';
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        el += '<div class="review-progress-group-container">';
+        el += '<button class="review-progress-group-btn" data-colour="'+group.get('colour')+'"><img data-colour="'+group.get('colour')+'" src="/reports/imgs/clinic'+group.get('colour')+'.png"></img>Clinic '+group.get('colour')+'</button>';
+        el += '<div class="review-progress-progress-bar-container">';
+        el += '<span id="final-review-progress-'+group.get('colour')+'-progress-bar" class="review-progress-group-progress-bar"/>'
+        el += '<span class="review-progress-group-progress-percent"></span>';
+        el += '<span class="review-progress-percent"></span>';
+        el += '</div>';
+        el += '</div>';
+      });
+      jQuery('#final-review-progress-container').append(el);
+
+      _.each(view.collection.where({"lesson": "review3", "kind": "present"}), function(group) {
+        var myPercent = app.getReportCompletionPercent("review3", group.get('colour')) + '%';
+        var myBar = new ProgressBar.Line('#final-review-progress-'+group.get('colour')+'-progress-bar',
+          {
+            easing: 'easeInOut',
+            color: app.hexDarkPurple,
+            trailColor: app.hexLightGrey,
+            strokeWidth: 8,
+            svgStyle: app.progressBarStyleHome,
+            text: {
+              value: myPercent,
+              style: app.progressBarTextStyle
+            }
+          });
+        myBar.set(app.getReportCompletionPercent("review3", group.get('colour')) / 100);
+      });
+    }
+  });
 
 
   /***********************************************************
@@ -975,7 +1042,8 @@
     },
 
     events: {
-      'click img' : 'openImgModal'
+      'click img'                                  : 'openImgModal',
+      'click #close-teacher-final-report-view-btn' : 'switchToProgressView'
     },
 
     openImgModal: function(ev) {
@@ -985,46 +1053,43 @@
       jQuery('#teacher-final-report-modal').modal({keyboard: true, backdrop: true});
     },
 
+    switchToProgressView: function() {
+      jQuery('#teacher-final-report-screen').addClass('hidden');
+      jQuery('#final-review-progress-screen').removeClass('hidden');
+    },
+
     render: function () {
       var view = this;
       console.log("Rendering TeacherFinalReportView...");
 
       jQuery('#teacher-final-report-container').html('');
-      var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
+      var reportEl = '<h1>' + view.model.get('name') + ' Report</h1>';
+      reportEl += '<div>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)
         if (part.kind === 'write') {
-
-          // add the part title
-          reportEl += '<p><h2>' + part.name + '</h2>';
-
-          // add a thumbnail if it exists
+          reportEl += '<p>' + part.question + '</p>';
           if (part.thumbnail.length > 0) {
             reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
           }
-          reportEl += '</p>'
-
-          // add the text entries
-          _.each(part.entries, function(entry) {
-            reportEl += '<p>' + entry + '</p>';
-          })
-
-          // if there are tags, add them
-          if (part.tags && part.tags.length > 0) {
-            reportEl += '<p><b>Related terms from this unit:</b> ';
-            _.each(part.tags, function(tag) {
-              reportEl += tag;
-              reportEl += ', ';
-            });
-            reportEl = reportEl.slice(0,-2);
-            reportEl += '</p>';
-          }
         }
       });
-
+      reportEl += '</div>';
       jQuery('#teacher-final-report-container').append(reportEl);
+
+      var i = 0;
+      _.each(view.model.get('parts'), function(part) {
+        _.each(part.entries, function(entry) {
+          jQuery(jQuery('.clinic-answer')[i]).text(entry);
+          i++;
+        });
+      });
     }
   });
+
+
+
+
 
 
 
@@ -1641,6 +1706,13 @@
         article.set('users', usersArr);
         article.save();
 
+        var group = Skeletor.Model.awake.groups.findWhere({"field": jQuery(ev.target).data('field')});
+        group.wake(app.config.wakeful.url);
+        var newMembersArr = group.get('members');
+        newMembersArr.push(app.username);
+        group.set('members', newMembersArr);
+        group.save();
+
         app.hideAllContainers();
 
         app.attachTermsView = new app.View.AttachTermsView({
@@ -1650,7 +1722,7 @@
         app.attachTermsView.render();
         jQuery('#attach-terms-screen').removeClass('hidden');
       } else {
-        jQuery().toastmessage('showErrorToast', "This article has already been chosen by the maximum number of students");
+        jQuery().toastmessage('showErrorToast', "This specialization has already been chosen by the maximum number of students");
       }
     },
 
@@ -1661,7 +1733,8 @@
       jQuery('#choose-specialization-description').html('');
 
       // create the recommended spec content
-      jQuery('#recommended-specialization').text(app.getRecommendedSpecialization(app.username));
+      var specObj = app.getRecommendedSpecialization(app.username);
+      jQuery('#recommended-specialization').text(specObj.specialization);
 
       view.collection.comparator = function(model) {
         return model.get('field');
@@ -1782,34 +1855,6 @@
       }
     },
 
-    // updateModel: function(option, checked) {
-    //   var view = this;
-
-    //   var termsArr = view.model.get('user_associated_terms');
-    //   if (checked) {
-    //     // add term
-    //     var d = new Date();
-    //     var dateStr = d.toDateString() + ", " + d.toLocaleTimeString();
-    //     var termObj = {};
-    //     termObj.name = option.val();
-    //     termObj.author = app.username;
-    //     termObj.explanation = '';
-    //     termObj.complete = false;
-    //     termObj.date = dateStr;
-    //     termObj.removed = false;
-    //     termsArr.push(termObj);
-    //   } else {
-    //     // remove term
-    //     _.each(termsArr, function(termObj, index) {
-    //       if (termObj.name === option.val()) {
-    //         termsArr.splice(index, 1);
-    //       }
-    //     });
-    //   }
-    //   view.model.set('user_associated_terms', termsArr);
-    //   view.model.save();
-    // },
-
     renderTerms: function(containerNum, values) {
       var container = jQuery('#attach-terms-screen [data-term-container="'+containerNum+'"]');
       jQuery(container).html('');
@@ -1830,8 +1875,8 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
-      if (app.getMyField()) {
-        var el = '<h1>Your article on '+app.getMyField()+'</h1>';
+      if (app.getMyField(app.username)) {
+        var el = '<h1>Your article on '+app.getMyField(app.username)+'</h1>';
         jQuery('#attach-terms-title-container').html(el);
       } else {
         jQuery().toastmessage('showErrorToast', "Collision error. Please return to home screen and re-choose this field of research.");
@@ -1839,7 +1884,7 @@
 
       jQuery('#attach-terms-explanation-pane').html('');
 
-      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=82&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      var objEl = '<object id="attach-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=79&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#attach-terms-pdf-container').html(objEl);
 
       // http://davidstutz.github.io/bootstrap-multiselect/ for API
@@ -1936,6 +1981,7 @@
       jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
       jQuery('#explain-terms-screen').addClass('hidden');
       jQuery('#home-screen').removeClass('hidden');
+      app.homeView.render();
     },
 
     render: function() {
@@ -1946,7 +1992,7 @@
       jQuery('#explain-terms-terms-container').html('');
 
       //jQuery('#explain-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
-      var objEl = '<object id="explain-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=82&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
+      var objEl = '<object id="explain-terms-pdf-content" type="application/pdf" data="'+view.model.get('source')+'?#zoom=67&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>'
       jQuery('#explain-terms-pdf-container').html(objEl);
 
       var myTermsArr = _.where(view.model.get('user_associated_terms'), {"author": app.username});
@@ -2040,305 +2086,6 @@
   });
 
 
-  /***********************************************************
-   ***********************************************************
-   ************** GROUP NEGOTIATE TERMS VIEW *****************
-   ***********************************************************
-   ***********************************************************/
-
-  app.View.GroupNegotiateTermsView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      console.log('Initializing GroupNegotiateTermsView...');
-    },
-
-    events: {
-      'click .group-negotiate-term-btn'            : 'negotiateTerm',
-      'change .add-term-dropdown'                  : 'showAddTerm',
-      'click .add-term-group-negotiate-terms-btn'  : 'openModal',
-      'click .add-term-yes-btn'                    : 'addTerm',
-      'click .add-term-no-btn'                     : 'closeModal',
-      'click .submit-group-negotiated-article-btn' : 'submitArticle',
-    },
-
-    addTerm: function() {
-      var view = this;
-
-      var term = jQuery('.add-term-dropdown').val();
-      var groupTerms = view.model.get('group_associated_terms');
-      var groupTerm = {};
-      groupTerm.name = term;
-      groupTerm.explanation = "";
-      groupTerm.complete = true;
-      groupTerms.push(groupTerm);
-      view.model.save('group_associated_terms', groupTerms);
-
-      jQuery('#confirm-add-term-modal').modal('hide');
-      view.switchToDetailsView(term);
-    },
-
-    closeModal: function() {
-      var view = this;
-
-      jQuery('#confirm-add-term-modal').modal('hide');
-      view.render();          // OVERKILLLLLLLL
-    },
-
-    openModal: function() {
-      var view = this;
-
-      jQuery('.term-to-add').text(jQuery('.add-term-dropdown').val());
-      jQuery('#confirm-add-term-modal').modal({keyboard: false, backdrop: 'static'});
-    },
-
-    negotiateTerm: function(ev) {
-      var view = this;
-
-      view.switchToDetailsView(jQuery(ev.target).data('term'));
-    },
-
-    showAddTerm: function() {
-      if (jQuery('.add-term-dropdown').val() === 'Add new term') {
-        jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
-      } else {
-        jQuery('.add-term-group-negotiate-terms-btn').removeClass('invisible');
-      }
-    },
-
-    switchToDetailsView(termToNegotiate) {
-      var view = this;
-
-      if (app.groupNegotiateDetailsView === null) {
-        app.groupNegotiateDetailsView = new app.View.GroupNegotiateDetailsView({
-          el: '#group-negotiate-details-screen',
-          model: view.model,
-          term: termToNegotiate
-        });
-      } else {
-        // lordy this is nasty. Can't find a good way to delete backbone views, this prevents the submit button in details being rebound each time the view is created
-        app.groupNegotiateDetailsView.options.term = termToNegotiate;
-      }
-      app.groupNegotiateDetailsView.render();
-
-      jQuery('#group-negotiate-terms-screen').addClass('hidden');
-      jQuery('#group-negotiate-details-screen').removeClass('hidden');
-    },
-
-    checkForAllowedToPublish: function() {
-      var view = this;
-
-      var completeFlag = true
-      _.each(view.model.get('group_associated_terms'), function(term) {
-        if (term.complete === false) {
-          completeFlag = false;
-        }
-      });
-
-      if (completeFlag) {
-        jQuery('.submit-group-negotiated-article-btn').removeClass('disabled');
-        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexLightBlack});
-      } else {
-        jQuery('.submit-group-negotiated-article-btn').addClass('disabled');
-        jQuery('.submit-group-negotiated-article-btn').css({'background': app.hexDarkGrey});
-      }
-    },
-
-    submitArticle: function() {
-      jQuery().toastmessage('showSuccessToast', "Congratulations! You have completed this section of the unit review.");
-      jQuery('#group-negotiate-terms-screen').addClass('hidden');
-      jQuery('#home-screen').removeClass('hidden');
-    },
-
-    render: function() {
-      var view = this;
-      console.log("Rendering GroupNegotiateTermsView...");
-
-      // go over each user_assoc term and if it's not already in the group_assoc terms, add it
-      // this doesn't really belong here - still thinking about where it best fits
-      var nonRemovedTerms = _.where(view.model.get('user_associated_terms'), {"removed": false});
-      _.each(nonRemovedTerms, function(myTerm) {
-        var presentFlag = false;
-        presentFlag = _.some(view.model.get('group_associated_terms'), function(groupTerm) {
-          return groupTerm.name === myTerm.name
-        });
-
-        if (!presentFlag) {
-          var groupTerms = view.model.get('group_associated_terms');
-          var groupTerm = {};
-          groupTerm.name = myTerm.name;
-          groupTerm.explanation = "";
-          groupTerm.complete = false;
-          groupTerms.push(groupTerm);
-          view.model.save('group_associated_terms', groupTerms);
-        }
-      });
-
-      // populate the add new term dropdown
-      jQuery('.add-term-dropdown').html('');
-      jQuery('.add-term-dropdown').append(new Option('Add new term', 'Add new term'));
-      var termsArr = Skeletor.Model.awake.terms.filter(function(term) {
-        return term.get('assigned_to') !== "";
-      });
-      _.each(termsArr, function(term) {
-        // only add terms that are not already in the group_assoc
-        if (!_.findWhere(view.model.get('group_associated_terms'), {"name": term.get('name')} )) {
-          jQuery('.add-term-dropdown').append(new Option(term.get('name'), term.get('name')));
-        }
-      });
-      jQuery('.add-term-group-negotiate-terms-btn').addClass('invisible');
-
-      view.checkForAllowedToPublish();
-
-      jQuery('#group-negotiate-terms-img-container').html('');
-      jQuery('#group-negotiate-terms-terms-container').html('');
-
-      jQuery('#group-negotiate-terms-img-container').append('<img src="'+view.model.get('source_img')+'"/>');
-
-      _.each(view.model.get('group_associated_terms'), function(term, index) {
-        // agreementLevel will be btw 1 and 4
-        var agreementLevel = _.where(view.model.get('user_associated_terms'), {"name": term.name}).length;
-
-        var el = '';
-        if (term.complete === true) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#2ECC71">'+term.name+'</button>';
-        } else if (agreementLevel === 4) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#13496c">'+term.name+'</button>';
-        } else if (agreementLevel === 3) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#1f74ad">'+term.name+'</button>';
-        } else if (agreementLevel === 2) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#3498DB">'+term.name+'</button>';
-        } else if (agreementLevel === 1) {
-          el = '<button class="group-negotiate-term-btn" data-term="'+term.name+'" style="background-color:#67b2e4">'+term.name+'</button>';
-        } else {
-          console.error('Cannot determine agreementLevel');
-        }
-
-        jQuery('#group-negotiate-terms-terms-container').append(el);
-      });
-    }
-  });
-
-
-  /***********************************************************
-   ***********************************************************
-   *************** GROUP NEGOTIATE DETAILS VIEW **************
-   ***********************************************************
-   ***********************************************************/
-
-  app.View.GroupNegotiateDetailsView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      // passing in the term name with this.options.term. Good idea, bad idea?
-      console.log('Initializing GroupNegotiateDetailsView for', this.options.term);
-    },
-
-    events: {
-      'click .submit-group-negotiate-details-btn'      : 'submitDetails',
-      'click .remove-term-group-negotiate-details-btn' : 'openModal',
-      'click .remove-term-no-btn'                      : 'closeModal',
-      'click .remove-term-yes-btn'                     : 'removeTerm',
-      'keyup .details-entry'                           : 'checkForAllowedToPublish'
-    },
-
-    openModal: function() {
-      jQuery('#confirm-remove-term-modal').modal({keyboard: false, backdrop: 'static'});
-    },
-
-    closeModal: function() {
-      jQuery('#confirm-remove-term-modal').modal('hide');
-    },
-
-    removeTerm: function() {
-      var view = this;
-
-      // remove it from the group terms
-      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
-      var newTermArr = _.without(view.model.get('group_associated_terms'), termObj);
-      view.model.set('group_associated_terms', newTermArr);
-
-      // mark as removed from individual terms
-      _.each(view.model.get('user_associated_terms'), function(termObj) {
-        if (termObj.name === view.options.term) {
-          termObj.removed = true;
-        }
-      });
-
-      view.model.save();
-
-      jQuery('#confirm-remove-term-modal').modal('hide');
-      jQuery('#group-negotiate-details-screen').addClass('hidden');
-      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-      app.groupNegotiateTermsView.render();
-    },
-
-    submitDetails: function() {
-      var view = this;
-
-      //lolololol. I guess this is better than what we had before, but still... is there really no better way!?
-      //this unparsable nonsense sets the explanation and the complete on this specific user_associated term
-      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].explanation = jQuery('.details-entry').val();
-      _.where(view.model.get('group_associated_terms'), {"name": view.options.term})[0].complete = true;
-      view.model.save();
-
-      jQuery('#group-negotiate-details-screen').addClass('hidden');
-      jQuery('#group-negotiate-terms-screen').removeClass('hidden');
-      app.groupNegotiateTermsView.render();
-    },
-
-    checkForAllowedToPublish: function() {
-      var view = this;
-
-      if (jQuery('#group-negotiate-details-entry-container .details-entry').val().length > 0) {
-        jQuery('.submit-group-negotiate-details-btn').removeClass('disabled');
-        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexLightBlack});
-      } else {
-        jQuery('.submit-group-negotiate-details-btn').addClass('disabled');
-        jQuery('.submit-group-negotiate-details-btn').css({'background': app.hexDarkGrey});
-      }
-    },
-
-    render: function() {
-      var view = this;
-      console.log("Rendering GroupNegotiateDetailsView...");
-
-      // render the text entry box
-      jQuery('#group-negotiate-details-entry-container').html('');
-      jQuery('#group-negotiate-details-entry-container').append('<h3><b>'+view.options.term+'</b> in '+view.model.get('author')+'</h3>');
-      jQuery('#group-negotiate-details-entry-container').append('<textarea class="details-entry"></textarea>');
-      // // if the user has previously defined this
-      var termObj = _.findWhere(view.model.get('group_associated_terms'), {"name": view.options.term});
-      jQuery('#group-negotiate-details-entry-container .details-entry').text(termObj.explanation);
-
-      // render the myTerm content
-      jQuery('#group-negotiate-details-terms-container').html('');
-      var termCounter = 0;
-      var termArr = [];
-      _.each(view.model.get('user_associated_terms'), function(termObj) {
-        if (termObj.name === view.options.term) {
-          termCounter++;
-          termArr.push(termObj);
-        }
-      });
-      jQuery('#group-negotiate-details-terms-container').append('<h3>'+termCounter+' group members have selected this term</h3>');
-      _.each(termArr, function(termObj, index) {
-        var el = '';
-        if (index%2 === 0) {
-          el += '<div class="term-details" style="float:left">';
-        } else {
-          el += '<div class="term-details" style="float:right">';
-        }
-        el += '<div><b>'+termObj.author+' - '+termObj.date+':</b></div>';
-        el += '<div>'+termObj.explanation+'</div>';
-        el += '</div>';
-        jQuery('#group-negotiate-details-terms-container').append(el);
-      });
-
-      view.checkForAllowedToPublish();
-    }
-  });
-
-
-
 
 
 
@@ -2348,9 +2095,10 @@
    ***********************************************************
    ***********************************************************/
 
-
   app.View.ReportView = Backbone.View.extend({
     initialize: function() {
+      var view = this;
+
       console.log('Initializing ReportView...');
 
       app.reportBar = new ProgressBar.Line('#report-my-progress-bar',
@@ -2364,23 +2112,37 @@
     },
 
     events: {
-      // general functionality
-      'click #pdf-modal-btn'           : 'openPdfModal',
       'click #report-step-forward-btn' : 'stepForward',
       'click #report-step-back-btn'    : 'stepBack',
-      'keyup textarea'                 : 'checkForAllowedToProceed',
-      // unique unit-specific functionality
-      'click .unit3-view-sequence-btn' : 'unit3ViewSequence',
-      'click .unit3-check-answer'      : 'unit3checkAnswer'
+      'keyup textarea'                 : 'checkForAllowedToProceed'
     },
 
-    openPdfModal: function() {
+    checkForAutoSave: function() {
+      var view = this;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
+
+      app.keyCount++;
+      if (app.keyCount > 20) {
+        console.log('Autosaved...');
+        view.updateReport();
+        app.keyCount = 0;
+      }
+    },
+
+    checkForAllowedToProceed: function() {
       var view = this;
 
-      var objEl = '<object id="report-pdf-content" type="application/pdf" data="'+view.model.get('pdf')+'?#zoom=60&scrollbar=0&toolbar=0&navpanes=0"><p>PDF cannot be displayed</p></object>';
-      jQuery('#pdf-modal .modal-body').html(objEl);
+      view.checkForAutoSave();
 
-      jQuery('#pdf-modal').modal({keyboard: true, backdrop: true});
+      jQuery('#report-step-forward-btn').removeClass('disabled');
+      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
+
+      jQuery('#report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          jQuery('#report-step-forward-btn').addClass('disabled');
+        }
+      });
     },
 
     stepForward: function() {
@@ -2398,6 +2160,7 @@
         jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
         jQuery('#report-screen').addClass('hidden');
         jQuery('#home-screen').removeClass('hidden');
+        app.homeView.render();
       }
     },
 
@@ -2409,25 +2172,6 @@
       app.currentReportPage--;
       $('html,body').scrollTop(0);
       view.render();
-    },
-
-    checkForAllowedToProceed: function() {
-      var view = this;
-
-      jQuery('#report-step-forward-btn').removeClass('disabled');
-      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
-
-      // TODO: revert me
-      jQuery('#report-content-container textarea').each(function(index, el) {
-        if (jQuery(el).val() === "") {
-          jQuery('#report-step-forward-btn').addClass('disabled');
-        }
-      });
-
-      // for the unit 3 check answer screen
-      if (jQuery('#report-content-container button').hasClass('unit3-check-answer')) {
-        view.unit3CheckForAllowedToProceed();
-      }
     },
 
     updateReport: function() {
@@ -2442,14 +2186,16 @@
     },
 
     submitBackups: function() {
+      var view = this;
+
       var contentArr = [];
       jQuery('#report-content-container textarea').each(function(index, el) {
         contentArr.push(jQuery(el).val())
       });
       if (contentArr.length > 0) {
         var sub = new Model.Submission();
-        sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
-        sub.set('lesson', 'review3');
+        sub.set('group_colour', app.getMyGroup(app.username, "review2").get('colour'));
+        sub.set('lesson', view.model.get('lesson'));
         sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);
         sub.set('content', contentArr);
@@ -2461,7 +2207,7 @@
       var view = this;
       console.log("Rendering ReportView...");
 
-      jQuery('.report-progress-bar-container .icon').attr('src', 'img/'+app.getMyGroup(app.username, "review3").get('colour')+'-team.png');
+      jQuery('.report-progress-bar-container .icon').attr('src', 'img/'+app.getMyGroup(app.username, "review2").get('colour')+'-team.png');
 
       jQuery('#report-content-container').html('');
       // create the html
@@ -2482,38 +2228,8 @@
         jQuery('#report-step-back-btn').css({'background': app.hexLightBlack});
       }
 
-      jQuery('#report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
       app.reportBar.animate(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')) / 100);
-    },
-
-
-    // UNIT SPECIFIC FUNCTIONALITY
-    unit3CheckForAllowedToProceed: function() {
-      jQuery('#report-step-forward-btn').removeClass('disabled');
-      jQuery('#report-step-forward-btn').css({'background': app.hexLightBlack});
-
-      if (jQuery('.unit3-correct1').hasClass('hidden') || jQuery('.unit3-correct2').hasClass('hidden') || jQuery('.unit3-correct3').hasClass('hidden')) {
-        jQuery('#report-step-forward-btn').addClass('disabled');
-      }
-    },
-
-    unit3ViewSequence: function() {
-      jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
-    },
-
-    unit3checkAnswer: function(ev) {
-      var view = this;
-
-      var num = jQuery(ev.target).data('answer');
-      // ignoring whitespace and cap'd letters
-      if (jQuery('.unit3-answer'+num).text().toUpperCase().replace(/ /g,'') === jQuery('.unit3-entry'+num).val().toUpperCase().replace(/ /g,'')) {
-        jQuery('.unit3-correct'+num).removeClass('hidden');
-      } else {
-        jQuery('.unit3-correct'+num).addClass('hidden');
-        jQuery().toastmessage('showErrorToast', "Sorry, that is incorrect. Please check each character in your response carefully and try again.");
-      }
-
-      view.unit3CheckForAllowedToProceed();
+      jQuery('#report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
     }
   });
 
@@ -2525,46 +2241,118 @@
    ***********************************************************
    ***********************************************************/
 
-
   app.View.FinalReportView = Backbone.View.extend({
     initialize: function() {
       var view = this;
-      console.log('Initializing FinalReportView...');
 
-      jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
-        'colour'));
+      console.log('Initializing ReportView...');
 
-      var teams = Skeletor.Model.awake.groups.where({"lesson": "review3", "kind": "present"});
-      var teamNames = '';
-      _.each(teams, function(team) {
-        var name = team.get('colour');
-        name = name[0].toUpperCase() + name.slice(1);
-        teamNames += name;
-        teamNames += ' Team, ';
+      app.finalReportBar = new ProgressBar.Line('#final-report-my-progress-bar',
+        {
+          easing: 'easeInOut',
+          color: app.hexDarkPurple,
+          trailColor: app.hexLightGrey,
+          strokeWidth: 3,
+          svgStyle: app.progressBarStyleTask
+        });
+
+      Skeletor.Model.awake.conferences.on('all', function () {
+        view.render();
       });
-      teamNames = teamNames.slice(0,-2);
-
-      var el = '<h2>Introduction</h2><p>So far ';
-      el += teams.length;
-      el += ' different research teams (the ';
-      el += teamNames;
-      el += `) have been working on reviewing Dr. Sutherland's grant proposal to the Niño-Soto Foundation (NSF). Today, you will be working in new groups containing at least one representative from each of the other teams. Your task is to discuss several of the items contained in your team's report, with the aim of arriving at the best possible response to deliver to billionaire Niño-Soto.</p>
-        <p>Other members of your research team will be discussing different items contained in your team's report. The outcome of these negotiations will be a whole-class report containing the <b>best versions</b> of each answer to submit to the NSF. Each of your answers will be indexed to the content you have learned and contributed to the knowledge base in CK Biology throughout the Molecular Genetics unit.`;
-
-      jQuery('#final-report-content-container').html(el);
-
-      // hide this for the intro screen
-      jQuery('#final-report-terms-explanation-pane').addClass('hidden');
-
-      view.setProceed(true);
     },
 
     events: {
       'click #final-report-step-forward-btn' : 'stepForward',
+      'click #final-report-step-back-btn'    : 'stepBack',
       'keyup textarea'                       : 'checkForAllowedToProceed',
-      'mouseover .multiselect-container li'  : 'showTermPopover',
-      // unique unit-specific functionality
-      'click .unit3-view-sequence-btn'       : 'unit3ViewSequence',
+      'click .clinic-save-btn'               : 'saveSection',
+      'click .conference-btn'                : 'callConference',
+    },
+
+    callConference: function(ev) {
+      var view = this;
+
+      var specialty = jQuery(ev.target).data('specialty');
+      var parts = view.model.get('parts');
+      var confArr = parts[app.currentReportPage-1].conferences;
+      confArr.push(specialty);
+      confArr = _.uniq(confArr);
+      parts[app.currentReportPage-1].conferences = confArr;
+      view.model.set('parts', parts);
+      view.model.save();
+
+      var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": specialty});
+      if (conf) {
+        conf.set('status', 'open');
+        conf.set('num', view.model.get('group_colour'));
+        conf.wake(app.config.wakeful.url);        // should be unnecessary
+        conf.save();
+      } else {
+        var conf = new Model.Conference();
+        conf.wake(app.config.wakeful.url);
+        conf.set('specialty', specialty);
+        conf.set('status', 'open');
+        conf.set('num', view.model.get('group_colour'));
+        conf.save();
+      }
+    },
+
+    closeConference: function(ev) {
+      console.log('Closing...');
+
+      var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": ev.specialty});
+      conf.set('status', 'closed');
+      conf.save();
+
+      //jQuery('.toast-item-close').remove()
+      // if (ev.clinic === view.model.get('group_colour')) {
+      //   console.log('Closing...');
+      //   var conf = Skeletor.Model.awake.conferences.findWhere({"specialty": ev.specialty});
+      //   conf.set('status', 'closed');
+      //   conf.save();
+      // } else {
+      //   console.log('')
+      // }
+
+      // $("#but").click(function(ev) {
+      //    // mouse click on button
+      //    ev.stopPropagation();
+      // });
+    },
+
+    saveSection: function() {
+      var view = this;
+
+      view.updateReport();
+      jQuery().toastmessage('showSuccessToast', "Your response has been saved");
+    },
+
+    checkForAutoSave: function() {
+      var view = this;
+      // clear timer on keyup so that a save doesn't happen while typing
+      app.clearAutoSaveTimer();
+
+      app.keyCount++;
+      if (app.keyCount > 20) {
+        console.log('Autosaved...');
+        view.updateReport();
+        app.keyCount = 0;
+      }
+    },
+
+    checkForAllowedToProceed: function() {
+      var view = this;
+
+      view.checkForAutoSave();
+
+      jQuery('#final-report-step-forward-btn').removeClass('disabled');
+      jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
+
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        if (jQuery(el).val() === "") {
+          jQuery('#final-report-step-forward-btn').addClass('disabled');
+        }
+      });
     },
 
     stepForward: function() {
@@ -2572,171 +2360,90 @@
 
       view.updateReport();
       view.submitBackups();
-      view.setNextAvailablePart();
 
-      if (app.finalReportPart) {
-        view.setProceed(false);
+      // if we're not at the end of the report
+      if (app.currentReportPage < view.model.get('parts').length) {
+        app.currentReportPage++;
+        $('html,body').scrollTop(0);
         view.render();
       } else {
-         jQuery('#final-report-my-team').html('');
-         jQuery('#final-report-content-container').html('');
-         jQuery('#final-report-terms-terms-container').html('');
-         jQuery('#final-report-terms-explanation-pane').addClass('hidden');
-         jQuery('#final-report-terms-selected-container').html('');
-         //jQuery('#final-report-step-forward-btn').addClass('hidden');
-
-         jQuery('#final-report-content-container').html('<h1>Thank you for completing your submission!</h1><p>Please press "Final Report" above to view the final submission to the NSF');
-       }
+        jQuery().toastmessage('showSuccessToast', "Congratulations! Your group has completed this section of the unit review.");
+        jQuery('#final-report-screen').addClass('hidden');
+        jQuery('#home-screen').removeClass('hidden');
+        app.homeView.render();
+      }
     },
 
-    checkForAllowedToProceed: function() {
+    stepBack: function() {
       var view = this;
 
-      jQuery('#final-report-step-forward-btn').removeClass('disabled');
-      jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
+      view.updateReport();
 
-      jQuery('#final-report-content-container textarea').each(function(index, el) {
-        if (jQuery(el).val() === "") {
-          view.setProceed(false);
-        }
-      });
-    },
-
-    setProceed: function(permitted) {
-      if (permitted) {
-        jQuery('#final-report-step-forward-btn').removeClass('disabled');
-        jQuery('#final-report-step-forward-btn').css({'background': app.hexLightBlack});
-      } else {
-        jQuery('#final-report-step-forward-btn').addClass('disabled');
-
-      }
+      app.currentReportPage--;
+      $('html,body').scrollTop(0);
+      view.render();
     },
 
     updateReport: function() {
       var view = this;
       var inputs = [];
-      var tagsArr = [];
-
-      // text entries
       jQuery('#final-report-content-container textarea').each(function(index, el) {
+        // should the entries should be keyed to something? Use objects instead? Depends on output
         inputs.push(jQuery(el).val());
       });
-      // tags
-      jQuery('#final-report-screen .terms-container').each(function(index, el) {
-        jQuery(el).children().each(function(index, child) {
-          tagsArr.push(jQuery(child).text());
-        });
-      });
-      if (inputs.length > 0) {
-        var partsArr = view.model.get('parts');
-        partsArr[app.finalReportPart.number-1].entries = inputs;
-        partsArr[app.finalReportPart.number-1].tags = tagsArr;
-        partsArr[app.finalReportPart.number-1].complete = true;
-        view.model.set('parts', partsArr);
-        view.model.save();
-      }
+      view.model.setEntries(app.currentReportPage, inputs);
+      view.model.save();
     },
 
     submitBackups: function() {
+      var view = this;
+
       var contentArr = [];
       jQuery('#final-report-content-container textarea').each(function(index, el) {
         contentArr.push(jQuery(el).val())
       });
       if (contentArr.length > 0) {
         var sub = new Model.Submission();
-        sub.set('group_colour', app.getMyGroup(app.username, "review4").get('colour'));
-        sub.set('lesson', 'review4');
-        sub.set('part_number', app.finalReportPart.number);
+        sub.set('group_colour', app.getMyGroup(app.username, "review3").get('colour'));
+        sub.set('lesson', view.model.get('lesson'));
+        sub.set('part_number', app.currentReportPage);
         sub.set('user', app.username);
         sub.set('content', contentArr);
         sub.save();
       }
     },
 
-    setNextAvailablePart: function() {
+    renderConferences: function() {
       var view = this;
 
-      var nextPart = {};
-      var parts = view.model.get('parts');
+      console.log("Rendering conferences...");
 
-      // first, check if there is a part assigned to this group that is uncompleted
-      nextPart = _.findWhere(parts, {"kind": "write", "complete": false, "assigned": app.getMyGroup(app.username, "review4").get('colour')});
+      // close all toasts
+      jQuery('.toast-container').remove();
 
-      // if no, then get first unassigned part
-      if (!nextPart) {
-        nextPart = _.findWhere(parts, {"kind": "write", "assigned": false});
-        // set it to assigned if it exists (if doesn't exist, back to home screen in nextStep)
-        if (nextPart) {
-          nextPart.assigned = app.getMyGroup(app.username, "review4").get('colour');
-          view.model.set('parts', parts);
-          view.model.save();
+      // open the correct toasts
+      _.each(Skeletor.Model.awake.conferences.where({"status": "open"}), function(conf) {
+        var specialty = conf.get('specialty');
+        if (jQuery('.toast-container span').hasClass(specialty)) {
+          console.log('Already rendered')
+        } else {
+          var toastText = 'Clinic <span class="'+conf.get('num')+'">'+conf.get('num')+'</span> has requested a conference of <span class="'+specialty+'">'+specialty.toUpperCase()+'S</span>. '+specialty.charAt(0).toUpperCase() + specialty.slice(1)+'s please proceed to the conference area';
+          jQuery().toastmessage('showToast', {
+            text      : toastText,
+            position  : 'top-right',
+            sticky    : true,
+            type      : 'warning',
+            specialty : specialty,
+            close     : function () {view.closeConference(this);}
+          });
         }
-      }
-
-      app.finalReportPart = nextPart;
-    },
-
-    showTermPopover: function(ev) {
-      // if we're mousing over the right area
-      if (jQuery(ev.target).find('input').val()) {
-        jQuery('#final-report-terms-explanation-pane').html('');
-        app.buildTermView('#final-report-terms-explanation-pane', jQuery(ev.target).find('input').val());
-      }
-    },
-
-    // UNIT 3 SPECIFIC
-    unit3ViewSequence: function() {
-      jQuery('#view-sequence-modal').modal({keyboard: true, backdrop: true});
-    },
-
-    renderTerms: function(containerNum, values) {
-      var container = jQuery('[data-term-container="'+containerNum+'"]');
-      jQuery(container).html('');
-      _.each(values, function(value) {
-        jQuery(container).append('<div>'+value+'</div>');
-      });
-    },
-
-    renderDropdowns: function() {
-      var view = this;
-
-      jQuery('#final-report-terms-explanation-pane').html('');
-      jQuery('#final-report-terms-terms-container').html('');
-      jQuery('#final-report-terms-selected-container').html('');
-
-      jQuery('#final-report-terms-explanation-pane').removeClass('hidden');
-
-      jQuery('#final-report-terms-terms-container').append("<h2>Tag any terms or concepts that you learned throughout the unit that are relevant to answering this question</h2>");
-      // set up the dropdown types by eaching over the lessons
-      _.each(Skeletor.Model.awake.lessons.where({"kind": "homework"}), function(lesson) {
-        var el = '<select id="final-report-terms-dropdown-'+lesson.get('number')+'" class="lesson-dropdown" multiple="multiple"></select>';
-        jQuery('#final-report-terms-terms-container').append(el);
-        jQuery('#final-report-terms-dropdown-'+lesson.get('number')).multiselect({
-          nonSelectedText: lesson.get('title'),
-          onChange: function(option, checked, select) {
-            view.renderTerms(lesson.get('number'), jQuery('#final-report-terms-dropdown-'+lesson.get('number')).val());
-          }
-        });
-
-        // set up the containers that this terms will be shown in
-        jQuery('#final-report-terms-selected-container').append('<div class="terms-container" data-term-container="'+lesson.get('number')+'"></div>');
       });
 
-      // each over the terms and add to dropdown based on term.get('lesson')
-      Skeletor.Model.awake.terms.comparator = function(model) {
-        return model.get('name').toLowerCase();
-      };
-      Skeletor.Model.awake.terms.sort();
-      // add terms to dropdowns
-      Skeletor.Model.awake.terms.each(function(term) {
-        var name = term.get('name');
-        // add the option to the dropdown
-        jQuery('#final-report-terms-dropdown-'+term.get('lesson')).append(new Option(name, name));
-      });
-
-      // needs a rebuild to show all the terms
-      jQuery('.lesson-dropdown').each(function() {
-        jQuery(this).multiselect('rebuild');
+      // disable close on all toast that aren't opened by the group
+      _.each(jQuery('.toast-container'), function(el) {
+        if (!jQuery(el).find('span').hasClass(view.model.get('group_colour'))) {
+          jQuery(el).find('.toast-item-close').remove();
+        }
       });
     },
 
@@ -2744,105 +2451,31 @@
       var view = this;
       console.log("Rendering FinalReportView...");
 
-      jQuery('#final-report-my-team').text('TEAM '+app.getMyGroup(app.username, "review4").get(
-        'colour'));
+      view.renderConferences();
+
+      jQuery('.report-progress-bar-container .icon').attr('src', 'reports/imgs/clinic'+view.model.get('group_colour')+'.png');
 
       jQuery('#final-report-content-container').html('');
       // create the html
-      jQuery('#final-report-content-container').append(app.finalReportPart.html);
-      // remove all text areas
-      jQuery('#final-report-content-container textarea').before("<p>Using the ideas in each of the teams responses below, decide up on the <b>best response</b> to the above question and enter it in the text box below</p>");
-
-      var otherReportsEl = '<h2>Group Report Responses:</h2>';
-      _.each(Skeletor.Model.awake.reports.where({"lesson":"review3"}), function(report) {
-        otherReportsEl += '<p><b>' + report.get('group_colour').charAt(0).toUpperCase() + report.get('group_colour').slice(1) + ' Team\'s Response</b></p>';
-        // the array of all of the entered text for this report and this section
-        var entriesToAppend = report.get('parts')[app.finalReportPart.number - 1].entries;
-        _.each(entriesToAppend, function(entry) {
-          otherReportsEl += '<p>';
-          otherReportsEl += entry;
-          otherReportsEl += '</p>';
-        });
-      });
-      jQuery('#final-report-content-container').append(otherReportsEl);
-
-      // UNIT 3 SPECIFIC STUFF
-      jQuery('.unit3-check-answer').addClass('hidden');
-
-      view.renderDropdowns();
-
-      view.checkForAllowedToProceed();
-    }
-  });
-
-
-
-
-  /***********************************************************
-   ***********************************************************
-   *************** FINAL REPORT DISPLAY VIEW *****************
-   ***********************************************************
-   ***********************************************************/
-
-  app.View.FinalReportDisplayView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      console.log('Initializing FinalReportDisplayView...');
-
-      view.model.on('change', function () {
-        view.render();
-      });
-    },
-
-    events: {
-      'click img' : 'openImgModal'
-    },
-
-    openImgModal: function(ev) {
-      var view = this;
-      var url = jQuery(ev.target).attr('src');
-      jQuery('#final-report-display-modal .photo-content').attr('src', url);
-      jQuery('#final-report-display-modal').modal({keyboard: true, backdrop: true});
-    },
-
-    render: function () {
-      var view = this;
-      console.log("Rendering FinalReportDisplayView...");
-
-      jQuery('#final-report-display-container').html('');
-      var reportEl = '<h1>Research Proposal Review Report to NSF</h1>';
-      _.each(view.model.get('parts'), function(part) {
-        // only add text chunks for things the students have written (not intro stuff)
-        if (part.kind === 'write') {
-
-          // add the part title
-          reportEl += '<p><h2>' + part.name + '</h2>';
-
-          // add a thumbnail if it exists
-          if (part.thumbnail.length > 0) {
-            reportEl += '<img class="thumb" src="'+part.thumbnail+'"/>';
-          }
-          reportEl += '</p>'
-
-          // add the text entries
-          _.each(part.entries, function(entry) {
-            reportEl += '<p>' + entry + '</p>';
-          })
-
-          // if there are tags, add them
-          if (part.tags && part.tags.length > 0) {
-            reportEl += '<p><b>Related terms from this unit:</b> ';
-            _.each(part.tags, function(tag) {
-              reportEl += tag;
-              reportEl += ', ';
-            });
-            reportEl = reportEl.slice(0,-2);
-            reportEl += '</p>';
-          }
+      jQuery('#final-report-content-container').append(view.model.getPart(app.currentReportPage).html);
+      // add the text entries
+      jQuery('#final-report-content-container textarea').each(function(index, el) {
+        if (view.model.getPart(app.currentReportPage).entries) {
+          jQuery(el).val(view.model.getPart(app.currentReportPage).entries[index]);
         }
       });
 
-      jQuery('#final-report-display-container').append(reportEl);
+      view.checkForAllowedToProceed();
+
+      if (app.currentReportPage === 1) {
+        jQuery('#final-report-step-back-btn').addClass('disabled');
+      } else {
+        jQuery('#final-report-step-back-btn').removeClass('disabled');
+        jQuery('#final-report-step-back-btn').css({'background': app.hexLightBlack});
+      }
+
+      app.finalReportBar.animate(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')) / 100);
+      jQuery('#final-report-screen .my-progress-percent').text(app.getReportCompletionPercent(view.model.get('lesson'), view.model.get('group_colour')));
     }
   });
 

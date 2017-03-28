@@ -33,10 +33,18 @@
 # mongoimport -d ck-biology-SBI4UE-02-U4 -c relationships --jsonArray scaffolding/SBI4UE-02-U4-relationships.json
 
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.articles.remove()"
-# mongoimport -d ck-biology-SBI4UE-02-U4 -c articles --jsonArray scaffolding/SBI4UE-02-U4-articles.json
+# mongoimport -d ck-biology-SBI4UE-02-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
 
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.groups.remove()"
 
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.reports.remove()"
+
+# mongoimport -d ck-biology-SBI4UE-01-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
+# mongo ck-biology-SBI4UE-02-U4 --eval "db.articles.remove()"
+# mongoimport -d ck-biology-SBI4UE-02-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
+
+# mongoimport -d ck-biology-SBI4UE-01-U4 -c groups --jsonArray scaffolding/groups-unit4.json
+# mongo ck-biology-SBI4UE-02-U4 --eval "db.groups.remove()"
+# mongoimport -d ck-biology-SBI4UE-02-U4 -c groups --jsonArray scaffolding/groups-unit4.json
 
 echo "Disabled..."
