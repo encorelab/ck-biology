@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Lesson 1: Unknown",
+        "number": 1,
+        "vetting_tasks": 4,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "homework"
+    }
+    {
+        "title": "Review 1",
+        "number": 1,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "review1"
+    },
+    {
+        "title": "Review 2",
+        "number": 3,
+        "enabled": false,
+        "created_at": "2015-03-25T19:08:00.000Z",
+        "modified_at": "2015-03-25T19:09:00.000Z",
+        "kind": "review2"
+    }
+]
