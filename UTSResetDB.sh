@@ -47,4 +47,4 @@ mongoimport -d ck-biology-SBI4UE-02-U5 -c relationships --jsonArray scaffolding/
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.groups.remove()"
 # mongoimport -d ck-biology-SBI4UE-02-U4 -c groups --jsonArray scaffolding/groups-unit4.json
 
-echo "Disabled..."
+#echo "Disabled..."
