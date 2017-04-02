@@ -1,6 +1,7 @@
-[
+Skeletor.Mobile.U5Reports = [
   {
-    "team": "1",
+    "run": "SBI4UE-01-U5",
+    "number": "1",
     "colour": "red",
     "parts": [
       {
@@ -21,12 +22,12 @@
         "number": 2,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.jpg",
+        "thumbnail": "reports/imgs/u5_question2_image.png",
         "question": `What type of survivorship curve is this?  Is this what you would expect for this type of species?  Explain your reasoning.`,
         "html": `
           <h2>Question 2</h2>
           <p>The following represents the survivorship curve for the marten population in your study site:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.jpg"></img>
+          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
           <p>What type of survivorship curve is this?  Is this what you would expect for this type of species?  Explain your reasoning.</p>
           <textarea placeholder="Enter your text here"></textarea>`
       },
@@ -58,7 +59,7 @@
         "html": `
           <h2>Question 4</h2>
           <p>The link below will open a new browser tab containing a Google Spreadsheet.  This Google Spreadsheet represents a life table for the marten population in your study site.  Your team has been tasked with completing this life table, performing the appropriate calculations in response to the questions below.</p>
-          <a href="https://docs.google.com/spreadsheets/d/1c0P_UjdHs1rPA-6d1lb5NL3N73bzhjv6FjeXyg3RTXw/edit#gid=0">SBI4UE-01 - Team 1 - Life Table</a>
+          <a href="https://docs.google.com/spreadsheets/d/1c0P_UjdHs1rPA-6d1lb5NL3N73bzhjv6FjeXyg3RTXw/edit#gid=0" target="_blank">SBI4UE-01 - Team 1 - Life Table</a>
           <p>Please note that the model you are constructing here is a <strong>deterministic</strong> model, in that it does not account for any variation associated with the vital rates of the population.  (Constructing a fully <strong>stochastic model</strong> would require more sophisticated software).</p>
           <p>a) What was the total population of martens in 2014?</p>
           <textarea placeholder="Enter your text here"></textarea>
@@ -82,14 +83,14 @@
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.jpg",
+        "thumbnail": "reports/imgs/u5_question2_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.jpg"></img>
+          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>

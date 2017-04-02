@@ -931,7 +931,7 @@
       console.log("Rendering TeacherReportView...");
 
       jQuery('#teacher-report-container').html('');
-      var reportEl = '<h1>' + view.model.get('field') + ' Certification</h1>';
+      var reportEl = '<h1>Team ' + view.model.get('number') + ' Report</h1>';
       reportEl += '<div>';
       _.each(view.model.get('parts'), function(part) {
         // only add text chunks for things the students have written (not intro stuff)

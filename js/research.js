@@ -1034,21 +1034,24 @@
     return scoreObj;
   };
 
+  // IMPORTANT: this only gens the reports for *this class* - you need to log in to both to get everything set up
   app.recreateReports = function(lesson) {
     // delete all reports for this lesson
-    // _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
-    // // create all reports for this lesson
-    // if (lesson === "review2") {
-    //   _.each(app.certificationReports, function(report) {
-    //     var r = new Model.Report();
-    //     r.set('lesson', lesson);
-    //     r.set('group_colour', report.colour);
-    //     r.set('field', report.field);
-    //     r.set('parts', report.parts);
-    //     r.save();
-    //     Skeletor.Model.awake.reports.add(r);
-    //   });
-    // }
+    _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
+    // create all reports for this lesson
+    if (lesson === "review2") {
+      _.each(app.U5Reports, function(report) {
+        if (report.run === app.runId) {
+          var r = new Model.Report();
+          r.set('lesson', lesson);
+          r.set('group_colour', report.colour);
+          r.set('number', report.number);
+          r.set('parts', report.parts);
+          r.save();
+          Skeletor.Model.awake.reports.add(r);
+        }
+      });
+    }
     // else if (lesson === "review3") {
     //   // we're just going to create 3 clinic reports, instead of bothering with create/destroy
     //   for (var i = 1; i < 4; i++) {
