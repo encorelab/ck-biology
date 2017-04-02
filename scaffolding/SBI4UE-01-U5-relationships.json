@@ -5,7 +5,7 @@
 "to": "dispersion pattern",
 "lesson": 1,
 "assigned_to": "nuala",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -16,7 +16,7 @@
 "to": "individuals",
 "lesson": 1,
 "assigned_to": "jeremy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -27,7 +27,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "hannah",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -38,7 +38,7 @@
 "to": "population sampling technique",
 "lesson": 1,
 "assigned_to": "amanda",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -49,7 +49,7 @@
 "to": "demographic transition",
 "lesson": 1,
 "assigned_to": "riga",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -60,7 +60,7 @@
 "to": "zero population growth",
 "lesson": 1,
 "assigned_to": "andy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -71,7 +71,7 @@
 "to": "population",
 "lesson": 1,
 "assigned_to": "sharon",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -82,7 +82,7 @@
 "to": "life table",
 "lesson": 1,
 "assigned_to": "daniel",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -93,7 +93,7 @@
 "to": "survivorship curve",
 "lesson": 1,
 "assigned_to": "kevin",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -104,7 +104,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "jacob",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -115,7 +115,7 @@
 "to": "logistic growth model",
 "lesson": 1,
 "assigned_to": "richard",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -126,7 +126,7 @@
 "to": "population density",
 "lesson": 1,
 "assigned_to": "seby",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -137,7 +137,7 @@
 "to": "logistic growth model",
 "lesson": 1,
 "assigned_to": "serena",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -148,7 +148,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "martyn",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -159,7 +159,7 @@
 "to": "demographic transition",
 "lesson": 1,
 "assigned_to": "ashley",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -170,7 +170,7 @@
 "to": "population growth",
 "lesson": 1,
 "assigned_to": "nuala",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -181,7 +181,7 @@
 "to": "intrinsic rate of increase",
 "lesson": 1,
 "assigned_to": "jeremy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -192,7 +192,7 @@
 "to": "carrying capacity",
 "lesson": 1,
 "assigned_to": "hannah",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -203,7 +203,7 @@
 "to": "demographic transition",
 "lesson": 1,
 "assigned_to": "amanda",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -214,7 +214,7 @@
 "to": "population sampling technique",
 "lesson": 1,
 "assigned_to": "riga",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -225,7 +225,7 @@
 "to": "population sampling technique",
 "lesson": 1,
 "assigned_to": "andy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -236,7 +236,7 @@
 "to": "environment",
 "lesson": 1,
 "assigned_to": "sharon",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -247,7 +247,7 @@
 "to": "reproductive strategy",
 "lesson": 1,
 "assigned_to": "daniel",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -258,7 +258,7 @@
 "to": "population density",
 "lesson": 1,
 "assigned_to": "kevin",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -269,7 +269,7 @@
 "to": "demographic transition",
 "lesson": 1,
 "assigned_to": "jacob",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -280,7 +280,7 @@
 "to": "cohort",
 "lesson": 1,
 "assigned_to": "richard",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -291,7 +291,7 @@
 "to": "population growth",
 "lesson": 1,
 "assigned_to": "seby",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -302,7 +302,7 @@
 "to": "carrying capacity",
 "lesson": 1,
 "assigned_to": "serena",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -313,7 +313,7 @@
 "to": "demographic transition",
 "lesson": 1,
 "assigned_to": "martyn",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -324,7 +324,7 @@
 "to": "population sampling technique",
 "lesson": 1,
 "assigned_to": "ashley",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -335,7 +335,7 @@
 "to": "population sampling technique",
 "lesson": 1,
 "assigned_to": "nuala",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -346,7 +346,7 @@
 "to": "environment",
 "lesson": 1,
 "assigned_to": "jeremy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -357,7 +357,7 @@
 "to": "population density",
 "lesson": 1,
 "assigned_to": "hannah",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -368,7 +368,7 @@
 "to": "dispersion pattern",
 "lesson": 1,
 "assigned_to": "amanda",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -379,7 +379,7 @@
 "to": "individuals",
 "lesson": 1,
 "assigned_to": "riga",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -390,7 +390,7 @@
 "to": "per capita birth rate",
 "lesson": 1,
 "assigned_to": "andy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -401,7 +401,7 @@
 "to": "per capita death rate",
 "lesson": 1,
 "assigned_to": "sharon",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -412,7 +412,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "daniel",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -423,7 +423,7 @@
 "to": "population density",
 "lesson": 1,
 "assigned_to": "kevin",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -434,7 +434,7 @@
 "to": "dispersion pattern",
 "lesson": 1,
 "assigned_to": "jacob",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -445,7 +445,7 @@
 "to": "reproductive strategy",
 "lesson": 1,
 "assigned_to": "richard",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -456,7 +456,7 @@
 "to": "cohort",
 "lesson": 1,
 "assigned_to": "seby",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -467,7 +467,7 @@
 "to": "reproductive rate",
 "lesson": 1,
 "assigned_to": "serena",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -478,7 +478,7 @@
 "to": "reproductive strategy",
 "lesson": 1,
 "assigned_to": "martyn",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -489,7 +489,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "ashley",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -500,7 +500,7 @@
 "to": "density dependent factor",
 "lesson": 1,
 "assigned_to": "amanda",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -511,7 +511,7 @@
 "to": "dispersion pattern",
 "lesson": 1,
 "assigned_to": "riga",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }
@@ -522,7 +522,7 @@
 "to": "population growth",
 "lesson": 1,
 "assigned_to": "andy",
-"complete": true,
+"complete": false,
 "created_at": "2015-03-25T19:08:00.000Z",
 "modified_at": "2015-03-25T19:09:00.000Z"
 }

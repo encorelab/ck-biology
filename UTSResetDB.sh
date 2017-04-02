@@ -8,7 +8,7 @@ mongo ck-biology-SBI4UE-01-U5 --eval "db.lessons.remove()"
 mongoimport -d ck-biology-SBI4UE-01-U5 -c lessons --jsonArray scaffolding/lessons-unit5.json
 
 mongo ck-biology-SBI4UE-01-U5 --eval "db.terms.remove()"
-mongoimport -d ck-biology-SBI4UE-01-U5 -c terms --jsonArray scaffolding/SBI4UE-01-U5-terms.json
+mongoimport -d ck-biology-SBI4UE-01-U5 -c terms --jsonArray scaffolding/SBI4UE-01-U5-terms-pos.json
 
 mongo ck-biology-SBI4UE-01-U5 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-01-U5 -c relationships --jsonArray scaffolding/SBI4UE-01-U5-relationships.json
@@ -27,7 +27,7 @@ mongo ck-biology-SBI4UE-02-U5 --eval "db.lessons.remove()"
 mongoimport -d ck-biology-SBI4UE-02-U5 -c lessons --jsonArray scaffolding/lessons-unit5.json
 
 mongo ck-biology-SBI4UE-02-U5 --eval "db.terms.remove()"
-mongoimport -d ck-biology-SBI4UE-02-U5 -c terms --jsonArray scaffolding/SBI4UE-02-U5-terms.json
+mongoimport -d ck-biology-SBI4UE-02-U5 -c terms --jsonArray scaffolding/SBI4UE-02-U5-terms-pos.json
 
 mongo ck-biology-SBI4UE-02-U5 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-02-U5 -c relationships --jsonArray scaffolding/SBI4UE-02-U5-relationships.json
