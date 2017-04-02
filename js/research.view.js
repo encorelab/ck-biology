@@ -71,19 +71,25 @@
         if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review1") {
           jQuery('#knowledge-base-nav-btn').addClass('hidden');
           jQuery('#contribution-nav-btn').addClass('hidden');
-          if (app.getMyField(app.username) === null) {
-            jQuery('#choose-article-screen').removeClass('hidden');
-            app.chooseArticleView.render();
+
+          var article = null;
+          if (Skeletor.Model.awake.articles.findWhere({"user":app.username})) {
+            article = Skeletor.Model.awake.articles.findWhere({"user":app.username});
           } else {
-            var article = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+            var article = new Model.Article();
+            article.set('source', 'articles/pdfs/SurvivalofAmericanandPacificMartenPopulations.pdf');
+            article.set('user', app.username);
+            article.set('user_associated_terms', []);
             article.wake(app.config.wakeful.url);
-            app.attachTermsView = new app.View.AttachTermsView({
-              el: '#attach-terms-screen',
-              model: article
-            });
-            app.attachTermsView.render();
-            jQuery('#attach-terms-screen').removeClass('hidden');
+            article.save();
           }
+          app.attachTermsView = new app.View.AttachTermsView({
+            el: '#attach-terms-screen',
+            model: article
+          });
+          app.attachTermsView.render();
+          jQuery('#attach-terms-screen').removeClass('hidden');
+
         } else if (view.collection.findWhere({"number": app.lesson}).get('kind') === "review2") {
           if (app.getMyGroup(app.username, "review2") && app.getMyGroup(app.username, "review2").get('kind') === "present") {
             jQuery('#knowledge-base-nav-btn').addClass('hidden');
@@ -293,7 +299,7 @@
             var completeFlag = true;
             // review1
             if (lesson.get('kind') === "review1") {
-              var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(app.username)});
+              var myArticle = Skeletor.Model.awake.articles.findWhere({"user": app.username});
               if (myArticle) {
                 var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": app.username});
                 _.each(myTermsArr, function(term) {
@@ -1654,108 +1660,108 @@
    ***********************************************************
    ***********************************************************/
 
-  app.View.ChooseArticleView = Backbone.View.extend({
-    initialize: function() {
-      var view = this;
-      console.log('Initializing ChooseArticleView...');
-    },
+  // app.View.ChooseArticleView = Backbone.View.extend({
+  //   initialize: function() {
+  //     var view = this;
+  //     console.log('Initializing ChooseArticleView...');
+  //   },
 
-    events: {
-      'click #choose-article-container img'     : 'showDescription',
-      'click #choose-specialization-btn'        : 'confirmChoice',
-      'click #choose-specialization-yes-btn'    : 'chooseField',
-      'click #choose-specialization-no-btn'     : 'closeModal',
-    },
+  //   events: {
+  //     'click #choose-article-container img'     : 'showDescription',
+  //     'click #choose-specialization-btn'        : 'confirmChoice',
+  //     'click #choose-specialization-yes-btn'    : 'chooseField',
+  //     'click #choose-specialization-no-btn'     : 'closeModal',
+  //   },
 
-    showDescription: function(ev) {
-      jQuery('#choose-specialization-description').html('');
-      var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
-      var descEl = jQuery('<div>');
-      descEl.text(article.get('description'));
-      var buttonEl = jQuery('<button>');
-      buttonEl.attr('id', 'choose-specialization-btn');
-      buttonEl.text('Select this specialization');
-      buttonEl.data('field', jQuery(ev.target).data('field'));
-      jQuery('#choose-specialization-description').append(descEl);
-      jQuery('#choose-specialization-description').append(buttonEl);
-    },
+  //   showDescription: function(ev) {
+  //     jQuery('#choose-specialization-description').html('');
+  //     var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
+  //     var descEl = jQuery('<div>');
+  //     descEl.text(article.get('description'));
+  //     var buttonEl = jQuery('<button>');
+  //     buttonEl.attr('id', 'choose-specialization-btn');
+  //     buttonEl.text('Select this specialization');
+  //     buttonEl.data('field', jQuery(ev.target).data('field'));
+  //     jQuery('#choose-specialization-description').append(descEl);
+  //     jQuery('#choose-specialization-description').append(buttonEl);
+  //   },
 
-    confirmChoice: function(ev) {
-      console.log(jQuery(ev.target).data('field'));
+  //   confirmChoice: function(ev) {
+  //     console.log(jQuery(ev.target).data('field'));
 
-      jQuery('.specialization-choice-container').text(jQuery(ev.target).data('field'));
-      jQuery('#choose-specialization-yes-btn').data('field', jQuery(ev.target).data('field'))
-      jQuery('#confirm-specialization-modal').modal({keyboard: false, backdrop: 'static'});
-    },
+  //     jQuery('.specialization-choice-container').text(jQuery(ev.target).data('field'));
+  //     jQuery('#choose-specialization-yes-btn').data('field', jQuery(ev.target).data('field'))
+  //     jQuery('#confirm-specialization-modal').modal({keyboard: false, backdrop: 'static'});
+  //   },
 
-    closeModal: function() {
-      jQuery('#confirm-specialization-modal').modal('hide');
-    },
+  //   closeModal: function() {
+  //     jQuery('#confirm-specialization-modal').modal('hide');
+  //   },
 
-    chooseField: function(ev) {
-      var view = this;
+  //   chooseField: function(ev) {
+  //     var view = this;
 
-      jQuery('#confirm-specialization-modal').modal('hide');
+  //     jQuery('#confirm-specialization-modal').modal('hide');
 
-      var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
-      article.wake(app.config.wakeful.url);
+  //     var article = Skeletor.Model.awake.articles.findWhere({"field": jQuery(ev.target).data('field')});
+  //     article.wake(app.config.wakeful.url);
 
-      if (article.get('users').length < 4) {
-        var usersArr = article.get('users');
-        usersArr.push(app.username);
-        article.set('users', usersArr);
-        article.save();
+  //     if (article.get('users').length < 4) {
+  //       var usersArr = article.get('users');
+  //       usersArr.push(app.username);
+  //       article.set('users', usersArr);
+  //       article.save();
 
-        var group = Skeletor.Model.awake.groups.findWhere({"field": jQuery(ev.target).data('field')});
-        group.wake(app.config.wakeful.url);
-        var newMembersArr = group.get('members');
-        newMembersArr.push(app.username);
-        group.set('members', newMembersArr);
-        group.save();
+  //       var group = Skeletor.Model.awake.groups.findWhere({"field": jQuery(ev.target).data('field')});
+  //       group.wake(app.config.wakeful.url);
+  //       var newMembersArr = group.get('members');
+  //       newMembersArr.push(app.username);
+  //       group.set('members', newMembersArr);
+  //       group.save();
 
-        app.hideAllContainers();
+  //       app.hideAllContainers();
 
-        app.attachTermsView = new app.View.AttachTermsView({
-          el: '#attach-terms-screen',
-          model: article
-        });
-        app.attachTermsView.render();
-        jQuery('#attach-terms-screen').removeClass('hidden');
-      } else {
-        jQuery().toastmessage('showErrorToast', "This specialization has already been chosen by the maximum number of students");
-      }
-    },
+  //       app.attachTermsView = new app.View.AttachTermsView({
+  //         el: '#attach-terms-screen',
+  //         model: article
+  //       });
+  //       app.attachTermsView.render();
+  //       jQuery('#attach-terms-screen').removeClass('hidden');
+  //     } else {
+  //       jQuery().toastmessage('showErrorToast', "This specialization has already been chosen by the maximum number of students");
+  //     }
+  //   },
 
-    render: function () {
-      var view = this;
-      console.log("Rendering ChooseArticleView...");
+  //   render: function () {
+  //     var view = this;
+  //     console.log("Rendering ChooseArticleView...");
 
-      jQuery('#choose-specialization-description').html('');
+  //     jQuery('#choose-specialization-description').html('');
 
-      // create the recommended spec content
-      var specObj = app.getRecommendedSpecialization(app.username);
-      jQuery('#recommended-specialization').text(specObj.specialization);
+  //     // create the recommended spec content
+  //     var specObj = app.getRecommendedSpecialization(app.username);
+  //     jQuery('#recommended-specialization').text(specObj.specialization);
 
-      view.collection.comparator = function(model) {
-        return model.get('field');
-      };
-      view.collection.sort();
+  //     view.collection.comparator = function(model) {
+  //       return model.get('field');
+  //     };
+  //     view.collection.sort();
 
-      // create the html for the buttons and progress bars
-      var fieldsEl = '';
-      view.collection.each(function(article) {
-        var name = article.get('field');
-        var image = article.get('field_img');
+  //     // create the html for the buttons and progress bars
+  //     var fieldsEl = '';
+  //     view.collection.each(function(article) {
+  //       var name = article.get('field');
+  //       var image = article.get('field_img');
 
-        var el = '<div class="article-column-container">';
-        el += '<img src="'+image+'" data-field="'+name+'"></img><h3>'+name+'</h3>';
-        el += '</div>';
+  //       var el = '<div class="article-column-container">';
+  //       el += '<img src="'+image+'" data-field="'+name+'"></img><h3>'+name+'</h3>';
+  //       el += '</div>';
 
-        fieldsEl += el;
-      });
-      jQuery('#choose-article-container').html(fieldsEl);
-    }
-  });
+  //       fieldsEl += el;
+  //     });
+  //     jQuery('#choose-article-container').html(fieldsEl);
+  //   }
+  // });
 
 
   /***********************************************************
@@ -1875,12 +1881,12 @@
       var view = this;
       console.log("Rendering AttachTermsView...");
 
-      if (app.getMyField(app.username)) {
-        var el = '<h1>Your article on '+app.getMyField(app.username)+'</h1>';
-        jQuery('#attach-terms-title-container').html(el);
-      } else {
-        jQuery().toastmessage('showErrorToast', "Collision error. Please return to home screen and re-choose this field of research.");
-      }
+      //if (app.getMyField(app.username)) {
+      var el = '<h1>Your article on the Marten</h1>';
+      jQuery('#attach-terms-title-container').html(el);
+      // } else {
+      //   jQuery().toastmessage('showErrorToast', "Collision error. Please return to home screen and re-choose this field of research.");
+      // }
 
       jQuery('#attach-terms-explanation-pane').html('');
 

@@ -431,12 +431,12 @@
         });
       }
 
-      if (app.chooseArticleView === null) {
-        app.chooseArticleView = new app.View.ChooseArticleView({
-          el: '#choose-article-screen',
-          collection: Skeletor.Model.awake.articles
-        });
-      }
+      // if (app.chooseArticleView === null) {
+      //   app.chooseArticleView = new app.View.ChooseArticleView({
+      //     el: '#choose-article-screen',
+      //     collection: Skeletor.Model.awake.articles
+      //   });
+      // }
     }
     else {
       if (app.homeworkProgressView === null) {

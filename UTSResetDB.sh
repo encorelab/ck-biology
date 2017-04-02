@@ -13,8 +13,7 @@ mongoimport -d ck-biology-SBI4UE-01-U5 -c terms --jsonArray scaffolding/SBI4UE-0
 mongo ck-biology-SBI4UE-01-U5 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-01-U5 -c relationships --jsonArray scaffolding/SBI4UE-01-U5-relationships.json
 
-# mongo ck-biology-SBI4UE-01-U4 --eval "db.articles.remove()"
-# mongoimport -d ck-biology-SBI4UE-01-U4 -c articles --jsonArray scaffolding/SBI4UE-01-U4-articles.json
+mongo ck-biology-SBI4UE-01-U5 --eval "db.articles.remove()"
 
 # mongo ck-biology-SBI4UE-01-U4 --eval "db.groups.remove()"
 
@@ -32,8 +31,7 @@ mongoimport -d ck-biology-SBI4UE-02-U5 -c terms --jsonArray scaffolding/SBI4UE-0
 mongo ck-biology-SBI4UE-02-U5 --eval "db.relationships.remove()"
 mongoimport -d ck-biology-SBI4UE-02-U5 -c relationships --jsonArray scaffolding/SBI4UE-02-U5-relationships.json
 
-# mongo ck-biology-SBI4UE-02-U4 --eval "db.articles.remove()"
-# mongoimport -d ck-biology-SBI4UE-02-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
+mongo ck-biology-SBI4UE-02-U5 --eval "db.articles.remove()"
 
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.groups.remove()"
 

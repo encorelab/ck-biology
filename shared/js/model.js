@@ -192,10 +192,7 @@
       this.Article = this.db.Document('articles').extend({
         defaults: {
           'created_at': new Date(),
-          'modified_at': new Date(),
-          'users': [],
-          'user_associated_terms': [],
-          'group_associated_terms': []
+          'modified_at': new Date()
         }
       });
 
