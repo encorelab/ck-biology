@@ -1036,30 +1036,31 @@
 
   app.recreateReports = function(lesson) {
     // delete all reports for this lesson
-    _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
-    // create all reports for this lesson
-    if (lesson === "review2") {
-      _.each(app.certificationReports, function(report) {
-        var r = new Model.Report();
-        r.set('lesson', lesson);
-        r.set('group_colour', report.colour);
-        r.set('field', report.field);
-        r.set('parts', report.parts);
-        r.save();
-        Skeletor.Model.awake.reports.add(r);
-      });
-    } else if (lesson === "review3") {
-      // we're just going to create 3 clinic reports, instead of bothering with create/destroy
-      for (var i = 1; i < 4; i++) {
-        var r = new Model.Report();
-        r.set('lesson', lesson);
-        r.set('group_colour', String(i));
-        r.set('name', 'Clinic '+i);
-        r.set('parts', Skeletor.Mobile.clinicReport.parts);
-        r.save();
-        Skeletor.Model.awake.reports.add(r);
-      }
-    }
+    // _.invoke(Skeletor.Model.awake.reports.where({"lesson": lesson}), 'destroy');
+    // // create all reports for this lesson
+    // if (lesson === "review2") {
+    //   _.each(app.certificationReports, function(report) {
+    //     var r = new Model.Report();
+    //     r.set('lesson', lesson);
+    //     r.set('group_colour', report.colour);
+    //     r.set('field', report.field);
+    //     r.set('parts', report.parts);
+    //     r.save();
+    //     Skeletor.Model.awake.reports.add(r);
+    //   });
+    // }
+    // else if (lesson === "review3") {
+    //   // we're just going to create 3 clinic reports, instead of bothering with create/destroy
+    //   for (var i = 1; i < 4; i++) {
+    //     var r = new Model.Report();
+    //     r.set('lesson', lesson);
+    //     r.set('group_colour', String(i));
+    //     r.set('name', 'Clinic '+i);
+    //     r.set('parts', Skeletor.Mobile.clinicReport.parts);
+    //     r.save();
+    //     Skeletor.Model.awake.reports.add(r);
+    //   }
+    // }
   };
 
   app.getColourForColour = function(colour) {

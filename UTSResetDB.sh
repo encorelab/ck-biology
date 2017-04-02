@@ -15,9 +15,8 @@ mongoimport -d ck-biology-SBI4UE-01-U5 -c relationships --jsonArray scaffolding/
 
 mongo ck-biology-SBI4UE-01-U5 --eval "db.articles.remove()"
 
-# mongo ck-biology-SBI4UE-01-U4 --eval "db.groups.remove()"
-
-# mongo ck-biology-SBI4UE-01-U4 --eval "db.reports.remove()"
+mongo ck-biology-SBI4UE-01-U5 --eval "db.reports.remove()"
+mongoimport -d ck-biology-SBI4UE-01-U5 -c reports --jsonArray scaffolding/reports-01-U5.json
 
 mongo ck-biology-SBI4UE-02-U5 --eval "db.users.remove()"
 mongoimport -d ck-biology-SBI4UE-02-U5 -c users --jsonArray scaffolding/SBI4UE-02-U5-users.json
@@ -33,9 +32,8 @@ mongoimport -d ck-biology-SBI4UE-02-U5 -c relationships --jsonArray scaffolding/
 
 mongo ck-biology-SBI4UE-02-U5 --eval "db.articles.remove()"
 
-# mongo ck-biology-SBI4UE-02-U4 --eval "db.groups.remove()"
-
-# mongo ck-biology-SBI4UE-02-U4 --eval "db.reports.remove()"
+mongo ck-biology-SBI4UE-02-U4 --eval "db.reports.remove()"
+mongoimport -d ck-biology-SBI4UE-02-U5 -c reports --jsonArray scaffolding/reports-unit5.json
 
 # mongoimport -d ck-biology-SBI4UE-01-U4 -c articles --jsonArray scaffolding/encore-U4-articles.json
 # mongo ck-biology-SBI4UE-02-U4 --eval "db.articles.remove()"
