@@ -576,47 +576,93 @@
       'click .group-container'          : 'groupSelected',
       'click .students-container'       : 'ungroupSelected',
       'click .reset-students-btn'       : 'resetAll',
-      //'click .assign-randomly-btn'      : 'groupRandomly',
-      //'click .assign-by-progress-btn'   : 'assignByProgress',
-      'click .assign-by-jigsaw-btn'     : 'assignByJigsaw'
+      'click .assign-randomly-btn'      : 'groupRandomly',
+      'click .assign-by-progress-btn'   : 'assignByProgress'
     },
 
-    // only available in review3
-    assignByJigsaw: function() {
+    assignByProgress: function() {
       var view = this;
+      var studentsToGroup = [];
 
-      // ungroup all students in UI and set up for the readd
-      Skeletor.Mobile.users.each(function(user) {
-        var userGroup = app.getMyGroup(user.get('username'), "review3");
-        if (userGroup && userGroup.get('kind') === "present" && user.get('user_role') !== "teacher") {
-          // update the UI
-          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
-        }
-      });
-
-      // hard remove all users from non-absent groups. This seems to help the async issue of members going into multiple groups
-      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(group) {
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
         // update the user model
         group.set('members', []);
         group.save();
       });
 
-      // get groups from lesson 2 - note that we're grouping students counting the absent group as a group
-      var prevGroupsArr = view.collection.where({"kind": "present", "lesson": "review2"});
+      // ungroup all students in UI and create array for the readd
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          // update the UI
+          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
 
-      // go over each review 3 group
-      // choose the first student out of each prevGroupsArr and add to group
-      _.each(view.collection.where({"kind": "present", "lesson": "review3"}), function(newGroup, index) {
-        _.each(prevGroupsArr, function(prevGroup) {
-          var members = prevGroup.get('members');
-          if (members.length > index) {
-            var myGroup = app.getMyGroup(members[index], "review3");
-            if (myGroup && myGroup.get('kind') === "absent") {
-              members.splice(index, 1);
-            }
-            view.groupStudent(members[index], newGroup.get('_id'));
-          }
-        });
+          var student = {};
+          student.name = user.get('username');
+          student.unit_progress = app.getMyContributionPercentForUnit(user.get('username'));
+
+          studentsToGroup.push(student);
+        }
+      });
+
+      // sort the array by progress to order students based on total % complete
+      function compare(a,b) {
+        if (a.unit_progress > b.unit_progress)
+          return -1;
+        if (a.unit_progress < b.unit_progress)
+          return 1;
+        return 0;
+      }
+      studentsToGroup.sort(compare);
+
+      // determine number of students per group (excluding absent)
+      var numGroups = view.collection.where({"lesson": app.reviewSection}).length;
+      var minNumStudentsPerGroup = Math.floor(studentsToGroup.length / (numGroups - 1));
+      var numExtraStudents = studentsToGroup.length % (numGroups - 1);
+
+      // populate the groups
+      _.each(view.collection.where({"kind":"present", "lesson": app.reviewSection}), function(group, index) {
+        // add the min number of students per group
+        for (var i = 0; i < minNumStudentsPerGroup; i++) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+        // NB: ASSUMPTION - the remainder of students (see the mod above) are added to the first groups
+        if (index < numExtraStudents) {
+          var studentObj = studentsToGroup.shift();
+          view.groupStudent(studentObj.name, group.get('_id'));
+        }
+      });
+    },
+
+    groupRandomly: function() {
+      var view = this;
+      var studentsToGroup = [];
+
+      // hard remove all groups. This seems to help the async issue of members going into multiple groups
+      _.each(view.collection.where({"lesson": app.reviewSection}), function(group) {
+        // update the user model
+        group.set('members', []);
+        group.save();
+      });
+
+      // ungroup all students in UI and set up for the readd
+      Skeletor.Mobile.users.each(function(user) {
+        if (user.get('user_role') !== "teacher") {
+          // update the UI
+          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")')).detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+          // create the array for the shuffle
+          studentsToGroup.push(user.get('username'));
+        }
+      });
+
+      // remove the absent group from the possible target groups
+      var presentGroupArr = view.collection.where({"kind": "present", "lesson": app.reviewSection});
+
+      // group students randomly into non-absent group containers
+      _.each(_.shuffle(studentsToGroup), function(studentName, index) {
+        // the group in the collection at this index (mod by collection length for when index gets larger than number of groups)
+        view.groupStudent(studentName, presentGroupArr[index%(presentGroupArr.length)].get('_id'));
       });
     },
 
@@ -633,6 +679,7 @@
         if (user.get('user_role') !== "teacher") {
           jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+user.get('username')+'")'))
           .detach().appendTo(jQuery('#'+jQuery(view.el).attr('id')+' .students-container'));
+          jQuery(jQuery('#'+jQuery(view.el).attr('id')+' .student-grouping-button:contains("'+name+'")')).css('border', 'none');
         }
       });
     },
