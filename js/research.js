@@ -276,7 +276,9 @@
 
   var buildConstants = function() {
     Skeletor.Model.awake.lessons.each(function(lesson) {
-      app.numVettingTasks.push(lesson.get('vetting_tasks'));
+      if (lesson.get('kind') === "homework") {
+        app.numVettingTasks.push(lesson.get('vetting_tasks'));
+      }
     });
   };
 
