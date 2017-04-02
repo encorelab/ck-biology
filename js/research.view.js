@@ -361,9 +361,6 @@
             }
           });
         communityBar.animate(app.getCommunityContributionPercent(lesson.get('number')) / 100);
-
-
-
       });
     }
   });
@@ -401,7 +398,7 @@
         jQuery('#homework-progress-container').html(el);
 
         view.collection.each(function(user) {
-          var myArticle = Skeletor.Model.awake.articles.findWhere({"field": app.getMyField(user.get('username'))});
+          var myArticle = Skeletor.Model.awake.articles.findWhere({"user": user.get('username')});
           var completeCount = 0;
           if (myArticle) {
             var myTermsArr = _.where(myArticle.get('user_associated_terms'), {"author": user.get('username')});
