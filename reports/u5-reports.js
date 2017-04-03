@@ -83,14 +83,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -182,14 +182,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -281,14 +281,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -380,14 +380,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -479,14 +479,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -578,14 +578,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -677,14 +677,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>
@@ -776,14 +776,14 @@ Skeletor.Mobile.U5Reports = [
         "number": 5,
         "kind": "write",
         "name": "",
-        "thumbnail": "reports/imgs/u5_question2_image.png",
+        "thumbnail": "reports/imgs/u5_question5_image.png",
         "question": `Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?
           Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?`,
         "html": `
           <h2>Question 5</h2>
           <p>There are several activities occurring in your study site that were not represented in the life table in the previous question, but which may have an impact on the marten population.  For example, locals in the area practice marten fur trapping each winter, which would reduce the survival rates of the martens.  Additionally, several new logging sites have emerged near your study site, which would reduce available habitat for the martens and also impact the habitat of their prey populations (i.e. small rodents).  Another research team studying mice populations in your area has indicated that there was a "rodent crash" last year, which would have affected the food supply for the martens.</p>
           <p>The birth rates and survival rates in the life table below have been adjusted to show the cumulative impact of each of these three factors (i.e. trapping, logging, and the rodent crash) on the marten population:</p>
-          <img class="img-wide" src="reports/imgs/u5_question2_image.png"></img>
+          <img class="img-wide" src="reports/imgs/u5_question5_image.png"></img>
           <p>Do these three factors (i.e. trapping, logging, and the rodent crash) serve to explain your decline in your mark-recapture success, or is it more likely that the decline is caused by some other factor (e.g. a disease)?</p>
           <textarea placeholder="Enter your text here"></textarea>
           <p>Recognizing that fur trapping and logging are a source of livelihood for locals in and around your study site, what recommendations would you make with respect to forest management practices in this area?</p>

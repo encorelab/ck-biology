@@ -691,18 +691,20 @@
       // So gross, but basically colour key is used for group number
       var newGroupName = '';
       var usedColours = [];
+      var usedNumbers = [];
       _.each(view.collection.where({"lesson": "review2", "kind": "present"}), function(group) {
         usedColours.push(group.get('colour'));
+        usedNumbers.push(group.get('name'));
       });
       var newGroupColour = _.first(_.difference(app.teamColourName, usedColours));
+      newGroupName = _.first(_.difference(["TEAM 1", "TEAM 2", "TEAM 3", "TEAM 4", "TEAM 5"], usedNumbers));
 
-      var newGroupText = newGroupColour.toUpperCase()+' GROUP';
       if (newGroupColour) {
         // create a new group
         var group = new Model.Group();
         group.set('lesson', app.reviewSection);
         group.set('colour', newGroupColour);
-        group.set('name', newGroupText)
+        group.set('name', newGroupName)
         group.set('kind', 'present');
         group.save();
         view.collection.add(group);
