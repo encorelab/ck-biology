@@ -1441,6 +1441,7 @@ input:disabled {
     }
 
     .inner-wrapper {
+	width: 1120px;
         max-width: 1120px;
         /* text-align: center; */
 /*         position: absolute;
